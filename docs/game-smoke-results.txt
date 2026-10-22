@@ -1,0 +1,52 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS Scene boots into menu
+PASS New campaign opens Viridia briefing
+PASS Launch animation joins active flight
+PASS Physical movement input moves and bounds the ship
+PASS Boost accelerates and spends energy
+PASS Damage has a grace period
+PASS Roll animation protects the ship
+PASS Rolling deflects an intersecting enemy bolt
+PASS Escape pauses flight simulation
+PASS Resume continues flight
+PASS Held fire creates traveling bolts that destroy a fighter
+PASS Keeping a target in the reticle acquires a lock
+PASS Locked missile consumes its cooldown
+PASS Homing missile reaches and destroys its target
+PASS Nova bomb clears fighters and hazards
+PASS Nova bomb clears hostile shots
+PASS Collected ring trio repairs and upgrades lasers
+PASS Repair and ordnance pickups replenish bounded resources
+PASS Stage 0 schedules real encounter waves
+PASS Stage 0 reaches its boss through elapsed flight
+PASS Stage 0 boss exposes destructible weapon pods
+PASS Stage 0 projectile damages articulated boss
+PASS Stage 0 lethal projectile begins victory flyout
+PASS Stage 0 flyout settles result and score
+PASS Stage 0 unlock is persisted
+PASS Stage 0 result advances or returns to menu
+PASS Stage 1 schedules real encounter waves
+PASS Stage 1 reaches its boss through elapsed flight
+PASS Stage 1 boss exposes destructible weapon pods
+PASS Stage 1 projectile damages articulated boss
+PASS Stage 1 lethal projectile begins victory flyout
+PASS Stage 1 flyout settles result and score
+PASS Stage 1 unlock is persisted
+PASS Stage 1 result advances or returns to menu
+PASS Stage 2 schedules real encounter waves
+PASS Stage 2 reaches its boss through elapsed flight
+PASS Stage 2 boss exposes destructible weapon pods
+PASS Stage 2 projectile damages articulated boss
+PASS Stage 2 lethal projectile begins victory flyout
+PASS Stage 2 flyout settles result and score
+PASS Stage 2 unlock is persisted
+PASS Stage 2 result advances or returns to menu
+PASS Campaign creates isolated progress file
+PASS Completed campaign persists full unlock and best score
+PASS Out of range save values are clamped
+PASS Invalid save fields are ignored
+PASS Malformed save does not crash or erase valid in-memory progress
+PASS Lethal damage opens defeat result
+PASS Retry restores this mission
+GAME_SMOKE: 49 assertions; 0 failures

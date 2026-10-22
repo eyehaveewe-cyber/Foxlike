@@ -1,0 +1,74 @@
+name: Build playable game
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: foxlike-build-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  GODOT_VERSION: 4.7.2
+  GODOT_RELEASE: 4.7.2-stable
+
+jobs:
+  build:
+    name: Test and export Windows + Web
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Install pinned Godot editor and export templates
+        shell: bash
+        run: |
+          set -euo pipefail
+          release_url="https://github.com/godotengine/godot-builds/releases/download/${GODOT_RELEASE}"
+          editor_name="Godot_v${GODOT_RELEASE}_linux.x86_64"
+          template_dir="$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
+          mkdir -p "$RUNNER_TEMP/godot" "$template_dir"
+          curl --fail --location --retry 3 "$release_url/$editor_name.zip" --output "$RUNNER_TEMP/godot/editor.zip"
+          unzip -q "$RUNNER_TEMP/godot/editor.zip" -d "$RUNNER_TEMP/godot"
+          chmod +x "$RUNNER_TEMP/godot/$editor_name"
+          ln -s "$RUNNER_TEMP/godot/$editor_name" "$RUNNER_TEMP/godot/godot"
+          echo "$RUNNER_TEMP/godot" >> "$GITHUB_PATH"
+          curl --fail --location --retry 3 "$release_url/Godot_v${GODOT_RELEASE}_export_templates.tpz" --output "$RUNNER_TEMP/godot/templates.tpz"
+          unzip -j -q "$RUNNER_TEMP/godot/templates.tpz" 'templates/windows_release_x86_64.exe' 'templates/web_nothreads_release.zip' 'templates/version.txt' -d "$template_dir"
+      - name: Import, validate campaign, export and zip
+        run: python3 tools/package_release.py --godot godot
+      - name: Downloadable Windows and Web builds
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: Foxlike-playable-builds
+          path: |
+            build/Foxlike-windows.zip
+            build/Foxlike-web.zip
+            build/manifest.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Prepare optional Pages artifact
+        if: github.event_name != 'pull_request' && vars.ENABLE_PAGES == 'true'
+        uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          path: build/web
+
+  pages:
+    name: Publish optional browser build
+    if: github.event_name != 'pull_request' && vars.ENABLE_PAGES == 'true'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5.0.1
