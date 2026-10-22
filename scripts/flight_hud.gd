@@ -62,6 +62,7 @@ var _speed: Label
 var _stage: Label
 var _objective: Label
 var _roll: Label
+var _maneuver: Label
 var _lock_label: Label
 var _wingmen: Label
 var _shield_label: Label
@@ -234,9 +235,10 @@ func _build_menu() -> void:
 	_difficulty.pressed.connect(_cycle_difficulty)
 	_mute_menu = _button(_menu,"SOUND ON",Vector2(251,540),Vector2(177,37),"mute")
 	_best = _label(_menu,"BEST SORTIE   000000",Vector2(64,592),380,14,CYAN)
-	_label(_menu,"WASD / ARROWS  steer    SPACE / LMB  fire    Q / E  roll    SHIFT  boost    CTRL  brake",Vector2(64,625),1050,12,SOFT)
+	_label(_menu,"WASD / ARROWS steer  SPACE / LMB fire  Q / E roll  SHIFT boost  CTRL brake",Vector2(64,625),1050,12,SOFT)
 	_label(_menu,"B  nova    R / RMB  missile    F  wingman assist    C  chatter    M  mute    ESC  pause",Vector2(64,646),1050,12,SOFT)
-	_label(_menu,"GAMEPAD  left stick steer  /  RT fire  /  A roll  /  X missile  /  B nova  /  Y assist  /  RB boost  /  LB brake  /  START pause",Vector2(64,668),1110,10,SOFT)
+	_label(_menu,"STUNTS  hold SHIFT / RB + tap LEFT somersault / DOWN long loop / RIGHT corkscrew",Vector2(64,668),1110,10,SOFT)
+	_label(_menu,"GAMEPAD  left stick steer / RT fire / A roll / X missile / B nova / Y assist / RB boost / LB brake / START pause",Vector2(64,686),755,9,SOFT)
 	_label(_menu,"ARROW MK I",Vector2(935,73),290,14,CYAN)
 	_label(_menu,"SQUADRON LEAD  /  COMET",Vector2(935,98),290,11,SOFT)
 	_label(_menu,"A PROJECT BARREL ROLL FLIGHT",Vector2(836,689),380,11,SOFT)
@@ -253,6 +255,7 @@ func _build_game() -> void:
 	_energy_label = _label(_game,"ENGINE  100",Vector2(30,89),230,12,SOFT)
 	_energy = _bar(_game,Vector2(30,113),Vector2(173,5),ORANGE)
 	_roll = _label(_game,"ROLL READY",Vector2(216,91),160,11,ORANGE)
+	_maneuver = _label(_game,"STUNT READY  /  30 ENERGY",Vector2(30,131),350,11,CYAN)
 	_stage = _label(_game,"01 / VIRIDIA",Vector2(460,22),360,19,PAPER)
 	_stage.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_route = _bar(_game,Vector2(476,53),Vector2(328,3),Color(.45,.75,.78,.65))
@@ -273,7 +276,7 @@ func _build_game() -> void:
 	_speed = _label(_game,"CRUISE / 100",Vector2(1050,616),195,13,SOFT)
 	_speed.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	_wingmen = _label(_game,"LATCH 100     GLINT 100",Vector2(30,650),700,12,CYAN)
-	_label(_game,"SPACE fire  ·  Q/E roll  ·  SHIFT boost  ·  CTRL brake  ·  B nova  ·  R missile  ·  F assist  ·  C chatter  ·  M mute  ·  ESC pause",Vector2(30,687),1210,11,SOFT)
+	_label(_game,"SHIFT + A/LEFT flip · S/DOWN loop · D/RIGHT corkscrew  |  SPACE fire · Q/E roll · CTRL brake · B nova · R missile · F assist · ESC pause",Vector2(30,687),1210,11,SOFT)
 	_comms = Control.new()
 	_comms.position = Vector2(30,520)
 	_comms.size = Vector2(610,103)
@@ -425,6 +428,9 @@ func update_hud(data: Dictionary) -> void:
 	_speed.text = "VELOCITY  %03d" % int(data.get("speed",100))
 	_roll.text = "ROLL READY" if bool(data.get("roll_ready",true)) else "ROLL RECHARGING"
 	_roll.modulate.a = 1.0 if bool(data.get("roll_ready",true)) else .5
+	var maneuver_name := str(data.get("maneuver",""))
+	var maneuver_wait := float(data.get("maneuver_cooldown",0.0))
+	_maneuver.text = maneuver_name if not maneuver_name.is_empty() else ("STUNT RECHARGE  %.1fs" % maneuver_wait if maneuver_wait > 0.0 else ("STUNT READY  /  30 ENERGY" if bool(data.get("maneuver_ready",true)) else "STUNT NEEDS 30 ENERGY / NO ROLL"))
 	var boss_hp := float(data.get("boss_hp",-1))
 	_boss.visible = boss_hp>=0
 	_boss_title.visible = boss_hp>=0

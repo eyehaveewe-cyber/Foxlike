@@ -60,3 +60,10 @@ The launch regression now advances the animated briefing before launch and verif
 The first hosted browser smoke reached `LAUNCH` but exceeded the original 45-second limit waiting for `FLIGHT`. Launch requires at least 65 rendered frames because the simulation caps delta at 0.05 seconds. The fixture now renders at 640 × 360 (one quarter of the previous pixel count), allows at most 180 seconds per mode transition and 45 seconds per input assertion, and records the failed step, last telemetry, canvas dimensions, and elapsed time. These changes retain all eight gameplay checks and the clean-console gate. The inspected 1280 × 720 preview images above remain the final release captures.
 
 The revised 640 × 360 fixture passed locally in Chrome for Testing 156.0.8078.47: eight checks, zero JavaScript or engine-console errors. The hosted rerun is a separate check; the local pass does not establish its result.
+
+
+## Boost maneuvers, 2026-10-22
+
+`tests/game_smoke.gd` now passes 74 assertions in Godot 4.7.2. Added checks for boost + left/down/right, compact flip versus translated loop, forward displacement, visible full pitch rotation, fire suppression, energy charging, cooldown and held-input behavior, pause/resume, death/retry, roll exclusion, gradual corkscrew recovery, edge bounds and identical path sampling at 20/120 fps. `tests/render_maneuvers.gd` captures 252 frames from the actual simulation with encounters disabled for legibility. This is animation inspection, not a combat balance playthrough. See `docs/previews/boost-maneuvers.gif`.
+
+The updated Windows and Web packages export successfully. The added Web regression covers boost + down and return to normal depth. Local Chromium terminated before menu load, so the updated browser regression is not claimed as locally passing. Native rendering completed the 252-frame capture with no script/parse errors; the software renderer reported texture cleanup warnings on shutdown.

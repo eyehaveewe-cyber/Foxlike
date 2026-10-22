@@ -7,6 +7,7 @@ const Hud = preload("res://scripts/flight_hud.gd")
 const Sound = preload("res://scripts/flight_audio.gd")
 const Effects = preload("res://scripts/flight_effects.gd")
 const Overlay = preload("res://scripts/flight_overlay.gd")
+const Maneuver = preload("res://scripts/flight_maneuver.gd")
 const SAVE_PATH := "user://foxlike_save.json"
 var save_path := SAVE_PATH
 const STAGES := [
@@ -42,6 +43,9 @@ var missile_cooldown := 0.0
 var roll_time := 0.0
 var roll_cooldown := 0.0
 var roll_direction := 1.0
+var maneuver := Maneuver.new()
+var maneuver_cooldown := 0.0
+var maneuver_input_previous: int = Maneuver.Kind.NONE
 var assist_cooldown := 0.0
 var wing_fire := 0.0
 var boss_fire := 0.0
@@ -262,6 +266,7 @@ func _clear_actors() -> void:
 	lock_progress = 0.0
 
 func _show_menu() -> void:
+	_reset_maneuver()
 	_clear_actors()
 	mode = Mode.MENU
 	mode_time = 0.0
@@ -301,6 +306,9 @@ func _begin_stage(index:int) -> void:
 	laser_level = 1
 	roll_time = 0.0
 	roll_cooldown = 0.0
+	_reset_maneuver()
+	maneuver_cooldown = 0.0
+	maneuver_input_previous = Maneuver.Kind.NONE
 	assist_cooldown = 0.0
 	invulnerable = 0.0
 	missile_cooldown = 0.0
@@ -346,7 +354,7 @@ func _process(delta:float) -> void:
 		qa_clock -= dt
 		if qa_clock <= 0.0:
 			qa_clock = .1
-			JavaScriptBridge.eval("window.__foxlikeQA="+JSON.stringify({"mode":Mode.keys()[mode],"paused":is_paused,"player_x":player.position.x,"player_y":player.position.y,"shots_fired":shots_fired,"flight_time":flight_time}))
+			JavaScriptBridge.eval("window.__foxlikeQA="+JSON.stringify({"mode":Mode.keys()[mode],"paused":is_paused,"player_x":player.position.x,"player_y":player.position.y,"shots_fired":shots_fired,"flight_time":flight_time,"maneuver":maneuver.label(),"player_z":player.position.z}))
 	if is_paused: return
 	mode_time += dt
 	if mode in [Mode.MENU,Mode.BRIEFING]:
@@ -381,6 +389,7 @@ func _process(delta:float) -> void:
 	shot_cooldown -= dt
 	missile_cooldown -= dt
 	roll_cooldown -= dt
+	maneuver_cooldown = maxf(0.0,maneuver_cooldown-dt)
 	assist_cooldown -= dt
 	combo_time -= dt
 	if combo_time <= 0.0: combo = 0
@@ -430,36 +439,58 @@ func _update_player(dt:float) -> void:
 		_pad_button(pad,JOY_BUTTON_X,"missile")
 		_pad_button(pad,JOY_BUTTON_B,"bomb")
 		_pad_button(pad,JOY_BUTTON_Y,"assist")
+	var boost_held := Input.is_action_pressed("boost") or (pad >= 0 and Input.is_joy_button_pressed(pad,JOY_BUTTON_RIGHT_SHOULDER))
+	_check_maneuver_input(axis,boost_held)
 	var target_pos := Vector2(player.position.x,player.position.y)
 	if mouse_active:
 		var viewport_size := get_viewport().get_visible_rect().size
 		var pointer := get_viewport().get_mouse_position()/viewport_size
 		target_pos = Vector2((pointer.x-.5)*38.0,(.52-pointer.y)*25.0)
 		axis = ((target_pos-Vector2(player.position.x,player.position.y))*.13).limit_length()
-	var boost_held := Input.is_action_pressed("boost") or (pad >= 0 and Input.is_joy_button_pressed(pad,JOY_BUTTON_RIGHT_SHOULDER))
 	if not boost_held: boost_depleted = false
 	if energy <= 1.0: boost_depleted = true
 	var boosting := boost_held and not boost_depleted and energy > 1.0
 	var braking := Input.is_action_pressed("brake") or (pad >= 0 and Input.is_joy_button_pressed(pad,JOY_BUTTON_LEFT_SHOULDER))
-	var target_speed := 76.0 if boosting else (24.0 if braking else 42.0)
-	speed = lerpf(speed,target_speed,dt*4.0)
-	energy = clampf(energy+dt*(-30.0 if boosting else 18.0),0.0,100.0)
-	move_velocity = move_velocity.lerp(axis*(24.0 if braking else 30.0),1.0-exp(-dt*7.0))
-	player.position.x = clampf(player.position.x+move_velocity.x*dt,-18.0,18.0)
-	player.position.y = clampf(player.position.y+move_velocity.y*dt,-8.0,13.0)
-	player.position.z = lerpf(player.position.z,-3.0 if boosting else (4.0 if braking else 0.0),dt*4.0)
+	var was_maneuvering := maneuver.active()
+	var maneuver_pitch := 0.0
 	var roll_angle := 0.0
-	if roll_time > 0.0:
-		roll_time = maxf(0.0,roll_time-dt)
-		var progress := 1.0-roll_time/.68
-		roll_angle = roll_direction*TAU*smoothstep(0.0,1.0,progress)
-		invulnerable = maxf(invulnerable,.08)
-		if int(clock*70.0)%2 == 0: effects.trail(player.position+Vector3(roll_direction*2,0,2),Color("7dfdff"),.4)
-	player.rotation.y = lerpf(player.rotation.y,-axis.x*.10,dt*6.0)
-	player.animate(clock,dt,-axis.x*.62,-axis.y*.22,1.8 if boosting else (.5 if braking else 1.0),roll_angle,damage_flash)
+	var thrust := 1.8 if boosting else (.5 if braking else 1.0)
+	if was_maneuvering:
+		maneuver.advance(dt)
+		player.position = maneuver.position
+		move_velocity = Vector2.ZERO
+		mouse_active = false
+		axis = Vector2.ZERO
+		player.rotation.y = lerpf(player.rotation.y,0.0,1.0-exp(-dt*12.0))
+		maneuver_pitch = maneuver.pitch
+		roll_angle = maneuver.roll
+		thrust = maneuver.thrust
+		speed = maneuver.speed
+		boost_depleted = true # Release boost after the maneuver to rearm normal boost.
+		boosting = false
+		if maneuver.recovering: energy = minf(100.0,energy+18.0*dt)
+		if int(clock*45)%2 == 0:
+			for side in [-1.0,1.0]:
+				effects.trail(player.position+Vector3(side*2.0,0,3),Color("d3a3ff"),.5)
+	else:
+		var target_speed := 76.0 if boosting else (24.0 if braking else 42.0)
+		speed = lerpf(speed,target_speed,1.0-exp(-dt*4.0))
+		energy = clampf(energy+dt*(-30.0 if boosting else 18.0),0.0,100.0)
+		move_velocity = move_velocity.lerp(axis*(24.0 if braking else 30.0),1.0-exp(-dt*7.0))
+		player.position.x = clampf(player.position.x+move_velocity.x*dt,-18.0,18.0)
+		player.position.y = clampf(player.position.y+move_velocity.y*dt,-8.0,13.0)
+		player.position.z = lerpf(player.position.z,-3.0 if boosting else (4.0 if braking else 0.0),1.0-exp(-dt*4.0))
+		if roll_time > 0.0:
+			roll_time = maxf(0.0,roll_time-dt)
+			var progress := 1.0-roll_time/.68
+			roll_angle = roll_direction*TAU*smoothstep(0.0,1.0,progress)
+			invulnerable = maxf(invulnerable,.08)
+			if int(clock*70.0)%2 == 0: effects.trail(player.position+Vector3(roll_direction*2,0,2),Color("7dfdff"),.4)
+		player.rotation.y = lerpf(player.rotation.y,-axis.x*.10,1.0-exp(-dt*6.0))
+	player.animate(clock,dt,-axis.x*.62,-axis.y*.22,thrust,roll_angle,damage_flash,maneuver_pitch)
 	aim = Vector3(player.position.x*1.7,player.position.y*1.65,-100)
 	var fire := Input.is_action_pressed("fire") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or (pad >= 0 and Input.get_joy_axis(pad,JOY_AXIS_TRIGGER_RIGHT) > .25)
-	if fire and shot_cooldown <= 0.0:
+	if fire and shot_cooldown <= 0.0 and maneuver.can_fire:
 		_fire_player()
 	if boosting and int(clock*45)%3 == 0:
 		effects.trail(player.position+Vector3(rng.randf_range(-2.0,2.0),0,3),Color("84dfff"),.18)
@@ -475,7 +506,38 @@ func _pad_button(pad:int,button:int,action_name:String) -> void:
 			"pause": _pause(true)
 	gamepad_previous[button] = held
 
+func _check_maneuver_input(axis: Vector2, boost_held: bool) -> void:
+	var requested: int = Maneuver.Kind.NONE
+	# Down wins diagonal chords. Mouse steering never enters this detector.
+	if axis.y < -0.65: requested = Maneuver.Kind.LONG_LOOP
+	elif axis.x < -0.65: requested = Maneuver.Kind.SOMERSAULT
+	elif axis.x > 0.65: requested = Maneuver.Kind.CORKSCREW
+	if boost_held and requested != Maneuver.Kind.NONE and requested != maneuver_input_previous:
+		_start_maneuver(requested)
+	maneuver_input_previous = requested
+
+func _start_maneuver(kind: Maneuver.Kind) -> void:
+	if is_paused or not mode in [Mode.FLIGHT,Mode.BOSS]: return
+	if maneuver.active() or roll_time > 0.0 or maneuver_cooldown > 0.0: return
+	if kind == Maneuver.Kind.NONE or energy < Maneuver.ENERGY_COST: return
+	energy -= Maneuver.ENERGY_COST
+	maneuver_cooldown = Maneuver.COOLDOWN
+	maneuver.start(kind,player.position)
+	move_velocity = Vector2.ZERO
+	lock_progress = 0.0
+	lock_target = null
+	audio.sfx("boost")
+	hud.say("FLIGHT",maneuver.label(),1.8)
+
+func _reset_maneuver() -> void:
+	if maneuver.active():
+		# Carry the current X/Y into results/clear; unwind forward excursion and pose.
+		player.position.z = 0.0
+		player.visual.rotation = Vector3.ZERO
+	maneuver.reset()
+
 func _roll(direction:float) -> void:
+	if maneuver.active(): return
 	if roll_cooldown > 0.0 or roll_time > 0.0: return
 	roll_direction = direction
 	roll_time = .68
@@ -522,6 +584,10 @@ func _nearest_target(tolerance:float) -> Node3D:
 	return result
 
 func _update_lock(dt:float) -> void:
+	if not maneuver.can_fire:
+		lock_target = null
+		lock_progress = 0.0
+		return
 	var candidate := _nearest_target(10.0)
 	if is_instance_valid(candidate) and candidate == lock_target:
 		var previous := lock_progress
@@ -532,6 +598,7 @@ func _update_lock(dt:float) -> void:
 		lock_progress = 0.0
 
 func _missile() -> void:
+	if not maneuver.can_fire: return
 	if missile_cooldown > 0.0: return
 	if not is_instance_valid(lock_target) or lock_progress < .95:
 		hud.say("TARGETING","Hold the reticle over a target to lock. R / right click fires when locked.",2.5)
@@ -846,6 +913,7 @@ func _damage_boss(amount:float,where:Vector3) -> void:
 		boss = null
 		boss_parts.clear()
 		_clear_actors()
+		_reset_maneuver()
 		mode = Mode.CLEAR
 		mode_time = 0.0
 		hud.say("COMET",["Blockade broken. The corridor is yours. Bring them home.","Relay is down. I've got the carrier's coordinates.","Sovereign is gone. Asterion, your sky is clear."][stage],5.0)
@@ -946,6 +1014,7 @@ func _hurt(amount:float) -> void:
 		effects.burst(player.position,Color("ffad75"),4)
 		audio.sfx("death")
 		player.visible = false
+		_reset_maneuver()
 		mode = Mode.DEAD
 		mode_time = 0.0
 		overlay.visible = false
@@ -987,7 +1056,7 @@ func _update_hud(dt:float) -> void:
 	if mode == Mode.BOSS: objective = "Target the glowing pods · R lock missile · B nova"
 	elif flight_time<14.0: objective = "WASD / arrows fly · SPACE fire · Q / E barrel roll"
 	elif assist_cooldown<=0.0: objective += "  /  F: wingman strike ready"
-	hud.update_hud({"shield":shield,"energy":energy,"bombs":bombs,"score":stage_score+campaign_score,"combo":combo,"stage_name":STAGES[stage].title,"progress":minf(1.0,flight_time/float(STAGES[stage].duration)),"speed":speed,"boss_name":STAGES[stage].boss if mode == Mode.BOSS else "","boss_hp":boss_hp/boss_max_hp if mode == Mode.BOSS else -1.0,"lock":lock_progress,"objective":objective,"roll_ready":roll_cooldown<=0.0,"wingmen":wingmen})
+	hud.update_hud({"shield":shield,"energy":energy,"bombs":bombs,"score":stage_score+campaign_score,"combo":combo,"stage_name":STAGES[stage].title,"progress":minf(1.0,flight_time/float(STAGES[stage].duration)),"speed":speed,"boss_name":STAGES[stage].boss if mode == Mode.BOSS else "","boss_hp":boss_hp/boss_max_hp if mode == Mode.BOSS else -1.0,"lock":lock_progress,"objective":objective,"roll_ready":roll_cooldown<=0.0 and not maneuver.active(),"wingmen":wingmen,"maneuver":maneuver.label(),"maneuver_cooldown":maneuver_cooldown,"maneuver_ready":energy >= Maneuver.ENERGY_COST and roll_time <= 0.0})
 
 func _finish_stage() -> void:
 	var bonus := int(shield)*20+rings*100

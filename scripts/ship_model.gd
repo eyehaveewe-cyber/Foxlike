@@ -337,13 +337,14 @@ func _pose_arms(time: float, delta: float = 0.0) -> void:
 		tip.position=end
 		tip.rotation.z=curl*0.18
 
-func animate(time: float, delta: float, bank: float = 0.0, pitch: float = 0.0, thrust: float = 1.0, roll_angle: float = 0.0, damage: float = 0.0) -> void:
+func animate(time: float, delta: float, bank: float = 0.0, pitch: float = 0.0, thrust: float = 1.0, roll_angle: float = 0.0, damage: float = 0.0, maneuver_pitch: float = 0.0) -> void:
 	if visual == null:
 		return
 	var blend: float = 1.0-exp(-delta*12.0)
 	_bank=lerpf(_bank,clampf(bank,-1.2,1.2),blend)
 	_pitch=lerpf(_pitch,clampf(pitch,-0.65,0.65),blend)
-	visual.rotation=Vector3(_pitch,_facing,_bank+roll_angle)
+	# Full revolutions are added after the bounded steering pose. Never smooth a 360-degree spin by shortest arc.
+	visual.rotation=Vector3(_pitch+maneuver_pitch,_facing,_bank+roll_angle)
 	_damage=clampf(damage,0.0,1.0)
 	for index in range(_flames.size()):
 		var flame: Node3D = _flames[index]

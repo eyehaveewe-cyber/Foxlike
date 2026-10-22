@@ -46,6 +46,9 @@ Three difficulties adjust damage and, on Cadet, target durability and aim assist
 | Twin lasers | Space / left click | Right trigger |
 | Barrel roll | Q / E | A |
 | Boost | Hold Shift | Right bumper |
+| In-place somersault | Hold Shift, tap A / Left | Hold RB, flick stick left |
+| Long forward loop | Hold Shift, tap S / Down | Hold RB, flick stick down |
+| Climbing corkscrew | Hold Shift, tap D / Right | Hold RB, flick stick right |
 | Brake | Hold Ctrl | Left bumper |
 | Homing missile | R / right click after lock | X |
 | Nova bomb | B | B |
@@ -56,6 +59,10 @@ Three difficulties adjust damage and, on Cadet, target durability and aim assist
 | Fullscreen | F11 | — |
 
 Aim at a target until the lock completes, then fire a homing missile. Missiles recharge in 2.5 seconds; wingman crossfire recharges in 24 seconds. Nova bombs are limited. **Gold rings repair shields; collecting three upgrades the twin lasers.** Green crosses repair damage, red crosses replenish a nova. Roll through red shots, steer around debris, and move sideways out of the Sovereign's marked lance lane.
+
+Boost maneuvers each cost 30 engine energy and share a four-second cooldown from activation. Hold boost first, then tap the direction. A held direction does not repeat the move. The compact somersault takes 1.25 seconds; the long loop surges forward, completes a vertical loop, and returns to flight depth in 2.65 seconds. The corkscrew climbs to a forward boosted position in 1.8 seconds, then eases speed and position back to cruise over 1.5 seconds. Release boost after a maneuver to rearm ordinary boost. Steering resumes when the path finishes; Q/E barrel rolls cannot overlap it. Somersaults suspend forward lasers and missile locking during the flip. These maneuvers move the actual collision position and do not add barrel-roll invulnerability. Near screen edges the large paths ease toward a safe center before looping.
+
+[Actual maneuver animation](docs/previews/boost-maneuvers.gif)
 
 Mouse movement takes over steering; pressing a steering key or moving the controller stick returns to that input. Release boost after exhausting the engine to rearm it. Use Tab/arrow keys and Enter to navigate menus.
 
@@ -78,6 +85,7 @@ This is a compact first complete game, with room for later refinement. It is an 
 | File | Responsibility |
 |---|---|
 | `scripts/flight_game.gd` | Flight, combat, campaign, encounters, saves |
+| `scripts/flight_maneuver.gd` | Timed somersault, long loop, corkscrew and recovery paths |
 | `scripts/ship_model.gd` | Procedural airframes and animation rigs |
 | `scripts/flight_world.gd` | Lit worlds and bounded scenery recycling |
 | `scripts/flight_hud.gd` | Menu, briefing, cockpit, radio, debrief, ending |

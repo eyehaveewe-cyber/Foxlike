@@ -66,6 +66,7 @@ func _run() -> void:
 	game._on_action("resume")
 	await _step(0.05)
 	_check(not game.is_paused and game.flight_time > paused_time, "Resume continues flight")
+	await _maneuvers()
 	await _weapons_and_pickups()
 	await _campaign()
 	_save_validation()
@@ -89,6 +90,99 @@ func _run() -> void:
 	print("GAME_SMOKE: %d assertions; %d failures" % [assertions, failures.size()])
 	for failure in failures: push_error(failure)
 	quit(0 if failures.is_empty() else 1)
+
+func _maneuvers() -> void:
+	game._begin_stage(0)
+	game._launch()
+	await _step(3.35)
+	game.waves = []
+	game._clear_actors()
+	game.player.position = Vector3(0,1,0)
+	_key(KEY_SHIFT,true)
+	await _step(0.05)
+	_key(KEY_S,true)
+	await _step(0.05)
+	_key(KEY_S,false)
+	_check(game.maneuver.kind == game.Maneuver.Kind.LONG_LOOP and game.energy < 71.0, "Boost + down starts long loop and charges 30 energy")
+	await _step(0.45)
+	_check(game.player.position.z < -15.0, "Long loop surges a sizable distance forward")
+	var time_before: float = game.maneuver.elapsed
+	game._pause(true)
+	await _step(0.5)
+	_check(is_equal_approx(game.maneuver.elapsed,time_before), "Pause freezes maneuver path and rotation")
+	game._pause(false)
+	game._roll(1.0)
+	_check(game.roll_time <= 0.0, "Barrel roll cannot compete with an active maneuver")
+	_key(KEY_SPACE,true)
+	var shots_before: int = game.shots_fired
+	await _step(0.9)
+	_check(game.player.position.y > 7.0 and absf(game.player.visual.rotation.x) > 2.0, "Long loop climbs and turns the actual airframe upside down")
+	_check(game.shots_fired == shots_before and not game.maneuver.can_fire, "Loop stops forward fire while its nose turns away")
+	_key(KEY_SPACE,false)
+	await _step(1.3)
+	_check(not game.maneuver.active() and absf(game.player.position.z) < 0.1, "Long loop returns to default flight depth")
+	_check(absf(game.player.visual.rotation.x) < 0.1, "Loop hands back a clean steering pose")
+	await _step(1.6)
+	_check(game.speed < 44.0 and game.boost_depleted, "Holding boost does not cancel the automatic deboost")
+	_key(KEY_SHIFT,false)
+	await _step(0.05)
+	# In-place somersault uses the same directional edge detector as keyboard/stick.
+	game.energy = 100.0
+	game.player.position = Vector3(2,1,0)
+	_key(KEY_SHIFT,true)
+	_key(KEY_A,true)
+	await _step(0.6)
+	_check(game.maneuver.kind == game.Maneuver.Kind.SOMERSAULT and Vector2(game.player.position.x,game.player.position.y).distance_to(Vector2(2,1)) < 0.01, "Boost + left performs a compact in-place somersault")
+	await _step(4.3)
+	_check(not game.maneuver.active() and is_zero_approx(game.maneuver_cooldown), "Held direction cannot repeatedly start stunts after cooldown")
+	_key(KEY_A,false)
+	_key(KEY_SHIFT,false)
+	await _step(0.05)
+	game.energy = 100.0
+	_key(KEY_SHIFT,true)
+	_key(KEY_D,true)
+	await _step(1.8)
+	_key(KEY_D,false)
+	_check(game.maneuver.kind == game.Maneuver.Kind.CORKSCREW and game.player.position.z < -17.5 and game.player.position.y > 3.5, "Boost + right corkscrews up to a forward boosted position")
+	var fast_speed: float = game.speed
+	var far_depth: float = game.player.position.z
+	await _step(0.7)
+	_check(game.maneuver.recovering and game.speed < fast_speed and game.speed > 42.0 and game.player.position.z > far_depth, "Corkscrew eases speed and position back together")
+	await _step(1.0)
+	_check(not game.maneuver.active() and absf(game.player.position.z) < 0.1 and absf(game.speed-42.0)<1.0, "Corkscrew settles fully into cruise")
+	_key(KEY_SHIFT,false)
+	await _step(0.8)
+	game.energy = 29.0
+	game._start_maneuver(game.Maneuver.Kind.LONG_LOOP)
+	_check(not game.maneuver.active() and is_equal_approx(game.energy,29.0), "Insufficient energy rejects a maneuver without charging")
+	game.energy = 100.0
+	game._start_maneuver(game.Maneuver.Kind.CORKSCREW)
+	game._start_maneuver(game.Maneuver.Kind.LONG_LOOP)
+	_check(game.maneuver.kind == game.Maneuver.Kind.CORKSCREW and is_equal_approx(game.energy,70.0), "Repeated starts cannot switch an active maneuver or charge twice")
+	game.invulnerable = 0.0
+	game._hurt(1000.0)
+	_check(game.mode == game.Mode.DEAD and not game.maneuver.active(), "Death interrupts a maneuver and clears its pose state")
+	game._on_action("retry")
+	_check(not game.maneuver.active() and is_zero_approx(game.maneuver_cooldown), "Retry resets maneuver state and cooldown")
+	# Sample the same path at low and high frame rates and along screen boundaries.
+	for kind: int in [game.Maneuver.Kind.SOMERSAULT,game.Maneuver.Kind.LONG_LOOP,game.Maneuver.Kind.CORKSCREW]:
+		var slow = game.Maneuver.new()
+		var fast = game.Maneuver.new()
+		slow.start(kind,Vector3(17,12,-3))
+		fast.start(kind,Vector3(17,12,-3))
+		for frame in range(24): slow.advance(1.0/20.0)
+		for frame in range(144): fast.advance(1.0/120.0)
+		_check(slow.position.distance_to(fast.position)<0.001 and absf(slow.pitch-fast.pitch)<0.001 and absf(slow.roll-fast.roll)<0.001, "Maneuver %d has matching 20/120fps pose and position" % kind)
+		var bounded := true
+		fast.start(kind,Vector3(17,12,-3))
+		for frame in range(100):
+			fast.advance(0.05)
+			bounded = bounded and absf(fast.position.x)<=18.0 and fast.position.y<=13.0 and fast.position.y>=-8.0
+		_check(bounded and not fast.active(), "Maneuver %d stays in flight bounds and finishes at screen edge" % kind)
+	game._launch()
+	await _step(3.35)
+	game.waves = []
+	game._clear_actors()
 
 func _weapons_and_pickups() -> void:
 	game._clear_actors()

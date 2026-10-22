@@ -111,6 +111,15 @@ function serve(request, response) {
   await page.keyboard.up('Space');
   const fired = await state();
   check('Holding fire creates laser shots', Number(fired.shots_fired) > Number(beforeFire.shots_fired), { before: beforeFire.shots_fired, after: fired.shots_fired });
+  await page.keyboard.down('Shift');
+  await page.keyboard.down('ArrowDown');
+  await waitAction('boost-down long loop', () => window.__foxlikeQA?.maneuver === 'LONG LOOP' && window.__foxlikeQA?.player_z < -12);
+  await page.keyboard.up('ArrowDown');
+  check('Boost plus down performs forward long loop', (await state()).player_z < -12, await state());
+  await picture('web-long-loop');
+  await waitAction('long loop settles', () => window.__foxlikeQA?.maneuver === '' && Math.abs(window.__foxlikeQA?.player_z) < 0.15);
+  await page.keyboard.up('Shift');
+  check('Long loop returns to flight depth', Math.abs((await state()).player_z) < 0.15, await state());
   await page.keyboard.press('e');
   await page.waitForTimeout(180);
   await picture('web-flight');
