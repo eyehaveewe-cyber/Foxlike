@@ -328,6 +328,9 @@ func _begin_stage(index:int) -> void:
 	audio.start_music(stage,false)
 
 func _launch() -> void:
+	player.scale = Vector3.ONE
+	player.rotation = Vector3.ZERO
+	aim = Vector3(0,0,-100)
 	mode = Mode.LAUNCH
 	mode_time = 0.0
 	player.position = Vector3(0,-2,18)

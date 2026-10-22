@@ -1,49 +1,69 @@
 {
   "passed": true,
   "browser": "156.0.8078.47",
+  "viewport": {
+    "width": 640,
+    "height": 360
+  },
+  "mode_timeout_ms": 180000,
+  "action_timeout_ms": 45000,
+  "elapsed_ms": 31060,
+  "last_telemetry": {
+    "flight_time": 3.19553333333333,
+    "mode": "FLIGHT",
+    "paused": false,
+    "player_x": -4.55308866500854,
+    "player_y": -0.00475102011114359,
+    "shots_fired": 8
+  },
   "checks": [
     {
       "name": "WebGL game starts at flight deck",
+      "elapsed_ms": 2814,
       "details": {
         "flight_time": 0,
         "mode": "MENU",
         "paused": false,
-        "player_x": 9.02799415588379,
-        "player_y": 3.04196572303772,
+        "player_x": 8,
+        "player_y": 2,
         "shots_fired": 0
       }
     },
     {
       "name": "Keyboard launches mission briefing",
+      "elapsed_ms": 5774,
       "details": {
         "flight_time": 0,
         "mode": "BRIEFING",
         "paused": false,
-        "player_x": 0,
-        "player_y": 0,
+        "player_x": 9.23303318023682,
+        "player_y": 3.33439183235168,
         "shots_fired": 0
       }
     },
     {
       "name": "Animated launch reaches playable flight",
+      "elapsed_ms": 18859,
       "details": {
-        "flight_time": 0.05,
+        "flight_time": 0.15,
         "mode": "FLIGHT",
         "paused": false,
         "player_x": 0,
-        "player_y": -0.00436481926590204,
+        "player_y": -0.00475102011114359,
         "shots_fired": 0
       }
     },
     {
       "name": "Keyboard steers ship right",
+      "elapsed_ms": 20139,
       "details": {
         "xBefore": 0,
-        "xAfter": 4.54262685775757
+        "xAfter": 5.85894203186035
       }
     },
     {
       "name": "Holding fire creates laser shots",
+      "elapsed_ms": 23726,
       "details": {
         "before": 0,
         "after": 6
@@ -51,24 +71,27 @@
     },
     {
       "name": "Pause freezes mission clock",
+      "elapsed_ms": 28122,
       "details": {
-        "before": 2.3152,
-        "after": 2.3152
+        "before": 2.9746,
+        "after": 2.9746
       }
     },
     {
       "name": "Resume advances flight again",
+      "elapsed_ms": 31059,
       "details": {
-        "flight_time": 2.5152,
+        "flight_time": 3.19553333333333,
         "mode": "FLIGHT",
         "paused": false,
-        "player_x": 0.0000143218830999103,
-        "player_y": -0.00436481926590204,
-        "shots_fired": 6
+        "player_x": -4.55308866500854,
+        "player_y": -0.00475102011114359,
+        "shots_fired": 8
       }
     },
     {
       "name": "No JavaScript or engine console errors",
+      "elapsed_ms": 31059,
       "details": []
     }
   ],

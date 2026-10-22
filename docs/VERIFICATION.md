@@ -5,7 +5,7 @@ Engine: Godot **4.7.2.stable.official.ed1daf0bf**. Compatibility renderer.
 ## Passed
 
 - All scripts parse and the main scene imports.
-- `tests/game_smoke.gd`: **49 integration assertions, 0 failures**. Actual scene/input paths cover boot, briefing, launch, bounded movement, boost, laser hits, lock acquisition, homing impact, roll protection, nova clearing, ring upgrades, repair/ordnance pickups, pause/resume, full route schedules for all stages, boss pod damage, lethal projectile transition, debrief/next, unlock persistence, malformed/out-of-range save fields, defeat and retry.
+- `tests/game_smoke.gd`: **50 integration assertions, 0 failures**. Actual scene/input paths cover boot, briefing, launch, bounded movement, boost, laser hits, lock acquisition, homing impact, roll protection, nova clearing, ring upgrades, repair/ordnance pickups, pause/resume, full route schedules for all stages, boss pod damage, lethal projectile transition, debrief/next, unlock persistence, malformed/out-of-range save fields, defeat and retry.
 - Separate logic audit verified a killing boss projectile while other projectiles were active, and clean transition cleanup.
 - All nine ship rigs instantiated and animated over 120 ticks each. RIME weapon visibility drives tentacle collapse.
 - All three world setups, scrolling updates and resets run. Seven chunks recycle per world.
@@ -53,4 +53,10 @@ node tests/web_smoke.cjs
 
 Set `CHROMIUM_EXECUTABLE` to use an existing Chromium executable. Results and screenshots are written under `build/web-smoke/`. The smoke starts its own local HTTP server and closes it on completion.
 
-Final browser captures (`docs/previews/web-briefing.png` and `web-flight.png`) were inspected after correcting paragraph wrapping and replacing unsupported symbol glyphs. The final eight-check run is recorded in `docs/web-smoke-results.json`. Input assertions wait for observed game movement and shot counts, so shared software-rendering load cannot turn an arbitrary wall-clock delay into a false failure.
+Final browser captures (`docs/previews/web-briefing.png` and `web-flight.png`) were inspected after correcting paragraph wrapping and replacing unsupported symbol glyphs. The final eight-check run is recorded in `docs/web-smoke-results.json`. Input assertions wait for observed game movement and shot counts instead of assuming an arbitrary wall-clock delay is sufficient.
+
+The launch regression now advances the animated briefing before launch and verifies that the player returns to normal flight scale. The final web flight capture also shows this corrected scale. Both release packages were rebuilt after this fix; the native test passed 50 assertions and the browser test passed all eight checks.
+
+The first hosted browser smoke reached `LAUNCH` but exceeded the original 45-second limit waiting for `FLIGHT`. Launch requires at least 65 rendered frames because the simulation caps delta at 0.05 seconds. The fixture now renders at 640 × 360 (one quarter of the previous pixel count), allows at most 180 seconds per mode transition and 45 seconds per input assertion, and records the failed step, last telemetry, canvas dimensions, and elapsed time. These changes retain all eight gameplay checks and the clean-console gate. The inspected 1280 × 720 preview images above remain the final release captures.
+
+The revised 640 × 360 fixture passed locally in Chrome for Testing 156.0.8078.47: eight checks, zero JavaScript or engine-console errors. The hosted rerun is a separate check; the local pass does not establish its result.

@@ -5,14 +5,14 @@
     {
       "platform": "windows",
       "file": "Foxlike-windows.zip",
-      "bytes": 40626130,
-      "sha256": "df2386c2b5c0038fcd666b6996283693b5a3e9bde0cb2f665ce30640ed587f82"
+      "bytes": 40626184,
+      "sha256": "6bce33254a25883593888ba08e2d347fcd4fa28639fd5c74f5b9fceeac43e8d8"
     },
     {
       "platform": "web",
       "file": "Foxlike-web.zip",
-      "bytes": 12783920,
-      "sha256": "71f897ab583ca6751486b23d4d358a78748291c4fade786d50632e169ca1b9a3"
+      "bytes": 12783978,
+      "sha256": "00a5ff776ddf9f055549a46e4795aab8e38e680cc4ea9ded02888b367f7757d8"
     }
   ]
 }

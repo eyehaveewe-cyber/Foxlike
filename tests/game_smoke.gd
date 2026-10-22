@@ -28,7 +28,9 @@ func _run() -> void:
 	_check(game.mode == game.Mode.MENU, "Scene boots into menu")
 	game._on_action("new_run")
 	_check(game.mode == game.Mode.BRIEFING and game.stage == 0, "New campaign opens Viridia briefing")
+	await _step(0.4) # Briefing runs the enlarged presentation airframe.
 	game._on_action("launch")
+	_check(game.player.scale.is_equal_approx(Vector3.ONE), "Launch restores gameplay scale after briefing presentation")
 	await _step(3.35)
 	_check(game.mode == game.Mode.FLIGHT and game.player.position.distance_to(Vector3.ZERO) < 1.0, "Launch animation joins active flight")
 	game.waves = []

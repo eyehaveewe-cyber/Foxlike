@@ -2,6 +2,7 @@ Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
 PASS Scene boots into menu
 PASS New campaign opens Viridia briefing
+PASS Launch restores gameplay scale after briefing presentation
 PASS Launch animation joins active flight
 PASS Physical movement input moves and bounds the ship
 PASS Boost accelerates and spends energy
@@ -49,4 +50,4 @@ PASS Invalid save fields are ignored
 PASS Malformed save does not crash or erase valid in-memory progress
 PASS Lethal damage opens defeat result
 PASS Retry restores this mission
-GAME_SMOKE: 49 assertions; 0 failures
+GAME_SMOKE: 50 assertions; 0 failures
