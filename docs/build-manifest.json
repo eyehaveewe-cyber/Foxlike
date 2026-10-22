@@ -1,0 +1,18 @@
+{
+  "game": "Foxlike: Asterion Flight",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "builds": [
+    {
+      "platform": "windows",
+      "file": "Foxlike-windows.zip",
+      "bytes": 40626130,
+      "sha256": "df2386c2b5c0038fcd666b6996283693b5a3e9bde0cb2f665ce30640ed587f82"
+    },
+    {
+      "platform": "web",
+      "file": "Foxlike-web.zip",
+      "bytes": 12783920,
+      "sha256": "71f897ab583ca6751486b23d4d358a78748291c4fade786d50632e169ca1b9a3"
+    }
+  ]
+}

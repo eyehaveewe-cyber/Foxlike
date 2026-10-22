@@ -41,6 +41,21 @@ jobs:
           unzip -j -q "$RUNNER_TEMP/godot/templates.tpz" 'templates/windows_release_x86_64.exe' 'templates/web_nothreads_release.zip' 'templates/version.txt' -d "$template_dir"
       - name: Import, validate campaign, export and zip
         run: python3 tools/package_release.py --godot godot
+      - name: Exercise exported Web build in Chromium
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-save --no-package-lock --prefix "$RUNNER_TEMP/browser-qa" playwright@1.62.1
+          "$RUNNER_TEMP/browser-qa/node_modules/.bin/playwright" install --with-deps chromium
+          NODE_PATH="$RUNNER_TEMP/browser-qa/node_modules" node tests/web_smoke.cjs
+      - name: Browser test evidence
+        if: always()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: Foxlike-browser-QA
+          path: build/web-smoke
+          if-no-files-found: warn
+          retention-days: 30
       - name: Downloadable Windows and Web builds
         uses: actions/upload-artifact@v7.0.2
         with:

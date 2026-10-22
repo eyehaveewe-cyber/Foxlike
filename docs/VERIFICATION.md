@@ -34,3 +34,23 @@ python tools/package_release.py --godot godot
 Render scripts need a real graphics backend (an X display on Linux), not Godot's dummy headless renderer. The test save is restored or removed when the integration suite completes.
 
 The native software-rendered capture runs exit successfully but report unsupported VSync and two approximately 350 KB GL textures at renderer shutdown. No corresponding gameplay script errors occurred. This remaining renderer cleanup warning is not treated as a clean rendering log.
+
+## Browser export
+
+The actual single-threaded Web release was exercised in Chrome for Testing **156.0.8078.47** using Playwright. `tests/web_smoke.cjs` passed **8 assertions** with **zero JavaScript or engine-console errors**: rendered flight deck, keyboard briefing selection, animated launch into flight, right steering, laser fire, paused mission clock, resumed mission clock, and a clean console. The script drives normal keyboard input. A read-only state snapshot is available only with the `?qa=1` URL flag; the test does not alter gameplay state.
+
+This test exposed and resolved a Web-only startup failure: JavaScriptBridge returned a numeric boolean, and comparing it directly with a GDScript boolean aborted initialization. Explicit boolean conversion fixed the startup path. A Web debug export supplied the original script error that the release build suppressed.
+
+The workflow now runs this browser smoke after exporting and uploads screenshots/results as **Foxlike-browser-QA**. It publishes playable build artifacts only after the smoke passes. The local browser check used a software renderer and does not establish target-device frame rate or physical controller support.
+
+To reproduce after exporting Web:
+
+```sh
+npm install --no-save playwright@1.62.1
+npx playwright install chromium
+node tests/web_smoke.cjs
+```
+
+Set `CHROMIUM_EXECUTABLE` to use an existing Chromium executable. Results and screenshots are written under `build/web-smoke/`. The smoke starts its own local HTTP server and closes it on completion.
+
+Final browser captures (`docs/previews/web-briefing.png` and `web-flight.png`) were inspected after correcting paragraph wrapping and replacing unsupported symbol glyphs. The final eight-check run is recorded in `docs/web-smoke-results.json`. Input assertions wait for observed game movement and shot counts, so shared software-rendering load cannot turn an arbitrary wall-clock delay into a false failure.

@@ -1,0 +1,76 @@
+{
+  "passed": true,
+  "browser": "156.0.8078.47",
+  "checks": [
+    {
+      "name": "WebGL game starts at flight deck",
+      "details": {
+        "flight_time": 0,
+        "mode": "MENU",
+        "paused": false,
+        "player_x": 9.02799415588379,
+        "player_y": 3.04196572303772,
+        "shots_fired": 0
+      }
+    },
+    {
+      "name": "Keyboard launches mission briefing",
+      "details": {
+        "flight_time": 0,
+        "mode": "BRIEFING",
+        "paused": false,
+        "player_x": 0,
+        "player_y": 0,
+        "shots_fired": 0
+      }
+    },
+    {
+      "name": "Animated launch reaches playable flight",
+      "details": {
+        "flight_time": 0.05,
+        "mode": "FLIGHT",
+        "paused": false,
+        "player_x": 0,
+        "player_y": -0.00436481926590204,
+        "shots_fired": 0
+      }
+    },
+    {
+      "name": "Keyboard steers ship right",
+      "details": {
+        "xBefore": 0,
+        "xAfter": 4.54262685775757
+      }
+    },
+    {
+      "name": "Holding fire creates laser shots",
+      "details": {
+        "before": 0,
+        "after": 6
+      }
+    },
+    {
+      "name": "Pause freezes mission clock",
+      "details": {
+        "before": 2.3152,
+        "after": 2.3152
+      }
+    },
+    {
+      "name": "Resume advances flight again",
+      "details": {
+        "flight_time": 2.5152,
+        "mode": "FLIGHT",
+        "paused": false,
+        "player_x": 0.0000143218830999103,
+        "player_y": -0.00436481926590204,
+        "shots_fired": 6
+      }
+    },
+    {
+      "name": "No JavaScript or engine console errors",
+      "details": []
+    }
+  ],
+  "errors": []
+}

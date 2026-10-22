@@ -79,16 +79,16 @@ function serve(request, response) {
 
   const xBefore = Number(flight.player_x);
   await page.keyboard.down('d');
-  await page.waitForTimeout(900);
+  await page.waitForFunction(x => Number(window.__foxlikeQA?.player_x) > x + 2.0, xBefore, { timeout: 15000 });
   await page.keyboard.up('d');
   const moved = await state();
   check('Keyboard steers ship right', Number(moved.player_x) > xBefore + 0.5, { xBefore, xAfter: moved.player_x });
   await page.keyboard.down('a');
-  await page.waitForTimeout(550);
+  await page.waitForFunction(x => Number(window.__foxlikeQA?.player_x) < x - 0.6, Number(moved.player_x), { timeout: 15000 });
   await page.keyboard.up('a');
   const beforeFire = await state();
   await page.keyboard.down('Space');
-  await page.waitForTimeout(1100);
+  await page.waitForFunction(shots => Number(window.__foxlikeQA?.shots_fired) >= shots + 4, Number(beforeFire.shots_fired), { timeout: 15000 });
   await page.keyboard.up('Space');
   const fired = await state();
   check('Holding fire creates laser shots', Number(fired.shots_fired) > Number(beforeFire.shots_fired), { before: beforeFire.shots_fired, after: fired.shots_fired });
@@ -106,11 +106,13 @@ function serve(request, response) {
   await picture('web-paused');
   await page.keyboard.press('Escape');
   await page.waitForFunction(() => window.__foxlikeQA?.paused === false);
-  await page.waitForTimeout(500);
+  await page.waitForFunction(time => Number(window.__foxlikeQA?.flight_time) > time + 0.1, Number(stillPaused.flight_time), { timeout: 15000 });
   const resumed = await state();
   check('Resume advances flight again', Number(resumed.flight_time) > Number(stillPaused.flight_time), resumed);
   check('No JavaScript or engine console errors', errors.length === 0, errors);
-  fs.writeFileSync(path.join(output, 'results.json'), JSON.stringify({ passed: true, checks, errors }, null, 2) + '\n');
+  fs.writeFileSync(path.join(output, 'results.json'), JSON.stringify({ passed: true, browser: browser.version(), checks, errors }, null, 2) + '\n');
+  const previousFailure = path.join(output, 'web-failure.png');
+  if (fs.existsSync(previousFailure)) fs.unlinkSync(previousFailure);
   console.log(`WEB_SMOKE_OK ${checks.length} checks; captures in ${output}`);
 })().catch(async error => {
   if (page && !page.isClosed()) {

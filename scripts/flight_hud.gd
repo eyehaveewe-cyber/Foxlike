@@ -142,9 +142,10 @@ func _label(parent: Node, text_value: String, point: Vector2, width: float, font
 	return out
 
 func _paragraph(parent: Node, value: String, point: Vector2, dimensions: Vector2, font_size: int = 17, color: Color = SOFT) -> Label:
-	var out := _label(parent,value,point,dimensions.x,font_size,color)
-	out.size = dimensions
+	var out := _label(parent,"",point,dimensions.x,font_size,color)
 	out.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	out.text = value
+	out.size = dimensions
 	return out
 
 func _style(color: Color, border: Color, width: int = 1) -> StyleBoxFlat:
@@ -221,7 +222,7 @@ func _build_menu() -> void:
 	_label(_menu,"FOXLIKE",Vector2(58,88),520,88,PAPER)
 	_label(_menu,"A S T E R I O N   F L I G H T",Vector2(64,190),470,20,ORANGE)
 	_paragraph(_menu,"Three pilots. One last flight.\nBreak the siege across the Asterion system.",Vector2(64,239),Vector2(390,60),19,PAPER)
-	_button(_menu,"LAUNCH CAMPAIGN     →",Vector2(64,322),Vector2(364,53),"new_run",null,true)
+	_button(_menu,"LAUNCH CAMPAIGN     >",Vector2(64,322),Vector2(364,53),"new_run",null,true)
 	_continue = _button(_menu,"CONTINUE FLIGHT",Vector2(64,387),Vector2(364,47),"continue")
 	_label(_menu,"MISSION SELECT",Vector2(64,455),350,12,SOFT)
 	for i in range(3):
@@ -261,7 +262,7 @@ func _build_game() -> void:
 	_score.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	_combo = _label(_game,"",Vector2(985,69),262,15,ORANGE)
 	_combo.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	_bombs = _label(_game,"NOVA   ◆ ◆ ◆",Vector2(1000,98),248,14,CYAN)
+	_bombs = _label(_game,"NOVA   03",Vector2(1000,98),248,14,CYAN)
 	_bombs.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	_boss_title = _label(_game,"",Vector2(420,102),440,14,ORANGE)
 	_boss_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -296,7 +297,7 @@ func _build_game() -> void:
 func _build_pause() -> void:
 	_label(_pause,"FLIGHT HOLD",Vector2(440,147),500,46,PAPER)
 	_label(_pause,"The squadron is waiting for your signal.",Vector2(440,216),520,17,SOFT)
-	_button(_pause,"RESUME FLIGHT     →",Vector2(440,280),Vector2(400,52),"resume",null,true)
+	_button(_pause,"RESUME FLIGHT     >",Vector2(440,280),Vector2(400,52),"resume",null,true)
 	_button(_pause,"RETRY MISSION",Vector2(440,346),Vector2(400,45),"retry")
 	_mute_pause = _button(_pause,"SOUND ON",Vector2(440,405),Vector2(400,45),"mute")
 	_button(_pause,"RETURN TO FLIGHT DECK",Vector2(440,464),Vector2(400,45),"menu")
@@ -353,7 +354,7 @@ func show_briefing(stage: Dictionary) -> void:
 	_paragraph(_modal,str(stage.get("description","")),Vector2(82,291),Vector2(790,112),23,PAPER)
 	_label(_modal,"FLIGHT OBJECTIVE",Vector2(82,440),700,12,CYAN)
 	_paragraph(_modal,str(stage.get("objective","Clear the route and destroy the command ship.")),Vector2(82,468),Vector2(780,65),19,SOFT)
-	var launch := _button(_modal,"LAUNCH SQUADRON     →",Vector2(82,560),Vector2(360,54),"launch",null,true)
+	var launch := _button(_modal,"LAUNCH SQUADRON     >",Vector2(82,560),Vector2(360,54),"launch",null,true)
 	_button(_modal,"FLIGHT DECK",Vector2(459,560),Vector2(200,54),"menu")
 	launch.grab_focus()
 	_label(_modal,"COMET     /     LATCH     /     GLINT",Vector2(82,664),1050,13,SOFT)
@@ -372,9 +373,9 @@ func show_result(result: Dictionary) -> void:
 	_label(_modal,"TARGETS",Vector2(516,354),200,14,CYAN)
 	_label(_modal,str(result.get("kills",0)),Vector2(512,386),200,57,PAPER)
 	_label(_modal,"RANK",Vector2(790,354),200,14,CYAN)
-	_label(_modal,str(result.get("rank","—")),Vector2(786,386),200,57,ORANGE)
+	_label(_modal,str(result.get("rank","-")),Vector2(786,386),200,57,ORANGE)
 	_label(_modal,"MISSION BONUS   +%d" % int(result.get("bonus",0)),Vector2(82,478),800,15,ORANGE)
-	var primary := _button(_modal,"RETURN HOME     →" if final_flight else ("NEXT MISSION     →" if success else "RETRY MISSION     →"),Vector2(82,560),Vector2(362,54),"menu" if final_flight else ("next" if success else "retry"),null,true)
+	var primary := _button(_modal,"RETURN HOME     >" if final_flight else ("NEXT MISSION     >" if success else "RETRY MISSION     >"),Vector2(82,560),Vector2(362,54),"menu" if final_flight else ("next" if success else "retry"),null,true)
 	if not final_flight:
 		_button(_modal,"FLIGHT DECK",Vector2(462,560),Vector2(220,54),"menu")
 	primary.grab_focus()
@@ -417,7 +418,7 @@ func update_hud(data: Dictionary) -> void:
 	_score.text = "%06d" % int(data.get("score",0))
 	var combo_value := int(data.get("combo",0))
 	_combo.text = "CHAIN  ×%d" % combo_value if combo_value>1 else ""
-	_bombs.text = "NOVA   " + "◆ ".repeat(clampi(int(data.get("bombs",0)),0,9))
+	_bombs.text = "NOVA   %02d" % clampi(int(data.get("bombs",0)),0,9)
 	_stage.text = str(data.get("stage_name",""))
 	_objective.text = str(data.get("objective",""))
 	_route.value = clampf(float(data.get("progress",0)),0,1)*100
