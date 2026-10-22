@@ -9,7 +9,7 @@ On this repository's **Actions → Build playable game** page, open a successful
 ## Run from source
 
 1. Install the standard [Godot 4.7.2 editor](https://godotengine.org/download/archive/4.7.2-stable/).
-2. Clone or download this repository.
+2. [Download the complete source ZIP](https://github.com/eyehaveewe-cyber/Foxlike/archive/refs/heads/main.zip) and extract it, or clone this repository. The extracted `Foxlike-main` folder contains `project.godot` alongside `scenes`, `scripts`, and `assets`.
 3. Import `project.godot` in Godot and press **F6** from `scenes/main.tscn`, or **F5** to run the project.
 
 Command line:

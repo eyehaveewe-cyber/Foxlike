@@ -8,6 +8,14 @@ Built for **Godot 4.7.2 stable**, using the Compatibility renderer. All ships, e
 
 [Higher-resolution animation clip](docs/previews/flight-animation.mp4) · [Viridia screenshot](docs/previews/02-flight-0.png) · [Terminus boss screenshot](docs/previews/03-boss-2.png)
 
+## Download the editable Godot project
+
+**[Download the complete source ZIP](https://github.com/eyehaveewe-cyber/Foxlike/archive/refs/heads/main.zip)**, extract it, then import **`Foxlike-main/project.godot`** in Godot 4.7.2 stable. Press **F5** to play or edit the scenes and scripts. The ZIP includes the scene, GDScript source, procedural ship models, audio assets, and export presets.
+
+The `project.godot` file is at the repository root. On GitHub you can also use **Code → Download ZIP**. The Windows executable package is a separate download.
+
+For a smaller source-only bundle, each new build also provides a **Foxlike-Godot-source** Actions artifact containing `Foxlike-source.zip`. Recreate that package with `python tools/package_source.py`; no Godot installation is needed for packaging.
+
 ## Play
 
 **Windows:** open the latest successful [Build playable game workflow](https://github.com/eyehaveewe-cyber/Foxlike/actions/workflows/build.yml), download **Foxlike-playable-builds**, extract `Foxlike-windows.zip`, then launch `Foxlike.exe`. Keep the `.pck` beside it. Godot is not needed for the exported game.
