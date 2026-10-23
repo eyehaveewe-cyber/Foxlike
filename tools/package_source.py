@@ -7,7 +7,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 DIRECTORIES = ("assets", "scenes", "scripts", "tests", "tools")
-FILES = ("project.godot", "export_presets.cfg", "README.md", "PROGRESS.md", "CREDITS.md", "docs/RUNNING.md", "docs/SOURCES.md", "docs/DESIGN.md")
+FILES = ("project.godot", "export_presets.cfg", "README.md", "PROGRESS.md", "CREDITS.md", "docs/RUNNING.md", "docs/SOURCES.md", "docs/DESIGN.md", "docs/ASSET_IMPORTS.md", "docs/PLAYTEST_RESOLUTION.md", "docs/VERIFICATION.md")
 
 
 def main():

@@ -1,4 +1,25 @@
-# Verification — 2026-10-22
+# Verification
+
+## Six-mission expansion — 2026-10-23
+
+Godot `4.7.2.stable.official.ed1daf0bf` imported the project and passed **197 native assertions**: 74 campaign, 35 companion, 38 combat revision, and 50 expansion checks. The release packager reran all four suites, exported Windows and Web, and produced both ZIPs. The source packager checks runtime resource inclusion and ZIP integrity; the editable project includes `project.godot`, all procedural models, music source and renders, scenes, scripts, tools and tests.
+
+The combat regressions fire real homing missiles and twin lasers into the visible exposed core of every boss. They also verify independent subsystem damage, behind-player target rejection, pickup relative sweeps, near misses, ammo consumption, resupply and missile blast radius. Expansion regressions cover tank fuel/landing/rearm, genuine barrier damage versus hover clearance, pause, arena world/projectile transforms, current-frame aiming, model facing, radar, physical carrier impacts, failure/retry, save migration and all six boss/result paths. Turnaround simulations at 20 and 120 FPS remain inside the boundary and resume inward without adding invulnerability.
+
+`tests/render_expansion.gd` ran the actual controller at 20 simulated FPS and produced native gameplay captures. Inspected the six-mission menu, tank lift/barrier clearance/landing, the Dragonfly defense arena, the climbing boundary turnaround and all three new bosses. The captures use an explicitly unlocked save and staged encounters; they are visual evidence, not a claim that a human completed the campaign.
+
+- [Tank hover and landing clip](previews/tank-hover.mp4)
+- [Arena turnaround clip](previews/arena-turn.mp4)
+- [Carrier defense](previews/carrier-defense.png)
+- [Iron Maw](previews/iron-maw.png), [Harrow](previews/harrow.png), [Crown](previews/crown.png)
+- [Six-mission selector](previews/six-mission-menu.png)
+
+The local Chromium run exited while waiting for the menu before any gameplay assertion; no new Web runtime pass is claimed. The native render backend reports resource/texture cleanup warnings on shutdown after successful captures; some rapid test teardown also reports remaining resources. There were no parser failures or gameplay script exceptions in the final packaging run. Human balance/playthroughs, physical controller testing, musical listening/mix review and native Windows hardware performance remain open.
+
+The MBean1 import was validated and rendered with its actual note model and Web Audio engine. Decoded OGG durations, peak/RMS levels and loop seams were checked; see [asset provenance](ASSET_IMPORTS.md).
+
+## Original delivery record
+
 
 Engine: Godot **4.7.2.stable.official.ed1daf0bf**. Compatibility renderer.
 

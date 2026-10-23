@@ -240,35 +240,36 @@ func _campaign() -> void:
 		await _step(float(game.STAGES[index].duration)-7.8)
 		_check(game.mode == game.Mode.BOSS and is_instance_valid(game.boss), "Stage %d reaches its boss through elapsed flight" % index)
 		_check(game.boss_parts.size() >= 2, "Stage %d boss exposes destructible weapon pods" % index)
-		var hp_before: float = game.boss_hp
+		var hp_before: float = game.boss_parts[0].hp
 		var part_position: Vector3 = game.boss_parts[0].node.global_position
 		game._spawn_shot(part_position+Vector3(0,0,5),Vector3(0,0,-210),true,3.0)
 		await _step(0.05)
-		_check(game.boss_hp < hp_before, "Stage %d projectile damages articulated boss" % index)
+		_check(game.boss_parts[0].hp < hp_before, "Stage %d projectile damages its selected boss subsystem" % index)
+		for part in game.boss_parts: game._damage_boss_part(part,1000.0)
 		game.boss_hp = 1.0
 		game._spawn_shot(game.boss.position+Vector3(0,0,5),Vector3(0,0,-210),true,5.0)
 		await _step(0.05)
 		_check(game.mode == game.Mode.CLEAR, "Stage %d lethal projectile begins victory flyout" % index)
 		await _step(4.2)
 		_check(game.mode == game.Mode.RESULT and game.campaign_score > 0, "Stage %d flyout settles result and score" % index)
-		_check(int(game.save_data.unlocked) >= mini(3,index+2), "Stage %d unlock is persisted" % index)
+		_check(int(game.save_data.unlocked) >= mini(game.STAGES.size(),index+2), "Stage %d unlock is persisted" % index)
 		game._on_action("next")
-		_check(game.mode == (game.Mode.MENU if index == 2 else game.Mode.BRIEFING), "Stage %d result advances or returns to menu" % index)
+		_check(game.mode == (game.Mode.BRIEFING), "Stage %d result advances or returns to menu" % index)
 	_check(FileAccess.file_exists(TEST_SAVE), "Campaign creates isolated progress file")
 	var saved: Variant = JSON.parse_string(FileAccess.get_file_as_string(TEST_SAVE))
-	_check(saved is Dictionary and int(saved.unlocked) == 3 and int(saved.best) > 0, "Completed campaign persists full unlock and best score")
+	_check(saved is Dictionary and int(saved.unlocked) == 4 and int(saved.best) > 0, "Original campaign persists Cinder unlock and best score")
 
 func _save_validation() -> void:
 	game.save_data.difficulty = "Standard"
 	_write_fixture({"unlocked":999,"best":-7,"muted":"bad","difficulty":"invalid","records":{"0_Standard":-5,"invalid":"bad"}})
 	game._read_save()
-	_check(game.save_data.unlocked == 3 and game.save_data.best == 0, "Out of range save values are clamped")
+	_check(game.save_data.unlocked == 6 and game.save_data.best == 0, "Out of range save values are clamped")
 	_check(game.save_data.difficulty == "Standard" and not game.save_data.records.has("invalid"), "Invalid save fields are ignored")
 	var file := FileAccess.open(TEST_SAVE,FileAccess.WRITE)
 	file.store_string("{ broken json")
 	file.close()
 	game._read_save()
-	_check(game.save_data.unlocked == 3, "Malformed save does not crash or erase valid in-memory progress")
+	_check(game.save_data.unlocked == 6, "Malformed save does not crash or erase valid in-memory progress")
 
 func _step(seconds: float) -> void:
 	for i in range(int(ceil(seconds / 0.05))):

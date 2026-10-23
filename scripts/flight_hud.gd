@@ -4,6 +4,7 @@ extends CanvasLayer
 signal action(name: String, value: Variant)
 
 const Squadron = preload("res://scripts/flight_squadron.gd")
+const Campaign = preload("res://scripts/flight_campaign.gd")
 
 const INK := Color("08131c")
 const PAPER := Color("f3ebd7")
@@ -57,6 +58,12 @@ var _energy: ProgressBar
 var _boss: ProgressBar
 var _route: ProgressBar
 var _boss_title: Label
+var _boss_parts: Label
+var _vehicle_title: Label
+var _pickup_notice: Label
+var _carrier_status: Label
+var _arena_warning: Label
+var _controls: Label
 var _score: Label
 var _combo: Label
 var _bombs: Label
@@ -229,19 +236,21 @@ func _build_menu() -> void:
 	_label(_menu,"ASTERION DEFENCE FORCE     /     FLIGHT 04",Vector2(64,58),500,13,CYAN)
 	_label(_menu,"FOXLIKE",Vector2(58,88),520,88,PAPER)
 	_label(_menu,"A S T E R I O N   F L I G H T",Vector2(64,190),470,20,ORANGE)
-	_paragraph(_menu,"Three pilots. One last flight.\nBreak the siege across the Asterion system.",Vector2(64,239),Vector2(390,60),19,PAPER)
-	_button(_menu,"LAUNCH CAMPAIGN     >",Vector2(64,322),Vector2(364,53),"new_run",null,true)
-	_continue = _button(_menu,"CONTINUE FLIGHT",Vector2(64,387),Vector2(364,47),"continue")
-	_label(_menu,"MISSION SELECT",Vector2(64,455),350,12,SOFT)
-	for i in range(3):
-		_stage_buttons.append(_button(_menu,["01 / VIRIDIA","02 / AURORA","03 / TERMINUS"][i],Vector2(64+i*124,482),Vector2(116,38),"stage",i))
-	_difficulty = _button(_menu,"STANDARD",Vector2(64,540),Vector2(177,37),"cycle_difficulty")
+	_paragraph(_menu,"Six sorties. One squadron.\nBreak the siege of Asterion.",Vector2(64,239),Vector2(390,60),19,PAPER)
+	_button(_menu,"LAUNCH CAMPAIGN     >",Vector2(64,307),Vector2(444,49),"new_run",null,true)
+	_continue = _button(_menu,"CONTINUE FLIGHT",Vector2(64,367),Vector2(444,43),"continue")
+	_label(_menu,"MISSION SELECT",Vector2(64,432),450,12,SOFT)
+	for i in range(Campaign.STAGES.size()):
+		var mission: Dictionary = Campaign.STAGES[i]
+		var point := Vector2(64+(i%3)*152,462+int(i/3)*44)
+		_stage_buttons.append(_button(_menu,"%02d / %s" % [i+1,str(mission.title)],point,Vector2(140,36),"stage",i))
+	_difficulty = _button(_menu,"STANDARD",Vector2(64,559),Vector2(216,35),"cycle_difficulty")
 	# Difficulty cycles locally, then emits the public difficulty action.
 	for connection in _difficulty.pressed.get_connections():
 		_difficulty.pressed.disconnect(connection.callable)
 	_difficulty.pressed.connect(_cycle_difficulty)
-	_mute_menu = _button(_menu,"SOUND ON",Vector2(251,540),Vector2(177,37),"mute")
-	_best = _label(_menu,"BEST SORTIE   000000",Vector2(64,592),380,14,CYAN)
+	_mute_menu = _button(_menu,"SOUND ON",Vector2(292,559),Vector2(216,35),"mute")
+	_best = _label(_menu,"BEST SORTIE   000000",Vector2(64,599),450,14,CYAN)
 	_label(_menu,"WASD / ARROWS steer  SPACE / LMB fire  Q / E roll  SHIFT boost  CTRL brake",Vector2(64,625),1050,12,SOFT)
 	_label(_menu,"B  nova    R / RMB  missile    F squad abilities   TAB formation   C chatter    M  mute    ESC  pause",Vector2(64,646),1050,12,SOFT)
 	_label(_menu,"STUNTS  hold SHIFT / RB + tap LEFT somersault / DOWN long loop / RIGHT corkscrew",Vector2(64,668),1110,10,SOFT)
@@ -269,7 +278,7 @@ func _build_game() -> void:
 	_backplate(_game,Vector2(18,16),Vector2(345,115))
 	_backplate(_game,Vector2(397,16),Vector2(486,75),.36)
 	_backplate(_game,Vector2(1000,16),Vector2(260,108),.36)
-	_label(_game,"COMET  /  ARROW MK I",Vector2(30,22),300,13,CYAN)
+	_vehicle_title = _label(_game,"COMET  /  ARROW MK I",Vector2(30,22),300,13,CYAN)
 	_shield_label = _label(_game,"SHIELD  100",Vector2(30,47),260,15,PAPER)
 	_shield = _bar(_game,Vector2(30,75),Vector2(248,8),CYAN)
 	_energy_label = _label(_game,"ENGINE  100",Vector2(30,89),230,12,SOFT)
@@ -285,19 +294,27 @@ func _build_game() -> void:
 	_score.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	_combo = _label(_game,"",Vector2(985,69),262,15,ORANGE)
 	_combo.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	_bombs = _label(_game,"NOVA   03",Vector2(1000,98),248,14,CYAN)
+	_bombs = _label(_game,"MISSILES  6/8   /   NOVA  03",Vector2(1000,98),248,12,CYAN)
 	_bombs.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	_boss_title = _label(_game,"",Vector2(420,102),440,14,ORANGE)
 	_boss_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_boss = _bar(_game,Vector2(420,131),Vector2(440,8),ORANGE)
 	_boss.hide()
+	_boss_parts = _label(_game,"",Vector2(340,145),600,11,SOFT)
+	_boss_parts.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_pickup_notice = _label(_game,"",Vector2(320,433),640,19,CYAN)
+	_pickup_notice.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_carrier_status = _label(_game,"",Vector2(1000,133),248,14,CYAN)
+	_carrier_status.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	_arena_warning = _label(_game,"",Vector2(340,182),600,17,ORANGE)
+	_arena_warning.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_lock_label = _label(_game,"",Vector2(520,475),240,15,CYAN)
 	_lock_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_speed = _label(_game,"CRUISE / 100",Vector2(1050,616),195,13,SOFT)
 	_speed.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	_wingmen = _label(_game,"LATCH 100     GLINT 100",Vector2(30,640),1200,12,CYAN)
 	_formation = _label(_game,"WIDE V / TAB CHANGE",Vector2(30,661),900,11,SOFT)
-	_label(_game,"SHIFT + A/LEFT flip · S/DOWN loop · D/RIGHT corkscrew  |  SPACE fire · Q/E roll · CTRL brake · B nova · R missile · F squad · TAB formation · ESC pause",Vector2(30,687),1210,11,SOFT)
+	_controls = _label(_game,"SHIFT + A/LEFT flip · S/DOWN loop · D/RIGHT corkscrew  |  SPACE fire · Q/E roll · CTRL brake · B nova · R missile · F squad · TAB formation · ESC pause",Vector2(30,687),1210,11,SOFT)
 	_comms = Control.new()
 	_comms.position = Vector2(30,520)
 	_comms.size = Vector2(610,103)
@@ -345,9 +362,9 @@ func show_menu(progress: Dictionary) -> void:
 	_pause.hide()
 	_comms.hide()
 	_comms_remaining = 0
-	var unlocked := clampi(int(progress.get("unlocked",1)),1,3)
+	var unlocked := clampi(int(progress.get("unlocked",1)),1,Campaign.STAGES.size())
 	_continue.disabled = unlocked < 2
-	for i in range(3):
+	for i in range(_stage_buttons.size()):
 		_stage_buttons[i].disabled = i>=unlocked
 	_best.text = "BEST SORTIE   %06d" % int(progress.get("best",0))
 	_difficulty_value = str(progress.get("difficulty","Standard"))
@@ -386,9 +403,15 @@ func show_briefing(stage: Dictionary) -> void:
 	_label(_modal,"MISSION BRIEFING   /   %02d",Vector2(82,111),1000,15,CYAN).text = "MISSION BRIEFING   /   %02d" % (int(stage.get("index",0))+1)
 	_label(_modal,str(stage.get("title","VIRIDIA")),Vector2(78,153),1110,62,PAPER)
 	_label(_modal,str(stage.get("subtitle","RETURN TO THE SKIES")).to_upper(),Vector2(82,242),1090,19,ORANGE)
-	_paragraph(_modal,str(stage.get("description","")),Vector2(82,291),Vector2(790,112),23,PAPER)
+	_paragraph(_modal,str(stage.get("description","")),Vector2(82,291),Vector2(1050,126),22,PAPER)
 	_label(_modal,"FLIGHT OBJECTIVE",Vector2(82,440),700,12,CYAN)
-	_paragraph(_modal,str(stage.get("objective","Clear the route and destroy the command ship.")),Vector2(82,468),Vector2(780,65),19,SOFT)
+	_paragraph(_modal,str(stage.get("objective","Clear the route and destroy the command ship.")),Vector2(82,468),Vector2(1090,40),19,SOFT)
+	var instructions := "WASD / stick steer · SPACE / RT fire · R / X missile · B nova · Q/E roll · SHIFT / RB boost"
+	if str(stage.get("vehicle","flight")) == "tank":
+		instructions = "A/D steer · W/S aim elevation · Hold SHIFT / RB to hover; release to land · SPACE / RT fire"
+	elif bool(stage.get("arena",false)):
+		instructions = "A/D / stick turn · Defend the carrier · Follow the radar · The arena rim triggers an automatic U-turn"
+	_paragraph(_modal,instructions,Vector2(82,513),Vector2(1090,36),14,CYAN)
 	var launch := _button(_modal,"LAUNCH SQUADRON     >",Vector2(82,560),Vector2(360,54),"launch",null,true)
 	_button(_modal,"FLIGHT DECK",Vector2(459,560),Vector2(200,54),"menu")
 	launch.grab_focus()
@@ -447,30 +470,60 @@ func set_muted(muted: bool) -> void:
 func update_hud(data: Dictionary) -> void:
 	_build()
 	var shield_value := clampf(float(data.get("shield",100)),0,100)
-	var energy_value := clampf(float(data.get("energy",100)),0,100)
+	var is_tank := str(data.get("vehicle","flight")) == "tank"
+	var is_arena := bool(data.get("arena",false))
+	var energy_value := clampf(float(data.get("hover_fuel",100) if is_tank else data.get("energy",100)),0,100)
 	_shield.value = shield_value
 	_energy.value = energy_value
 	_shield_label.text = "SHIELD  %03d" % ceili(shield_value)
 	_shield_label.modulate = RED if shield_value<25 else Color.WHITE
-	_energy_label.text = "ENGINE  %03d" % ceili(energy_value)
+	_vehicle_title.text = "COMET  /  JET TANK" if is_tank else "COMET  /  ARROW MK I"
+	_energy_label.text = ("JET FUEL  %03d" if is_tank else "ENGINE  %03d") % ceili(energy_value)
 	_score.text = "%06d" % int(data.get("score",0))
 	var combo_value := int(data.get("combo",0))
 	_combo.text = "CHAIN  ×%d" % combo_value if combo_value>1 else ""
-	_bombs.text = "NOVA   %02d" % clampi(int(data.get("bombs",0)),0,9)
+	_bombs.text = "MISSILES  %d/%d   /   NOVA  %02d" % [maxi(0,int(data.get("missiles",6))),int(data.get("missile_max",8)),clampi(int(data.get("bombs",0)),0,9)]
+	_pickup_notice.text = str(data.get("pickup_notice",""))
+	_carrier_status.visible = is_arena
+	var carrier_health := clampf(float(data.get("carrier_hp",100)),0,100)
+	_carrier_status.text = "CARRIER HULL  %03d%%" % ceili(carrier_health)
+	_carrier_status.add_theme_color_override("font_color",RED if carrier_health<30 else CYAN)
+	_arena_warning.visible = is_arena
+	_arena_warning.text = "AUTO TURN / RETURNING TO THE CARRIER" if bool(data.get("arena_turning",false)) else ("ARENA RIM / TURN BACK" if bool(data.get("arena_warning",false)) else "")
 	_stage.text = str(data.get("stage_name",""))
 	_objective.text = str(data.get("objective",""))
 	_route.value = clampf(float(data.get("progress",0)),0,1)*100
 	_speed.text = "VELOCITY  %03d" % int(data.get("speed",100))
 	_roll.text = "ROLL READY" if bool(data.get("roll_ready",true)) else "ROLL RECHARGING"
 	_roll.modulate.a = 1.0 if bool(data.get("roll_ready",true)) else .5
+	if is_tank:
+		_roll.text = "HOVER / SHIFT"
+		_roll.modulate.a = 1.0
 	var maneuver_name := str(data.get("maneuver",""))
 	var maneuver_wait := float(data.get("maneuver_cooldown",0.0))
 	_maneuver.text = maneuver_name if not maneuver_name.is_empty() else ("STUNT RECHARGE  %.1fs" % maneuver_wait if maneuver_wait > 0.0 else ("STUNT READY  /  30 ENERGY" if bool(data.get("maneuver_ready",true)) else "STUNT NEEDS 30 ENERGY / NO ROLL"))
+	if is_tank:
+		_maneuver.text = "HOLD SHIFT / RB TO HOVER · RELEASE TO LAND"
+	elif is_arena:
+		_maneuver.text = "ALL-RANGE / AUTO TURN AT PERIMETER"
+	_controls.text = "A/D steer · W/S aim elevation · SHIFT/RB jet hover · SPACE/RT fire · R/X missile · B nova · F squad · TAB formation · ESC pause" if is_tank else ("A/D turn · W/S climb · SPACE fire · Q/E roll · SHIFT boost · CTRL brake · R missile · B nova · F squad · TAB formation · ESC pause" if is_arena else "SHIFT + A/LEFT flip · S/DOWN loop · D/RIGHT corkscrew  |  SPACE fire · Q/E roll · CTRL brake · B nova · R missile · F squad · TAB formation · ESC pause")
 	var boss_hp := float(data.get("boss_hp",-1))
 	_boss.visible = boss_hp>=0
 	_boss_title.visible = boss_hp>=0
 	_boss.value = clampf(boss_hp,0,1)*100
 	_boss_title.text = str(data.get("boss_name",""))
+	_boss_parts.visible = boss_hp>=0
+	var parts_text := str(data.get("boss_parts_text",""))
+	if parts_text.is_empty() and data.get("boss_parts",[]) is Array:
+		var part_labels: Array[String] = []
+		for part: Variant in data.get("boss_parts",[]):
+			if part is Dictionary:
+				var part_health := clampf(float(part.get("hp",0))/maxf(1.0,float(part.get("max_hp",1))),0,1)
+				part_labels.append("%s %s" % [str(part.get("name","POD")).to_upper(),"DOWN" if part_health<=0 else "%d%%" % ceili(part_health*100)])
+		parts_text = " · ".join(part_labels)
+		if not part_labels.is_empty():
+			parts_text += " / CORE EXPOSED" if bool(data.get("core_open",false)) else " / CORE ARMORED"
+	_boss_parts.text = parts_text
 	var lock_value := float(data.get("lock",0))
 	_lock_label.text = "TARGET LOCKED" if lock_value>=.99 else ("ACQUIRING  %02d%%" % int(lock_value*100) if lock_value>.03 else "")
 	var wing_text: Array[String] = []

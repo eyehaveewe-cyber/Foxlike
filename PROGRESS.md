@@ -1,5 +1,15 @@
 # Foxlike progress
 
+## 2026-10-23 — Playtest fixes and six-mission expansion
+
+Applied the Foxlike section of the October 22 Crunch-Time Jam notes. Ring and pickup collection now sweeps both pickup and player motion between frames and displays an immediate reward notice. Player missiles start at six, cap at eight, consume ammunition and create an 18-unit area blast; cyan ammo crates add three and green repair supplies add two. Boss weapons have separate health, visible destruction and disabled attacks. A core receives only 8% damage until its weapons are down; Warden now has a 260-health core and two 65-health cannons on Standard.
+
+Added three missions, each with a distinct boss. Cinder uses the Jackal tank with finite-fuel jet packs, grounded recharge, traversable barriers and Iron Maw's siege crawler. Anchorage is a free-flight defense arena around the actual Project Barrel Roll Dragonfly carrier, with incoming attackers, carrier hull damage, radar, Harrow and a 2.4-second climbing turnaround at the rim. Tempest adds a storm route and Crown's four-pylon fortress. Menus, briefings, progression, saves and the final ending now support all six missions; old Terminus clears unlock Cinder. Rail-flight boost stunts remain available on the rail missions.
+
+Imported three 34.909-second excerpts of MBean1's original *The Bone Lantern Ballroom*. They use the unchanged note score and actual pinned MBean1 Web Audio renderer; source score, renderer, regeneration script and [provenance](docs/ASSET_IMPORTS.md) are included. No additional sampled instrument downloads are needed to play.
+
+Validation: all 197 native Godot 4.7.2 assertions pass (74 campaign, 35 squadron, 38 combat revision, 50 expansion). Coverage includes pickup sweeps and near misses, ammo depletion/resupply, area damage, boss subsystem targeting, real hover/barrier collisions, fuel/rearm behavior, arena coordinate and projectile continuity, 20/120 fps turnaround containment, carrier attacks/failure, six boss/result paths and old-save migration. Native screenshots and motion clips were rendered and inspected. Windows and Web expansion exports and the editable source ZIP package successfully. The local browser process still exits before the menu, so no new Web runtime pass is claimed. Physical controller, human balance and native Windows runtime testing remain outstanding. See [playtest resolutions](docs/PLAYTEST_RESOLUTION.md).
+
 ## 2026-10-22 — Companion roster, combat and formations
 
 Added five pilots and two saved equipment slots on the main screen. Latch intercepts shots, Glint fires rapid bursts, Pike unlocks after Viridia with homing missiles, Ember unlocks after Aurora with local Nova blasts, and Bastion unlocks after Terminus with heavier shields and faster interception. Each has separate health, laser rate, damage, ability cooldown and temporary Mk I–III arsenal level. Existing mission unlocks/clear records migrate to roster access; invalid or duplicate selections sanitize to valid distinct pilots.

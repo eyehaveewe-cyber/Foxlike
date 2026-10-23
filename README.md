@@ -1,12 +1,12 @@
 # Foxlike: Asterion Flight
 
-An original, complete three-mission **3D arcade flight campaign** in the Project Barrel Roll setting. Fly Mara “COMET” Venn's Arrow Mk I with two selectable companions, break a coastal blockade, chase a signal through an ice field, and destroy the command carrier over Terminus.
+A six-mission **3D arcade campaign** in the Project Barrel Roll setting. Fly Mara “COMET” Venn's Arrow Mk I with two selectable companions, drive the jet-assisted Jackal tank, defend the Dragonfly carrier in an open arena, and face a separate boss on every mission.
 
-Built for **Godot 4.7.2 stable**, using the Compatibility renderer. All ships, environments and effects are procedural 3D geometry. Music and effects are original synthesis. No external asset service, account, API key or network connection is needed to play a downloaded build.
+Built for **Godot 4.7.2 stable**, using the Compatibility renderer. All ships, environments and effects are procedural 3D geometry. Music combines original Foxlike synthesis with three MBean1 score excerpts rendered through MBean1's own audio engine; effects are synthesized. No external asset service, account, API key or network connection is needed to play a downloaded build.
 
-![RIME battle animation](docs/previews/flight-animation.gif)
+![Jackal jet tank clearing a barrier](docs/previews/tank-hover.png)
 
-[Higher-resolution animation clip](docs/previews/flight-animation.mp4) · [Viridia screenshot](docs/previews/02-flight-0.png) · [Terminus boss screenshot](docs/previews/03-boss-2.png)
+[Tank hover and landing](docs/previews/tank-hover.mp4) · [Arena turnaround](docs/previews/arena-turn.mp4) · [Dragonfly defense](docs/previews/carrier-defense.png) · [Six-mission menu](docs/previews/six-mission-menu.png)
 
 ## Download the editable Godot project
 
@@ -31,10 +31,13 @@ See [running and packaging](docs/RUNNING.md) for detailed export instructions.
 - **Viridia — The coast is burning:** sunset coastal city, formation attacks, debris slalom, and the Warden blockade frigate.
 - **Aurora — Ghosts in the ice:** crystalline asteroid corridor, ringed planet, crossing interceptors, and RIME's six articulated weapon tentacles. Destroyed arms physically collapse.
 - **Terminus — The last light:** orbital shipyard trench, reinforcements, telegraphed lance strikes, and the Sovereign command carrier.
+- **Cinder — Fire beneath the tracks:** drive the Jackal tank through foundries, use finite-fuel jet packs to hover over barriers, and dismantle Iron Maw's mortars and siege crawler core.
+- **Anchorage — Hold the circle:** fly freely around the Dragonfly, intercept its attackers, and destroy the Harrow carrier hunter before the friendly carrier loses its hull. Radar and perimeter beacons help you keep your bearings.
+- **Tempest — Beyond the storm:** thread storm conduits, evade lightning lanes, and strip the Crown storm fortress's four pylons before attacking its heart.
 
-Each route lasts about 90–105 seconds before its boss. Boss duration depends on aim and weapon use; a first full campaign is roughly 8–12 minutes. Each mission restores the ship and ammunition. Defeat offers a mission retry. Completing missions saves unlocks, scores and difficulty-specific records; the final mission closes the story.
+Mission approaches last 88–110 seconds before the boss; boss duration depends on aim and weapon use. Each mission restores the vehicle and ammunition. Defeat offers a mission retry. Completing missions saves unlocks, scores and difficulty-specific records; Tempest closes the expanded campaign. Existing saves that cleared Terminus unlock Cinder automatically.
 
-The flight rig banks and pitches into movement, flaps respond to throttle, thrusters lengthen under boost, and barrel rolls deflect shots. Boss cores rotate, carrier doors move, weapon arms articulate and collapse, and explosions throw spinning debris through expanding shockwaves. The soundtrack has six distinct mission/boss arrangements.
+The flight rig banks and pitches into movement, flaps respond to throttle, thrusters lengthen under boost, and barrel rolls deflect shots. Boss cores rotate, carrier doors move, weapon arms articulate and collapse, and explosions throw spinning debris through expanding shockwaves. Every boss has individually damageable weapon systems with their own health. Destroying a system removes its shots; until all systems are down, the core takes only 8% damage. On Standard, Warden has a 260-health core and two 65-health cannons. The mission soundtrack uses three developed excerpts from MBean1's *The Bone Lantern Ballroom*, alongside Foxlike's original boss music. See [asset provenance](docs/ASSET_IMPORTS.md).
 
 Three difficulties adjust damage and, on Cadet, target durability and aim assistance. Mission selection unlocks as the campaign advances. Scores reward kills, chains, rings, surviving wingmen, remaining shields and weapon-pod destruction.
 
@@ -62,13 +65,15 @@ Companions automatically shoot forward targets and use ready offensive abilities
 
 | Action | Keyboard / mouse | Controller |
 |---|---|---|
-| Steer | WASD / arrows, or move the mouse | Left stick |
+| Rail flight steering | WASD / arrows, or move the mouse | Left stick |
 | Twin lasers | Space / left click | Right trigger |
 | Barrel roll | Q / E | A |
-| Boost | Hold Shift | Right bumper |
-| In-place somersault | Hold Shift, tap A / Left | Hold RB, flick stick left |
-| Long forward loop | Hold Shift, tap S / Down | Hold RB, flick stick down |
-| Climbing corkscrew | Hold Shift, tap D / Right | Hold RB, flick stick right |
+| Flight boost / tank jet packs | Hold Shift | Hold right bumper |
+| Tank movement / gun aim | A/D move sideways; W/S aim vertically | Left stick horizontal / vertical |
+| Arena turn / altitude | A/D turn; W/S climb or descend | Left stick horizontal / vertical |
+| Rail-only in-place somersault | Hold Shift, tap A / Left | Hold RB, flick stick left |
+| Rail-only long forward loop | Hold Shift, tap S / Down | Hold RB, flick stick down |
+| Rail-only climbing corkscrew | Hold Shift, tap D / Right | Hold RB, flick stick right |
 | Brake | Hold Ctrl | Left bumper |
 | Homing missile | R / right click after lock | X |
 | Nova bomb | B | B |
@@ -79,34 +84,46 @@ Companions automatically shoot forward targets and use ready offensive abilities
 | Cut / resume chatter | C | — |
 | Fullscreen | F11 | — |
 
-Aim at a target until the lock completes, then fire a homing missile. Missiles recharge in 2.5 seconds; companion abilities recharge independently according to the roster above. Nova bombs are limited. **Gold rings repair shields; collecting three upgrades the twin lasers.** Green crosses repair damage, red crosses replenish a nova. Roll through red shots, steer around debris, and move sideways out of the Sovereign's marked lance lane.
+Aim at a target until the lock completes, then fire a homing missile. Start each mission with **six missiles**, carry up to **eight**, and wait 2.5 seconds between shots. The missile explodes across an **18-unit radius** on impact, damaging nearby enemies and clearing hostile bolts. Cyan ammo crates add three missiles; green repair supplies restore shields and add two. Companion abilities use their own cooldowns and do not spend player ammunition. Nova bombs are also limited.
 
-Boost maneuvers each cost 30 engine energy and share a four-second cooldown from activation. Hold boost first, then tap the direction. A held direction does not repeat the move. The compact somersault takes 1.25 seconds; the long loop surges forward, completes a vertical loop, and returns to flight depth in 2.65 seconds. The corkscrew climbs to a forward boosted position in 1.8 seconds, then eases speed and position back to cruise over 1.5 seconds. Release boost after a maneuver to rearm ordinary boost. Steering resumes when the path finishes; Q/E barrel rolls cannot overlap it. Somersaults suspend forward lasers and missile locking during the flip. These maneuvers move the actual collision position and do not add barrel-roll invulnerability. Near screen edges the large paths ease toward a safe center before looping.
+**Gold rings repair shields; every third ring upgrades the twin lasers.** Red crosses replenish a Nova. Pickup detection follows the relative movement of both vehicle and pickup, so a fast crossing between frames still registers once. The HUD immediately displays the collected item and reward. Roll through red shots, steer around debris, and move sideways out of a marked lance lane.
+
+In the rail flight missions, boost maneuvers each cost 30 engine energy and share a four-second cooldown from activation. Hold boost first, then tap the direction. A held direction does not repeat the move. The compact somersault takes 1.25 seconds; the long loop surges forward, completes a vertical loop, and returns to flight depth in 2.65 seconds. The corkscrew climbs to a forward boosted position in 1.8 seconds, then eases speed and position back to cruise over 1.5 seconds. Release boost after a maneuver to rearm ordinary boost. Steering resumes when the path finishes; Q/E barrel rolls cannot overlap it. Somersaults suspend forward lasers and missile locking during the flip. These maneuvers move the actual collision position and do not add barrel-roll invulnerability. Near screen edges the large paths ease toward a safe center before looping.
 
 [Actual maneuver animation](docs/previews/boost-maneuvers.gif)
 
-Mouse movement takes over steering; pressing a steering key or moving the controller stick returns to that input. Release boost after exhausting the engine to rearm it. Use Tab/arrow keys and Enter to navigate menus.
+In Cinder, hold Shift / RB to jump and sustain hover, release to land, and recharge fuel on the ground. After exhaustion, release and press again to rearm the jets. W/S changes gun aim rather than tank height. The tank cannot barrel-roll or perform flight stunts.
+
+In Anchorage, A/D changes world heading and W/S changes altitude. The carrier and attackers occupy persistent arena positions; radar shows your heading and their relative locations. Approaching the outer rim while heading outward triggers a **2.4-second climbing turnaround**, slows the craft, and returns control facing inward. This move grants no invulnerability. Boost-direction stunts are disabled in the arena.
+
+Mouse movement takes over steering in rail flight; pressing a steering key or moving the controller stick returns to that input. Release boost after exhausting the engine to rearm it. Use Tab/arrow keys and Enter to navigate menus.
 
 ## Development and verification
 
 ```bash
-godot --headless --path . --editor --import --quit
+godot --headless --path . --import
 godot --headless --path . --script tests/game_smoke.gd -- --test-save
 godot --headless --path . --script tests/squadron_smoke.gd -- --test-save
+godot --headless --path . --script tests/combat_revision_smoke.gd -- --test-save
+godot --headless --path . --script tests/expansion_smoke.gd -- --test-save
 python tools/package_release.py --godot godot
 ```
 
-The integration suite exercises real scene state, keyboard input, moving projectiles, lock/missile hits, rolls, bombs, pickups, all three mission routes and boss/result transitions, defeat/retry, and save validation. It uses a separate save file. It does **not** substitute for human playtesting or demonstrate difficulty balance; boss-death cases reduce boss health to make transitions deterministic.
+The four native integration suites pass **197 assertions**: 74 campaign, 35 squadron, 38 combat revision and 50 expansion checks. They exercise real scene state and input, swept pickup collection, ammunition and area damage, boss parts, tank hover/barrier collision, arena navigation and carrier damage, all six boss/result paths, retries and save migration. They use a separate save file. They do **not** substitute for human playtesting or demonstrate difficulty balance; boss-death cases reduce boss health to make transitions deterministic.
 
-See [verification evidence](docs/VERIFICATION.md), [progress](PROGRESS.md), [design](docs/DESIGN.md), and [source provenance](docs/SOURCES.md). The [design handoff DOCX](docs/Foxlike_Design_and_Handoff.docx) records the brief and implementation choices.
+See [playtest resolutions](docs/PLAYTEST_RESOLUTION.md), [verification evidence](docs/VERIFICATION.md), [progress](PROGRESS.md), [design](docs/DESIGN.md), and [source provenance](docs/SOURCES.md). The [design handoff DOCX](docs/Foxlike_Design_and_Handoff.docx) records the brief and implementation choices.
 
-This is a compact first complete game, with room for later refinement. It is an on-rails campaign, not an all-range dogfight simulation. It has no multiplayer, voice acting, rebinding interface or touch controls. Controller bindings are implemented; physical controller testing and Windows hardware performance remain to be checked.
+This is a compact arcade campaign combining rail flight, a tank mission and one free-flight defense arena. The expansion has native rendered evidence and successful Windows/Web exports. The local Chromium runtime check is blocked before the menu; see the dated verification record. It has no multiplayer, voice acting, rebinding interface or touch controls. Controller bindings are implemented; physical controller testing and Windows hardware performance remain to be checked.
 
 ## Project structure
 
 | File | Responsibility |
 |---|---|
 | `scripts/flight_game.gd` | Flight, combat, campaign, encounters, saves |
+| `scripts/flight_campaign.gd` | Six mission definitions shared by menus and progression |
+| `scripts/flight_tank.gd` | Jet-pack fuel, hover, gravity and ground recharge |
+| `scripts/flight_arena.gd` | World navigation, arena frame and boundary turnaround |
+| `scripts/arena_carrier.gd` | Adapted Project Barrel Roll Dragonfly hull and damage feedback |
 | `scripts/flight_squadron.gd` | Companion roster, unlock/save migration, formation offsets and ability stats |
 | `scripts/flight_maneuver.gd` | Timed somersault, long loop, corkscrew and recovery paths |
 | `scripts/ship_model.gd` | Procedural airframes and animation rigs |
@@ -115,7 +132,8 @@ This is a compact first complete game, with room for later refinement. It is an 
 | `scripts/flight_overlay.gd` | Projected reticle and target feedback |
 | `scripts/flight_effects.gd` | Capped particles and shockwaves |
 | `scripts/flight_audio.gd` | Music, sound pool and volume |
-| `assets/audio/generate_audio.py` | Reproducible original soundtrack/effects |
+| `assets/audio/generate_audio.py` | Reproducible original Foxlike soundtrack/effects |
+| `assets/audio/mbean/` | MBean1 score, pinned renderer, loop renders and regeneration script |
 | `tests/` | Integration and rendered evidence harnesses |
 | `tools/package_release.py` | Repeatable Windows and Web packages |
 

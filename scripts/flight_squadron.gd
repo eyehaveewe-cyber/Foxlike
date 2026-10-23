@@ -1,5 +1,6 @@
 extends RefCounted
 ## Roster rules and saved loadout. Runtime damage, motion and projectiles belong to flight_game.
+const MISSION_COUNT := 6
 const FORMATIONS := ["WIDE V", "SPEARHEAD", "CLOSE GUARD"]
 const ROSTER := [
 	{"id":"latch","name":"LATCH","role":"Interceptor","hp":110.0,"interval":0.95,"damage":0.45,"ability":"guard","cooldown":9.0,"gate":-1,"color":"ffc075","description":"Dashes ahead to absorb an incoming shot."},
@@ -26,14 +27,14 @@ static func normalize(progress: Dictionary) -> void:
 	var raw: Variant = progress.get("completed_stages",[])
 	if raw is Array:
 		for stage: Variant in raw:
-			if (stage is int or stage is float) and stage == int(stage) and stage>=0 and stage<=2 and not completed.has(int(stage)):
+			if (stage is int or stage is float) and stage == int(stage) and stage>=0 and stage<MISSION_COUNT and not completed.has(int(stage)):
 				completed.append(int(stage))
 	# Migration: old mission unlocks and positive clear records prove prior victories.
-	for stage in range(clampi(int(progress.get("unlocked",1))-1,0,2)):
+	for stage in range(clampi(int(progress.get("unlocked",1))-1,0,MISSION_COUNT-1)):
 		if not completed.has(stage): completed.append(stage)
 	var records: Variant = progress.get("records",{})
 	if records is Dictionary:
-		for stage in range(3):
+		for stage in range(MISSION_COUNT):
 			for difficulty in ["Cadet","Standard","Ace"]:
 				if float(records.get("%d_%s" % [stage,difficulty],0))>0 and not completed.has(stage): completed.append(stage)
 	completed.sort()

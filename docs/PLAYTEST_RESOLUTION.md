@@ -1,0 +1,25 @@
+# Foxlike playtest resolutions
+
+This update applies the **Foxlike section** of `Crunch_Time_Jam_Playtest_Notes_2026-10-22.docx`. The document also discusses Project Klax and Project NVS; those repositories and their suggestions are outside this Foxlike change. Observed playtest issues and proposed directions are distinguished below.
+
+| Playtest finding or direction | Implemented response | Evidence |
+| --- | --- | --- |
+| Rings and airborne pickups sometimes appeared not to register | Collection sweeps the relative movement of vehicle and pickup between frames, awards once, removes the collected object, and shows an immediate item/reward notice. | `tests/combat_revision_smoke.gd`: long-frame crossing, sideways player sweep, one award, visible notice and a near miss outside the envelope. |
+| Right-click area attack felt too small | The locked player missile now bursts across an 18-unit radius, damaging nearby targets and clearing hostile bolts. The visual shockwave matches that radius. | Combat revision suite exercises a real missile hit and nearby area damage; `flight_game.gd` owns the shared impact position/radius. |
+| Missiles appeared unlimited | Each mission starts with six missiles, caps inventory at eight and consumes one per launch. Empty attempts cannot spawn a projectile. Cyan ammo crates add three; green repair supplies add two. The 2.5-second firing cooldown remains. | Combat revision suite checks consumption, empty fire, repair replenishment and the cap; HUD shows remaining ammunition. |
+| First boss died quickly and lacked individually damageable parts | Warden has two independently targetable 65-health cannons and a 260-health core on Standard. Destroyed weapons visibly disappear and stop firing. Every boss has separate subsystem health; an armored core takes only 8% damage until all systems are disabled. | Combat revision suite checks forward locks, subsystem-only damage, armor reduction, disabled weapon shots and full damage after exposure. These values are a tuning pass, not proof of ideal difficulty. |
+| Use music from MBean1 | Three sections of the original *The Bone Lantern Ballroom* score now provide mission music. The unchanged score and pinned MBean1 Web Audio renderer produce the bundled OGG loops. | Native audio loading, original score validation, successful renderer output, decoded duration/level checks and [exact asset provenance](ASSET_IMPORTS.md). Human listening/balance review is separate. |
+| Preserve the animation/combat testbed role for Project Barrel Roll | The expansion keeps controller-owned movement, procedural vehicle animation and reproducible source. Tank hover and arena turnaround are isolated in their own scripts. | `flight_tank.gd`, `flight_arena.gd` and native movement/collision checks. No commercial release or price commitment is introduced. |
+| Deliver an editable Godot project separately from executables | Repository root contains `project.godot`, scenes, scripts, source scores, procedural assets and export presets. The existing source packager produces a separate editable-source ZIP. | `tools/package_source.py`, root `project.godot`, [source download](https://github.com/eyehaveewe-cyber/Foxlike/archive/refs/heads/main.zip) and [running instructions](RUNNING.md). |
+
+## Requested expansion
+
+The campaign now has six missions and six bosses. **Cinder** adds the Jackal tank and Iron Maw: hold Shift / RB to jump and hover over barriers, then land to recharge fuel. **Anchorage** adds open flight around the actual Project Barrel Roll Dragonfly carrier: intercept its attackers, preserve its hull and destroy Harrow. Radar shows the arena; outward travel near the rim starts a 2.4-second climbing turnaround that returns the craft inward without granting invulnerability. **Tempest** adds a storm approach and Crown's destructible pylons and core.
+
+The previous Viridia, Aurora and Terminus missions remain. Menus, saved unlocks, briefing/result flow and the final ending support all six. A previous Terminus clear unlocks Cinder without resetting progression. The three boost-direction stunts remain rail-flight abilities; Cinder uses that boost control for jet packs and Anchorage handles its boundary turnaround automatically.
+
+## Verification status
+
+All **197 native Godot 4.7.2 assertions** pass: 74 campaign, 35 squadron, 38 combat revision and 50 expansion checks. Expansion checks cover real tank movement and obstacle clearance/damage, fuel and rearm behavior, arena world coordinates and projectile continuity, radar state, carrier damage/failure, boss placement/targeting, all six completion paths, save migration and turnaround containment at 20 and 120 fps.
+
+Native gameplay screenshots and hover/turnaround clips were rendered and inspected; Windows and Web exports package successfully. The local Chromium process exits before the menu, so the expanded Web runtime remains unverified locally. Automated tests do not establish fun, final difficulty, physical controller operation or performance on the user's Windows hardware. See [VERIFICATION.md](VERIFICATION.md) for subsequent completed build and rendering evidence.

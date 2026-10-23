@@ -39,16 +39,20 @@ func setup(model_kind: String, tint: Color = Color("68dcff")) -> void:
 	visual.name = "AnimatedAirframe"
 	add_child(visual)
 	_palette(tint)
-	_facing = PI if kind in ["fighter", "interceptor", "bomber", "boss1", "boss2", "boss3"] else 0.0
+	_facing = PI if kind in ["fighter", "interceptor", "bomber", "boss1", "boss2", "boss3", "boss4", "boss5", "boss6"] else 0.0
 	visual.rotation.y = _facing
 	match kind:
 		"player", "wingman": _build_arrow()
+		"tank": _build_tank()
 		"fighter": _build_enemy(false, false)
 		"interceptor": _build_enemy(true, false)
 		"bomber": _build_enemy(false, true)
 		"boss1": _build_frigate()
 		"boss2": _build_rime()
 		"boss3": _build_carrier(true)
+		"boss4": _build_siege_crawler()
+		"boss5": _build_marauder()
+		"boss6": _build_storm_spire()
 		"carrier": _build_carrier(false)
 		_: _build_arrow()
 
@@ -200,6 +204,103 @@ func _build_arrow() -> void:
 	if kind == "wingman":
 		_materials["orange"].albedo_color = _materials["tint"].albedo_color
 
+func _build_tank() -> void:
+	# The jet packs exhaust downwards. The gameplay controller owns hover height.
+	_extrude(visual, "TankChassis", [Vector2(-1.5,-2.6),Vector2(1.5,-2.6),Vector2(1.8,-1.5),Vector2(1.8,2.2),Vector2(-1.8,2.2),Vector2(-1.8,-1.5)], 0.95, Vector3(0,-0.15,0), "ivory")
+	_box(visual, "BellySkid", Vector3(2.5,0.4,4.2), Vector3(0,-0.8,0), "dark")
+	for side in [-1.0,1.0]:
+		var track := _node(visual,"TrackAssembly",Vector3(side*1.85,-0.5,0))
+		_box(track,"TrackBelt",Vector3(0.85,1.25,5.0),Vector3.ZERO,"black")
+		_box(track,"TrackGuard",Vector3(1.0,0.25,4.6),Vector3(0,0.72,0),"armor")
+		for index in range(5):
+			var wheel := _cylinder(track,"RoadWheel",0.42,0.18,Vector3(side*0.47,0,-1.8+float(index)*0.9),"edge",-1.0,10)
+			wheel.rotation.z=PI*0.5
+		for index in range(11):
+			_box(track,"TreadPlate",Vector3(0.92,0.1,0.19),Vector3(0,-0.64,-2.25+float(index)*0.45),"armor")
+		_box(visual,"Headlamp",Vector3(0.5,0.2,0.15),Vector3(side*1.2,0.2,-2.6),"cyan")
+		var pack := _node(visual,"JumpPack",Vector3(side*2.3,0.2,1.3))
+		pack.rotation.x=PI*0.5
+		_engine(pack,Vector3.ZERO,0.42,"cyan")
+		_box(visual,"PackBrace",Vector3(0.9,0.25,0.6),Vector3(side*1.9,0.4,1.1),"orange")
+	var turret := _node(visual,"TankTurret",Vector3(0,0.75,-0.2))
+	_parts["tank_turret"]=turret
+	_cylinder(turret,"TurretRing",1.05,0.35,Vector3(0,-0.25,0),"dark",-1.0,12)
+	_extrude(turret,"TurretArmor",[Vector2(-1,-1),Vector2(1,-1),Vector2(1.2,0.7),Vector2(-1.2,0.7)],0.75,Vector3.ZERO,"ivory")
+	_box(turret,"CrewSight",Vector3(0.8,0.3,0.2),Vector3(0,0.5,-0.8),"glass")
+	for side in [-1.0,1.0]:
+		var barrel := _cylinder(turret,"PulseBarrel",0.15,2.8,Vector3(side*0.6,0.0,-1.9),"dark",-1.0,8)
+		barrel.rotation.x=PI*0.5
+		_box(turret,"PulseMuzzle",Vector3(0.27,0.27,0.2),Vector3(side*0.6,0,-3.35),"cyan")
+	_box(visual,"EngineDeck",Vector3(2.2,0.2,1.2),Vector3(0,0.5,1.35),"armor")
+	for index in range(5):
+		_box(visual,"DeckVent",Vector3(1.7,0.04,0.08),Vector3(0,0.62,0.9+float(index)*0.2),"dark")
+
+func _build_siege_crawler() -> void:
+	# A low, heavily tracked silhouette with two independently destructible guns.
+	_extrude(visual,"SiegeHull",[Vector2(-4,-5),Vector2(4,-5),Vector2(5,-2),Vector2(4,5),Vector2(-4,5),Vector2(-5,-2)],3.2,Vector3.ZERO,"armor")
+	_box(visual,"SiegeDeck",Vector3(7,0.8,7),Vector3(0,1.8,0.2),"edge")
+	for side in [-1.0,1.0]:
+		_box(visual,"HeavyTrack",Vector3(2.6,3.6,12.5),Vector3(side*5.2,-1.1,0),"black")
+		_box(visual,"TrackArmor",Vector3(2.9,0.55,12.2),Vector3(side*5.2,1.0,0),"dark")
+		for index in range(7):
+			var wheel := _cylinder(visual,"SiegeWheel",1.2,0.25,Vector3(side*6.56,-1.1,-4.6+float(index)*1.5),"armor",-1.0,10)
+			wheel.rotation.z=PI*0.5
+			_box(visual,"SiegeCleat",Vector3(2.85,0.18,0.5),Vector3(side*5.2,-2.95,-5.3+float(index)*1.7),"edge")
+		var gun := _node(visual,"SiegeTurret",Vector3(side*4.8,1.7,-1.5))
+		_cylinder(gun,"TurretBearing",1.4,0.6,Vector3.ZERO,"gold",-1,10)
+		_box(gun,"TurretHousing",Vector3(2.8,1.4,3.0),Vector3(0,0.6,-0.4),"dark")
+		var cannon := _cylinder(gun,"SiegeCannon",0.65,4.0,Vector3(0,0.6,-2.8),"edge",0.48,10)
+		cannon.rotation.x=PI*0.5
+		_weak_point(visual,Vector3(side*4.8,2.3,-5.8),1.05,"red")
+		_box(visual,"HazardMark",Vector3(0.75,0.2,5.8),Vector3(side*2.5,2.25,0),"orange")
+		_engine(visual,Vector3(side*2.7,0,5.4),0.8,"red")
+	_box(visual,"CommandBlock",Vector3(3.1,1.7,3.2),Vector3(0,3.0,1.0),"dark")
+	_box(visual,"CommanderSlit",Vector3(2.5,0.35,0.2),Vector3(0,3.1,-0.7),"red")
+	core=_weak_point(visual,Vector3(0,0.2,-5.1),1.4,"warm")
+
+func _build_marauder() -> void:
+	# Wide split wings make the arena predator legible against the friendly carrier.
+	_extrude(visual,"MarauderKeel",[Vector2(0,-7),Vector2(2.3,-2),Vector2(1.8,5),Vector2(-1.8,5),Vector2(-2.3,-2)],2.2,Vector3.ZERO,"dark")
+	_extrude(visual,"DaggerSpine",[Vector2(0,-7.2),Vector2(0.7,-2),Vector2(0.5,4),Vector2(-0.5,4),Vector2(-0.7,-2)],0.6,Vector3(0,1.4,0),"orange")
+	for side in [-1.0,1.0]:
+		for vertical in [-1.0,1.0]:
+			var wing := _node(visual,"MarauderBlade",Vector3(side*1.7,vertical*0.8,0.5))
+			wing.rotation.z=side*vertical*0.16
+			_extrude(wing,"SplitWing",[Vector2(0,-1),Vector2(side*8,-4),Vector2(side*6.7,2.4),Vector2(side*1,4)],0.6,Vector3.ZERO,"armor")
+			_extrude(wing,"WingEdge",[Vector2(side*1,-1.2),Vector2(side*7.8,-3.7),Vector2(side*7.4,-2.8),Vector2(side*1,-0.5)],0.13,Vector3(0,vertical*0.38,0),"orange")
+			var gun := _cylinder(visual,"MarauderGun",0.65,3.2,Vector3(side*6.6,vertical*2.3,-1.3),"edge",0.42,10)
+			gun.rotation.x=PI*0.5
+			_weak_point(visual,Vector3(side*6.6,vertical*2.3,-3.0),0.9,"red")
+		_engine(visual,Vector3(side*2.1,0,4.2),0.9,"purple")
+	core=_weak_point(visual,Vector3(0,0,-5.7),1.25,"purple")
+	_sphere(visual,"NavigatorEye",Vector3(0.7,0.4,1.1),Vector3(0,1.7,-1.1),"red")
+
+func _build_storm_spire() -> void:
+	# A vertical fortress with four exposed storm pylons and a central reactor.
+	var spine := _cylinder(visual,"SpireColumn",2.0,18.0,Vector3.ZERO,"armor",0.55,8)
+	spine.rotation.z=0.04
+	_cylinder(visual,"LowerSpire",2.3,8.0,Vector3(0,-6.0,0),"dark",0.4,8)
+	_ring(visual,"StormHalo",6.3,6.75,Vector3(0,0,0.8),"edge")
+	_ring(visual,"ChargedHalo",5.9,6.15,Vector3(0,0,0.7),"purple")
+	var rotor := _node(visual,"StormRotor",Vector3(0,0,-0.2))
+	_rotors.append(rotor)
+	for index in range(8):
+		var angle := float(index)*TAU/8.0
+		var fin := _box(rotor,"HaloFin",Vector3(0.4,2.2,0.6),Vector3(cos(angle)*6.5,sin(angle)*6.5,0),"gold")
+		fin.rotation.z=angle-PI*0.5
+	for index in range(4):
+		var angle := float(index)*PI*0.5
+		var anchor := Vector3(cos(angle)*7.8,sin(angle)*7.8,-0.6)
+		var strut := _box(visual,"PylonStrut",Vector3(6.5,0.8,1.1),anchor*0.52,"dark")
+		strut.rotation.z=angle
+		_sphere(visual,"PylonHousing",Vector3(1.45,1.45,1.8),anchor,"armor")
+		_weak_point(visual,anchor+Vector3(0,0,-2.1),1.15,"purple")
+		_engine(visual,anchor+Vector3(0,0,1.4),0.6,"purple")
+	core=_weak_point(visual,Vector3(0,0,-2.8),1.65,"warm")
+	for side in [-1.0,1.0]:
+		_box(visual,"SpireWindow",Vector3(0.45,5.2,0.15),Vector3(side*0.9,3.5,-1.9),"purple")
+		_engine(visual,Vector3(side*1.7,-6.7,0.3),0.85,"purple")
+
 func _build_enemy(interceptor: bool, bomber: bool) -> void:
 	var width: float = 1.45 if bomber else 0.7
 	var length: float = 3.8 if interceptor else 2.9
@@ -220,6 +321,7 @@ func _build_enemy(interceptor: bool, bomber: bool) -> void:
 
 func _weak_point(parent: Node3D, point: Vector3, radius: float = 0.85, color: String = "red") -> Node3D:
 	var marker := _node(parent, "WeaponNode" + str(weak_points.size() + 1), point)
+	marker.set_meta("collision_radius",radius*1.28)
 	_sphere(marker, "TargetCore", Vector3.ONE * radius, Vector3.ZERO, color)
 	_ring(marker, "ArmorCollar", radius * 1.05, radius * 1.28, Vector3(0, 0, -0.1), "gold")
 	_box(marker, "Sight", Vector3(radius * 0.3, radius * 1.8, 0.12), Vector3(0, 0, -radius * 0.94), "black")
@@ -357,6 +459,19 @@ func animate(time: float, delta: float, bank: float = 0.0, pitch: float = 0.0, t
 		_rotors[index].rotation.z=time*(0.34+float(index)*0.15)
 	for index in range(_tail.size()):
 		_tail[index].rotation.z=sin(time*0.8-float(index)*0.38)*0.018*float(index+1)/7.0
+	if kind == "tank":
+		# Tiny suspension movement stays beneath the gameplay transform.
+		var hover := clampf((thrust-1.0)*1.7,0.0,1.0)
+		visual.rotation.x=clampf(_pitch,-0.1,0.1)
+		visual.rotation.z=clampf(_bank,-0.14,0.14)
+		visual.position.y=sin(time*8.0)*0.025*(1.0-hover)
+		var turret: Node3D=_parts.get("tank_turret")
+		if turret:
+			turret.rotation.y=_bank*0.12
+			turret.position.z=-0.2+_flash*0.55
+		for flame in _flames:
+			flame.visible=hover>0.12
+			flame.scale.z=maxf(0.15,hover*1.8)*(0.9+sin(time*29.0)*0.1)
 	if kind == "boss2":
 		_pose_arms(time,delta)
 	if kind == "carrier":

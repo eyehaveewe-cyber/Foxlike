@@ -1,0 +1,106 @@
+class_name FoxArenaCarrier
+extends Node3D
+## Authored low-poly carrier: broad head, heavy thorax, tapering segmented tail.
+## Adapted from Project Barrel Roll carrier_hull.gd at 17bda73b7763c5033cc19e945fd84b12019f0dc6.
+## Geometry only: the game controller owns hull damage, collisions and movement.
+## Centered at the origin, approximately 80 m long, facing -Z.
+var doors: Array[Node3D] = []
+var tail: Array[Node3D] = []
+var materials: Dictionary = {}
+
+var rig: Node3D
+var hull_ratio := 1.0
+var _built := false
+
+func _ready() -> void:
+	setup()
+
+func setup() -> void:
+	if _built:
+		return
+	_built = true
+	rig = Node3D.new()
+	rig.name = "DragonflyHull"
+	rig.scale = Vector3.ONE * 1.45
+	rig.position.z = -9.45 * 1.45
+	add_child(rig)
+	for item in [["armor",Color("4b6175")],["dark",Color("182c3d")],["edge",Color("91a8af")],["light",Color("63e7dc")]]:
+		var material := StandardMaterial3D.new()
+		material.albedo_color=item[1]
+		material.metallic = 0.45
+		material.roughness = 0.64
+		if item[0] == "light":
+			material.emission_enabled = true
+			material.emission = item[1]
+			material.emission_energy_multiplier = 1.8
+		materials[item[0]]=material
+	box("Thorax",Vector3(8,4.2,12),Vector3(0,0,-1),"armor")
+	box("Spine",Vector3(3.2,1.1,13),Vector3(0,2.35,-1),"edge")
+	box("Belly",Vector3(6.2,1.1,10),Vector3(0,-2.2,-1),"dark")
+	for side in [-1,1]:
+		var cheek := box("HeadLobe",Vector3(5.8,3.8,6.8),Vector3(side*5.2,.2,-10.8),"armor")
+		cheek.rotation.y=side*.12
+		box("Eye",Vector3(3.4,.85,.25),Vector3(side*5.2,1.0,-14.3),"light")
+		box("Brow",Vector3(4.2,.45,1.0),Vector3(side*5.2,1.75,-14.0),"edge")
+		box("DrivePod",Vector3(2.1,2.7,6.0),Vector3(side*4.3,-.3,1),"dark")
+		box("DriveGlow",Vector3(1.5,1.7,.2),Vector3(side*4.3,-.3,4.1),"light")
+		var door := box("LaunchDoor",Vector3(2.0,2.4,.35),Vector3(side*1.05,-.5,-13.4),"dark")
+		doors.append(door)
+		box("LaunchRail",Vector3(.3,.25,7.0),Vector3(side*1.8,-1.8,-15),"light")
+	box("CommandBridge",Vector3(4.4,1.4,3.0),Vector3(0,3.0,-8.3),"dark")
+	box("BridgeWindow",Vector3(3.5,.5,.2),Vector3(0,3.15,-9.85),"light")
+	for index in range(7):
+		var segment := MeshInstance3D.new()
+		var mesh := CylinderMesh.new()
+		mesh.top_radius=lerpf(2.6,.55,float(index+1)/7)
+		mesh.bottom_radius=lerpf(2.6,.55,float(index)/7)
+		mesh.height=4.0
+		mesh.radial_segments=6
+		mesh.rings=1
+		segment.mesh=mesh
+		segment.material_override=materials.armor if index%2==0 else materials.dark
+		segment.rotation.x=PI/2
+		segment.position=Vector3(0,0,7+index*4.3)
+		rig.add_child(segment)
+		tail.append(segment)
+		box("TailBand",Vector3(lerpf(3.5,.65,float(index)/6),.25,.35),Vector3(0,lerpf(2.3,.6,float(index)/6),7+index*4.3),"edge")
+	box("TailBeacon",Vector3(.5,.5,.8),Vector3(0,0,37),"light")
+	for index in range(4):
+		box("DeckStripe",Vector3(6.0,.08,.28),Vector3(0,2.15,-4.0+index*2.3),"light")
+	set_damage(hull_ratio)
+func box(label: String, size: Vector3, point: Vector3, material: String) -> MeshInstance3D:
+	var node := MeshInstance3D.new()
+	node.name=label
+	var mesh := BoxMesh.new()
+	mesh.size=size
+	node.mesh=mesh
+	node.material_override=materials[material]
+	node.position=point
+	rig.add_child(node)
+	return node
+func pose(open_amount: float, time: float) -> void:
+	for index in doors.size():
+		var side := -1.0 if index==0 else 1.0
+		doors[index].position.x=side*(1.05+1.9*open_amount)
+	for index in tail.size():
+		# Restrained overlap, cosmetic only. Stable absolute-time pose.
+		tail[index].rotation.z=sin(time*.8-index*.35)*.012*float(index+1)/7
+
+func animate(_delta: float, clock: float) -> void:
+	if not _built:
+		setup()
+	pose(0.35 + sin(clock * 0.4) * 0.12, clock)
+	var glow: StandardMaterial3D = materials.light
+	var danger := 1.0 - hull_ratio
+	glow.emission_energy_multiplier = 1.5 + danger * (0.7 + 0.5 * sin(clock * 8.0))
+
+func set_damage(value: float) -> void:
+	hull_ratio = clampf(value, 0.0, 1.0)
+	if not _built:
+		return
+	var armor: StandardMaterial3D = materials.armor
+	var glow: StandardMaterial3D = materials.light
+	armor.albedo_color = Color("4b6175").lerp(Color("332e32"), (1.0 - hull_ratio) * 0.7)
+	glow.albedo_color = Color("63e7dc").lerp(Color("ff5942"), clampf((0.55 - hull_ratio) / 0.35, 0.0, 1.0))
+	glow.emission = glow.albedo_color
+

@@ -18,6 +18,17 @@ Command line:
 godot --path /path/to/Foxlike
 ```
 
+## Mission controls and progression
+
+The campaign has six missions: Viridia, Aurora, Terminus, Cinder, Anchorage and Tempest. Each has its own boss. Cleared missions remain selectable; old saves that completed Terminus grant access to Cinder. Mission refit restores shields, six missiles, three Nova bombs and companion health.
+
+- **Rail flight:** WASD/arrows or mouse steer. Hold Shift / RB plus left, down or right for the somersault, long loop or corkscrew.
+- **Cinder tank:** A/D moves sideways, W/S aims vertically, and holding Shift / RB fires the jet packs. Release to land; fuel recharges on the ground. Release after exhaustion before another jump. Flight rolls and stunts are unavailable in the tank.
+- **Anchorage arena:** A/D turns, W/S changes altitude, and the radar tracks the player, carrier and attackers. Flying outward toward the rim triggers a 2.4-second climbing turnaround. Defend Dragonfly's hull while fighting Harrow. Boost-direction stunts are disabled here.
+- **Weapons and squadron:** Space/left click fires lasers; R/right click launches a locked missile; B fires a Nova; F commands ready companion abilities; Tab changes formation. Missiles have a six-round starting load, eight-round cap and 2.5-second firing cooldown. Cyan crates add three rounds and green repair supplies add two.
+
+See the [complete control table](../README.md#controls). Physical controller testing remains outstanding.
+
 ## Build Windows and Web
 
 Install Godot's matching **4.7.2 export templates** using **Editor → Manage Export Templates**. From the repository root:
@@ -26,7 +37,7 @@ Install Godot's matching **4.7.2 export templates** using **Editor → Manage Ex
 python tools/package_release.py --godot /path/to/godot
 ```
 
-The tool imports resources, runs `tests/game_smoke.gd` and `tests/squadron_smoke.gd`, exports both platforms and writes ZIPs plus a SHA-256 manifest under `build/`. To export one platform, use `--platform windows` or `--platform web`. Use `--skip-tests` only after running the same tests separately.
+The tool imports resources, runs all four suites (`game_smoke.gd`, `squadron_smoke.gd`, `combat_revision_smoke.gd` and `expansion_smoke.gd`), exports both platforms and writes ZIPs plus a SHA-256 manifest under `build/`. To export one platform, use `--platform windows` or `--platform web`. Use `--skip-tests` only after running the same tests separately.
 
 ## Play the browser build locally
 

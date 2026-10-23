@@ -6,6 +6,9 @@ const MUSIC_PATHS: Array[String] = [
 	"res://assets/audio/viridia.ogg", "res://assets/audio/viridia_boss.ogg",
 	"res://assets/audio/aurora.ogg", "res://assets/audio/aurora_boss.ogg",
 	"res://assets/audio/terminus.ogg", "res://assets/audio/terminus_boss.ogg",
+	"res://assets/audio/mbean/bone-lantern-hook.ogg",
+	"res://assets/audio/mbean/bone-lantern-mirrors.ogg",
+	"res://assets/audio/mbean/bone-lantern-return.ogg",
 ]
 const EFFECT_NAMES: Array[String] = [
 	"laser", "hit", "explosion", "roll", "boost", "lock", "missile",
@@ -50,7 +53,9 @@ func _ready() -> void:
 func start_music(stage: int, boss: bool = false) -> void:
 	if not is_node_ready():
 		await ready
-	var track_index: int = clampi(stage, 0, 2) * 2 + int(boss)
+	var mission_tracks := [6,7,8,6,8,7]
+	var track_index: int = (clampi(stage,0,2)*2+1) if boss and stage<3 else mission_tracks[clampi(stage,0,5)]
+	if boss and stage>=3: track_index = [8,7,8][stage-3]
 	if track_index == _current_track and _music.playing:
 		return
 	_current_track = track_index

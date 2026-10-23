@@ -17,6 +17,8 @@ var _sun: MeshInstance3D
 var _water: MeshInstance3D
 var _beacons: Array[MeshInstance3D] = []
 var _mat: Dictionary = {}
+var _arena_root: Node3D
+const ARENA_RADIUS: float = 210.0
 
 func setup(new_stage: int) -> void:
 	for child in get_children():
@@ -29,14 +31,21 @@ func setup(new_stage: int) -> void:
 	_mat.clear()
 	_sun = null
 	_water = null
+	_arena_root = null
 	_clock = 0.0
-	stage = clampi(new_stage, 0, 2)
+	stage = clampi(new_stage, 0, 5)
 	_rng.seed = 38229 + stage * 997
 	_build_lighting()
 	match stage:
 		0: _build_viridia_background()
 		1: _build_aurora_background()
 		2: _build_terminus_background()
+		3: _build_cinder_background()
+		4: _build_anchorage()
+		5: _build_tempest_background()
+	if stage == 4:
+		set_low_detail(_low_detail)
+		return
 	for i in range(CHUNK_COUNT):
 		var chunk := Node3D.new()
 		chunk.name = "Scenery_%02d" % i
@@ -47,6 +56,8 @@ func setup(new_stage: int) -> void:
 			0: _coastal_chunk(chunk, i)
 			1: _asteroid_chunk(chunk, i)
 			2: _fortress_chunk(chunk, i)
+			3: _cinder_chunk(chunk, i)
+			5: _tempest_chunk(chunk, i)
 	set_low_detail(_low_detail)
 
 func advance(delta: float, speed: float, flight_time: float) -> void:
@@ -60,6 +71,13 @@ func advance(delta: float, speed: float, flight_time: float) -> void:
 		rotor.rotate_z(delta * (0.06 + float(i % 3) * 0.025) * (-1.0 if i % 2 == 0 else 1.0))
 	for i in range(_beacons.size()):
 		_beacons[i].visible = sin(flight_time * 3.3 + float(i) * 0.8) > -0.65
+
+func set_arena_view(player_position: Vector3, heading: float) -> void:
+	# Gameplay owns the arena position and heading. Scenery only follows its view.
+	if stage != 4 or not is_instance_valid(_arena_root):
+		return
+	var inverse_yaw := Basis(Vector3.UP, -heading)
+	_arena_root.transform = Transform3D(inverse_yaw, inverse_yaw * -player_position + Vector3(0, 0, 5))
 
 func set_low_detail(enabled: bool) -> void:
 	_low_detail = enabled
@@ -153,7 +171,7 @@ func _build_lighting() -> void:
 		environment.fog_light_color = Color("101c38")
 		environment.fog_density = 0.00065
 		environment.fog_sky_affect = 0.0
-	else:
+	elif stage == 2:
 		sky_material.sky_top_color = Color("060a1c")
 		sky_material.sky_horizon_color = Color("352c48")
 		sky_material.ground_bottom_color = Color("101b30")
@@ -164,6 +182,39 @@ func _build_lighting() -> void:
 		environment.fog_light_color = Color("282438")
 		environment.fog_density = 0.001
 		environment.fog_sky_affect = 0.0
+	elif stage == 3:
+		sky_material.sky_top_color = Color("493842")
+		sky_material.sky_horizon_color = Color("f4b47a")
+		sky_material.ground_bottom_color = Color("57392d")
+		sky_material.ground_horizon_color = Color("bd8057")
+		environment.ambient_light_color = Color("edbd9b")
+		environment.ambient_light_energy = 0.85
+		environment.fog_enabled = true
+		environment.fog_light_color = Color("b98967")
+		environment.fog_density = 0.0016
+		environment.fog_sky_affect = 0.05
+	elif stage == 4:
+		sky_material.sky_top_color = Color("091128")
+		sky_material.sky_horizon_color = Color("285471")
+		sky_material.ground_bottom_color = Color("0d2442")
+		sky_material.ground_horizon_color = Color("285471")
+		environment.ambient_light_color = Color("b6d7ee")
+		environment.ambient_light_energy = 0.95
+		environment.fog_enabled = true
+		environment.fog_light_color = Color("17354d")
+		environment.fog_density = 0.0006
+		environment.fog_sky_affect = 0.0
+	else:
+		sky_material.sky_top_color = Color("15162e")
+		sky_material.sky_horizon_color = Color("557b85")
+		sky_material.ground_bottom_color = Color("1e3549")
+		sky_material.ground_horizon_color = Color("6f8b9b")
+		environment.ambient_light_color = Color("b6c7ee")
+		environment.ambient_light_energy = 0.9
+		environment.fog_enabled = true
+		environment.fog_light_color = Color("49647d")
+		environment.fog_density = 0.0017
+		environment.fog_sky_affect = 0.15
 	sky_material.sun_angle_max = 9.0
 	sky_material.sun_curve = 0.13
 	sky.sky_material = sky_material
@@ -176,7 +227,7 @@ func _build_lighting() -> void:
 	add_child(world)
 	var key := DirectionalLight3D.new()
 	key.rotation_degrees = Vector3(-23, -28, 0) if stage == 0 else Vector3(-38, -38, -6)
-	key.light_color = Color("ffd5a2") if stage == 0 else Color("bbd8ff")
+	key.light_color = Color("ffd5a2") if stage in [0, 3] else Color("bbd8ff")
 	key.light_energy = 1.8 if stage == 0 else 1.6
 	key.shadow_enabled = false
 	add_child(key)
@@ -423,6 +474,179 @@ func _fortress_chunk(chunk: Node3D, index: int) -> void:
 			_rotors.append(rotor)
 	_instances(chunk, BoxMesh.new(), edges, plates)
 	_instances(details, BoxMesh.new(), glow, strips)
+
+func _build_cinder_background() -> void:
+	# Ground plane is the visual contact plane used by the tank controller.
+	var ground := PlaneMesh.new()
+	ground.size = Vector2(1800, 2400)
+	_mesh(self, ground, _material("cinder_sand", Color("9d6543")), Vector3(0, -4.05, -650))
+	_sun = _sphere(self, Vector3(-240, 145, -900), 68, _material("cinder_sun", Color("ffe0a3"), 1.1), 24)
+	var mesa := _material("cinder_distant_mesa", Color("8a5c54"))
+	for side in [-1, 1]:
+		for i in range(6):
+			var x := float(side) * (165.0 + i * 95.0)
+			var z := -650.0 - float(i % 3) * 75.0
+			_box(self, Vector3(x, 23 + i * 4, z), Vector3(120, 70 + i * 8, 100), mesa)
+			_mesh(self, _pyramid(100, 82, 180), mesa, Vector3(x, -35, z + 15))
+
+func _cinder_chunk(chunk: Node3D, index: int) -> void:
+	var basalt := _material("cinder_basalt", Color("593f39"))
+	var sandstone := _material("cinder_sandstone", Color("bd7750"))
+	var strata := _material("cinder_strata", Color("e5a166"))
+	var steel := _material("cinder_steel", Color("3f555d"), 0.0, 0.45)
+	var concrete := _material("cinder_concrete", Color("8a8477"))
+	var cyan := _material("cinder_guide", Color("6ae3cb"), 1.2)
+	var amber := _material("cinder_warning", Color("ffc15c"), 1.1)
+	var details := Node3D.new()
+	chunk.add_child(details)
+	_details.append(details)
+	# A 48-unit apron stays clear: all blocking rocks and hover hurdles are gameplay actors.
+	_box(chunk, Vector3(0, -4.14, -80), Vector3(48, 0.2, 160), concrete)
+	for side in [-1, 1]:
+		var sx := float(side)
+		_box(chunk, Vector3(sx * 24.5, -3.85, -80), Vector3(0.65, 0.25, 160), strata)
+		for j in range(5):
+			var z := -16.0 - float(j) * 32.0
+			_box(details, Vector3(sx * 18, -3.99, z), Vector3(0.7, 0.08, 9), cyan)
+			var height := 18.0 + float((index + j) % 4) * 9.0
+			var x := sx * (47.0 + float(j % 2) * 11.0)
+			_box(chunk, Vector3(x, height * 0.5 - 4, z), Vector3(20, height, 25), sandstone)
+			_box(details, Vector3(x, height * 0.65 - 4, z + 0.5), Vector3(20.8, 2, 26), strata)
+			_mesh(chunk, _pyramid(16, 25, 33), basalt, Vector3(x + sx * 11, -4, z - 5))
+		# Mining gantries stand outside the driving apron and make passage speed legible.
+		if (index + side) % 2 == 0:
+			_box(chunk, Vector3(sx * 32, 16, -75), Vector3(3, 40, 4), steel)
+			_box(chunk, Vector3(sx * 41, 35, -75), Vector3(23, 3, 5), steel)
+			_box(details, Vector3(sx * 50, 26, -75), Vector3(0.5, 18, 0.5), amber)
+			_box(chunk, Vector3(sx * 50, 16.5, -75), Vector3(7, 4, 6), steel)
+			var beacon := _sphere(details, Vector3(sx * 32, 37.5, -75), 0.7, amber, 8)
+			_beacons.append(beacon)
+	if index % 3 == 1:
+		# Conveyor bridge deliberately remains well above the tank's jump ceiling.
+		_box(chunk, Vector3(0, 23, -105), Vector3(100, 3, 11), steel)
+		_box(chunk, Vector3(0, 24.8, -105), Vector3(100, 0.5, 12), strata)
+		for x in [-33.0, 33.0]:
+			_box(chunk, Vector3(x, 9, -105), Vector3(4, 27, 8), steel)
+
+func _build_anchorage() -> void:
+	_arena_root = Node3D.new()
+	_arena_root.name = "AnchorageWorldSpace"
+	add_child(_arena_root)
+	var armor := _material("anchorage_armor", Color("344a60"), 0.0, 0.5)
+	var trim := _material("anchorage_trim", Color("97b1c5"), 0.0, 0.5)
+	var cyan := _material("anchorage_safe", Color("69efd7"), 1.4)
+	var amber := _material("anchorage_rim", Color("ffc96e"), 1.2)
+	var details := Node3D.new()
+	_arena_root.add_child(details)
+	_details.append(details)
+	# The ring lies below flight altitude. Its visible masts mark the actual 210-unit boundary.
+	_torus(_arena_root, Vector3(0, -32, 0), ARENA_RADIUS - 3, ARENA_RADIUS + 3, armor).scale.y = 0.65
+	_torus(_arena_root, Vector3(0, -29.5, 0), ARENA_RADIUS - 0.5, ARENA_RADIUS + 0.5, amber).scale.y = 0.2
+	_torus(_arena_root, Vector3(0, -44, 0), 74, 78, trim).scale.y = 0.8
+	for i in range(24):
+		var angle := TAU_F * float(i) / 24.0
+		var at := Vector3(sin(angle) * ARENA_RADIUS, -13, cos(angle) * ARENA_RADIUS)
+		var mast := Node3D.new()
+		mast.position = at
+		mast.rotation.y = angle
+		_arena_root.add_child(mast)
+		_box(mast, Vector3.ZERO, Vector3(3, 40, 3), armor)
+		_box(mast, Vector3(0, 14, -1.7), Vector3(1.3, 10, 0.4), amber)
+		_box(mast, Vector3(0, -18, 0), Vector3(10, 3, 10), trim)
+		_sphere(mast, Vector3(0, 8, 0), 1.35, amber, 8)
+		if i % 6 == 0:
+			# Four broad dock crowns remain recognizable from any heading.
+			_box(mast, Vector3(0, 8, 0), Vector3(28, 3, 13), armor)
+			_box(mast, Vector3(0, 10, -7), Vector3(22, 0.7, 0.7), cyan)
+			for side in [-1, 1]:
+				_box(mast, Vector3(float(side) * 13, 13, 0), Vector3(2, 13, 3), trim)
+	# A damaged service cradle makes the carrier's central objective readable even at distance.
+	for side in [-1, 1]:
+		_box(_arena_root, Vector3(float(side) * 40, -35, 0), Vector3(13, 7, 95), armor)
+		_box(_arena_root, Vector3(float(side) * 40, -30.9, 0), Vector3(1.5, 0.6, 80), cyan)
+		for z in [-35.0, 35.0]:
+			_box(details, Vector3(float(side) * 45, -24, z), Vector3(4, 19, 4), trim)
+	# A broad planet below the arena leaves the play volume clear in every direction.
+	_sphere(_arena_root, Vector3(0, -555, 0), 410, _material("anchorage_planet", Color("24586b"), 0.1), 40)
+	var star_positions: Array[Transform3D] = []
+	for i in range(300):
+		var yaw := _rng.randf_range(0, TAU_F)
+		var elevation := _rng.randf_range(-0.2, 1.2)
+		var at := Vector3(sin(yaw) * cos(elevation), sin(elevation), cos(yaw) * cos(elevation)) * 900.0
+		star_positions.append(_transform(at, Vector3.ONE * _rng.randf_range(0.4, 1.1)))
+	var star_mesh := SphereMesh.new()
+	star_mesh.radial_segments = 4
+	star_mesh.rings = 3
+	_instances(details, star_mesh, _material("anchorage_stars", Color("d3e7ff"), 2.0), star_positions)
+	set_arena_view(Vector3.ZERO, 0.0)
+
+func _build_tempest_background() -> void:
+	var cloud := _material("tempest_cloud", Color("718c9e"))
+	var dark_cloud := _material("tempest_dark_cloud", Color("3d536b"))
+	var cloud_mesh := SphereMesh.new()
+	cloud_mesh.radial_segments = 12
+	cloud_mesh.rings = 6
+	cloud_mesh.radius = 1.0
+	cloud_mesh.height = 2.0
+	var low_clouds: Array[Transform3D] = []
+	var high_clouds: Array[Transform3D] = []
+	for i in range(38):
+		var at := Vector3(_rng.randf_range(-650, 650), _rng.randf_range(-100, -60), _rng.randf_range(-1000, 50))
+		low_clouds.append(_transform(at, Vector3(_rng.randf_range(90, 150), _rng.randf_range(15, 30), _rng.randf_range(60, 120))))
+	for i in range(20):
+		var at := Vector3(_rng.randf_range(-600, 600), _rng.randf_range(130, 210), _rng.randf_range(-1000, -250))
+		high_clouds.append(_transform(at, Vector3(_rng.randf_range(90, 150), _rng.randf_range(20, 30), _rng.randf_range(60, 100))))
+	_instances(self, cloud_mesh, cloud, low_clouds)
+	_instances(self, cloud_mesh, dark_cloud, high_clouds)
+	_sun = _sphere(self, Vector3(270, 90, -900), 37, _material("tempest_moon", Color("c8daec"), 0.5), 24)
+	# A distant crown signals the destination before the moving conduits reach the player.
+	var citadel := Node3D.new()
+	citadel.position = Vector3(0, 44, -1000)
+	add_child(citadel)
+	var armor := _material("tempest_armor", Color("374354"), 0.0, 0.5)
+	var glow := _material("tempest_energy", Color("bbaaee"), 1.3)
+	_torus(citadel, Vector3.ZERO, 72, 84, armor)
+	_torus(citadel, Vector3(0, -4, 0), 76, 78, glow)
+	for i in range(7):
+		var at := Vector3((i - 3) * 22, 18 + (3 - absi(i - 3)) * 15, 0)
+		_box(citadel, at, Vector3(13, 70 + (3 - absi(i - 3)) * 25, 22), armor)
+
+func _tempest_chunk(chunk: Node3D, index: int) -> void:
+	var armor := _material("tempest_armor", Color("374354"), 0.0, 0.5)
+	var edge := _material("tempest_edge", Color("869ca9"), 0.0, 0.5)
+	var glow := _material("tempest_energy", Color("bbaaee"), 1.3)
+	var teal := _material("tempest_teal", Color("61e6df"), 1.2)
+	var details := Node3D.new()
+	chunk.add_child(details)
+	_details.append(details)
+	for side in [-1, 1]:
+		var sx := float(side)
+		var x := sx * (57.0 + float(index % 2) * 11.0)
+		var z := -80.0 + sx * 27.0
+		_box(chunk, Vector3(x, 17, z), Vector3(10, 136, 13), armor)
+		_box(chunk, Vector3(x - sx * 5.1, 18, z), Vector3(0.5, 115, 3), glow)
+		_box(chunk, Vector3(x, 76, z), Vector3(22, 6, 23), edge)
+		_box(chunk, Vector3(x, -47, z), Vector3(28, 8, 30), armor)
+		for y in [-21.0, 17.0, 55.0]:
+			_torus(chunk, Vector3(x, y, z), 10, 13, edge)
+			_torus(details, Vector3(x, y + 2.5, z), 10.5, 11, teal)
+		var rotor := Node3D.new()
+		rotor.position = Vector3(x, 75, z + 13)
+		chunk.add_child(rotor)
+		var ring := _torus(rotor, Vector3.ZERO, 11, 13, armor)
+		ring.rotation.x = PI * 0.5
+		for j in range(3):
+			var blade := _box(rotor, Vector3.ZERO, Vector3(1.6, 23, 1.2), glow)
+			blade.rotation.z = float(j) * PI / 3.0
+		_rotors.append(rotor)
+		# Local ion arcs stay at the sides, above the flight envelope.
+		for j in range(3):
+			var arc := _box(details, Vector3(x - sx * (9 + j * 5), 61 + (j % 2) * 5, z), Vector3(8, 0.6, 0.6), glow)
+			arc.rotation.z = sx * (0.7 if j % 2 == 0 else -0.7)
+			_beacons.append(arc)
+	if index % 2 == 0:
+		_box(chunk, Vector3(0, 95, -90), Vector3(160, 7, 16), armor)
+		_box(chunk, Vector3(0, 90.8, -81.8), Vector3(112, 0.7, 0.8), teal)
 
 func _pyramid(width: float, height: float, depth: float) -> ArrayMesh:
 	var st := SurfaceTool.new()

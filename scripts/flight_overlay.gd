@@ -43,6 +43,7 @@ func _draw() -> void:
 		screen = get_viewport_rect().size
 	var center: Vector2 = screen * 0.5
 	var scale_factor: float = minf(screen.x / 1280.0, screen.y / 720.0)
+	if _arena_enabled: _draw_radar(screen,scale_factor)
 	var point: Vector2 = _camera.unproject_position(_aim)
 	if _camera.is_position_behind(_aim):
 		point = center
@@ -123,3 +124,43 @@ func _draw_damage_edges(screen: Vector2, intensity: float) -> void:
 		var alpha: float = intensity * (1.0 - float(i) / 12.0) * 0.16
 		var color: Color = Color(1.0, 0.19, 0.13, alpha)
 		draw_rect(Rect2(Vector2(inset, inset), screen - Vector2.ONE * inset * 2.0), color, false, 6.0)
+
+var _arena_enabled := false
+var _radar_contacts: Array[Vector2] = []
+var _radar_carrier := Vector2.ZERO
+var _radar_boss := Vector2.INF
+var _radar_player := Vector2.ZERO
+var _radar_heading := 0.0
+
+func set_arena(enabled: bool, navigation: RefCounted, carrier: Vector3, enemies: Array, boss: Vector3) -> void:
+	_arena_enabled = enabled
+	_radar_contacts.clear()
+	if not enabled: return
+	_radar_player = Vector2(navigation.position.x,navigation.position.z)
+	_radar_heading = navigation.heading
+	_radar_carrier = Vector2(carrier.x,carrier.z)
+	_radar_boss = Vector2(boss.x,boss.z)
+	for enemy in enemies:
+		if enemy.has("arena_pos"):
+			var point: Vector3 = enemy.arena_pos
+			_radar_contacts.append(Vector2(point.x,point.z))
+
+func _draw_radar(screen: Vector2, factor: float) -> void:
+	var center := Vector2(screen.x-112.0*factor,screen.y-218.0*factor)
+	var radius := 78.0*factor
+	var unit := radius/210.0
+	draw_circle(center,radius+7.0*factor,Color(.015,.04,.065,.88))
+	draw_circle(center,radius,Color(CYAN,.55),false,1.5,true)
+	draw_line(center-Vector2(radius,0),center+Vector2(radius,0),Color(CYAN,.16),1.0)
+	draw_line(center-Vector2(0,radius),center+Vector2(0,radius),Color(CYAN,.16),1.0)
+	var carrier := center+_radar_carrier*unit
+	draw_rect(Rect2(carrier-Vector2(4,6)*factor,Vector2(8,12)*factor),CYAN)
+	for point in _radar_contacts:
+		draw_circle(center+point*unit,3.5*factor,Color("ff765f"))
+	if _radar_boss.is_finite():
+		var point := center+_radar_boss*unit
+		draw_circle(point,6.5*factor,ORANGE,false,2.0,true)
+	var point := center+_radar_player*unit
+	var forward := Vector2(-sin(_radar_heading),-cos(_radar_heading))
+	var side := forward.orthogonal()
+	draw_colored_polygon(PackedVector2Array([point+forward*7.0*factor,point-forward*4.0*factor+side*4.0*factor,point-forward*4.0*factor-side*4.0*factor]),Color.WHITE)

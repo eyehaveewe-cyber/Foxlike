@@ -8,7 +8,7 @@ The following source branches were inspected through the connected GitHub accoun
 
 | Branch | Inspected commit | Use in Foxlike |
 | --- | --- | --- |
-| `codex/carrier-deployment` | `17bda73b7763c5033cc19e945fd84b12019f0dc6` | Sharp fighter shapes, visible cockpit/pilot, barrel-roll and somersault references, Dragonfly carrier silhouette and launch staging. |
+| `codex/carrier-deployment` | `17bda73b7763c5033cc19e945fd84b12019f0dc6` | Sharp fighter shapes, visible cockpit/pilot, barrel-roll and somersault references, Dragonfly carrier silhouette, launch staging, and the directly adapted carrier hull used in Anchorage. |
 | `codex/rime-tentacle-profiles` | `d9201ae54fe5bcbed6256013fcfa8b2e25813656` | RIME articulated weapon arms, destructible parts, exposed core, Asterion world and pilot identities. |
 | `codex/campaign-solar-system` | `2066cd509aeb09b20085ddb3fe23b61a834749d5` | Campaign setting and world structure reference. |
 
@@ -21,13 +21,15 @@ Relevant source files:
 - [`scripts/pilot_roster.gd`](https://github.com/eyehaveewe-cyber/Project-Barrel-Roll/blob/d9201ae54fe5bcbed6256013fcfa8b2e25813656/scripts/pilot_roster.gd): Mara Venn / COMET, Ivo Rell / LATCH, and Tess Omi / GLINT.
 - [`scripts/chassis_catalog.gd`](https://github.com/eyehaveewe-cyber/Project-Barrel-Roll/blob/d9201ae54fe5bcbed6256013fcfa8b2e25813656/scripts/chassis_catalog.gd): Arrow Mk I airframe identity.
 
+The October 23 expansion directly adapts the inspected `carrier_hull.gd` into `scripts/arena_carrier.gd`. It retains the head lobes, thorax, segmented tail and launch doors, with centered/scaled geometry and game-specific damage feedback. Exact blob provenance and changes are recorded in [ASSET_IMPORTS.md](ASSET_IMPORTS.md).
+
 These source links may require access to the user's private repository. Foxlike's real-time flight, encounters, mission sequence, and controls were implemented for this project. Its procedural meshes carry forward the source project's visual ideas; the tactical game's action-point rules are not reused as arcade mechanics.
 
 ## New work in this repository
 
-The flight controller, campaign encounters, procedural environments, ship animation rigs, HUD, effects, dialogue, and mission scripts were written for this build. The three-mission campaign and its Warden/Sovereign encounters are this build's implementation choices, rather than claims that those missions already existed in Project Barrel Roll.
+The flight controller, campaign encounters, procedural environments, ship animation rigs, HUD, effects, dialogue, and mission scripts were written for this build. The six-mission campaign, including Cinder's jet tank, Anchorage's carrier-defense arena, Tempest's storm route and their bosses, is Foxlike implementation work. These are not claims that the arcade missions already existed in Project Barrel Roll.
 
-The music and sound effects are original synthesized audio generated for Foxlike. The reproducible synthesis source is [`assets/audio/generate_audio.py`](../assets/audio/generate_audio.py); the game plays its rendered OGG music and WAV effects. No commercial-game recordings or extracted sound banks are used.
+The initial Foxlike music and sound effects are original synthesized audio, reproducible through [`assets/audio/generate_audio.py`](../assets/audio/generate_audio.py). The expansion adds three excerpts from the owner's original MBean1 composition *The Bone Lantern Ballroom*. They were rendered from its unchanged note score using MBean1's actual Web Audio renderer at commit `ecd441fe29118995e7036df46ec80fefe8738e9e`; the score, renderer and regeneration script remain editable under [`assets/audio/mbean/`](../assets/audio/mbean/). See [ASSET_IMPORTS.md](ASSET_IMPORTS.md) for sections, exact source blobs and rendering details. These tracks use synthesized voices without recorded sample packs. No commercial-game recordings or extracted sound banks are used.
 
 The models, scenery, HUD geometry, radio portrait, and effects are generated with code. No downloaded model pack or external texture collection is required. The game uses the Godot 4.7.2 engine and its built-in rendering/UI facilities.
 
