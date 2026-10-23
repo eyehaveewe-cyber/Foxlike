@@ -42,6 +42,7 @@ def main() -> int:
     parser.add_argument("--skip-tests", action="store_true", help="Export after a separately verified test run")
     args = parser.parse_args()
     godot = shutil.which(args.godot) or args.godot
+    run([sys.executable, "tools/stamp_duel.py", "--check"])
     engine_version = run([godot, "--version"]).strip()
     if not engine_version.startswith(VERSION + ".stable"):
         raise RuntimeError(f"Expected Godot {VERSION} stable, found: {engine_version}")
@@ -53,6 +54,7 @@ def main() -> int:
         run([godot, "--headless", "--path", str(ROOT), "--script", "res://tests/squadron_smoke.gd", "--", "--test-save"])
         run([godot, "--headless", "--path", str(ROOT), "--script", "res://tests/combat_revision_smoke.gd", "--", "--test-save"])
         run([godot, "--headless", "--path", str(ROOT), "--script", "res://tests/expansion_smoke.gd", "--", "--test-save"])
+        run([godot, "--headless", "--path", str(ROOT), "--script", "res://tests/duel_smoke.gd", "--", "--test-save"])
     manifest = {"game": "Foxlike: Asterion Flight", "engine": engine_version, "builds": []}
     selected = TARGETS if args.platform == "all" else {args.platform: TARGETS[args.platform]}
     for platform, (preset, entry) in selected.items():

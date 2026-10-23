@@ -238,7 +238,8 @@ func _build_menu() -> void:
 	_label(_menu,"A S T E R I O N   F L I G H T",Vector2(64,190),470,20,ORANGE)
 	_paragraph(_menu,"Six sorties. One squadron.\nBreak the siege of Asterion.",Vector2(64,239),Vector2(390,60),19,PAPER)
 	_button(_menu,"LAUNCH CAMPAIGN     >",Vector2(64,307),Vector2(444,49),"new_run",null,true)
-	_continue = _button(_menu,"CONTINUE FLIGHT",Vector2(64,367),Vector2(444,43),"continue")
+	_continue = _button(_menu,"CONTINUE FLIGHT",Vector2(64,367),Vector2(210,43),"continue")
+	_button(_menu,"PRACTICE DUEL",Vector2(286,367),Vector2(222,43),"practice_duel")
 	_label(_menu,"MISSION SELECT",Vector2(64,432),450,12,SOFT)
 	for i in range(Campaign.STAGES.size()):
 		var mission: Dictionary = Campaign.STAGES[i]

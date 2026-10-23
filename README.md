@@ -8,6 +8,14 @@ Built for **Godot 4.7.2 stable**, using the Compatibility renderer. All ships, e
 
 [Tank hover and landing](docs/previews/tank-hover.mp4) · [Arena turnaround](docs/previews/arena-turn.mp4) · [Dragonfly defense](docs/previews/carrier-defense.png) · [Six-mission menu](docs/previews/six-mission-menu.png)
 
+## Phase One practice duel
+
+Choose **Practice Duel** beside Continue Flight. Fly nose-directed spatial combat against one observed opponent, use a solid anchor block to break sight, and counter a missed firing pass. The briefing compares **600 × 600 × 76** and **640 × 640 × 160** arenas, **pitch hold** and **gradual leveling**, and reduced camera motion. F5 resets; Escape/Start pauses. F3/F8 provide optional local review telemetry.
+
+The practice implementation follows the full Phase One guide. It uses shared player/AI limits and world-space weapons. **Human completion gates and the final arena/control selection remain open.** There are 38 new duel regressions in addition to the existing campaign suites; Windows and Web exports build. See [implementation and acceptance record](docs/PHASE_01_IMPLEMENTATION.md).
+
+[Native arranged duel recording](docs/previews/phase1-duel.mp4) · [Practice briefing](docs/previews/phase1-briefing.png) · [Cover and last-seen contact](docs/previews/phase1-cover.png) · [Matching source-stamped trace](docs/evidence/phase1-arranged-trace.json)
+
 ## Download the editable Godot project
 
 **[Download the complete source ZIP](https://github.com/eyehaveewe-cyber/Foxlike/archive/refs/heads/main.zip)**, extract it, then import **`Foxlike-main/project.godot`** in Godot 4.7.2 stable. Press **F5** to play or edit the scenes and scripts. The ZIP includes the scene, GDScript source, procedural ship models, audio assets, and export presets.

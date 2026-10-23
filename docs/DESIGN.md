@@ -4,6 +4,10 @@ Version 1.0 · 22 October 2026 · Director: Jonathan Sanders
 
 Foxlike is a compact 3D arcade flight campaign built for a complete first playthrough: launch from a carrier, fight across three routes, defeat their bosses, and reach a campaign ending. Responsive movement and visible ship animation are the main priorities. This record preserves the brief, the implementation choices and the next work for the project.
 
+## Phase One practice implementation update — 23 October 2026
+
+The current authorized work follows the complete supplied *Foxlike Phase 1 A fair flight duel* v1.0 and the director's eight-phase scope clarification. The new Anchorage practice operation implements a shared nose-directed controller, observed opponent, solid cover, world projectiles, two volume experiments, pitch/camera options and local evidence capture. The existing campaign is retained as the current baseline; Phase Two will integrate the reviewed flight foundation into Anchorage's complete operation. Human Standard acceptance and production configuration selection are pending. The detailed ownership, provisional numbers, evidence and open gates are in [PHASE_01_IMPLEMENTATION.md](PHASE_01_IMPLEMENTATION.md). The original design record below remains historical.
+
 ## Direction and authorship
 
 | ID | Source and status | Direction |

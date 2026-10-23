@@ -1,5 +1,28 @@
 # Verification
 
+## Phase One practice duel — 2026-10-23
+
+Status: playable implementation for human review; the full Phase One completion gate remains open. The complete supplied guide is preserved at [plans/Foxlike_Phase_01_Fair_Flight_Duel.docx](plans/Foxlike_Phase_01_Fair_Flight_Duel.docx); [PHASE_01_IMPLEMENTATION.md](PHASE_01_IMPLEMENTATION.md) maps its work packages, provisional parameters, ownership and unresolved human observations.
+
+Godot 4.7.2 passed **38 new duel checks**, separately from the **197 existing campaign/squadron/combat/expansion checks**. The entry test clicks the real flight-deck Practice Duel button. Controller comparisons at 20/60/120 simulated FPS measured maximum total speed 59.997 units/s, maximum combined turn 1.120 rad/s and matching final positions within 0.001 units. A quarter-second boost from 38 reached 51.907; braking from 60 reached 35.979. Tests also exercise thin-cover movement and bullets, blocked sight, delayed recognition, bounded last-seen prediction, observed-shot evasion, missed passes, world projectile survival, boundary containment without added protection, pause, actual shield win/loss/reset paths and evidence metadata. These concrete assertions do not establish human-readable combat or fun.
+
+The final release workflow reran all five suites and produced Windows and Web exports. The source ZIP passes resource inclusion and integrity checks. The latest practice source is fingerprinted by `tools/stamp_duel.py`; export packaging rejects stale fingerprints. Physical controller operation, native Windows performance and the new practice mode's actual browser runtime remain unverified here.
+
+The native `tests/render_duel.gd` harness records actual simulated flight under an explicitly arranged driver, plus staged cover and camera scenarios. Reviewed the normal briefing, climb/turn combat, last-seen cue behind solid cover, optional measurements and the low-volume comparison. The [paired trace](evidence/phase1-arranged-trace.json) records its source ID, camera settings, driver type and resolved state. [Native recording](previews/phase1-duel.mp4), [briefing](previews/phase1-briefing.png) and [cover scenario](previews/phase1-cover.png) are committed alongside it. No invulnerability or lowered opponent HP is used for the continuous recording. It is not a human completion attempt. Native rendering reported a V-Sync capability warning; prior rapid teardown runs also reported resource cleanup warnings. No gameplay script exceptions or parser failures remained in the final checks.
+
+Human review still must demonstrate a Standard win by countering a pass, an explainable loss, a cover-driven contact break, a high-attack counter, a deliberately blocked approach, visible escape from poor pursuit and reduced-motion play. Both arena volumes and pitch variants are retained until those comparisons support a selection. A larger assertion count is not a substitute for those gates.
+
+Reproduce:
+
+```bash
+python tools/stamp_duel.py --check
+godot --headless --path . --script tests/duel_smoke.gd -- --test-save
+godot --headless --path . --script tests/duel_scenarios.gd
+godot --path . res://scenes/duel.tscn -- --duel-replay
+# Native camera + matching arranged trace; optionally add -- --capture-motion
+godot --path . --script tests/render_duel.gd --fixed-fps 20
+```
+
 ## Six-mission expansion — 2026-10-23
 
 Godot `4.7.2.stable.official.ed1daf0bf` imported the project and passed **197 native assertions**: 74 campaign, 35 companion, 38 combat revision, and 50 expansion checks. The release packager reran all four suites, exported Windows and Web, and produced both ZIPs. The source packager checks runtime resource inclusion and ZIP integrity; the editable project includes `project.godot`, all procedural models, music source and renders, scenes, scripts, tools and tests.

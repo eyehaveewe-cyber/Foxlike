@@ -1,5 +1,9 @@
 # Foxlike progress
 
+## 2026-10-23 — Phase One fair-flight practice implementation
+
+Implemented the complete Phase One guide's technical foundation as Practice Duel on the flight deck: shared nose-directed player/AI flight, matched energy/roll/weapons, solid cover, swept world collisions/projectiles, pitch-aware chase camera, relative-height/rear/stale cues, delayed observation and memory, committed high passes, extension/search, cover routes and one observed-shot evasion. Both arena heights and pitch modes remain reversible experiments. Added local bounded traces with source fingerprints and explicitly labeled arranged native capture. Phase One is **not signed off**: the required human win, explainable loss, cover/high-attack counters, blocked approach and final volume/control selection remain open. See [implementation and review](docs/PHASE_01_IMPLEMENTATION.md). Validation: 38 new duel checks and all 197 existing regressions pass in Godot 4.7.2; Windows/Web exports build. Native arranged flight/camera capture and a paired source-stamped trace were reviewed. No human completion or new browser-runtime verification is claimed.
+
 ## 2026-10-23 — Playtest fixes and six-mission expansion
 
 Applied the Foxlike section of the October 22 Crunch-Time Jam notes. Ring and pickup collection now sweeps both pickup and player motion between frames and displays an immediate reward notice. Player missiles start at six, cap at eight, consume ammunition and create an 18-unit area blast; cyan ammo crates add three and green repair supplies add two. Boss weapons have separate health, visible destruction and disabled attacks. A core receives only 8% damage until its weapons are down; Warden now has a 260-health core and two 65-health cannons on Standard.

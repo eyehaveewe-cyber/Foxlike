@@ -233,6 +233,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_action(action_name:String, value:Variant=null) -> void:
 	audio.sfx("ui")
 	match action_name:
+		"practice_duel":
+			get_tree().change_scene_to_file("res://scenes/duel.tscn")
 		"new_run":
 			campaign_score = 0
 			_begin_stage(0)
