@@ -26,7 +26,7 @@ Install Godot's matching **4.7.2 export templates** using **Editor → Manage Ex
 python tools/package_release.py --godot /path/to/godot
 ```
 
-The tool imports resources, runs `tests/game_smoke.gd`, exports both platforms and writes ZIPs plus a SHA-256 manifest under `build/`. To export one platform, use `--platform windows` or `--platform web`. Use `--skip-tests` only after running the same tests separately.
+The tool imports resources, runs `tests/game_smoke.gd` and `tests/squadron_smoke.gd`, exports both platforms and writes ZIPs plus a SHA-256 manifest under `build/`. To export one platform, use `--platform windows` or `--platform web`. Use `--skip-tests` only after running the same tests separately.
 
 ## Play the browser build locally
 

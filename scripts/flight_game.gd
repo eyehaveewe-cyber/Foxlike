@@ -7,6 +7,7 @@ const Hud = preload("res://scripts/flight_hud.gd")
 const Sound = preload("res://scripts/flight_audio.gd")
 const Effects = preload("res://scripts/flight_effects.gd")
 const Overlay = preload("res://scripts/flight_overlay.gd")
+const Squadron = preload("res://scripts/flight_squadron.gd")
 const Maneuver = preload("res://scripts/flight_maneuver.gd")
 const SAVE_PATH := "user://foxlike_save.json"
 var save_path := SAVE_PATH
@@ -46,8 +47,6 @@ var roll_direction := 1.0
 var maneuver := Maneuver.new()
 var maneuver_cooldown := 0.0
 var maneuver_input_previous: int = Maneuver.Kind.NONE
-var assist_cooldown := 0.0
-var wing_fire := 0.0
 var boss_fire := 0.0
 var boss_attack := 0
 var boss_hp := 0.0
@@ -65,7 +64,7 @@ var move_velocity := Vector2.ZERO
 var mouse_active := false
 var chatter := true
 var gamepad_previous: Dictionary = {}
-var save_data: Dictionary = {"unlocked":1,"best":0,"muted":false,"difficulty":"Standard","records":{}}
+var save_data: Dictionary = {"unlocked":1,"best":0,"muted":false,"difficulty":"Standard","records":{},"companions":["latch","glint"],"formation":0,"completed_stages":[]}
 var waves: Array = []
 var wave_index := 0
 var enemies: Array = []
@@ -125,7 +124,8 @@ func _ready() -> void:
 		var wing: Node3D = Ship.new()
 		actors.add_child(wing)
 		wing.setup("wingman", Color("ffc075") if i == 0 else Color("7de3cb"))
-		wingmen.append({"node":wing,"hp":100.0,"callsign":"LATCH" if i == 0 else "GLINT"})
+		wingmen.append({"node":wing})
+	_configure_wingmen()
 	effects = Effects.new()
 	add_child(effects)
 	audio = Sound.new()
@@ -146,7 +146,7 @@ func _ready() -> void:
 		_launch()
 
 func _setup_inputs() -> void:
-	var keys: Dictionary = {"left":[KEY_A,KEY_LEFT],"right":[KEY_D,KEY_RIGHT],"up":[KEY_W,KEY_UP],"down":[KEY_S,KEY_DOWN],"fire":[KEY_SPACE],"boost":[KEY_SHIFT],"brake":[KEY_CTRL],"roll_left":[KEY_Q],"roll_right":[KEY_E],"missile":[KEY_R],"bomb":[KEY_B],"assist":[KEY_F],"pause":[KEY_ESCAPE],"mute":[KEY_M],"chatter":[KEY_C],"fullscreen":[KEY_F11]}
+	var keys: Dictionary = {"left":[KEY_A,KEY_LEFT],"right":[KEY_D,KEY_RIGHT],"up":[KEY_W,KEY_UP],"down":[KEY_S,KEY_DOWN],"fire":[KEY_SPACE],"boost":[KEY_SHIFT],"brake":[KEY_CTRL],"roll_left":[KEY_Q],"roll_right":[KEY_E],"missile":[KEY_R],"bomb":[KEY_B],"assist":[KEY_F],"formation":[KEY_TAB],"pause":[KEY_ESCAPE],"mute":[KEY_M],"chatter":[KEY_C],"fullscreen":[KEY_F11]}
 	for action_name in keys:
 		if not InputMap.has_action(action_name):
 			InputMap.add_action(action_name)
@@ -203,6 +203,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		_bomb()
 	if event.is_action_pressed("missile") or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed):
 		_missile()
+	if event.is_action_pressed("formation"):
+		_cycle_formation()
 	if event.is_action_pressed("assist"):
 		_assist()
 
@@ -229,6 +231,11 @@ func _on_action(action_name:String, value:Variant=null) -> void:
 		"difficulty":
 			save_data.difficulty = str(value)
 			_write_save()
+		"equip_companion":
+			if mode == Mode.MENU and value is Dictionary:
+				_equip_companion(int(value.get("slot",-1)),str(value.get("id","")))
+		"formation":
+			if mode == Mode.MENU: _cycle_formation()
 		"quit": get_tree().quit()
 
 func _toggle_mute() -> void:
@@ -309,7 +316,6 @@ func _begin_stage(index:int) -> void:
 	_reset_maneuver()
 	maneuver_cooldown = 0.0
 	maneuver_input_previous = Maneuver.Kind.NONE
-	assist_cooldown = 0.0
 	invulnerable = 0.0
 	missile_cooldown = 0.0
 	move_velocity = Vector2.ZERO
@@ -325,9 +331,7 @@ func _begin_stage(index:int) -> void:
 	player.scale = Vector3.ONE
 	carrier.visible = true
 	carrier.position = Vector3(-42,15,-100)
-	for wing in wingmen:
-		wing.hp = 100.0
-		wing.node.visible = true
+	_configure_wingmen()
 	world.setup(stage)
 	waves = _build_waves(stage)
 	wave_index = 0
@@ -390,7 +394,6 @@ func _process(delta:float) -> void:
 	missile_cooldown -= dt
 	roll_cooldown -= dt
 	maneuver_cooldown = maxf(0.0,maneuver_cooldown-dt)
-	assist_cooldown -= dt
 	combo_time -= dt
 	if combo_time <= 0.0: combo = 0
 	damage_flash = maxf(0.0,damage_flash-dt*2.0)
@@ -439,6 +442,7 @@ func _update_player(dt:float) -> void:
 		_pad_button(pad,JOY_BUTTON_X,"missile")
 		_pad_button(pad,JOY_BUTTON_B,"bomb")
 		_pad_button(pad,JOY_BUTTON_Y,"assist")
+		_pad_button(pad,JOY_BUTTON_DPAD_UP,"formation")
 	var boost_held := Input.is_action_pressed("boost") or (pad >= 0 and Input.is_joy_button_pressed(pad,JOY_BUTTON_RIGHT_SHOULDER))
 	_check_maneuver_input(axis,boost_held)
 	var target_pos := Vector2(player.position.x,player.position.y)
@@ -503,6 +507,7 @@ func _pad_button(pad:int,button:int,action_name:String) -> void:
 			"missile": _missile()
 			"bomb": _bomb()
 			"assist": _assist()
+			"formation": _cycle_formation()
 			"pause": _pause(true)
 	gamepad_previous[button] = held
 
@@ -621,21 +626,101 @@ func _bomb() -> void:
 	for hazard in hazards: hazard.life = 0.0
 	invulnerable = 1.4
 
+func _configure_wingmen() -> void:
+	Squadron.normalize(save_data)
+	for slot in range(wingmen.size()):
+		var wing: Dictionary = wingmen[slot]
+		var pilot := Squadron.profile(str(save_data.companions[slot]))
+		wing.merge({"id":pilot.id,"callsign":pilot.name,"hp":pilot.hp,"max_hp":pilot.hp,"level":1,"fire":0.0,"cooldown":0.0,"guard_time":0.0,"burst":0,"burst_timer":0.0,"guard_point":Vector3.ZERO},true)
+		wing.node.setup("wingman",Color(str(pilot.color)))
+		wing.node.visible = true
+
+func _equip_companion(slot: int, id: String) -> void:
+	if slot < 0 or slot > 1 or not Squadron.available(id,save_data): return
+	var other := 1-slot
+	if save_data.companions[other] == id:
+		save_data.companions[other] = save_data.companions[slot]
+	save_data.companions[slot] = id
+	_configure_wingmen()
+	_write_save()
+	hud.show_menu(save_data)
+
+func _cycle_formation() -> void:
+	save_data.formation = (int(save_data.formation)+1)%Squadron.FORMATIONS.size()
+	_write_save()
+	if mode == Mode.MENU: hud.show_menu(save_data)
+	else: hud.say("FORMATION",Squadron.FORMATIONS[int(save_data.formation)],2.0)
+
+func _companion_target(origin: Vector3) -> Node3D:
+	var target: Node3D
+	var nearest := 180.0
+	for enemy in enemies:
+		var node: Node3D = enemy.node
+		var distance := origin.distance_to(node.position)
+		if node.position.z < origin.z-3.0 and distance < nearest:
+			target = node
+			nearest = distance
+	if target == null and is_instance_valid(boss) and boss.position.z < origin.z-3.0: target = boss
+	return target
+
+func _companion_ability(wing: Dictionary, target: Node3D) -> bool:
+	if float(wing.hp)<=0.0 or float(wing.cooldown)>0.0: return false
+	var pilot := Squadron.profile(str(wing.id))
+	var damage_scale := 1.0+0.4*float(int(wing.level)-1)
+	match str(pilot.ability):
+		"guard":
+			wing.guard_time = 1.2
+			wing.guard_point = player.position+Vector3(0,0,-5.5)
+		"burst":
+			if not is_instance_valid(target): return false
+			wing.burst = 6+2*(int(wing.level)-1)
+			wing.burst_timer = 0.0
+		"missile", "nova":
+			if not is_instance_valid(target) or projectiles.size()>=200: return false
+			var nova := str(pilot.ability)=="nova"
+			_spawn_shot(wing.node.position,(target.global_position-wing.node.position).normalized()*90.0,true,(12.0 if nova else 9.0)*damage_scale,target)
+			projectiles.back()["nova"] = nova
+			if nova:
+				projectiles.back().node.scale = Vector3(4,3,4)
+				projectiles.back().node.material_override = _material(Color("ff97b3"),3.0)
+			audio.sfx("missile")
+	wing.cooldown = Squadron.ability_cooldown(wing)
+	return true
+
 func _assist() -> void:
-	if assist_cooldown > 0.0: return
-	var available := 0
+	var used: Array[String] = []
 	for wing in wingmen:
-		if wing.hp > 0.0:
-			available += 1
-			wing.hp = minf(100.0,wing.hp+12.0)
-	if available == 0: return
-	assist_cooldown = 24.0
-	hud.say("LATCH","Crossfire. We've got your six!",3.0)
-	audio.sfx("missile")
-	for enemy in enemies.duplicate(): _damage_enemy(enemy,float(available)*3.5)
-	if is_instance_valid(boss): _damage_boss(float(available)*15.0,boss.position)
+		if _companion_ability(wing,_companion_target(wing.node.position)): used.append(str(wing.callsign))
+	if not used.is_empty(): hud.say("SQUADRON"," / ".join(used)+": ability deployed.",2.4)
+
+func _hurt_wing(wing: Dictionary, amount: float) -> void:
+	if float(wing.hp)<=0.0: return
+	wing.hp = maxf(0.0,float(wing.hp)-amount)
+	wing.node.hit_flash()
+	effects.spark(wing.node.position,Color("8fffe4"))
+	if float(wing.hp)<=0.0:
+		wing.node.visible = false
+		wing.burst = 0
+		wing.guard_time = 0.0
+		_radio(str(wing.callsign),"Shields gone. Returning to the carrier!")
+
+func _detonate_companion_nova(point: Vector3, damage: float) -> void:
+	effects.shockwave(point,Color("ff9ec5"),24.0)
+	effects.burst(point,Color("ffacb5"),2.5)
+	audio.sfx("explosion")
+	for enemy in enemies.duplicate():
+		if enemy.node.position.distance_to(point)<24.0: _damage_enemy(enemy,damage)
+	for shot in projectiles:
+		if not shot.friendly and shot.node.position.distance_to(point)<24.0: shot.life = -1.0
+	if is_instance_valid(boss) and boss.position.distance_to(point)<34.0: _damage_boss(damage*1.5,point)
+
+func _empower_squadron() -> void:
 	for wing in wingmen:
-		if wing.hp > 0.0: effects.shockwave(wing.node.position,Color("98ffcf"),6.0)
+		if float(wing.hp)<=0.0: continue
+		wing.level = mini(3,int(wing.level)+1)
+		wing.cooldown = maxf(0.0,float(wing.cooldown)-3.0)
+		wing.hp = minf(float(wing.max_hp),float(wing.hp)+10.0)
+	hud.say("SUPPLY","Wing arsenal upgraded. Stronger shots and faster abilities, up to Mk III.",3.0)
 
 func _spawn_shot(origin:Vector3,velocity:Vector3,friendly:bool,damage:float=1.0,target:Node3D=null) -> void:
 	if projectiles.size() >= 200: return
@@ -653,6 +738,10 @@ func _update_projectiles(dt:float) -> void:
 	for i in range(projectiles.size()-1,-1,-1):
 		var bullet: Dictionary = projectiles[i]
 		bullet.life -= dt
+		if bullet.life <= 0.0 and not bool(bullet.get("nova",false)):
+			bullet.node.queue_free()
+			projectiles.remove_at(i)
+			continue
 		var previous: Vector3 = bullet.node.position
 		if bullet.missile and is_instance_valid(bullet.target):
 			var desired: Vector3 = (bullet.target.global_position-previous).normalized()*145.0
@@ -660,7 +749,16 @@ func _update_projectiles(dt:float) -> void:
 			effects.trail(previous,Color("ffc166"),.22)
 		bullet.node.position += bullet.velocity*dt
 		var pos: Vector3 = bullet.node.position
-		if bullet.friendly:
+		if bool(bullet.get("nova",false)):
+			var explode: bool = float(bullet.life)<=0.0
+			for enemy in enemies:
+				if _segment_distance(previous,pos,enemy.node.position)<float(enemy.radius)+1.0: explode = true
+			if is_instance_valid(boss) and _segment_distance(previous,pos,boss.position)<11.0: explode = true
+			if explode:
+				_detonate_companion_nova(pos,float(bullet.damage))
+				if not mode in [Mode.FLIGHT,Mode.BOSS]: return
+				bullet.life = -1.0
+		elif bullet.friendly:
 			for enemy in enemies.duplicate():
 				if not is_instance_valid(enemy.node): continue
 				if _segment_distance(previous,pos,enemy.node.position) < float(enemy.radius):
@@ -691,7 +789,19 @@ func _update_projectiles(dt:float) -> void:
 					bullet.life = -1.0
 					hits += 1
 		else:
-			if _segment_distance(previous,pos,player.position)<1.45:
+			var player_hit := _segment_distance(previous,pos,player.position)<1.45
+			var first_distance := previous.distance_squared_to(player.position) if player_hit else INF
+			var blocker: Dictionary = {}
+			for wing in wingmen:
+				var distance := previous.distance_squared_to(wing.node.position)
+				if float(wing.hp)>0.0 and distance<first_distance and _segment_distance(previous,pos,wing.node.position)<1.85:
+					first_distance = distance
+					blocker = wing
+			if not blocker.is_empty():
+				_hurt_wing(blocker,float(bullet.damage))
+				blocker.guard_time = 0.0
+				bullet.life = -1.0
+			if bullet.life>0.0 and player_hit:
 				if roll_time > 0.0:
 					stage_score += 15
 					effects.spark(pos,Color("77ffff"))
@@ -708,6 +818,8 @@ func _build_waves(index:int) -> Array:
 	var result: Array = []
 	# Authored beats: establish, vary, recover, combine, then the boss.
 	result.append({"t":3.0,"kind":"rings","pattern":0})
+	result.append({"t":5.0,"kind":"wing_power","pattern":0})
+	result.append({"t":45.0,"kind":"wing_power","pattern":0})
 	result.append({"t":7.0,"kind":"fighter","count":3,"pattern":0})
 	result.append({"t":14.0,"kind":"fighter","count":4,"pattern":1})
 	result.append({"t":21.0,"kind":"hazard","count":3,"pattern":0})
@@ -726,6 +838,7 @@ func _build_waves(index:int) -> Array:
 	if index > 1:
 		result.append({"t":89.0,"kind":"bomber","count":3,"pattern":0})
 		result.append({"t":95.0,"kind":"rings","pattern":1})
+	result.sort_custom(func(a: Dictionary,b: Dictionary) -> bool: return float(a.t)<float(b.t))
 	return result
 
 func _update_waves() -> void:
@@ -733,6 +846,9 @@ func _update_waves() -> void:
 	while wave_index < waves.size() and flight_time >= float(waves[wave_index].t):
 		var wave: Dictionary = waves[wave_index]
 		wave_index += 1
+		if str(wave.kind)=="wing_power":
+			_spawn_pickup(Vector3(0,2,-120),"wing_power")
+			continue
 		match str(wave.kind):
 			"rings":
 				var center_x: float = [-9.0,10.0,0.0][int(wave.pattern)]
@@ -790,8 +906,7 @@ func _update_enemies(dt:float) -> void:
 			_damage_enemy(enemy,99.0)
 		elif node.position.z > 35.0:
 			if bool(enemy.rescue):
-				wingmen[0].hp = maxf(0.0,float(wingmen[0].hp)-18.0)
-				if wingmen[0].hp == 0.0: _radio("LATCH","Taking too much damage. I'm pulling back.")
+				_hurt_wing(wingmen[0],18.0)
 			node.queue_free()
 			enemies.erase(enemy)
 
@@ -809,9 +924,10 @@ func _damage_enemy(enemy:Dictionary,amount:float) -> void:
 		combo_time = 4.2
 		stage_score += int(enemy.score)*mini(4,1+int(combo/5))
 		kills += 1
-		if bool(enemy.rescue):
+		if bool(enemy.rescue) and float(wingmen[0].hp)>0.0:
 			stage_score += 100
-			wingmen[0].hp = minf(100.0,float(wingmen[0].hp)+8.0)
+			wingmen[0].hp = minf(float(wingmen[0].max_hp),float(wingmen[0].hp)+8.0)
+		if kills%5 == 0: _spawn_pickup(pos+Vector3(0,1,-8),"wing_power")
 		if kills%7 == 0: _spawn_pickup(pos,"repair")
 		if kills%15 == 0: _spawn_pickup(pos+Vector3(0,3,-10),"bomb")
 		enemy.node.queue_free()
@@ -945,9 +1061,19 @@ func _spawn_pickup(pos:Vector3,kind:String) -> void:
 	ring.ring_segments = 6
 	mesh.mesh = ring
 	mesh.rotation.x = PI/2
-	mesh.material_override = _material(Color("ffe6a3") if kind == "ring" else (Color("81ffd3") if kind == "repair" else Color("ff9b85")),2.0)
+	mesh.material_override = _material(Color("a8acff") if kind=="wing_power" else Color("ffe6a3") if kind == "ring" else (Color("81ffd3") if kind == "repair" else Color("ff9b85")),2.0)
 	root.add_child(mesh)
-	if kind != "ring":
+	if kind == "wing_power":
+		for side in [-1.0,1.0]:
+			var chevron := MeshInstance3D.new()
+			var shape := BoxMesh.new()
+			shape.size = Vector3(1.7,.4,.4)
+			chevron.mesh = shape
+			chevron.material_override = mesh.material_override
+			chevron.position.x = side*.65
+			chevron.rotation.z = -side*.6
+			root.add_child(chevron)
+	elif kind != "ring":
 		var marker := MeshInstance3D.new()
 		var box := BoxMesh.new()
 		box.size = Vector3(.45,2.3,.45)
@@ -995,6 +1121,7 @@ func _update_hazards(dt:float) -> void:
 						shield = minf(100.0,shield+12.0)
 				"repair": shield = minf(100.0,shield+25.0)
 				"bomb": bombs = mini(5,bombs+1)
+				"wing_power": _empower_squadron()
 		if collected or pickup.node.position.z>35.0:
 			pickup.node.queue_free()
 			pickups.remove_at(i)
@@ -1021,20 +1148,49 @@ func _hurt(amount:float) -> void:
 		hud.show_result({"success":false,"final":false,"score":stage_score,"kills":kills,"rank":"—","stage_name":STAGES[stage].title,"bonus":0})
 
 func _update_wingmen(dt:float) -> void:
-	wing_fire -= dt
-	for i in range(wingmen.size()):
-		var wing: Dictionary = wingmen[i]
+	var combat := mode in [Mode.FLIGHT,Mode.BOSS]
+	for slot in range(wingmen.size()):
+		var wing: Dictionary = wingmen[slot]
 		var node: Node3D = wing.node
-		node.visible = wing.hp>0.0
-		var side := -1.0 if i==0 else 1.0
-		var target := player.position+Vector3(side*9,3.0+sin(clock*.85+i)*.8,-9.0-float(i)*3)
-		if assist_cooldown > 20.0: target += Vector3(side*4,4,-25)
-		node.position = node.position.lerp(target,1.0-exp(-dt*2.3))
-		node.animate(clock+float(i),dt,-move_velocity.x*.012+sin(clock)*.06,0.0,1.0)
-		if wing_fire<=0.0 and node.visible and mode in [Mode.FLIGHT,Mode.BOSS] and not enemies.is_empty():
-			var enemy: Dictionary = enemies[0]
-			_spawn_shot(node.position,(enemy.node.position-node.position).normalized()*150,true,.35)
-	if wing_fire<=0.0: wing_fire = 1.2
+		node.visible = float(wing.hp)>0.0
+		if not node.visible: continue
+		var pilot := Squadron.profile(str(wing.id))
+		if combat:
+			wing.fire = maxf(0.0,float(wing.fire)-dt)
+			wing.cooldown = maxf(0.0,float(wing.cooldown)-dt)
+			wing.guard_time = maxf(0.0,float(wing.guard_time)-dt)
+			wing.burst_timer = maxf(0.0,float(wing.burst_timer)-dt)
+			# Anticipate a bolt reaching the player's front plane, then fly to intercept.
+			if str(pilot.ability)=="guard" and float(wing.cooldown)<=0.0:
+				for shot in projectiles:
+					if shot.friendly or shot.life<=0.0 or bool(shot.get("guard_assigned",false)) or float(shot.velocity.z)<=1.0: continue
+					var intercept_time: float = (player.position.z-5.5-shot.node.position.z)/float(shot.velocity.z)
+					if intercept_time<0.08 or intercept_time>0.85: continue
+					var point: Vector3 = shot.node.position+shot.velocity*intercept_time
+					if Vector2(point.x-player.position.x,point.y-player.position.y).length()>2.5: continue
+					if _companion_ability(wing,null):
+						wing.guard_point = point
+						shot["guard_assigned"] = true
+					break
+		var offset := Squadron.offset(int(save_data.formation),slot)
+		var target: Vector3 = player.position+offset+Vector3(0,sin(clock*.85+slot)*.35,0)
+		if float(wing.guard_time)>0.0: target = wing.guard_point
+		var previous: Vector3 = node.position
+		node.position = node.position.lerp(target,1.0-exp(-dt*(18.0 if float(wing.guard_time)>0.0 else 3.8)))
+		var bank := clampf(-(node.position.x-previous.x)*.12,-.65,.65)
+		node.animate(clock+float(slot),dt,bank,0.0,1.7 if float(wing.guard_time)>0.0 else 1.0)
+		if not combat: continue
+		var enemy := _companion_target(node.position)
+		if not is_instance_valid(enemy): continue
+		var damage_scale := 1.0+0.4*float(int(wing.level)-1)
+		if float(wing.fire)<=0.0:
+			_spawn_shot(node.position,(enemy.global_position-node.position).normalized()*165.0,true,float(pilot.damage)*damage_scale)
+			wing.fire = float(pilot.interval)/(1.0+0.22*float(int(wing.level)-1))
+		if str(pilot.ability)!="guard": _companion_ability(wing,enemy)
+		if int(wing.burst)>0 and float(wing.burst_timer)<=0.0:
+			_spawn_shot(node.position,(enemy.global_position-node.position).normalized()*200.0,true,0.55*damage_scale)
+			wing.burst = int(wing.burst)-1
+			wing.burst_timer = 0.09
 
 func _update_camera(dt:float) -> void:
 	var base := Vector3(player.position.x*.20,5.0+player.position.y*.18,25.0)
@@ -1055,8 +1211,8 @@ func _update_hud(dt:float) -> void:
 	var objective: String = STAGES[stage].objective
 	if mode == Mode.BOSS: objective = "Target the glowing pods · R lock missile · B nova"
 	elif flight_time<14.0: objective = "WASD / arrows fly · SPACE fire · Q / E barrel roll"
-	elif assist_cooldown<=0.0: objective += "  /  F: wingman strike ready"
-	hud.update_hud({"shield":shield,"energy":energy,"bombs":bombs,"score":stage_score+campaign_score,"combo":combo,"stage_name":STAGES[stage].title,"progress":minf(1.0,flight_time/float(STAGES[stage].duration)),"speed":speed,"boss_name":STAGES[stage].boss if mode == Mode.BOSS else "","boss_hp":boss_hp/boss_max_hp if mode == Mode.BOSS else -1.0,"lock":lock_progress,"objective":objective,"roll_ready":roll_cooldown<=0.0 and not maneuver.active(),"wingmen":wingmen,"maneuver":maneuver.label(),"maneuver_cooldown":maneuver_cooldown,"maneuver_ready":energy >= Maneuver.ENERGY_COST and roll_time <= 0.0})
+	else: objective += "  /  F: squad abilities  /  TAB: formation"
+	hud.update_hud({"shield":shield,"energy":energy,"bombs":bombs,"score":stage_score+campaign_score,"combo":combo,"stage_name":STAGES[stage].title,"progress":minf(1.0,flight_time/float(STAGES[stage].duration)),"speed":speed,"boss_name":STAGES[stage].boss if mode == Mode.BOSS else "","boss_hp":boss_hp/boss_max_hp if mode == Mode.BOSS else -1.0,"lock":lock_progress,"objective":objective,"roll_ready":roll_cooldown<=0.0 and not maneuver.active(),"wingmen":wingmen,"formation":Squadron.FORMATIONS[int(save_data.formation)],"maneuver":maneuver.label(),"maneuver_cooldown":maneuver_cooldown,"maneuver_ready":energy >= Maneuver.ENERGY_COST and roll_time <= 0.0})
 
 func _finish_stage() -> void:
 	var bonus := int(shield)*20+rings*100
@@ -1065,6 +1221,10 @@ func _finish_stage() -> void:
 	stage_score += bonus
 	campaign_score += stage_score
 	var rank := "S" if kills>=28 and shield>=60 else ("A" if kills>=20 else ("B" if kills>=10 else "C"))
+	var recruits: Array[String] = []
+	for pilot in Squadron.ROSTER:
+		if int(pilot.gate)==stage and not Squadron.available(str(pilot.id),save_data): recruits.append(str(pilot.name))
+	if not save_data.completed_stages.has(stage): save_data.completed_stages.append(stage)
 	save_data.unlocked = maxi(int(save_data.unlocked),mini(3,stage+2))
 	save_data.best = maxi(int(save_data.best),campaign_score)
 	var record_key := "%d_%s"%[stage,str(save_data.difficulty)]
@@ -1073,9 +1233,11 @@ func _finish_stage() -> void:
 	mode = Mode.RESULT
 	mode_time = 0.0
 	overlay.visible = false
-	hud.show_result({"success":true,"final":stage==2,"score":stage_score,"kills":kills,"rank":rank,"stage_name":STAGES[stage].title,"bonus":bonus})
+	hud.show_result({"success":true,"final":stage==2,"score":stage_score,"kills":kills,"rank":rank,"stage_name":STAGES[stage].title,"bonus":bonus,"recruits":", ".join(recruits)})
 
 func _radio(speaker:String,message:String) -> void:
+	if speaker=="LATCH": speaker = str(wingmen[0].callsign)
+	elif speaker=="GLINT": speaker = str(wingmen[1].callsign)
 	if chatter: hud.say(speaker,message,4.2)
 
 func _read_save() -> void:
@@ -1096,6 +1258,10 @@ func _read_save() -> void:
 		for key in parsed.records:
 			if parsed.records[key] is float or parsed.records[key] is int:
 				save_data.records[str(key)] = clampi(int(parsed.records[key]),0,999999999)
+
+	for key in ["companions","formation","completed_stages"]:
+		if parsed.has(key): save_data[key] = parsed[key]
+	Squadron.normalize(save_data)
 
 func _write_save() -> void:
 	var file := FileAccess.open(save_path,FileAccess.WRITE)

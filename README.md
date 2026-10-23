@@ -1,6 +1,6 @@
 # Foxlike: Asterion Flight
 
-An original, complete three-mission **3D arcade flight campaign** in the Project Barrel Roll setting. Fly Mara “COMET” Venn's Arrow Mk I with LATCH and GLINT, break a coastal blockade, chase a signal through an ice field, and destroy the command carrier over Terminus.
+An original, complete three-mission **3D arcade flight campaign** in the Project Barrel Roll setting. Fly Mara “COMET” Venn's Arrow Mk I with two selectable companions, break a coastal blockade, chase a signal through an ice field, and destroy the command carrier over Terminus.
 
 Built for **Godot 4.7.2 stable**, using the Compatibility renderer. All ships, environments and effects are procedural 3D geometry. Music and effects are original synthesis. No external asset service, account, API key or network connection is needed to play a downloaded build.
 
@@ -38,6 +38,26 @@ The flight rig banks and pitches into movement, flaps respond to throttle, thrus
 
 Three difficulties adjust damage and, on Cadet, target durability and aim assistance. Mission selection unlocks as the campaign advances. Scores reward kills, chains, rings, surviving wingmen, remaining shields and weapon-pod destruction.
 
+## Companions and formations
+
+Choose two distinct pilots in the main screen's companion loadout. Equip LEFT or RIGHT; choosing an already equipped pilot swaps slots. The main screen shows health, laser interval and ability cooldown, with the unlock condition on locked pilots. Loadout and formation persist in your save. Existing clear records migrate automatically.
+
+| Pilot | Role | Health | Laser interval | Ability cooldown | Unlock |
+|---|---|---:|---:|---:|---|
+| Latch | Flies ahead to intercept incoming bolts | 110 | 0.95s | 9s | Starter |
+| Glint | Rapid laser fire and six-shot bursts | 75 | 0.28s | 7s | Starter |
+| Pike | Homing missiles | 95 | 0.90s | 11s | Clear Viridia |
+| Ember | Traveling Nova with a local area blast | 90 | 1.20s | 22s | Clear Aurora |
+| Bastion | Heavy bodyguard with frequent interception | 165 | 1.40s | 4.5s | Clear Terminus |
+
+**Tab**, or controller **D-pad Up**, cycles Wide V, Spearhead and Close Guard during flight. The main screen also has a formation selector. The ships fly into their new positions. Bodyguards anticipate bolts aimed at the player, dash ahead, and physically absorb damage using their own health. They cannot stop every attack, and they withdraw when their shields reach zero.
+
+Companions automatically shoot forward targets and use ready offensive abilities. **F / controller Y** commands any currently ready abilities; it cannot bypass their individual cooldowns. A guard commanded early takes position in front. Nova blasts damage nearby enemies and destroy nearby hostile bolts; they do not spend the player's Nova inventory.
+
+**Violet chevron pickups** upgrade both active companions, up to Mk III. Each level adds 40% of base weapon damage, 22% of base firing rate and 18% of base ability recharge rate. A pickup also restores 10 companion health and removes three seconds of current ability cooldown. Pickups appear in authored supply waves and every fifth kill. Withdrawn companions remain out until mission refit, which restores health and resets temporary weapon upgrades.
+
+[Main-screen roster](docs/previews/companion-roster.png) · [Spearhead formation](docs/previews/squadron-spearhead.png) · [Specialist weapons](docs/previews/squadron-weapons.png)
+
 ## Controls
 
 | Action | Keyboard / mouse | Controller |
@@ -52,13 +72,14 @@ Three difficulties adjust damage and, on Cadet, target durability and aim assist
 | Brake | Hold Ctrl | Left bumper |
 | Homing missile | R / right click after lock | X |
 | Nova bomb | B | B |
-| Wingman crossfire | F | Y |
+| Ready companion abilities | F | Y |
+| Cycle formation | Tab | D-pad Up |
 | Pause / resume | Escape | Start |
 | Mute sound | M | Pause menu |
 | Cut / resume chatter | C | — |
 | Fullscreen | F11 | — |
 
-Aim at a target until the lock completes, then fire a homing missile. Missiles recharge in 2.5 seconds; wingman crossfire recharges in 24 seconds. Nova bombs are limited. **Gold rings repair shields; collecting three upgrades the twin lasers.** Green crosses repair damage, red crosses replenish a nova. Roll through red shots, steer around debris, and move sideways out of the Sovereign's marked lance lane.
+Aim at a target until the lock completes, then fire a homing missile. Missiles recharge in 2.5 seconds; companion abilities recharge independently according to the roster above. Nova bombs are limited. **Gold rings repair shields; collecting three upgrades the twin lasers.** Green crosses repair damage, red crosses replenish a nova. Roll through red shots, steer around debris, and move sideways out of the Sovereign's marked lance lane.
 
 Boost maneuvers each cost 30 engine energy and share a four-second cooldown from activation. Hold boost first, then tap the direction. A held direction does not repeat the move. The compact somersault takes 1.25 seconds; the long loop surges forward, completes a vertical loop, and returns to flight depth in 2.65 seconds. The corkscrew climbs to a forward boosted position in 1.8 seconds, then eases speed and position back to cruise over 1.5 seconds. Release boost after a maneuver to rearm ordinary boost. Steering resumes when the path finishes; Q/E barrel rolls cannot overlap it. Somersaults suspend forward lasers and missile locking during the flip. These maneuvers move the actual collision position and do not add barrel-roll invulnerability. Near screen edges the large paths ease toward a safe center before looping.
 
@@ -71,6 +92,7 @@ Mouse movement takes over steering; pressing a steering key or moving the contro
 ```bash
 godot --headless --path . --editor --import --quit
 godot --headless --path . --script tests/game_smoke.gd -- --test-save
+godot --headless --path . --script tests/squadron_smoke.gd -- --test-save
 python tools/package_release.py --godot godot
 ```
 
@@ -85,6 +107,7 @@ This is a compact first complete game, with room for later refinement. It is an 
 | File | Responsibility |
 |---|---|
 | `scripts/flight_game.gd` | Flight, combat, campaign, encounters, saves |
+| `scripts/flight_squadron.gd` | Companion roster, unlock/save migration, formation offsets and ability stats |
 | `scripts/flight_maneuver.gd` | Timed somersault, long loop, corkscrew and recovery paths |
 | `scripts/ship_model.gd` | Procedural airframes and animation rigs |
 | `scripts/flight_world.gd` | Lit worlds and bounded scenery recycling |

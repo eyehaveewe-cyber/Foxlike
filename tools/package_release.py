@@ -50,6 +50,7 @@ def main() -> int:
     run([godot, "--headless", "--path", str(ROOT), "--import"])
     if not args.skip_tests:
         run([godot, "--headless", "--path", str(ROOT), "--script", "res://tests/game_smoke.gd", "--", "--test-save"])
+        run([godot, "--headless", "--path", str(ROOT), "--script", "res://tests/squadron_smoke.gd", "--", "--test-save"])
     manifest = {"game": "Foxlike: Asterion Flight", "engine": engine_version, "builds": []}
     selected = TARGETS if args.platform == "all" else {args.platform: TARGETS[args.platform]}
     for platform, (preset, entry) in selected.items():

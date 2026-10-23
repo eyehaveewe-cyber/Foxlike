@@ -3,6 +3,8 @@ extends CanvasLayer
 ## Presentation only. Game state belongs to the flight controller.
 signal action(name: String, value: Variant)
 
+const Squadron = preload("res://scripts/flight_squadron.gd")
+
 const INK := Color("08131c")
 const PAPER := Color("f3ebd7")
 const SOFT := Color("8ea9b7")
@@ -65,6 +67,11 @@ var _roll: Label
 var _maneuver: Label
 var _lock_label: Label
 var _wingmen: Label
+var _formation: Label
+var _loadout: Label
+var _equipped_names := "COMET / LATCH / GLINT"
+var _formation_button: Button
+var _pilot_buttons: Array[Dictionary] = []
 var _shield_label: Label
 var _energy_label: Label
 var _best: Label
@@ -236,13 +243,26 @@ func _build_menu() -> void:
 	_mute_menu = _button(_menu,"SOUND ON",Vector2(251,540),Vector2(177,37),"mute")
 	_best = _label(_menu,"BEST SORTIE   000000",Vector2(64,592),380,14,CYAN)
 	_label(_menu,"WASD / ARROWS steer  SPACE / LMB fire  Q / E roll  SHIFT boost  CTRL brake",Vector2(64,625),1050,12,SOFT)
-	_label(_menu,"B  nova    R / RMB  missile    F  wingman assist    C  chatter    M  mute    ESC  pause",Vector2(64,646),1050,12,SOFT)
+	_label(_menu,"B  nova    R / RMB  missile    F squad abilities   TAB formation   C chatter    M  mute    ESC  pause",Vector2(64,646),1050,12,SOFT)
 	_label(_menu,"STUNTS  hold SHIFT / RB + tap LEFT somersault / DOWN long loop / RIGHT corkscrew",Vector2(64,668),1110,10,SOFT)
 	_label(_menu,"GAMEPAD  left stick steer / RT fire / A roll / X missile / B nova / Y assist / RB boost / LB brake / START pause",Vector2(64,686),755,9,SOFT)
+	_backplate(_menu,Vector2(644,146),Vector2(586,454),.88)
+	_label(_menu,"COMPANION LOADOUT",Vector2(662,156),540,16,CYAN)
+	_loadout = _label(_menu,"",Vector2(662,184),540,13,PAPER)
+	for index in range(Squadron.ROSTER.size()):
+		var pilot: Dictionary = Squadron.ROSTER[index]
+		var y := 215.0+float(index)*65.0
+		_label(_menu,str(pilot.name)+" / "+str(pilot.role),Vector2(662,y),370,15,Color(str(pilot.color)))
+		var stats := "%d HP / %.2fs laser / %.1fs ability" % [int(pilot.hp),float(pilot.interval),float(pilot.cooldown)]
+		_label(_menu,stats,Vector2(662,y+20),375,11,SOFT)
+		var note := _label(_menu,str(pilot.description),Vector2(662,y+38),375,10,SOFT)
+		for slot in range(2):
+			var button := _button(_menu,"LEFT" if slot==0 else "RIGHT",Vector2(1046+slot*79,y+7),Vector2(72,34),"equip_companion",{"slot":slot,"id":pilot.id})
+			_pilot_buttons.append({"button":button,"id":pilot.id,"slot":slot,"note":note})
+	_formation_button = _button(_menu,"FORMATION / WIDE V",Vector2(662,552),Vector2(540,32),"formation")
 	_label(_menu,"ARROW MK I",Vector2(935,73),290,14,CYAN)
 	_label(_menu,"SQUADRON LEAD  /  COMET",Vector2(935,98),290,11,SOFT)
 	_label(_menu,"A PROJECT BARREL ROLL FLIGHT",Vector2(836,689),380,11,SOFT)
-	_label(_menu,"01—03  /  COMPLETE ARCADE CAMPAIGN",Vector2(64,689),650,11,SOFT)
 	_button(_menu,"EXIT",Vector2(1130,633),Vector2(90,35),"quit")
 
 func _build_game() -> void:
@@ -275,8 +295,9 @@ func _build_game() -> void:
 	_lock_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_speed = _label(_game,"CRUISE / 100",Vector2(1050,616),195,13,SOFT)
 	_speed.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	_wingmen = _label(_game,"LATCH 100     GLINT 100",Vector2(30,650),700,12,CYAN)
-	_label(_game,"SHIFT + A/LEFT flip · S/DOWN loop · D/RIGHT corkscrew  |  SPACE fire · Q/E roll · CTRL brake · B nova · R missile · F assist · ESC pause",Vector2(30,687),1210,11,SOFT)
+	_wingmen = _label(_game,"LATCH 100     GLINT 100",Vector2(30,640),1200,12,CYAN)
+	_formation = _label(_game,"WIDE V / TAB CHANGE",Vector2(30,661),900,11,SOFT)
+	_label(_game,"SHIFT + A/LEFT flip · S/DOWN loop · D/RIGHT corkscrew  |  SPACE fire · Q/E roll · CTRL brake · B nova · R missile · F squad · TAB formation · ESC pause",Vector2(30,687),1210,11,SOFT)
 	_comms = Control.new()
 	_comms.position = Vector2(30,520)
 	_comms.size = Vector2(610,103)
@@ -331,6 +352,17 @@ func show_menu(progress: Dictionary) -> void:
 	_best.text = "BEST SORTIE   %06d" % int(progress.get("best",0))
 	_difficulty_value = str(progress.get("difficulty","Standard"))
 	_difficulty.text = _difficulty_value.to_upper()
+	var selected: Array = progress.get("companions",["latch","glint"])
+	_equipped_names = "COMET / "+str(selected[0]).to_upper()+" / "+str(selected[1]).to_upper()
+	_loadout.text = "LEFT  %s     /     RIGHT  %s" % [str(selected[0]).to_upper(),str(selected[1]).to_upper()]
+	_formation_button.text = "FORMATION / "+Squadron.FORMATIONS[int(progress.get("formation",0))]+"  >"
+	for entry in _pilot_buttons:
+		var pilot := Squadron.profile(str(entry.id))
+		var ready := Squadron.available(str(entry.id),progress)
+		var equipped: bool = str(selected[int(entry.slot)])==str(entry.id)
+		entry.button.disabled = not ready or equipped
+		entry.button.text = "SET" if equipped else ("LOCKED" if not ready else ("LEFT" if int(entry.slot)==0 else "RIGHT"))
+		entry.note.text = str(pilot.description) if ready else "LOCKED / "+Squadron.unlock_text(pilot)
 	set_muted(bool(progress.get("muted",false)))
 	_fade(_menu)
 	# Keyboard focus remains on launch even when Continue is unavailable.
@@ -360,7 +392,7 @@ func show_briefing(stage: Dictionary) -> void:
 	var launch := _button(_modal,"LAUNCH SQUADRON     >",Vector2(82,560),Vector2(360,54),"launch",null,true)
 	_button(_modal,"FLIGHT DECK",Vector2(459,560),Vector2(200,54),"menu")
 	launch.grab_focus()
-	_label(_modal,"COMET     /     LATCH     /     GLINT",Vector2(82,664),1050,13,SOFT)
+	_label(_modal,_equipped_names,Vector2(82,664),1050,13,SOFT)
 
 func show_result(result: Dictionary) -> void:
 	_build()
@@ -383,6 +415,9 @@ func show_result(result: Dictionary) -> void:
 		_button(_modal,"FLIGHT DECK",Vector2(462,560),Vector2(220,54),"menu")
 	primary.grab_focus()
 	_label(_modal,"FLY AGAIN. FIND YOUR LINE. BRING EVERYONE HOME.",Vector2(82,664),1000,13,SOFT)
+
+	if not str(result.get("recruits","")).is_empty():
+		_label(_modal,"NEW COMPANION / "+str(result.recruits)+" / Select on the main screen",Vector2(82,312),1040,15,CYAN)
 
 func show_pause(paused: bool) -> void:
 	_build()
@@ -444,8 +479,10 @@ func update_hud(data: Dictionary) -> void:
 		for entry: Variant in wing_data:
 			if entry is Dictionary:
 				var hp := int(entry.get("hp",100))
-				wing_text.append(str(entry.get("callsign","WING"))+"  "+("RTB" if hp<=0 else str(hp)))
+				var status := "RTB" if hp<=0 else "%d/%d  MK %d  %s" % [hp,int(entry.get("max_hp",100)),int(entry.get("level",1)),("READY" if float(entry.get("cooldown",0.0))<=0.0 else "%.1fs" % float(entry.cooldown))]
+				wing_text.append(str(entry.get("callsign","WING"))+"  "+status)
 	_wingmen.text = "     /     ".join(wing_text)
+	_formation.text = str(data.get("formation","WIDE V"))+" / TAB change / F ready abilities / violet chevrons upgrade wing weapons"
 	if data.has("muted"):
 		set_muted(bool(data.muted))
 

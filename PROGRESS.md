@@ -1,5 +1,13 @@
 # Foxlike progress
 
+## 2026-10-22 — Companion roster, combat and formations
+
+Added five pilots and two saved equipment slots on the main screen. Latch intercepts shots, Glint fires rapid bursts, Pike unlocks after Viridia with homing missiles, Ember unlocks after Aurora with local Nova blasts, and Bastion unlocks after Terminus with heavier shields and faster interception. Each has separate health, laser rate, damage, ability cooldown and temporary Mk I–III arsenal level. Existing mission unlocks/clear records migrate to roster access; invalid or duplicate selections sanitize to valid distinct pilots.
+
+Added Wide V, Spearhead and Close Guard, selected on the main screen or cycled with Tab / controller D-pad Up. Formation changes move the actual companion ships. Bodyguards predict incoming bolts, fly ahead, and absorb hits with their own shields. Projectiles resolve a blocking companion before the player only when that companion is ahead along the shot path. Ready offensive abilities fire automatically; F / Y commands ready abilities without bypassing individual cooldowns. Violet chevron supplies empower active companions and appear in the route and kill drops. A withdrawn pilot stays out until the next mission refit.
+
+Validation: the existing 74-assertion campaign suite and a new 35-assertion squadron suite pass in Godot 4.7.2. Coverage includes real menu signals, formation input/motion, interception and damage ordering, missiles and Nova impacts, actual upgraded laser damage/rate, independent cooldowns, pause, roster unlocks, loadout persistence/migration, upgrade caps and refits. Native rendered screenshots cover locked/unlocked rosters, all three formations and specialist weapons. Windows and Web exports and the source ZIP package successfully. Physical controller and human balance testing remain outstanding.
+
 ## 2026-10-22 — Boost maneuvers
 
 Added three boost-direction abilities using Motionwright: left for an in-place somersault, down for the long forward surge and vertical loop, right for a rising corkscrew with gradual forward-position and speed recovery. Keyboard WASD/arrows and the controller stick share the direction detector. Cost is 30 energy, with a shared four-second cooldown. Inputs require a new direction edge, so held controls cannot auto-repeat. The controller owns the actual flight path; the airframe rig adds unclamped full rotations after steering. Pause preserves the path; death, victory, menu and retry clear it. HUD displays action/cooldown, and the controls are in the menu and README.
