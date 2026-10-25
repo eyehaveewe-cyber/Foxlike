@@ -1,6 +1,15 @@
 extends Node3D
-## Bounded visitors reveal gradually in the outer drift. All motion is aesthetic,
-## scaled orbital motion; this is not an N-body astronomy simulator.
+## Newtonian visitors in a scaled co-orbiting local frame. Planet gravity and
+## frame forces act on velocities; no prescribed paths or near-ship freezing.
+const PLANET_OFFSET := Vector3(-200,5300,6900)
+const ORBIT_RATE := .00022
+const OMEGA := Vector3(0,.793,-.609)*ORBIT_RATE
+const MU := 31900.0
+
+static func acceleration(point: Vector3, velocity: Vector3) -> Vector3:
+	var r := PLANET_OFFSET+point
+	return -MU*r/pow(maxf(r.length(),6000.0),3.0)+MU*PLANET_OFFSET/pow(PLANET_OFFSET.length(),3.0)-2.0*OMEGA.cross(velocity)-OMEGA.cross(OMEGA.cross(point))
+
 const ROCK_SHADER = preload("res://shaders/orbit/rock.gdshader")
 const MAX_ROCKS := 24
 var visitors: Array[Dictionary] = []
@@ -60,11 +69,11 @@ func spawn(ship_position: Vector3, existing: bool = false, preferred: Vector3 = 
 	node.scale = Vector3(size,size*rng.randf_range(.7,1.3),size*rng.randf_range(.7,1.35))
 	node.position = point
 	add_child(node)
-	visitors.append({"node":node,"position":point,"radius":size*1.5,"angle":angle,"distance":radius,"height":height,"rate":rng.randf_range(.0015,.006),"phase":rng.randf_range(0,TAU),"age":8.0 if existing else 0.0,"life":rng.randf_range(180,330),"material":material})
+	visitors.append({"node":node,"position":point,"radius":size*1.5,"angle":angle,"distance":radius,"height":height,"velocity":Vector3(rng.randf_range(-2.5,2.5),rng.randf_range(-.4,.4),rng.randf_range(-2.5,2.5)),"mass":pow(size,3.0),"phase":rng.randf_range(0,TAU),"age":8.0 if existing else 0.0,"life":rng.randf_range(180,330),"material":material})
 	created += 1
 	return true
 
-func advance(dt: float, ship_position: Vector3) -> void:
+func advance(dt: float, ship_position: Vector3, station: Node3D = null) -> void:
 	if not enabled: return
 	spawn_timer -= dt
 	if spawn_timer<=0.0:
@@ -72,19 +81,47 @@ func advance(dt: float, ship_position: Vector3) -> void:
 		spawn(ship_position)
 	for visitor in visitors.duplicate():
 		visitor.age += dt
-		# Orbit and spin continue while hovering, independently of navigation input.
-		visitor.angle += float(visitor.rate)*dt
-		var point := Vector3(sin(float(visitor.angle))*float(visitor.distance),float(visitor.height)+sin(float(visitor.angle)*2.0+float(visitor.phase))*12.0,cos(float(visitor.angle))*float(visitor.distance))
-		# Slow visitors yield near the ship so an idle ship remains a quiet safe place.
-		if point.distance_to(ship_position)>float(visitor.radius)+30.0:
-			visitor.position = point
-			visitor.node.position = point
+		var remaining := dt
+		while remaining>.000001:
+			var h := minf(remaining,1.0/120.0)
+			visitor.velocity += acceleration(visitor.position,visitor.velocity)*h
+			var next: Vector3 = visitor.position+visitor.velocity*h
+			if station!=null and station.blocked(visitor.position,next,float(visitor.radius)):
+				visitor.velocity *= -.8
+			else:
+				visitor.position = next
+			remaining -= h
+		visitor.node.position = visitor.position
 		visitor.node.rotation += Vector3(.015,.022,.008)*dt
 		var fade := minf(smoothstep(0.0,6.0,float(visitor.age)),smoothstep(0.0,8.0,float(visitor.life)-float(visitor.age)))
 		visitor.material.set_shader_parameter("reveal",fade)
 		if float(visitor.age)>float(visitor.life):
 			visitor.node.queue_free()
 			visitors.erase(visitor)
+
+	# Pairwise impulses conserve linear momentum; inverse mass separates overlap.
+	for i in range(visitors.size()):
+		for j in range(i+1,visitors.size()):
+			resolve_pair(visitors[i],visitors[j])
+
+static func resolve_pair(a: Dictionary, b: Dictionary) -> void:
+	var offset: Vector3 = b.position-a.position
+	var distance := offset.length()
+	var separation: float = a.radius+b.radius
+	if distance>=separation: return
+	var normal := offset/distance if distance>.00001 else Vector3.RIGHT
+	var inverse_a: float = 1.0/a.mass
+	var inverse_b: float = 1.0/b.mass
+	var correction := normal*(separation-distance)/(inverse_a+inverse_b)
+	a.position -= correction*inverse_a
+	b.position += correction*inverse_b
+	var closing: float = (b.velocity-a.velocity).dot(normal)
+	if closing<0.0:
+		var impulse := -1.8*closing/(inverse_a+inverse_b)
+		a.velocity -= normal*impulse*inverse_a
+		b.velocity += normal*impulse*inverse_b
+	if a.has("node"): a.node.position = a.position
+	if b.has("node"): b.node.position = b.position
 
 func set_enabled(value: bool) -> void:
 	enabled = value

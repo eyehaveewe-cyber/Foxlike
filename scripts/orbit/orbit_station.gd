@@ -149,9 +149,12 @@ func instances(mesh: Mesh, material: Material, transforms: Array[Transform3D]) -
 	return instance
 
 func advance(dt: float, clock: float) -> void:
+	rotation.y = clock*.00022
 	for i in range(dishes.size()): dishes[i].rotation.y = sin(clock*.025+float(i))*0.4
 
 func blocked(a: Vector3, b: Vector3, extent: float) -> bool:
+	a = transform.affine_inverse()*a
+	b = transform.affine_inverse()*b
 	for solid in solids:
 		if not Geometry.sweep_box(a,b,solid,extent).is_empty(): return true
 	var samples := maxi(1,int(ceil(a.distance_to(b)/1.5)))

@@ -77,7 +77,7 @@ func run() -> void:
 	check(hub.asteroids.visitors.size()<=24,"Asteroid visitors remain bounded after repeated requests")
 	var near_safe := true
 	for visitor in hub.asteroids.visitors:
-		near_safe = near_safe and Vector2(visitor.position.x,visitor.position.z).length()>=390.0
+		if float(visitor.age)==0.0: near_safe = near_safe and Vector2(visitor.position.x,visitor.position.z).length()>=390.0
 	check(near_safe,"Asteroid arrivals stay outside the docking and station ring")
 	hub.asteroids.set_enabled(false)
 	var count: int = hub.asteroids.visitors.size()
@@ -102,6 +102,37 @@ func run() -> void:
 		hub.camera_mode = i
 		hub._update_camera(.05,true)
 	check(hub.navigation.position==held and hub.camera.position.is_finite(),"All three viewing modes preserve the ship's held location")
+	var coast := Navigation.new()
+	coast.position = Vector3(0,500,500)
+	coast.velocity = Vector3(90,0,0)
+	coast.engines_on = false
+	coast.advance(2.0,{"move":Vector3.FORWARD,"turn":Vector2(1,0),"brake":true},null,[])
+	check(coast.velocity==Vector3(90,0,0) and coast.position.is_equal_approx(Vector3(180,500,500)),"Engine cutoff preserves full boost momentum despite turn, brake and thrust requests")
+	coast.engines_on = true
+	coast.advance(2.0,{"brake":true},null,[])
+	check(coast.velocity.length()<.025,"Restarted engines can brake an inertial coast")
+	check(is_equal_approx(hub.station.rotation.y,hub.clock*.00022),"Station and planetary surface share the slow rotation clock")
+	var local_point := Vector3(0,0,0)
+	check(hub.station.blocked(hub.station.transform*local_point,hub.station.transform*local_point,1.0),"Rotating station collision volumes follow the visible central hull")
+	var rocks = load("res://scripts/orbit/orbit_asteroids.gd")
+	var a := {"position":Vector3(-9,400,0),"velocity":Vector3(2,0,0),"radius":10.0,"mass":2.0}
+	var b := {"position":Vector3(9,400,0),"velocity":Vector3(-1,0,0),"radius":10.0,"mass":3.0}
+	var momentum: Vector3 = a.velocity*a.mass+b.velocity*b.mass
+	rocks.resolve_pair(a,b)
+	check((a.velocity*a.mass+b.velocity*b.mass).is_equal_approx(momentum) and a.velocity.x<b.velocity.x,"Rock collision conserves momentum and separates approaching bodies")
+	var positions: Array[Vector3] = []
+	for fps in [30,60,144]:
+		var point := Vector3(600,100,700)
+		var speed := Vector3(2,.1,-1)
+		for frame in range(fps*30):
+			var remaining := 1.0/float(fps)
+			while remaining>.000001:
+				var h := minf(remaining,1.0/120.0)
+				speed += rocks.acceleration(point,speed)*h
+				point += speed*h
+				remaining -= h
+		positions.append(point)
+	check(positions[0].distance_to(positions[2])<.1,"Newtonian integration agrees within ten centimetres at 30 and 144 FPS over thirty seconds")
 	# Verify normal return navigation without writing campaign progression.
 	var back: Button
 	for node in hub.panel.find_children("*","Button",true,false):

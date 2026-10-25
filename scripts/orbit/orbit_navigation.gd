@@ -9,6 +9,7 @@ var previous_position := position
 var velocity := Vector3.ZERO
 var heading := 0.0
 var pitch := 0.0
+var engines_on := true
 var assist := true
 var status := "STATION KEEPING"
 
@@ -18,6 +19,7 @@ func reset() -> void:
 	velocity = Vector3.ZERO
 	heading = 0.0
 	pitch = 0.0
+	engines_on = true
 	assist = true
 	status = "STATION KEEPING"
 
@@ -41,16 +43,22 @@ func _step(dt: float, request: Dictionary, station: Node3D, asteroids: Array) ->
 	movement = movement.limit_length()
 	var braking: bool = request.get("brake",false)
 	var target_speed := BOOST_SPEED if request.get("boost",false) else MAX_SPEED
-	if braking:
-		velocity *= exp(-dt*5.0)
-	elif movement.length()>.01:
-		velocity = velocity.move_toward(basis()*movement*target_speed,dt*48.0)
-	elif assist:
-		velocity *= exp(-dt*2.5)
-	velocity = velocity.limit_length(target_speed)
-	if velocity.length()<.025: velocity = Vector3.ZERO
+	if engines_on:
+		if braking:
+			velocity *= exp(-dt*5.0)
+		elif movement.length()>.01:
+			# Thrusters accelerate along the nose; turning alone cannot redirect momentum.
+			var acceleration := basis()*movement*48.0
+			# A powered governor limits further acceleration, never trims a coast.
+			if velocity.length()>=target_speed and acceleration.dot(velocity)>0.0:
+				acceleration -= velocity.normalized()*acceleration.dot(velocity.normalized())
+			var candidate := velocity+acceleration*dt
+			velocity = candidate.limit_length(maxf(target_speed,velocity.length()))
+		elif assist:
+			velocity *= exp(-dt*2.5)
+		if velocity.length()<.025: velocity = Vector3.ZERO
 	var next := position+velocity*dt
-	status = "FREE DRIFT" if not assist else "STATION KEEPING" if velocity.length()<.1 else "THRUSTERS"
+	status = "ENGINE OFF / INERTIAL COAST" if not engines_on else "FREE DRIFT" if not assist else "STATION KEEPING" if velocity.length()<.1 else "THRUSTERS"
 	if station!=null and station.blocked(position,next,4.0):
 		velocity = Vector3.ZERO
 		status = "STATION PROXIMITY / HOLD"

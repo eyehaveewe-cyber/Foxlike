@@ -148,6 +148,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				if paused: Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			KEY_F11:
 				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED if DisplayServer.window_get_mode()==DisplayServer.WINDOW_MODE_FULLSCREEN else DisplayServer.WINDOW_MODE_FULLSCREEN)
+			KEY_I: navigation.engines_on = not navigation.engines_on
 			KEY_H:
 				navigation.assist = not navigation.assist
 			KEY_F2: camera_mode = (camera_mode+1)%3
@@ -204,15 +205,16 @@ func simulate(dt: float, request: Dictionary) -> void:
 	moon.position = Vector3(-5400+sin(clock*.0006)*1100,1800+cos(clock*.0006)*250,-16000)
 	moon.rotation.y = clock*.0002
 	station.advance(dt*time_scale,clock)
-	asteroids.advance(dt*time_scale,navigation.position)
+	asteroids.advance(dt*time_scale,navigation.position,station)
 	navigation.advance(dt,request,station,asteroids.visitors if asteroids.enabled else [])
 
 func _update_ship(dt: float) -> void:
 	ship.position = navigation.position
 	ship.basis = navigation.basis()
 	var local_velocity := navigation.basis().inverse()*navigation.velocity
-	var thrust := .12+minf(1.5,navigation.velocity.length()/55.0)
+	var thrust := (.12+minf(1.5,navigation.velocity.length()/55.0)) if navigation.engines_on else 0.0
 	ship.animate(ship_clock,dt,-local_velocity.x*.003,0,thrust)
+	for flame in ship._flames: flame.visible = navigation.engines_on
 	# A visual hover oscillation never moves the collision body or changes the held point.
 	ship.visual.position.y = sin(ship_clock*.7)*.075
 
@@ -286,6 +288,7 @@ func _build_ui() -> void:
 	_button(stack,"RESUME ORBIT",func(): paused = false; panel.hide())
 	_button(stack,"RETURN SHIP TO STATION / HOME",return_to_station)
 	_button(stack,"SOUND ON / OFF / M",func(): audio.volume_db = -22.0 if audio.volume_db< -50 else -80.0)
+	_button(stack,"ENGINE ON / OFF / I",func(): navigation.engines_on = not navigation.engines_on)
 	_button(stack,"CHANGE VIEW / F2",func(): camera_mode = (camera_mode+1)%3)
 	_button(stack,"ASTEROID VISITORS / B",func(): asteroids.set_enabled(not asteroids.enabled))
 	var pace := HSlider.new()
@@ -330,7 +333,7 @@ func draw_hud(surface: Control) -> void:
 	surface.draw_string(font,Vector2(40,98)*factor,"%d visitors   ·   orbit time ×%.2f" % [asteroids.visitors.size() if asteroids.enabled else 0,time_scale],HORIZONTAL_ALIGNMENT_LEFT,-1,12*factor,color)
 	surface.draw_style_box(plate,Rect2(Vector2(24,size.y/factor-75)*factor,Vector2(1050,53)*factor))
 	surface.draw_string(font,Vector2(38,size.y/factor-53)*factor,"W/S thrust · A/D strafe · Q/E descend/rise · arrows or RMB-drag look · SHIFT boost · SPACE brake",HORIZONTAL_ALIGNMENT_LEFT,-1,13*factor,color)
-	surface.draw_string(font,Vector2(38,size.y/factor-32)*factor,"H hover assist · F2 view · F3 hide interface · B visitors · J add asteroid · HOME station · M sound · ESC options",HORIZONTAL_ALIGNMENT_LEFT,-1,12*factor,Color("84cfd7"))
+	surface.draw_string(font,Vector2(38,size.y/factor-32)*factor,"I engine · H assist · F2 view · F3 hide interface · B visitors · J add asteroid · HOME station · M sound · ESC options",HORIZONTAL_ALIGNMENT_LEFT,-1,12*factor,Color("84cfd7"))
 
 func _exit_tree() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
