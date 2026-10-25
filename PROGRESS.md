@@ -1,5 +1,15 @@
 # Foxlike progress
 
+## 2026-10-25 — Asterion orbit selection and reachable moons
+
+Reused Project Barrel Roll's complete twelve-world catalog, animated planetary thumbnails and original route chart. Planet Orbits now opens a four-column selection grid with every world available outside campaign unlock rules. Every sector contains its selected 3D planet and full catalogued moon population: 93 moons total across the catalog. Distinct procedural surfaces, atmosphere/cloud configurations and the three source-ringed planets replace the single Viridia backdrop. Each station's identity follows the selected world.
+
+Expanded the local flight radius from 1.8 km to 100 km. Added moon/station waypoint cycling, face-waypoint assistance and a manual travel drive up to 1,500 m/s, with powered approach braking. Moon transfers are continuous navigation, with swept sphere collision and proximity protection. Engine-off momentum, hover and the light lance continue working; asteroids spawn around distant players, and planet swaps clear old visitors/tethers and refit at the new berth.
+
+Distant worlds/moons swap among three shared sphere resolutions and cheaper surface detail. Cloud/atmosphere shells and station details cull with distance/apparent size. Only the selected planet sector is instantiated; the selector is paused and hidden chart animation stops. No target-machine performance claim is made.
+
+Validation: all 345 checks pass across seven suites. New checks cover every world/card/moon/ring, the reused chart, all 93 unique satellite IDs, safe world swaps and continuous moon travel. The Viridia transfer test reached less than 300 m from the first moon in 13.72 simulated seconds at a peak of 795.89 m/s, without crossing a celestial surface. A 1,500 m/s engine-off approach was stopped by the physical moon. Native grid/chart/planet/moon views and a continuous scripted transfer were captured and inspected; Windows/Web exports and editable source packaging succeed. Browser runtime, physical controller and human flight feel remain unverified. See [orbit details](docs/ORBIT_EXPLORATION.md) and [verification](docs/VERIFICATION.md). Phase One's human duel completion gate remains open.
+
 ## 2026-10-24 — Viridia peaceful orbital hub
 
 Added Viridia Orbit on the latest flight deck, alongside the existing campaign and Phase One practice duel. The room starts with a stationary ship at an orbital observatory. Six-axis thrusters, hover assist, free momentum drift, brake, boost, safe structural/asteroid proximity stops and an explicit station return support roaming or long idling. The two habitat rings, open docks, solar fields, lit windows and observation cameras frame a large procedural planet with ocean/land/ice, night lights, moving clouds, atmosphere, a moon and sun. Outer asteroid visitors reveal gently and are bounded; orbital time can pause or accelerate independently of ship handling. Added an original sample-free quiet ambient loop with reproducible generation source.

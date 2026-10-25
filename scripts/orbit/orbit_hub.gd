@@ -1,5 +1,7 @@
 extends Node3D
 ## A quiet local orbit with independent simulation and ship clocks.
+const Sector = preload("res://scripts/orbit/orbit_sector.gd")
+const Selector = preload("res://scripts/orbit/orbit_selector.gd")
 const Lance = preload("res://scripts/orbit/orbit_lance.gd")
 const Navigation = preload("res://scripts/orbit/orbit_navigation.gd")
 const Station = preload("res://scripts/orbit/orbit_station.gd")
@@ -12,6 +14,9 @@ const STAR_SHADER = preload("res://shaders/orbit/stars.gdshader")
 const PLANET_CENTER := Vector3(200,-5300,-6900)
 const PLANET_RADIUS := 6000.0
 const SUN_DIRECTION := Vector3(-.85,.22,.42)
+var sector: Node3D
+var selector: Control
+var waypoint := 1
 var lance: Node3D
 var navigation := Navigation.new()
 var station: Node3D
@@ -52,6 +57,10 @@ func _ready() -> void:
 	asteroids = Asteroids.new()
 	add_child(asteroids)
 	asteroids.setup()
+	asteroids.world = sector
+	asteroids.planet_offset = -sector.bodies[0].position
+	asteroids.gravity_mu = pow(asteroids.planet_offset.length(),3.0)*.00022*.00022
+	navigation.sector = sector
 	lance = Lance.new()
 	add_child(lance)
 	ship = Ship.new()
@@ -59,7 +68,7 @@ func _ready() -> void:
 	ship.setup("player",Color("d8e5eb"))
 	camera = Camera3D.new()
 	camera.near = .25
-	camera.far = 80000.0
+	camera.far = 240000.0
 	camera.fov = 65.0
 	camera.current = true
 	add_child(camera)
@@ -74,6 +83,9 @@ func _ready() -> void:
 	navigation.reset()
 	_update_ship(0.0)
 	_update_camera(1.0,true)
+	if bool(get_tree().get_meta("orbit_open_grid",false)):
+		get_tree().remove_meta("orbit_open_grid")
+		toggle_selector()
 
 func _build_environment() -> void:
 	var environment := Environment.new()
@@ -119,27 +131,64 @@ func _sphere(radius: float, point: Vector3, material: Material, segments: int = 
 	return instance
 
 func _build_planet() -> void:
-	planet_material = ShaderMaterial.new()
-	planet_material.shader = PLANET_SHADER
-	planet_material.set_shader_parameter("sun_direction",SUN_DIRECTION)
-	planet = _sphere(PLANET_RADIUS,PLANET_CENTER,planet_material)
-	cloud_material = ShaderMaterial.new()
-	cloud_material.shader = CLOUD_SHADER
-	cloud_material.set_shader_parameter("sun_direction",SUN_DIRECTION)
-	clouds = _sphere(PLANET_RADIUS*1.003,PLANET_CENTER,cloud_material)
-	var air := ShaderMaterial.new()
-	air.shader = ATMOSPHERE_SHADER
-	air.set_shader_parameter("sun_direction",SUN_DIRECTION)
-	atmosphere = _sphere(PLANET_RADIUS*1.014,PLANET_CENTER,air)
-	var moon_material := StandardMaterial3D.new()
-	moon_material.albedo_color = Color("939fa7")
-	moon_material.roughness = 1.0
-	moon = _sphere(260.0,Vector3(-5400,1800,-16000),moon_material,48,24)
-	# A distant sun is a lit visual landmark; the directional light owns shading.
+	sector = Sector.new()
+	add_child(sector)
+	sector.load_world("viridia")
+	_sync_bodies()
 	var sun_material := StandardMaterial3D.new()
 	sun_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	sun_material.albedo_color = Color("fff1cd")
-	_sphere(230.0,SUN_DIRECTION.normalized()*22000.0,sun_material,48,24)
+	_sphere(850.0,SUN_DIRECTION.normalized()*110000.0,sun_material,32,16)
+
+func _sync_bodies() -> void:
+	planet = sector.planet
+	clouds = sector.clouds
+	atmosphere = sector.atmosphere
+	planet_material = planet.material_override
+	cloud_material = clouds.material_override
+	moon = sector.bodies[1].node
+
+func toggle_selector() -> void:
+	if selector.visible:
+		selector.close()
+		paused = false
+	else:
+		panel.hide()
+		paused = true
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		selector.open(sector.body.id)
+
+func select_world(id: String) -> bool:
+	if not sector.load_world(id): return false
+	lance.cancel()
+	_sync_bodies()
+	clock = 0.0
+	station.advance(0.0,clock)
+	station.nameplate.text = sector.body.name+"\nORBITAL OBSERVATORY"
+	asteroids.clear_field()
+	asteroids.planet_offset = -sector.bodies[0].position
+	asteroids.gravity_mu = pow(asteroids.planet_offset.length(),3.0)*.00022*.00022
+	for i in range(8): asteroids.spawn(Vector3.ZERO,true)
+	waypoint = 1
+	return_to_station()
+	selector.close()
+	panel.hide()
+	paused = false
+	return true
+
+func waypoint_info() -> Dictionary:
+	if waypoint==0: return {"name":sector.body.name+" STATION","position":Vector3(0,12,245),"radius":0.0}
+	return sector.bodies[waypoint]
+
+func next_waypoint() -> void:
+	waypoint = (waypoint+1)%sector.bodies.size()
+
+func face_waypoint() -> void:
+	var direction: Vector3 = (waypoint_info().position-navigation.position).normalized()
+	if direction.length()<.01: return
+	navigation.heading = atan2(-direction.x,-direction.z)
+	navigation.pitch = clampf(asin(direction.y),-1.3,1.3)
+	mouse_turn = Vector2.ZERO
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed and not paused:
@@ -149,11 +198,21 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
 		match event.physical_keycode:
 			KEY_ESCAPE:
+				if selector.visible:
+					toggle_selector()
+					return
 				paused = not paused
 				panel.visible = paused
 				if paused: Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			KEY_F11:
 				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED if DisplayServer.window_get_mode()==DisplayServer.WINDOW_MODE_FULLSCREEN else DisplayServer.WINDOW_MODE_FULLSCREEN)
+			KEY_P: toggle_selector()
+			KEY_N:
+				if not paused: next_waypoint()
+			KEY_F:
+				if not paused: face_waypoint()
+			KEY_T:
+				if not paused: navigation.travel_drive = not navigation.travel_drive
 			KEY_G:
 				if not paused: lance.trigger(navigation,asteroids,station)
 			KEY_R:
@@ -172,6 +231,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton and event.pressed:
 		match event.button_index:
 			JOY_BUTTON_START:
+				if selector.visible:
+					toggle_selector()
+					return
 				paused = not paused
 				panel.visible = paused
 			JOY_BUTTON_A:
@@ -212,14 +274,20 @@ func simulate(dt: float, request: Dictionary) -> void:
 	if paused: return
 	ship_clock += dt
 	clock += dt*time_scale
-	planet_material.set_shader_parameter("spin",clock*.00022)
-	cloud_material.set_shader_parameter("spin",clock*.00031+.12)
-	moon.position = Vector3(-5400+sin(clock*.0006)*1100,1800+cos(clock*.0006)*250,-16000)
-	moon.rotation.y = clock*.0002
+	sector.advance(dt,clock,navigation.position)
 	station.advance(dt*time_scale,clock)
 	lance.prepare(dt*time_scale,navigation,asteroids,station)
 	asteroids.advance(dt*time_scale,navigation.position,station)
-	navigation.advance(dt,request,station,asteroids.visitors if asteroids.enabled else [])
+	var clear_position: Vector3 = sector.clear_point(navigation.position,26.0)
+	if clear_position!=navigation.position:
+		navigation.position = clear_position
+		navigation.velocity = Vector3.ZERO
+	var drive_request := request.duplicate()
+	drive_request.drive_clearance = minf(sector.clearance(navigation.position),maxf(0.0,navigation.position.length()-310.0))
+	navigation.advance(dt,drive_request,station,asteroids.visitors if asteroids.enabled else [])
+	station.visible = navigation.position.length()<22000.0
+	station.window_multimesh.visible = navigation.position.length()<4500.0
+	station.nameplate.visible = navigation.position.length()<2500.0
 	lance.update_beam(navigation)
 
 func _update_ship(dt: float) -> void:
@@ -255,6 +323,7 @@ func _update_camera(dt: float, immediate: bool = false) -> void:
 			if not station.blocked(navigation.position,candidate,1.0):
 				next = candidate
 				break
+	next = sector.clear_point(next,2.0)
 	camera.position = next
 	camera.look_at(target,Vector3.UP)
 
@@ -262,8 +331,7 @@ func admit_visitor() -> bool:
 	# An explicit visitor appears ahead, beyond the station and away from the ship.
 	for distance in [450.0,650.0,850.0,1050.0]:
 		var point: Vector3 = navigation.position-navigation.basis().z*distance+navigation.basis().x*70.0
-		var radial := Vector2(point.x,point.z).length()
-		if radial>=390.0 and radial<=1500.0:
+		if sector.clearance(point)>100.0 and point.length()>390.0:
 			return asteroids.spawn(navigation.position,false,point)
 	return asteroids.spawn(navigation.position)
 
@@ -271,6 +339,10 @@ func return_to_station() -> void:
 	lance.cancel()
 	# Explicit user-requested reset, never a hidden boundary teleport.
 	navigation.reset()
+	station.visible = true
+	station.window_multimesh.visible = true
+	station.nameplate.visible = true
+	sector.update_lod(navigation.position)
 	camera_mode = 0
 	_update_ship(0.0)
 	_update_camera(1.0,true)
@@ -294,18 +366,27 @@ func _build_ui() -> void:
 	stack.add_theme_constant_override("separation",12)
 	panel.add_child(stack)
 	var title := Label.new()
-	title.text = "VIRIDIA / QUIET ORBIT"
+	title.text = "ORBIT / QUIET EXPLORATION"
 	title.add_theme_font_size_override("font_size",26)
 	stack.add_child(title)
 	var note := Label.new()
-	note.text = "Linger at the observatory, drift over Viridia,\nor visit the outer asteroid field.\nG / LMB: catch or fling. R: release. Controller A: lance."
+	note.text = "Choose a planet, fly to its moons, or linger at the observatory.\nN selects a moon. F faces it. T enables the travel drive.\nG / LMB: catch or fling. R: release. Controller A: lance."
 	stack.add_child(note)
-	_button(stack,"RESUME ORBIT",func(): paused = false; panel.hide())
-	_button(stack,"RETURN SHIP TO STATION / HOME",return_to_station)
-	_button(stack,"SOUND ON / OFF / M",func(): audio.volume_db = -22.0 if audio.volume_db< -50 else -80.0)
-	_button(stack,"ENGINE ON / OFF / I",func(): navigation.engines_on = not navigation.engines_on)
-	_button(stack,"CHANGE VIEW / F2",func(): camera_mode = (camera_mode+1)%3)
-	_button(stack,"ASTEROID VISITORS / B",func(): asteroids.set_enabled(not asteroids.enabled))
+	var actions := GridContainer.new()
+	actions.columns = 2
+	actions.add_theme_constant_override("h_separation",10)
+	actions.add_theme_constant_override("v_separation",8)
+	stack.add_child(actions)
+	_button(actions,"RESUME ORBIT",func(): paused = false; panel.hide())
+	_button(actions,"PLANET GRID / P",toggle_selector)
+	_button(actions,"RETURN SHIP TO STATION / HOME",return_to_station)
+	_button(actions,"SOUND ON / OFF / M",func(): audio.volume_db = -22.0 if audio.volume_db< -50 else -80.0)
+	_button(actions,"ENGINE ON / OFF / I",func(): navigation.engines_on = not navigation.engines_on)
+	_button(actions,"CHANGE VIEW / F2",func(): camera_mode = (camera_mode+1)%3)
+	_button(actions,"ASTEROID VISITORS / B",func(): asteroids.set_enabled(not asteroids.enabled))
+	_button(actions,"NEXT MOON / N",next_waypoint)
+	_button(actions,"FACE WAYPOINT / F",face_waypoint)
+	_button(actions,"TRAVEL DRIVE / T",func(): navigation.travel_drive = not navigation.travel_drive)
 	var pace := HSlider.new()
 	pace.min_value = 0.0
 	pace.max_value = 8.0
@@ -319,6 +400,11 @@ func _build_ui() -> void:
 	stack.add_child(text)
 	_button(stack,"RETURN TO FLIGHT DECK",func(): get_tree().change_scene_to_file("res://scenes/main.tscn"))
 	panel.hide()
+	selector = Selector.new()
+	layer.add_child(selector)
+	selector.selected.connect(select_world)
+	selector.dismissed.connect(toggle_selector)
+	panel.resized.connect(_resize_ui)
 	get_viewport().size_changed.connect(_resize_ui)
 	_resize_ui()
 
@@ -326,6 +412,7 @@ func _button(parent: Node, text_value: String, action: Callable) -> void:
 	var button := Button.new()
 	button.text = text_value
 	button.custom_minimum_size.y = 35
+	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	button.pressed.connect(action)
 	parent.add_child(button)
 
@@ -342,10 +429,11 @@ func draw_hud(surface: Control) -> void:
 	var color := Color("d1e8ec")
 	var plate := StyleBoxFlat.new()
 	plate.bg_color = Color(.012,.028,.045,.7)
-	surface.draw_style_box(plate,Rect2(Vector2(24,24)*factor,Vector2(346,89)*factor))
-	surface.draw_string(font,Vector2(40,49)*factor,"VIRIDIA / ORBITAL OBSERVATORY",HORIZONTAL_ALIGNMENT_LEFT,-1,17*factor,color)
+	surface.draw_style_box(plate,Rect2(Vector2(24,24)*factor,Vector2(410,89)*factor))
+	surface.draw_string(font,Vector2(40,49)*factor,sector.body.name+" / ORBITAL OBSERVATORY",HORIZONTAL_ALIGNMENT_LEFT,-1,17*factor,color)
 	surface.draw_string(font,Vector2(40,76)*factor,"%.1f m/s   /   %s" % [navigation.velocity.length(),navigation.status],HORIZONTAL_ALIGNMENT_LEFT,-1,13*factor,Color("84cfd7"))
 	surface.draw_string(font,Vector2(40,98)*factor,"%d visitors   ·   orbit time ×%.2f" % [asteroids.visitors.size() if asteroids.enabled else 0,time_scale],HORIZONTAL_ALIGNMENT_LEFT,-1,12*factor,color)
+	_draw_waypoint(surface,factor)
 	var aim := size*.5
 	surface.draw_arc(aim,9*factor,0,TAU,24,Color("84cfd7"),1.5)
 	var target: Dictionary = lance.held if not lance.held.is_empty() else lance.candidate(navigation,asteroids,station)
@@ -357,7 +445,27 @@ func draw_hud(surface: Control) -> void:
 
 	surface.draw_style_box(plate,Rect2(Vector2(24,size.y/factor-75)*factor,Vector2(1050,53)*factor))
 	surface.draw_string(font,Vector2(38,size.y/factor-53)*factor,"W/S thrust · A/D strafe · Q/E descend/rise · arrows or RMB-drag look · SHIFT boost · SPACE brake",HORIZONTAL_ALIGNMENT_LEFT,-1,13*factor,color)
-	surface.draw_string(font,Vector2(38,size.y/factor-32)*factor,"I engine · H assist · F2 view · F3 hide interface · B visitors · J add asteroid · HOME station · M sound · ESC options",HORIZONTAL_ALIGNMENT_LEFT,-1,12*factor,Color("84cfd7"))
+	surface.draw_string(font,Vector2(38,size.y/factor-32)*factor,"P planets · N moon · F face target · T travel drive · I engine · H assist · F2 view · F3 hide · HOME station · ESC options",HORIZONTAL_ALIGNMENT_LEFT,-1,12*factor,Color("84cfd7"))
+
+func _draw_waypoint(surface: Control, factor: float) -> void:
+	var info := waypoint_info()
+	var distance := maxf(0.0,navigation.position.distance_to(info.position)-float(info.radius))
+	var arrival := " / ORBIT REACHED" if distance<1200.0 else ""
+	var target_text := "%s  /  %.2f km%s" % [info.name,distance/1000.0,arrival]
+	var font := ThemeDB.fallback_font
+	surface.draw_string(font,Vector2(460,49)*factor,target_text,HORIZONTAL_ALIGNMENT_LEFT,-1,16*factor,Color("d9c992"))
+	surface.draw_string(font,Vector2(460,73)*factor,"N next moon · F face waypoint · T drive, hold W to fly",HORIZONTAL_ALIGNMENT_LEFT,-1,12*factor,Color("a5bfc9"))
+	var approach: Vector3 = info.position+(navigation.position-info.position).normalized()*(float(info.radius)+100.0)
+	if sector.blocked(navigation.position,approach,1.0):
+		surface.draw_string(font,Vector2(460,95)*factor,"Direct route blocked / steer around the planetary limb",HORIZONTAL_ALIGNMENT_LEFT,-1,12*factor,Color("e7be84"))
+	var point: Vector2 = surface.size*.5
+	if not camera.is_position_behind(info.position): point = camera.unproject_position(info.position)
+	else:
+		var local: Vector3 = camera.global_basis.inverse()*(info.position-camera.global_position)
+		point += Vector2(signf(local.x)*surface.size.x*.46,-signf(local.y)*surface.size.y*.3)
+	point = point.clamp(Vector2(25,125)*factor,surface.size-Vector2(25,145)*factor)
+	var r := 11.0*factor
+	surface.draw_polyline(PackedVector2Array([point+Vector2(0,-r),point+Vector2(r,0),point+Vector2(0,r),point+Vector2(-r,0),point+Vector2(0,-r)]),Color("e6d39e"),1.4)
 
 func _exit_tree() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

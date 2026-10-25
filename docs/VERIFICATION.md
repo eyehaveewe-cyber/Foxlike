@@ -1,5 +1,21 @@
 # Verification
 
+## Asterion orbit sectors — 2026-10-25
+
+Godot 4.7.2 passes **345 checks across seven suites**: 235 campaign/duel, 40 orbit and 70 new orbital-exploration checks. The real flight-deck entry opens the twelve-card selector. Every card loads its correct world, full moon population and ring flag. The adapted PBR chart also selects worlds. All 93 moon IDs are unique, physical bodies fit outside their planets and within the 100 km room radius, invalid IDs leave the world intact, and world swaps detach tethers and reset the berth safely.
+
+A continuous Viridia flight under ordinary input crossed the former 1.8 km boundary and approached its first moon to 298.30 m clearance in **13.72 simulated seconds**, reaching **795.89 m/s**. A deliberate 1,500 m/s engine-off continuation stopped outside the physical sphere. LOD observer changes preserve all body positions while selecting the appropriate shared meshes and cloud visibility. Distant asteroid admission follows the pilot, the lance still acquires there, and waypoint cycling includes every moon and the return station. Unpowered cruise endpoints agree within 1 m at 20 and 144 simulated FPS over five seconds.
+
+Native Compatibility renders compiled the imported canvas shader and extended 3D shaders, and produced inspected grid, original system chart, 800×600 grid layout, giant/ringed/volcanic/ocean/ice views and moon close-ups. The continuous transfer recording is scripted flight using real navigation/collision updates; it is not a human playtest. Windows and Web exports rebuild; source ZIP validation includes all imported resources and new orbit documentation. Actual browser runtime, physical controller, target Windows hardware performance and human flight feel remain unverified. Native teardown still emits the previously recorded ObjectDB/resource cleanup warnings.
+
+- [Twelve-world grid](previews/orbit-planet-grid.png)
+- [Reused PBR system chart](previews/orbit-system-chart.png)
+- [Chronos ringed orbit](previews/orbit-chronos.png)
+- [Physical moon close-up](previews/orbit-moon-approach.png)
+- [Continuous moon transfer recording](previews/orbit-moon-transfer.mp4)
+
+Reproduce with `godot --headless --path . --script tests/orbit_exploration_smoke.gd`. Native evidence uses `godot --path . --script tests/render_orbit_exploration.gd --fixed-fps 20 -- --capture-transfer`. [ORBIT_EXPLORATION.md](ORBIT_EXPLORATION.md) records controls, coordinate scales and approximations. Planet selection explicitly changes sectors; moon approaches do not teleport. The new orbit mode does not close Phase One's outstanding human duel gates.
+
 ## Viridia Orbit hub — 2026-10-24
 
 Godot 4.7.2 passes 26 new orbit regressions and the 235 existing campaign/duel checks. The new suite clicks the real main-menu destination, verifies a stationary ship over 30 simulated seconds, checks drift and braking, total diagonal/boost speed, real hull and asteroid proximity, pause, independent 0–8× orbital time, visitor admission/caps/reveal and return to the current flight deck. This does not establish a target-hardware frame rate or physical controller operation.

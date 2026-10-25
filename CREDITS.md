@@ -11,3 +11,5 @@ Star Fox belongs to its respective owners and is used only as a gameplay referen
 The owner has not selected a project-wide open-source license for Foxlike. Public repository visibility alone does not grant a redistribution license.
 
 Viridia Orbit: original procedural planet/cloud/atmosphere/star and asteroid shaders, observatory geometry and peaceful navigation. The quiet ambient loop is original sample-free synthesis from `assets/audio/generate_orbit_ambience.py`.
+
+Asterion orbit selection reuses Project Barrel Roll's complete planet catalog, original system chart, animated planet-preview controller and its canvas surface shader with the owner's instruction. Names, colors, moon counts, rings and routes are retained; the continuous 3D orbital sectors and moon flight are Foxlike additions. Exact provenance is recorded in [ASSET_IMPORTS.md](docs/ASSET_IMPORTS.md).

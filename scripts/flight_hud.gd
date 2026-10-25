@@ -240,7 +240,7 @@ func _build_menu() -> void:
 	_button(_menu,"LAUNCH CAMPAIGN     >",Vector2(64,307),Vector2(444,49),"new_run",null,true)
 	_continue = _button(_menu,"CONTINUE FLIGHT",Vector2(64,367),Vector2(210,43),"continue")
 	_button(_menu,"PRACTICE DUEL",Vector2(286,367),Vector2(222,43),"practice_duel")
-	_button(_menu,"VIRIDIA ORBIT / PEACEFUL HUB",Vector2(64,414),Vector2(444,32),"orbit_hub")
+	_button(_menu,"PLANET ORBITS / PEACEFUL HUB",Vector2(64,414),Vector2(444,32),"orbit_hub")
 	_label(_menu,"MISSION SELECT",Vector2(64,445),450,12,SOFT)
 	for i in range(Campaign.STAGES.size()):
 		var mission: Dictionary = Campaign.STAGES[i]

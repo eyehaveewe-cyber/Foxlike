@@ -6,6 +6,7 @@ var rings: Array[Vector3] = [] # radius, height, tube radius
 var dishes: Array[Node3D] = []
 var material_cache: Dictionary = {}
 var window_multimesh: MultiMeshInstance3D
+var nameplate: Label3D
 var observation_point := Vector3(0,26,155)
 
 func setup() -> void:
@@ -127,7 +128,7 @@ func _build() -> void:
 		block(Vector3(side*11,69,0),Vector3(.4,8,.4),copper,false)
 	for i in range(5):
 		block(Vector3(-7+float(i)*3.5,15,11.8),Vector3(1.6,30,.5),light,false)
-	var nameplate := Label3D.new()
+	nameplate = Label3D.new()
 	nameplate.text = "VIRIDIA\nORBITAL OBSERVATORY"
 	nameplate.font_size = 64
 	nameplate.pixel_size = .035
@@ -155,6 +156,7 @@ func advance(dt: float, clock: float) -> void:
 func blocked(a: Vector3, b: Vector3, extent: float) -> bool:
 	a = transform.affine_inverse()*a
 	b = transform.affine_inverse()*b
+	if Geometry.sphere_time(a,b,Vector3.ZERO,310.0+extent)==INF: return false
 	for solid in solids:
 		if not Geometry.sweep_box(a,b,solid,extent).is_empty(): return true
 	var samples := maxi(1,int(ceil(a.distance_to(b)/1.5)))

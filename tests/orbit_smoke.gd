@@ -16,7 +16,7 @@ func run() -> void:
 	await process_frame
 	var button: Button
 	for node in main.hud.find_children("*","Button",true,false):
-		if node.text=="VIRIDIA ORBIT / PEACEFUL HUB": button = node
+		if node.text=="PLANET ORBITS / PEACEFUL HUB": button = node
 	check(button!=null,"Latest flight deck exposes the peaceful orbit destination")
 	if button==null: quit(1); return
 	button.pressed.emit()
@@ -25,6 +25,8 @@ func run() -> void:
 	hub = current_scene
 	hub.set_process(false)
 	hub.audio.volume_db = -80
+	check(hub.selector.visible and hub.paused,"Flight deck opens the full planet selection grid")
+	hub.selector.cards["viridia"].pressed.emit()
 	check(hub.station.solids.size()>20 and hub.station.rings.size()==2,"Observatory has physical hull volumes and two habitat rings")
 	var start: Vector3 = hub.navigation.position
 	var old_spin: float = hub.planet_material.get_shader_parameter("spin")

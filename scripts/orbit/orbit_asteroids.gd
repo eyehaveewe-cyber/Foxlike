@@ -6,9 +6,9 @@ const ORBIT_RATE := .00022
 const OMEGA := Vector3(0,.793,-.609)*ORBIT_RATE
 const MU := 31900.0
 
-static func acceleration(point: Vector3, velocity: Vector3) -> Vector3:
-	var r := PLANET_OFFSET+point
-	return -MU*r/pow(maxf(r.length(),6000.0),3.0)+MU*PLANET_OFFSET/pow(PLANET_OFFSET.length(),3.0)-2.0*OMEGA.cross(velocity)-OMEGA.cross(OMEGA.cross(point))
+static func acceleration(point: Vector3, velocity: Vector3, offset: Vector3 = PLANET_OFFSET, mu: float = MU) -> Vector3:
+	var r := offset+point
+	return -mu*r/pow(maxf(r.length(),100.0),3.0)+mu*offset/pow(offset.length(),3.0)-2.0*OMEGA.cross(velocity)-OMEGA.cross(OMEGA.cross(point))
 
 const ROCK_SHADER = preload("res://shaders/orbit/rock.gdshader")
 const MAX_ROCKS := 24
@@ -18,6 +18,9 @@ var rng := RandomNumberGenerator.new()
 var enabled := true
 var spawn_timer := 12.0
 var created := 0
+var world: Node3D
+var planet_offset := PLANET_OFFSET
+var gravity_mu := MU
 
 func setup() -> void:
 	rng.seed = 672144
@@ -51,13 +54,15 @@ func spawn(ship_position: Vector3, existing: bool = false, preferred: Vector3 = 
 	var radius := rng.randf_range(390,1150)
 	var height := rng.randf_range(-210,280)
 	var point := Vector3(sin(angle)*radius,height,cos(angle)*radius)
+	if ship_position.length()>1500.0: point += ship_position
 	if preferred.is_finite():
 		point = preferred
 		radius = Vector2(point.x,point.z).length()
-		if radius<390.0 or radius>1500.0: return false
+		if point.distance_to(ship_position)>1500.0: return false
 		angle = atan2(point.x,point.z)
 		height = point.y
-	if point.distance_to(ship_position)<150.0: return false
+	if point.distance_to(ship_position)<150.0 or point.length()<310.0: return false
+	if world!=null and world.clearance(point)<100.0: return false
 	var size := rng.randf_range(5.0,18.0)
 	var material := ShaderMaterial.new()
 	material.shader = ROCK_SHADER
@@ -84,13 +89,13 @@ func advance(dt: float, ship_position: Vector3, station: Node3D = null) -> void:
 		var remaining := dt
 		while remaining>.000001:
 			var h := minf(remaining,1.0/120.0)
-			var force := acceleration(visitor.position,visitor.velocity)
+			var force := acceleration(visitor.position,visitor.velocity,planet_offset,gravity_mu)
 			if visitor.has("tether_anchor"):
 				# Damped spring accelerates the real body instead of teleporting it.
 				force += ((visitor.tether_anchor-visitor.position)*3.0+(visitor.tether_velocity-visitor.velocity)*3.5).limit_length(220.0)
 			visitor.velocity += force*h
 			var next: Vector3 = visitor.position+visitor.velocity*h
-			if station!=null and station.blocked(visitor.position,next,float(visitor.radius)):
+			if (station!=null and station.blocked(visitor.position,next,float(visitor.radius))) or (world!=null and world.blocked(visitor.position,next,float(visitor.radius))):
 				visitor.velocity *= -.8
 			else:
 				visitor.position = next
@@ -99,7 +104,7 @@ func advance(dt: float, ship_position: Vector3, station: Node3D = null) -> void:
 		visitor.node.rotation += Vector3(.015,.022,.008)*dt
 		var fade := minf(smoothstep(0.0,6.0,float(visitor.age)),smoothstep(0.0,8.0,float(visitor.life)-float(visitor.age)))
 		visitor.material.set_shader_parameter("reveal",fade)
-		if float(visitor.age)>float(visitor.life):
+		if float(visitor.age)>float(visitor.life) or (not visitor.has("tether_anchor") and visitor.position.distance_to(ship_position)>14000.0):
 			visitor.node.queue_free()
 			visitors.erase(visitor)
 
@@ -130,3 +135,11 @@ static func resolve_pair(a: Dictionary, b: Dictionary) -> void:
 func set_enabled(value: bool) -> void:
 	enabled = value
 	visible = value
+
+func clear_field() -> void:
+	for visitor in visitors:
+		remove_child(visitor.node)
+		visitor.node.queue_free()
+	visitors.clear()
+	created = 0
+	spawn_timer = 12.0

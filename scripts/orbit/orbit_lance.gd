@@ -36,7 +36,7 @@ func candidate(nav: RefCounted, field: Node3D, station: Node3D) -> Dictionary:
 		if distance>RANGE or distance<float(rock.radius)+12.0: continue
 		var alignment := forward.dot(offset.normalized())
 		if alignment<.94: continue
-		if station.blocked(nav.position,rock.position,.5): continue
+		if station.blocked(nav.position,rock.position,.5) or (field.world!=null and field.world.blocked(nav.position,rock.position,.5)): continue
 		var value := alignment*1000.0-distance*.05
 		if value>score:
 			best = rock
@@ -66,7 +66,7 @@ func prepare(dt: float, nav: RefCounted, field: Node3D, station: Node3D) -> void
 	if not field.enabled or not field.visitors.has(held) or not is_instance_valid(held.node):
 		cancel()
 		return
-	if nav.position.distance_to(held.position)>RANGE*1.3 or station.blocked(nav.position,held.position,.5):
+	if nav.position.distance_to(held.position)>RANGE*1.3 or station.blocked(nav.position,held.position,.5) or (field.world!=null and field.world.blocked(nav.position,held.position,.5)):
 		message = "TETHER BROKEN / cover or range"
 		cancel()
 		return

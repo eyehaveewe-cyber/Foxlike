@@ -8,17 +8,21 @@ Built for **Godot 4.7.2 stable**, using the Compatibility renderer. All ships, e
 
 [Tank hover and landing](docs/previews/tank-hover.mp4) · [Arena turnaround](docs/previews/arena-turn.mp4) · [Dragonfly defense](docs/previews/carrier-defense.png) · [Six-mission menu](docs/previews/six-mission-menu.png)
 
-## Viridia Orbit peaceful hub
+## Asterion planet orbits
 
-Choose **Viridia Orbit / Peaceful Hub** on the current flight deck. Your ship begins stationary at the orbital observatory above the first planet. Fly between its two habitat rings and docking piers, coast through the outer asteroid drift, or stay parked while the planet and clouds turn below.
+Choose **Planet Orbits / Peaceful Hub** on the flight deck for the full **twelve-world selection grid** from Project Barrel Roll. Its original animated system chart is available beside the grid. All worlds are available for peaceful exploration independently of campaign progress.
 
-Viridia has procedural oceans, continents, polar caps, night lights, a separate cloud layer and a blue atmospheric limb. The station has solar fields, lit windows, observation rings and safe hull clearance. Asteroid visitors gradually reveal beyond the station, orbit slowly, yield near the ship, and remain limited to 24 active objects. This is an artistic, scaled orbit room rather than an astronomical N-body calculation.
+Every selected planet has a station, its full catalogued moon count, and continuous flight between them. There are **93 physical moons across the twelve sectors**. Fly among terrestrial, ocean, desert, volcanic, storm, ice, carbon, crystal and giant worlds; Boreas, Chronos and Terminus retain their rings. Moon terrain is a procedural spherical surface for orbital approaches, not a landing level.
 
-**W/S** thrust forward/back, **A/D** strafe, **Q/E** descend/rise, and **arrows or RMB-drag** look. **Shift** boosts; **Space** brakes to hover; **H** toggles automatic station keeping versus momentum drift. **F2** cycles chase/orbit/observatory views, **F3** hides the interface, **B** toggles asteroid visitors, **J** admits a visitor ahead, **Home** restores the station berth, **M** toggles the ambient sound, and **Escape** opens options. The options include a 0–8× orbital-time control that leaves ship handling unchanged. The hub has no combat, mission timer or failure condition.
+The room now spans **200 km across**, with distant sphere/detail reduction, cloud culling and station detail cutoffs. **P** opens the planet grid, **N** cycles moon/station waypoints, **F** faces the waypoint and **T** toggles the travel drive. Hold **W** to fly; the drive reaches up to **1,500 m/s** in open space and brakes for close approaches while powered. Planet selection explicitly moves to that world's berth. Moon trips stay in the same continuous 3D space.
 
-Controller: left stick translates, right stick looks, bumpers descend/rise, RT boosts, LT brakes, Y toggles assist, X changes view, Back hides the interface, B returns to the berth and Start opens options. Physical controller testing remains open.
+**W/S** thrust, **A/D** strafe, **Q/E** descend/rise; **arrows or RMB-drag** look. **Shift** boosts, **Space** brakes, **H** toggles hover assistance and **I** cuts/restarts engines. Engine-off flight preserves momentum while turning, including travel-drive speed. Restart engines to brake. Proximity holds protect the ship from station, asteroid and celestial surfaces.
 
-[Station arrival](docs/previews/orbit-station.png) · [Observatory and planet](docs/previews/orbit-observatory.png) · [Planetary panorama](docs/previews/orbit-planet.png) · [Orbit tour](docs/previews/viridia-orbit.mp4)
+Aim at a visible asteroid within 700 m and press **G / LMB** to catch it with the light lance. Hold for up to two seconds, then press again to fling with amplified forward, ship and swing momentum. **R** releases gently. Station and planetary cover block the tether. Asteroids integrate scaled gravity, velocity and collision impulses; they appear locally around the pilot even far from the station. **B** toggles visitors; **J** admits one ahead.
+
+**F2** changes view, **F3** hides the interface, **Home** returns to the station, **M** toggles ambient sound and **Escape** opens options. Options also expose moon/drive actions and 0–8× orbital time. Controller bindings remain available; physical controller verification is open. This is a peaceful scaled simulation with no combat timer or failure state.
+
+[Planet grid](docs/previews/orbit-planet-grid.png) · [PBR system chart](docs/previews/orbit-system-chart.png) · [Chronos rings](docs/previews/orbit-chronos.png) · [Moon approach](docs/previews/orbit-moon-approach.png) · [Continuous moon flight](docs/previews/orbit-moon-transfer.mp4) · [Controls and implementation](docs/ORBIT_EXPLORATION.md)
 
 ## Phase One practice duel
 
@@ -126,10 +130,13 @@ godot --headless --path . --script tests/game_smoke.gd -- --test-save
 godot --headless --path . --script tests/squadron_smoke.gd -- --test-save
 godot --headless --path . --script tests/combat_revision_smoke.gd -- --test-save
 godot --headless --path . --script tests/expansion_smoke.gd -- --test-save
+godot --headless --path . --script tests/duel_smoke.gd -- --test-save
+godot --headless --path . --script tests/orbit_smoke.gd -- --test-save
+godot --headless --path . --script tests/orbit_exploration_smoke.gd -- --test-save
 python tools/package_release.py --godot godot
 ```
 
-The four native integration suites pass **197 assertions**: 74 campaign, 35 squadron, 38 combat revision and 50 expansion checks. They exercise real scene state and input, swept pickup collection, ammunition and area damage, boss parts, tank hover/barrier collision, arena navigation and carrier damage, all six boss/result paths, retries and save migration. They use a separate save file. They do **not** substitute for human playtesting or demonstrate difficulty balance; boss-death cases reduce boss health to make transitions deterministic.
+The seven native integration suites pass **345 checks**: 74 campaign, 35 squadron, 38 combat revision, 50 expansion, 38 duel, 40 orbit and 70 orbit-exploration checks. They exercise real scene state and input, swept pickup collection, ammunition and area damage, boss parts, tank hover/barrier collision, arena navigation and carrier damage, all six boss/result paths, retries and save migration. They use a separate save file. They do **not** substitute for human playtesting or demonstrate difficulty balance; boss-death cases reduce boss health to make transitions deterministic.
 
 See [playtest resolutions](docs/PLAYTEST_RESOLUTION.md), [verification evidence](docs/VERIFICATION.md), [progress](PROGRESS.md), [design](docs/DESIGN.md), and [source provenance](docs/SOURCES.md). The [design handoff DOCX](docs/Foxlike_Design_and_Handoff.docx) records the brief and implementation choices.
 
@@ -158,13 +165,3 @@ This is a compact arcade campaign combining rail flight, a tank mission and one 
 | `tools/package_release.py` | Repeatable Windows and Web packages |
 
 Star Fox is a gameplay reference only. This project does not include Nintendo characters, names, models, music or other game assets. Project Barrel Roll's Asterion setting and procedural design language are used with the owner's explicit permission. No project-wide redistribution license is selected in this initial delivery.
-
-### Orbital hub momentum update
-
-Press **I** or use the options menu to cut/restart the engines. Cutoff disables thrust, hover damping and powered braking; attitude control remains available, and existing velocity survives turns and boost release. Restart engines before using Space to brake. H still toggles powered hover assistance. The outer-room safety arrest and harmless proximity stops remain active.
-
-Asteroids now integrate velocity under scaled planetary tidal gravity and rotating-frame forces, with mass-based rock collision impulses and station rebounds. They no longer follow scripted circles or freeze near the ship. This is a local co-orbiting approximation, not a full solar-system simulation. The station turns slowly at the planet surface rotation rate; its collision volumes rotate with its meshes. Orbital time controls both.
-
-### Orbital light lance
-
-Aim the ship nose at a visible asteroid within 700 m. Press **G / left mouse / controller A** to latch it, then press again to fling. The glowing tether reels the real asteroid toward a stand-off point using a damped spring. Hold for two seconds to charge the fantasy launch from 120 to 320 m/s; ship velocity and part of the asteroid swing velocity carry into the throw. **R** drops the tether without a launch impulse. Solid station cover blocks acquisition and breaks tethers. Returning home, disabling visitors or losing the target releases it safely. The lance works with engines off. Rocks retain ordinary gravity, collisions and momentum after release; the station remains indestructible.

@@ -235,6 +235,7 @@ func _on_action(action_name:String, value:Variant=null) -> void:
 	match action_name:
 		"orbit_hub":
 			get_tree().set_meta("orbit_muted",bool(save_data.muted))
+			get_tree().set_meta("orbit_open_grid",true)
 			get_tree().change_scene_to_file("res://scenes/orbit_hub.tscn")
 		"practice_duel":
 			get_tree().change_scene_to_file("res://scenes/duel.tscn")

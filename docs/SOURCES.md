@@ -42,3 +42,7 @@ This provenance record does not assign a blanket license to the repository or to
 ## Viridia Orbit update
 
 The peaceful orbital room, layered planet shaders, observatory, asteroid visitors and ambient loop are new original procedural work. The original Arrow ship rig is reused. Planet rotation, cloud drift and visitor orbits are deliberately scaled for presentation; no real ephemeris or N-body physical accuracy is claimed. Ambient synthesis source is `assets/audio/generate_orbit_ambience.py`; no external recorded samples are required.
+
+## Asterion orbital exploration update
+
+The complete twelve-world catalog and original animated system chart/thumbnail code are now directly adapted from Project Barrel Roll's campaign branches. Their 93 satellite counts and three ring flags are preserved. Exact file blobs, paths and adaptations are recorded in [ASSET_IMPORTS.md](ASSET_IMPORTS.md). The flyable 3D planets/moons, travel drive, continuous local space, LOD and selection grid integration are new Foxlike work. Catalogued moons receive new numbered IDs/layouts; the source did not provide names or physical 3D moon orbits.
