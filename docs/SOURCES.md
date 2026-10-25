@@ -46,3 +46,7 @@ The peaceful orbital room, layered planet shaders, observatory, asteroid visitor
 ## Asterion orbital exploration update
 
 The complete twelve-world catalog and original animated system chart/thumbnail code are now directly adapted from Project Barrel Roll's campaign branches. Their 93 satellite counts and three ring flags are preserved. Exact file blobs, paths and adaptations are recorded in [ASSET_IMPORTS.md](ASSET_IMPORTS.md). The flyable 3D planets/moons, travel drive, continuous local space, LOD and selection grid integration are new Foxlike work. Catalogued moons receive new numbered IDs/layouts; the source did not provide names or physical 3D moon orbits.
+
+## Cinder air-support pass and located ground frames
+
+On Project Barrel Roll branch `codex/two-legged-ground-walker`, [chassis_catalog.gd](https://github.com/eyehaveewe-cyber/Project-Barrel-Roll/blob/codex/two-legged-ground-walker/scripts/chassis_catalog.gd) defines Bastion Assault / `assault_tank` and Bulwark Fortress / `bulwark`. [fighter.gd](https://github.com/eyehaveewe-cyber/Project-Barrel-Roll/blob/codex/two-legged-ground-walker/scripts/fighter.gd) implements both procedural variants. Closer inspection shows these are armored aircraft chassis with tank roles, not tracked vehicles. The actual ground assets include the two-leg walker in `scenes/ground_walker_preview.tscn` and `docs/GROUND_WALKER.md`, and RIME in `scripts/spider_boss.gd`. These were located, not imported in this change. Foxlike Cinder now uses its existing Arrow companion models for alternating airborne strafing support.

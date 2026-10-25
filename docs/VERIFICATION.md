@@ -1,5 +1,9 @@
 # Verification
 
+## Cinder airborne support — 2026-10-25
+
+Eight new checks pass in `tests/tank_support_smoke.gd`: opposite-edge staggered entry, real projectile firing, withdrawal, support ending with the encounter, retry reset and restoration of ordinary flight formations/yaw. The existing 74 campaign, 35 squadron and 50 expansion checks also pass. Hidden support aircraft are excluded from projectile interception, and ground-mode bodyguard commands are suppressed. The HUD labels the mode AIR SUPPORT PASSES. No rendered capture, controller test or human playtest was performed for this change. PBR’s Bastion/Bulwark are armored airframes with tank roles. Its actual ground walker and RIME boss were located separately; no PBR ground model is imported in this change.
+
 ## Asterion orbit sectors — 2026-10-25
 
 Godot 4.7.2 passes **345 checks across seven suites**: 235 campaign/duel, 40 orbit and 70 new orbital-exploration checks. The real flight-deck entry opens the twelve-card selector. Every card loads its correct world, full moon population and ring flag. The adapted PBR chart also selects worlds. All 93 moon IDs are unique, physical bodies fit outside their planets and within the 100 km room radius, invalid IDs leave the world intact, and world swaps detach tethers and reset the berth safely.

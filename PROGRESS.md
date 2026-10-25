@@ -78,3 +78,11 @@ Asteroids now integrate velocity under scaled planetary tidal gravity and rotati
 ### Orbital light lance
 
 Aim the ship nose at a visible asteroid within 700 m. Press **G / left mouse / controller A** to latch it, then press again to fling. The glowing tether reels the real asteroid toward a stand-off point using a damped spring. Hold for two seconds to charge the fantasy launch from 120 to 320 m/s; ship velocity and part of the asteroid swing velocity carry into the throw. **R** drops the tether without a launch impulse. Solid station cover blocks acquisition and breaks tethers. Returning home, disabling visitors or losing the target releases it safely. The lance works with engines off. Rocks retain ordinary gravity, collisions and momentum after release; the station remains indestructible.
+
+## Cinder tank air support
+
+Tank-mission companions now make staggered five-second strafing passes from opposite screen edges, then withdraw before returning. They fire their real lasers and offensive specialist abilities during the attack window. Bodyguard interception is disabled during ground support; off-screen aircraft cannot intercept projectiles. Normal flight formations are unchanged. Pass timers reset on mission refit/retry.
+
+Inspected Project Barrel Roll `codex/two-legged-ground-walker`: Bastion Assault (`assault_tank`) and Bulwark Fortress (`bulwark`) are armored aircraft chassis with tank roles, not tracked ground tanks. Its actual ground assets include the articulated two-leg walker (`scenes/ground_walker_preview.tscn`, documented in `docs/GROUND_WALKER.md`) and the RIME ground boss. These assets were located, not imported in this change; Cinder retains Foxlike’s existing Jackal tank.
+
+Validation: eight new tank-support checks and 159 existing campaign/squadron/expansion checks pass in Godot 4.7.2. Rendering, physical controller play and a human tank-mission playtest were not performed for this change.

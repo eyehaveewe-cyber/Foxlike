@@ -736,7 +736,8 @@ func _configure_wingmen() -> void:
 	for slot in range(wingmen.size()):
 		var wing: Dictionary = wingmen[slot]
 		var pilot := Squadron.profile(str(save_data.companions[slot]))
-		wing.merge({"id":pilot.id,"callsign":pilot.name,"hp":pilot.hp,"max_hp":pilot.hp,"level":1,"fire":0.0,"cooldown":0.0,"guard_time":0.0,"burst":0,"burst_timer":0.0,"guard_point":Vector3.ZERO},true)
+		wing.merge({"id":pilot.id,"callsign":pilot.name,"hp":pilot.hp,"max_hp":pilot.hp,"level":1,"fire":0.0,"cooldown":0.0,"guard_time":0.0,"burst":0,"burst_timer":0.0,"guard_point":Vector3.ZERO,"support_time":-float(slot)*5.5},true)
+		wing.node.rotation = Vector3.ZERO
 		wing.node.setup("wingman",Color(str(pilot.color)))
 		wing.node.visible = true
 
@@ -804,6 +805,7 @@ func _companion_ability(wing: Dictionary, target: Node3D) -> bool:
 func _assist() -> void:
 	var used: Array[String] = []
 	for wing in wingmen:
+		if stage==3 and (not wing.node.visible or str(Squadron.profile(str(wing.id)).ability)=="guard"): continue
 		if _companion_ability(wing,_companion_target(wing.node.position)): used.append(str(wing.callsign))
 	if not used.is_empty(): hud.say("SQUADRON"," / ".join(used)+": ability deployed.",2.4)
 
@@ -932,7 +934,7 @@ func _update_projectiles(dt:float) -> void:
 			var blocker: Dictionary = {}
 			for wing in wingmen:
 				var distance := previous.distance_squared_to(wing.node.position)
-				if bullet.life>0.0 and float(wing.hp)>0.0 and distance<first_distance and _segment_distance(previous,pos,wing.node.position)<1.85:
+				if bullet.life>0.0 and wing.node.visible and float(wing.hp)>0.0 and distance<first_distance and _segment_distance(previous,pos,wing.node.position)<1.85:
 					first_distance = distance
 					blocker = wing
 			if not blocker.is_empty():
@@ -1383,6 +1385,9 @@ func _hurt(amount:float) -> void:
 		hud.show_result({"success":false,"final":false,"score":stage_score,"kills":kills,"rank":"—","stage_name":STAGES[stage].title,"bonus":0})
 
 func _update_wingmen(dt:float) -> void:
+	if stage==3:
+		_update_tank_air_support(dt)
+		return
 	var combat := mode in [Mode.FLIGHT,Mode.BOSS]
 	for slot in range(wingmen.size()):
 		var wing: Dictionary = wingmen[slot]
@@ -1427,6 +1432,44 @@ func _update_wingmen(dt:float) -> void:
 			wing.burst = int(wing.burst)-1
 			wing.burst_timer = 0.09
 
+func _update_tank_air_support(dt: float) -> void:
+	var combat := mode in [Mode.FLIGHT,Mode.BOSS]
+	for slot in range(wingmen.size()):
+		var wing: Dictionary = wingmen[slot]
+		var node: Node3D = wing.node
+		if not combat or float(wing.hp)<=0.0:
+			node.hide()
+			continue
+		var elapsed: float = float(wing.get("support_time",-float(slot)*5.5))+dt
+		wing.support_time = elapsed
+		wing.fire = maxf(0.0,float(wing.fire)-dt)
+		wing.cooldown = maxf(0.0,float(wing.cooldown)-dt)
+		wing.guard_time = 0.0
+		var phase := fposmod(elapsed,13.0)
+		node.visible = elapsed>=0.0 and phase<5.0
+		if not node.visible: continue
+		var t := phase/5.0
+		var side := -1.0 if slot==0 else 1.0
+		var lateral := 62.0-124.0*t-160.0*smoothstep(.72,1.0,t)
+		node.position = player.position+Vector3(side*lateral,12.0+sin(t*PI)*9.0,-12.0-t*72.0)
+		node.rotation.y = side*(.3+maxf(0.0,t-.75)*3.5)
+		node.animate(clock+float(slot),dt,side*(.65-t)*.6,-.12,1.6)
+		if t<.15 or t>.82: continue
+		var target := _companion_target(node.position)
+		if not is_instance_valid(target): continue
+		var pilot := Squadron.profile(str(wing.id))
+		var scale := 1.0+.4*float(int(wing.level)-1)
+		if float(wing.fire)<=0.0:
+			_spawn_shot(node.position,(target.global_position-node.position).normalized()*190.0,true,float(pilot.damage)*scale)
+			wing.fire = float(pilot.interval)/(1.0+.22*float(int(wing.level)-1))
+		if str(pilot.ability)!="guard": _companion_ability(wing,target)
+		if int(wing.burst)>0:
+			wing.burst_timer = maxf(0.0,float(wing.burst_timer)-dt)
+			if float(wing.burst_timer)<=0.0:
+				_spawn_shot(node.position,(target.global_position-node.position).normalized()*200.0,true,.55*scale)
+				wing.burst = int(wing.burst)-1
+				wing.burst_timer = .09
+
 func _update_camera(dt:float) -> void:
 	var base := Vector3(player.position.x*.20,5.0+player.position.y*.18,25.0)
 	camera.position = camera.position.lerp(base,1.0-exp(-dt*4.0))
@@ -1453,7 +1496,7 @@ func _update_hud(dt:float) -> void:
 	elif stage==4: objective = "Defend Dragonfly · A/D turn · red radar contacts are attackers"
 	elif flight_time<14.0: objective = "WASD / arrows fly · SPACE fire · Q / E barrel roll"
 	else: objective += "  /  F: squad abilities  /  TAB: formation"
-	hud.update_hud({"vehicle":"tank" if stage==3 else "flight","arena":stage==4,"hover_fuel":tank.fuel,"carrier_hp":carrier_hp,"arena_turning":arena.turning,"arena_warning":arena.warning(),"missiles":missiles,"missile_max":MAX_MISSILES,"pickup_notice":pickup_notice,"boss_parts":boss_parts,"core_open":_boss_core_open(),"shield":shield,"energy":energy,"bombs":bombs,"score":stage_score+campaign_score,"combo":combo,"stage_name":STAGES[stage].title,"progress":minf(1.0,flight_time/float(STAGES[stage].duration)),"speed":speed,"boss_name":STAGES[stage].boss if mode == Mode.BOSS else "","boss_hp":boss_hp/boss_max_hp if mode == Mode.BOSS else -1.0,"lock":lock_progress,"objective":objective,"roll_ready":roll_cooldown<=0.0 and not maneuver.active(),"wingmen":wingmen,"formation":Squadron.FORMATIONS[int(save_data.formation)],"maneuver":maneuver.label(),"maneuver_cooldown":maneuver_cooldown,"maneuver_ready":energy >= Maneuver.ENERGY_COST and roll_time <= 0.0})
+	hud.update_hud({"vehicle":"tank" if stage==3 else "flight","arena":stage==4,"hover_fuel":tank.fuel,"carrier_hp":carrier_hp,"arena_turning":arena.turning,"arena_warning":arena.warning(),"missiles":missiles,"missile_max":MAX_MISSILES,"pickup_notice":pickup_notice,"boss_parts":boss_parts,"core_open":_boss_core_open(),"shield":shield,"energy":energy,"bombs":bombs,"score":stage_score+campaign_score,"combo":combo,"stage_name":STAGES[stage].title,"progress":minf(1.0,flight_time/float(STAGES[stage].duration)),"speed":speed,"boss_name":STAGES[stage].boss if mode == Mode.BOSS else "","boss_hp":boss_hp/boss_max_hp if mode == Mode.BOSS else -1.0,"lock":lock_progress,"objective":objective,"roll_ready":roll_cooldown<=0.0 and not maneuver.active(),"wingmen":wingmen,"formation":"AIR SUPPORT PASSES" if stage==3 else Squadron.FORMATIONS[int(save_data.formation)],"maneuver":maneuver.label(),"maneuver_cooldown":maneuver_cooldown,"maneuver_ready":energy >= Maneuver.ENERGY_COST and roll_time <= 0.0})
 
 func _finish_stage() -> void:
 	var bonus := int(shield)*20+rings*100

@@ -165,3 +165,11 @@ This is a compact arcade campaign combining rail flight, a tank mission and one 
 | `tools/package_release.py` | Repeatable Windows and Web packages |
 
 Star Fox is a gameplay reference only. This project does not include Nintendo characters, names, models, music or other game assets. Project Barrel Roll's Asterion setting and procedural design language are used with the owner's explicit permission. No project-wide redistribution license is selected in this initial delivery.
+
+## Cinder tank air support
+
+Tank-mission companions now make staggered five-second strafing passes from opposite screen edges, then withdraw before returning. They fire their real lasers and offensive specialist abilities during the attack window. Bodyguard interception is disabled during ground support; off-screen aircraft cannot intercept projectiles. Normal flight formations are unchanged. Pass timers reset on mission refit/retry.
+
+Inspected Project Barrel Roll `codex/two-legged-ground-walker`: Bastion Assault (`assault_tank`) and Bulwark Fortress (`bulwark`) are armored aircraft chassis with tank roles, not tracked ground tanks. Its actual ground assets include the articulated two-leg walker (`scenes/ground_walker_preview.tscn`, documented in `docs/GROUND_WALKER.md`) and the RIME ground boss. These assets were located, not imported in this change; Cinder retains Foxlike’s existing Jackal tank.
+
+Validation: eight new tank-support checks and 159 existing campaign/squadron/expansion checks pass in Godot 4.7.2. Rendering, physical controller play and a human tank-mission playtest were not performed for this change.
