@@ -133,6 +133,37 @@ func run() -> void:
 				remaining -= h
 		positions.append(point)
 	check(positions[0].distance_to(positions[2])<.1,"Newtonian integration agrees within ten centimetres at 30 and 144 FPS over thirty seconds")
+	for rock in hub.asteroids.visitors: rock.node.queue_free()
+	hub.asteroids.visitors.clear()
+	hub.time_scale = 1.0
+	hub.navigation.position = Vector3(500,400,900)
+	hub.navigation.heading = 0.0
+	hub.navigation.pitch = 0.0
+	hub.navigation.velocity = Vector3.ZERO
+	hub.asteroids.spawn(hub.navigation.position,true,Vector3(500,400,450))
+	var captured: Dictionary = hub.asteroids.visitors.back()
+	hub.lance.trigger(hub.navigation,hub.asteroids,hub.station)
+	check(hub.lance.held==captured,"Lance acquires a mature asteroid ahead of the nose")
+	var catch_start: Vector3 = captured.position
+	for i in range(60): hub.simulate(.05,{})
+	check(captured.position.distance_to(catch_start)>200 and captured.position.distance_to(hub.navigation.position)>float(captured.radius)+25,"Spring reels the real asteroid toward the ship while preserving stand-off")
+	check(hub.lance.charge==1.0 and hub.lance.beam.visible,"Held lance charges fully and displays its world-space tether")
+	hub.navigation.engines_on = false
+	hub.navigation.velocity = Vector3(10,0,0)
+	var launch_position: Vector3 = captured.position
+	hub.lance.trigger(hub.navigation,hub.asteroids,hub.station)
+	check(hub.lance.held.is_empty() and not captured.has("tether_anchor") and captured.velocity.z< -280,"Charged fling detaches the spring and adds fantasy forward momentum")
+	hub.simulate(.25,{})
+	check(captured.position.z<launch_position.z-60,"Flung asteroid continues through the existing Newtonian integrator")
+	hub.lance.trigger(hub.navigation,hub.asteroids,hub.station)
+	hub.asteroids.set_enabled(false)
+	hub.lance.prepare(.1,hub.navigation,hub.asteroids,hub.station)
+	check(hub.lance.held.is_empty() and not captured.has("tether_anchor"),"Disabling visitors safely releases a latched asteroid")
+	hub.asteroids.set_enabled(true)
+	hub.return_to_station()
+	captured.position = Vector3(0,12,-500)
+	captured.node.position = captured.position
+	check(hub.lance.candidate(hub.navigation,hub.asteroids,hub.station).is_empty(),"Solid station cover prevents a lance lock through the hull")
 	# Verify normal return navigation without writing campaign progression.
 	var back: Button
 	for node in hub.panel.find_children("*","Button",true,false):

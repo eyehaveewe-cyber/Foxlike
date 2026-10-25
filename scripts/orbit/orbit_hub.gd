@@ -1,5 +1,6 @@
 extends Node3D
 ## A quiet local orbit with independent simulation and ship clocks.
+const Lance = preload("res://scripts/orbit/orbit_lance.gd")
 const Navigation = preload("res://scripts/orbit/orbit_navigation.gd")
 const Station = preload("res://scripts/orbit/orbit_station.gd")
 const Asteroids = preload("res://scripts/orbit/orbit_asteroids.gd")
@@ -11,6 +12,7 @@ const STAR_SHADER = preload("res://shaders/orbit/stars.gdshader")
 const PLANET_CENTER := Vector3(200,-5300,-6900)
 const PLANET_RADIUS := 6000.0
 const SUN_DIRECTION := Vector3(-.85,.22,.42)
+var lance: Node3D
 var navigation := Navigation.new()
 var station: Node3D
 var asteroids: Node3D
@@ -50,6 +52,8 @@ func _ready() -> void:
 	asteroids = Asteroids.new()
 	add_child(asteroids)
 	asteroids.setup()
+	lance = Lance.new()
+	add_child(lance)
 	ship = Ship.new()
 	add_child(ship)
 	ship.setup("player",Color("d8e5eb"))
@@ -138,6 +142,8 @@ func _build_planet() -> void:
 	_sphere(230.0,SUN_DIRECTION.normalized()*22000.0,sun_material,48,24)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.pressed and not paused:
+		lance.trigger(navigation,asteroids,station)
 	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_RIGHT:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if event.pressed and not paused else Input.MOUSE_MODE_VISIBLE
 	if event is InputEventKey and event.pressed and not event.echo:
@@ -148,6 +154,10 @@ func _unhandled_input(event: InputEvent) -> void:
 				if paused: Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			KEY_F11:
 				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED if DisplayServer.window_get_mode()==DisplayServer.WINDOW_MODE_FULLSCREEN else DisplayServer.WINDOW_MODE_FULLSCREEN)
+			KEY_G:
+				if not paused: lance.trigger(navigation,asteroids,station)
+			KEY_R:
+				if not paused: lance.cancel()
 			KEY_I: navigation.engines_on = not navigation.engines_on
 			KEY_H:
 				navigation.assist = not navigation.assist
@@ -164,6 +174,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			JOY_BUTTON_START:
 				paused = not paused
 				panel.visible = paused
+			JOY_BUTTON_A:
+				if not paused: lance.trigger(navigation,asteroids,station)
 			JOY_BUTTON_Y: navigation.assist = not navigation.assist
 			JOY_BUTTON_X: camera_mode = (camera_mode+1)%3
 			JOY_BUTTON_BACK: cinematic = not cinematic
@@ -205,8 +217,10 @@ func simulate(dt: float, request: Dictionary) -> void:
 	moon.position = Vector3(-5400+sin(clock*.0006)*1100,1800+cos(clock*.0006)*250,-16000)
 	moon.rotation.y = clock*.0002
 	station.advance(dt*time_scale,clock)
+	lance.prepare(dt*time_scale,navigation,asteroids,station)
 	asteroids.advance(dt*time_scale,navigation.position,station)
 	navigation.advance(dt,request,station,asteroids.visitors if asteroids.enabled else [])
+	lance.update_beam(navigation)
 
 func _update_ship(dt: float) -> void:
 	ship.position = navigation.position
@@ -254,6 +268,7 @@ func admit_visitor() -> bool:
 	return asteroids.spawn(navigation.position)
 
 func return_to_station() -> void:
+	lance.cancel()
 	# Explicit user-requested reset, never a hidden boundary teleport.
 	navigation.reset()
 	camera_mode = 0
@@ -283,7 +298,7 @@ func _build_ui() -> void:
 	title.add_theme_font_size_override("font_size",26)
 	stack.add_child(title)
 	var note := Label.new()
-	note.text = "Linger at the observatory, drift over Viridia,\nor visit the outer asteroid field."
+	note.text = "Linger at the observatory, drift over Viridia,\nor visit the outer asteroid field.\nG / LMB: catch or fling. R: release. Controller A: lance."
 	stack.add_child(note)
 	_button(stack,"RESUME ORBIT",func(): paused = false; panel.hide())
 	_button(stack,"RETURN SHIP TO STATION / HOME",return_to_station)
@@ -331,6 +346,15 @@ func draw_hud(surface: Control) -> void:
 	surface.draw_string(font,Vector2(40,49)*factor,"VIRIDIA / ORBITAL OBSERVATORY",HORIZONTAL_ALIGNMENT_LEFT,-1,17*factor,color)
 	surface.draw_string(font,Vector2(40,76)*factor,"%.1f m/s   /   %s" % [navigation.velocity.length(),navigation.status],HORIZONTAL_ALIGNMENT_LEFT,-1,13*factor,Color("84cfd7"))
 	surface.draw_string(font,Vector2(40,98)*factor,"%d visitors   ·   orbit time ×%.2f" % [asteroids.visitors.size() if asteroids.enabled else 0,time_scale],HORIZONTAL_ALIGNMENT_LEFT,-1,12*factor,color)
+	var aim := size*.5
+	surface.draw_arc(aim,9*factor,0,TAU,24,Color("84cfd7"),1.5)
+	var target: Dictionary = lance.held if not lance.held.is_empty() else lance.candidate(navigation,asteroids,station)
+	if not target.is_empty() and not camera.is_position_behind(target.position):
+		var marker: Vector2 = camera.unproject_position(target.position)
+		surface.draw_arc(marker,18*factor,0,TAU,32,Color("9cfaff"),2.0)
+	var lance_text: String = "LANCE %.0f%% / G or LMB fling / R release" % (lance.charge*100.0) if not lance.held.is_empty() else lance.message
+	surface.draw_string(font,Vector2(38,size.y/factor-91)*factor,lance_text,HORIZONTAL_ALIGNMENT_LEFT,-1,14*factor,Color("9cfaff"))
+
 	surface.draw_style_box(plate,Rect2(Vector2(24,size.y/factor-75)*factor,Vector2(1050,53)*factor))
 	surface.draw_string(font,Vector2(38,size.y/factor-53)*factor,"W/S thrust · A/D strafe · Q/E descend/rise · arrows or RMB-drag look · SHIFT boost · SPACE brake",HORIZONTAL_ALIGNMENT_LEFT,-1,13*factor,color)
 	surface.draw_string(font,Vector2(38,size.y/factor-32)*factor,"I engine · H assist · F2 view · F3 hide interface · B visitors · J add asteroid · HOME station · M sound · ESC options",HORIZONTAL_ALIGNMENT_LEFT,-1,12*factor,Color("84cfd7"))

@@ -84,7 +84,11 @@ func advance(dt: float, ship_position: Vector3, station: Node3D = null) -> void:
 		var remaining := dt
 		while remaining>.000001:
 			var h := minf(remaining,1.0/120.0)
-			visitor.velocity += acceleration(visitor.position,visitor.velocity)*h
+			var force := acceleration(visitor.position,visitor.velocity)
+			if visitor.has("tether_anchor"):
+				# Damped spring accelerates the real body instead of teleporting it.
+				force += ((visitor.tether_anchor-visitor.position)*3.0+(visitor.tether_velocity-visitor.velocity)*3.5).limit_length(220.0)
+			visitor.velocity += force*h
 			var next: Vector3 = visitor.position+visitor.velocity*h
 			if station!=null and station.blocked(visitor.position,next,float(visitor.radius)):
 				visitor.velocity *= -.8

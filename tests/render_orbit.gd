@@ -49,6 +49,21 @@ func run() -> void:
 			await process_frame
 			await RenderingServer.frame_post_draw
 			root.get_texture().get_image().save_png(OUTPUT+"/frames/frame-%04d.png" % frame)
+	for rock in hub.asteroids.visitors: rock.node.queue_free()
+	hub.asteroids.visitors.clear()
+	hub.return_to_station()
+	hub.navigation.position = Vector3(500,400,900)
+	hub.asteroids.spawn(hub.navigation.position,true,Vector3(500,400,450))
+	hub.lance.trigger(hub.navigation,hub.asteroids,hub.station)
+	hub.time_scale = 1.0
+	for frame in range(60): hub.simulate(.05,{})
+	hub.camera_mode = 0
+	hub.cinematic = false
+	hub._update_ship(0)
+	hub._update_camera(1,true)
+	hub.hud.queue_redraw()
+	await picture("06-light-lance")
+
 	hub.cinematic = false
 	hub.paused = true
 	hub.panel.show()

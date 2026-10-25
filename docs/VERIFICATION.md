@@ -139,3 +139,7 @@ The updated Windows and Web packages export successfully. The added Web regressi
 Godot 4.7.2: 32 orbit checks pass, including engine-off boost momentum despite turn/brake/thrust input, restart braking, rotating hull collision alignment, mass-weighted collision momentum conservation and 30/60/144 Hz integration comparison over 30 seconds within 0.1 local unit. The existing 235 checks also pass. Native orbit render completed and station arrival image was inspected. Windows and Web exports rebuilt; browser runtime and physical controller remain unverified. Existing rapid-teardown ObjectDB/resource warnings remain.
 
 The local ship coast retains inertial velocity without planetary gravity; asteroid motion uses a scaled co-orbiting frame with gravity relative to the frame origin and Coriolis/centrifugal acceleration. Station rotation is authored slow axial rotation, not a numerically integrated station orbit. The 1800-unit room edge and collision proximity still stop the ship for peaceful exploration.
+
+### Orbital light lance
+
+Godot 4.7.2: 39 orbit checks pass, including acquisition, spring stand-off, charge/beam state, amplified launch, post-release integrated flight, visitor-disable cleanup and station cover occlusion. The 235 existing campaign/duel checks pass. Native rendering completed; the held lance view was inspected. Windows/Web exports rebuilt. This is scripted verification, not a human playtest or browser-runtime claim. The lance adds fictional energy without ship recoil, and station/ship safety remains peaceful.
