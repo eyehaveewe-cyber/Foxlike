@@ -9,3 +9,5 @@ Engine: Godot 4.7.2, copyright Godot Engine contributors, distributed under the 
 Star Fox belongs to its respective owners and is used only as a gameplay reference. No Nintendo game assets are included.
 
 The owner has not selected a project-wide open-source license for Foxlike. Public repository visibility alone does not grant a redistribution license.
+
+Viridia Orbit: original procedural planet/cloud/atmosphere/star and asteroid shaders, observatory geometry and peaceful navigation. The quiet ambient loop is original sample-free synthesis from `assets/audio/generate_orbit_ambience.py`.

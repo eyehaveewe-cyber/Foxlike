@@ -240,11 +240,12 @@ func _build_menu() -> void:
 	_button(_menu,"LAUNCH CAMPAIGN     >",Vector2(64,307),Vector2(444,49),"new_run",null,true)
 	_continue = _button(_menu,"CONTINUE FLIGHT",Vector2(64,367),Vector2(210,43),"continue")
 	_button(_menu,"PRACTICE DUEL",Vector2(286,367),Vector2(222,43),"practice_duel")
-	_label(_menu,"MISSION SELECT",Vector2(64,432),450,12,SOFT)
+	_button(_menu,"VIRIDIA ORBIT / PEACEFUL HUB",Vector2(64,414),Vector2(444,32),"orbit_hub")
+	_label(_menu,"MISSION SELECT",Vector2(64,445),450,12,SOFT)
 	for i in range(Campaign.STAGES.size()):
 		var mission: Dictionary = Campaign.STAGES[i]
-		var point := Vector2(64+(i%3)*152,462+int(i/3)*44)
-		_stage_buttons.append(_button(_menu,"%02d / %s" % [i+1,str(mission.title)],point,Vector2(140,36),"stage",i))
+		var point := Vector2(64+(i%3)*152,477+int(i/3)*39)
+		_stage_buttons.append(_button(_menu,"%02d / %s" % [i+1,str(mission.title)],point,Vector2(140,33),"stage",i))
 	_difficulty = _button(_menu,"STANDARD",Vector2(64,559),Vector2(216,35),"cycle_difficulty")
 	# Difficulty cycles locally, then emits the public difficulty action.
 	for connection in _difficulty.pressed.get_connections():

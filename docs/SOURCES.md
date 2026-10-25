@@ -38,3 +38,7 @@ The models, scenery, HUD geometry, radio portrait, and effects are generated wit
 Star Fox is the user's gameplay reference: forward-flight shooting, squadron chatter, evasive rolls, and cinematic boss encounters. Foxlike uses its own title and the user's Asterion setting. It does not include Nintendo's characters, logos, dialogue, music, or extracted models, and it is not presented as an official Star Fox product.
 
 This provenance record does not assign a blanket license to the repository or to the user's prior work. The repository owner retains the decision about project licensing and distribution terms. Any third-party engine or export dependencies retain their own notices and licenses.
+
+## Viridia Orbit update
+
+The peaceful orbital room, layered planet shaders, observatory, asteroid visitors and ambient loop are new original procedural work. The original Arrow ship rig is reused. Planet rotation, cloud drift and visitor orbits are deliberately scaled for presentation; no real ephemeris or N-body physical accuracy is claimed. Ambient synthesis source is `assets/audio/generate_orbit_ambience.py`; no external recorded samples are required.

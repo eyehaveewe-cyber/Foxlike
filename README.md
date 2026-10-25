@@ -8,6 +8,18 @@ Built for **Godot 4.7.2 stable**, using the Compatibility renderer. All ships, e
 
 [Tank hover and landing](docs/previews/tank-hover.mp4) · [Arena turnaround](docs/previews/arena-turn.mp4) · [Dragonfly defense](docs/previews/carrier-defense.png) · [Six-mission menu](docs/previews/six-mission-menu.png)
 
+## Viridia Orbit peaceful hub
+
+Choose **Viridia Orbit / Peaceful Hub** on the current flight deck. Your ship begins stationary at the orbital observatory above the first planet. Fly between its two habitat rings and docking piers, coast through the outer asteroid drift, or stay parked while the planet and clouds turn below.
+
+Viridia has procedural oceans, continents, polar caps, night lights, a separate cloud layer and a blue atmospheric limb. The station has solar fields, lit windows, observation rings and safe hull clearance. Asteroid visitors gradually reveal beyond the station, orbit slowly, yield near the ship, and remain limited to 24 active objects. This is an artistic, scaled orbit room rather than an astronomical N-body calculation.
+
+**W/S** thrust forward/back, **A/D** strafe, **Q/E** descend/rise, and **arrows or RMB-drag** look. **Shift** boosts; **Space** brakes to hover; **H** toggles automatic station keeping versus momentum drift. **F2** cycles chase/orbit/observatory views, **F3** hides the interface, **B** toggles asteroid visitors, **J** admits a visitor ahead, **Home** restores the station berth, **M** toggles the ambient sound, and **Escape** opens options. The options include a 0–8× orbital-time control that leaves ship handling unchanged. The hub has no combat, mission timer or failure condition.
+
+Controller: left stick translates, right stick looks, bumpers descend/rise, RT boosts, LT brakes, Y toggles assist, X changes view, Back hides the interface, B returns to the berth and Start opens options. Physical controller testing remains open.
+
+[Station arrival](docs/previews/orbit-station.png) · [Observatory and planet](docs/previews/orbit-observatory.png) · [Planetary panorama](docs/previews/orbit-planet.png) · [Orbit tour](docs/previews/viridia-orbit.mp4)
+
 ## Phase One practice duel
 
 Choose **Practice Duel** beside Continue Flight. Fly nose-directed spatial combat against one observed opponent, use a solid anchor block to break sight, and counter a missed firing pass. The briefing compares **600 × 600 × 76** and **640 × 640 × 160** arenas, **pitch hold** and **gradual leveling**, and reduced camera motion. F5 resets; Escape/Start pauses. F3/F8 provide optional local review telemetry.

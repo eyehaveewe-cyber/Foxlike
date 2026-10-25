@@ -1,5 +1,20 @@
 # Verification
 
+## Viridia Orbit hub — 2026-10-24
+
+Godot 4.7.2 passes 26 new orbit regressions and the 235 existing campaign/duel checks. The new suite clicks the real main-menu destination, verifies a stationary ship over 30 simulated seconds, checks drift and braking, total diagonal/boost speed, real hull and asteroid proximity, pause, independent 0–8× orbital time, visitor admission/caps/reveal and return to the current flight deck. This does not establish a target-hardware frame rate or physical controller operation.
+
+Native Compatibility rendering compiled all five orbit shaders and produced inspected station, observatory, planet and visitor views plus an eight-second scripted flight tour. The final planet has sharper cloud detail, a separate cloud rotation, night settlement lights and an atmospheric limb. Station structural shadows are active; its window and solar tiling use multimeshes. The capture uses real navigation/simulation updates, not a painted scene. Shader/visual review is separate from the headless assertions.
+
+Windows and Web exports succeed; source ZIP validation includes the new `shaders/` directory and all runtime resources. The new hub's actual browser runtime remains unverified here. Native runs report the renderer's V-Sync capability warning and some rapid teardown runs report resource cleanup warnings; no gameplay script exceptions or shader compilation errors remained.
+
+- [Observatory and planet](previews/orbit-observatory.png)
+- [Planetary view](previews/orbit-planet.png)
+- [Station arrival](previews/orbit-station.png)
+- [Orbit flight recording](previews/viridia-orbit.mp4)
+
+Reproduce with `godot --headless --path . --script tests/orbit_smoke.gd -- --test-save` and `godot --path . --script tests/render_orbit.gd --fixed-fps 20 -- --capture-motion`. Normal play enters from **Viridia Orbit / Peaceful Hub**. This optional room does not close Phase One's outstanding human duel gates.
+
 ## Phase One practice duel — 2026-10-23
 
 Status: playable implementation for human review; the full Phase One completion gate remains open. The complete supplied guide is preserved at [plans/Foxlike_Phase_01_Fair_Flight_Duel.docx](plans/Foxlike_Phase_01_Fair_Flight_Duel.docx); [PHASE_01_IMPLEMENTATION.md](PHASE_01_IMPLEMENTATION.md) maps its work packages, provisional parameters, ownership and unresolved human observations.
