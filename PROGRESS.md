@@ -1,5 +1,11 @@
 # Foxlike progress
 
+## 2026-10-29 — Orbital Q/E roll
+
+In the peaceful orbital hub, holding Q/E now rolls the actual ship incrementally around its nose; releasing holds the angle. Z/X replace Q/E for downward/upward thrust. The upright chase camera makes the bank visible. Roll does not alter existing drift on its own, and station/planet reset levels the ship.
+
+Validation: Godot 4.7.2 Web packaging passed all 370 checks, including 17 new roll checks. A real Chromium WebGL2 staging session exercised Q/E, hold/reverse, X thrust, braking, pause and return to the flight deck with no captured errors. Software rendering, physical controllers and human flight feel remain limitations. Phase One human acceptance remains pending. See [roll verification](docs/ORBIT_QE_ROLL_VERIFICATION.md).
+
 ## 2026-10-25 — Asterion orbit selection and reachable moons
 
 Reused Project Barrel Roll's complete twelve-world catalog, animated planetary thumbnails and original route chart. Planet Orbits now opens a four-column selection grid with every world available outside campaign unlock rules. Every sector contains its selected 3D planet and full catalogued moon population: 93 moons total across the catalog. Distinct procedural surfaces, atmosphere/cloud configurations and the three source-ringed planets replace the single Viridia backdrop. Each station's identity follows the selected world.

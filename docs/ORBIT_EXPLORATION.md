@@ -13,7 +13,8 @@ Enter **Planet Orbits / Peaceful Hub** from the flight deck. The entire catalog 
 | Space | Powered braking to hover |
 | I | Engine cutoff/restart; cutoff preserves existing travel momentum |
 | H | Toggle powered hover assistance |
-| W/S, A/D, Q/E | Forward/reverse, strafe, descend/rise |
+| W/S, A/D, Z/X | Forward/reverse, strafe, descend/rise |
+| Q/E | Hold to roll left/right around the nose; release to hold the current angle |
 | Arrows / RMB drag | Turn and pitch |
 | G / LMB / controller A | Catch a visible asteroid within 700 m, press again to fling |
 | R | Drop the tether without a throw impulse |
@@ -26,6 +27,8 @@ Options expose the waypoint, facing and travel-drive actions for menu/controller
 The travel drive accelerates the real ship, with a 700 m/s² thrust budget and a 900 m/s² powered speed governor. Its maximum approaches 125 m/s near station/celestial surfaces and 1,500 m/s in clear space. Leaving the drive off retains normal 62 m/s thrusters and 125 m/s boost. Engine cutoff disables thrust, assistance and the drive governor. Harmless collision holds and the outer-room boundary remain active. To arrive gently, restart engines and brake.
 
 F only faces the target. It is not autopilot. When a planet blocks the direct line, steer around its limb before continuing. The waypoint gives surface distance and an arrival cue; the moon remains an ordinary world-space body throughout the trip.
+
+Rolling changes the ship's actual orientation and the direction of its lateral thrusters. It does not redirect existing drift by itself. The chase camera stays upright so the roll is visible. Returning to the station or choosing a planet resets the roll along with the other flight controls.
 
 ## Imported catalog
 

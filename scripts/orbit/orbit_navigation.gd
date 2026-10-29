@@ -5,6 +5,7 @@ const MAX_SPEED := 62.0
 const BOOST_SPEED := 125.0
 const RADIUS := 100000.0
 const TRAVEL_SPEED := 1500.0
+const ROLL_RATE := PI / 2.0
 var sector: Node3D
 var travel_drive := false
 var position := Vector3(0,12,245)
@@ -12,6 +13,7 @@ var previous_position := position
 var velocity := Vector3.ZERO
 var heading := 0.0
 var pitch := 0.0
+var roll := 0.0
 var engines_on := true
 var assist := true
 var status := "STATION KEEPING"
@@ -22,13 +24,18 @@ func reset() -> void:
 	velocity = Vector3.ZERO
 	heading = 0.0
 	pitch = 0.0
+	roll = 0.0
 	travel_drive = false
 	engines_on = true
 	assist = true
 	status = "STATION KEEPING"
 
-func basis() -> Basis:
+func heading_basis() -> Basis:
 	return Basis(Vector3.UP,heading)*Basis(Vector3.RIGHT,pitch)
+
+func basis() -> Basis:
+	# Roll is local to the nose. Forward stays unchanged; lateral thrusters rotate.
+	return heading_basis()*Basis(Vector3.BACK,roll)
 
 func advance(dt: float, request: Dictionary, station: Node3D, asteroids: Array) -> void:
 	var left := dt
@@ -43,6 +50,7 @@ func _step(dt: float, request: Dictionary, station: Node3D, asteroids: Array) ->
 	turn = turn.limit_length()
 	heading -= turn.x*dt*.85
 	pitch = clampf(pitch+turn.y*dt*.85,-1.3,1.3)
+	roll = wrapf(roll + clampf(float(request.get("roll",0.0)),-1.0,1.0)*dt*ROLL_RATE,-PI,PI)
 	var movement: Vector3 = request.get("move",Vector3.ZERO)
 	movement = movement.limit_length()
 	var braking: bool = request.get("brake",false)

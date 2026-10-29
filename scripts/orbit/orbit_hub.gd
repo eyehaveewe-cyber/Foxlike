@@ -246,7 +246,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func _key(code: Key) -> float: return 1.0 if Input.is_physical_key_pressed(code) else 0.0
 
 func input_request(dt: float) -> Dictionary:
-	var move := Vector3(_key(KEY_D)-_key(KEY_A),_key(KEY_E)-_key(KEY_Q),_key(KEY_S)-_key(KEY_W))
+	var move := Vector3(_key(KEY_D)-_key(KEY_A),_key(KEY_X)-_key(KEY_Z),_key(KEY_S)-_key(KEY_W))
+	var roll := _key(KEY_Q)-_key(KEY_E)
 	var turn := Vector2(_key(KEY_RIGHT)-_key(KEY_LEFT),_key(KEY_UP)-_key(KEY_DOWN))
 	var pads := Input.get_connected_joypads()
 	var pad := -1 if pads.is_empty() else int(pads[0])
@@ -260,7 +261,7 @@ func input_request(dt: float) -> Dictionary:
 		navigation.heading -= mouse_turn.x
 		navigation.pitch = clampf(navigation.pitch+mouse_turn.y,-1.3,1.3)
 		mouse_turn = Vector2.ZERO
-	return {"move":move,"turn":turn,"boost":Input.is_physical_key_pressed(KEY_SHIFT) or (pad>=0 and Input.get_joy_axis(pad,JOY_AXIS_TRIGGER_RIGHT)>.4),"brake":Input.is_physical_key_pressed(KEY_SPACE) or (pad>=0 and Input.get_joy_axis(pad,JOY_AXIS_TRIGGER_LEFT)>.4)}
+	return {"move":move,"turn":turn,"roll":roll,"boost":Input.is_physical_key_pressed(KEY_SHIFT) or (pad>=0 and Input.get_joy_axis(pad,JOY_AXIS_TRIGGER_RIGHT)>.4),"brake":Input.is_physical_key_pressed(KEY_SPACE) or (pad>=0 and Input.get_joy_axis(pad,JOY_AXIS_TRIGGER_LEFT)>.4)}
 
 func _process(delta: float) -> void:
 	if paused: return
@@ -305,7 +306,8 @@ func _update_camera(dt: float, immediate: bool = false) -> void:
 	var desired: Vector3
 	match camera_mode:
 		0:
-			desired = navigation.position+navigation.basis()*Vector3(0,4.5,23)
+			# Keep the chase camera upright so the ship's roll is visible.
+			desired = navigation.position+navigation.heading_basis()*Vector3(0,4.5,23)
 			target = navigation.position-navigation.basis().z*40.0
 		1:
 			camera_orbit += dt*.025
@@ -444,7 +446,7 @@ func draw_hud(surface: Control) -> void:
 	surface.draw_string(font,Vector2(38,size.y/factor-91)*factor,lance_text,HORIZONTAL_ALIGNMENT_LEFT,-1,14*factor,Color("9cfaff"))
 
 	surface.draw_style_box(plate,Rect2(Vector2(24,size.y/factor-75)*factor,Vector2(1050,53)*factor))
-	surface.draw_string(font,Vector2(38,size.y/factor-53)*factor,"W/S thrust · A/D strafe · Q/E descend/rise · arrows or RMB-drag look · SHIFT boost · SPACE brake",HORIZONTAL_ALIGNMENT_LEFT,-1,13*factor,color)
+	surface.draw_string(font,Vector2(38,size.y/factor-53)*factor,"W/S thrust · A/D strafe · Z/X down/up · Q/E roll · arrows or RMB-drag look · SHIFT boost · SPACE brake",HORIZONTAL_ALIGNMENT_LEFT,-1,13*factor,color)
 	surface.draw_string(font,Vector2(38,size.y/factor-32)*factor,"P planets · N moon · F face target · T travel drive · I engine · H assist · F2 view · F3 hide · HOME station · ESC options",HORIZONTAL_ALIGNMENT_LEFT,-1,12*factor,Color("84cfd7"))
 
 func _draw_waypoint(surface: Control, factor: float) -> void:
