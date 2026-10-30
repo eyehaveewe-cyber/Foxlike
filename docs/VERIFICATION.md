@@ -1,5 +1,13 @@
 # Verification
 
+## Documentation and portable source audit, October 30, 2026
+
+`python tools/check_documentation.py` checks all repository Markdown links, local heading targets and the native-suite lists in README and RUNNING. Suite names come from the actual release packager's Python syntax tree. `--write` refreshes only the two marked lists. Negative cases confirm that a missing target and an outdated suite list both fail the check.
+
+The source packager now collects the documentation handoffs, evidence and every locally linked document or preview. ZIP CRC and explicit inclusion checks pass, including the original design DOCX, full Phase One guide, paired duel trace and native recording. A fresh extraction passes its own documentation check, imports with Godot `4.7.2.stable.official.ed1daf0bf`, and launches the main scene. There are no script or parse errors. Existing immediate-exit ObjectDB/resource warnings remain.
+
+This audit changes documentation and packaging, not gameplay. The current compact campaign's earlier test results below do not establish completion of the later expanded phase plans. The [Phase One human completion gates](PHASE_01_IMPLEMENTATION.md#human-completion-gates-still-open) and arena/pitch selection are still pending. Phase Two's guide requires that accepted configuration before the expanded carrier operation.
+
 ## Per-level MBean1 soundtrack, October 30, 2026
 
 All twelve editable projects pass the actual pinned MBean1 model validator. All fifteen JSON artifacts regenerate byte-identically from `phrases.cjs` and `author_campaign.cjs`. The score audit records 92 distinct four-bar phrases and 9,706 events. The validator also checks actual pitched release envelopes and fixed percussion tails against each loop end.

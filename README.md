@@ -124,23 +124,29 @@ Mouse movement takes over steering in rail flight; pressing a steering key or mo
 
 ## Development and verification
 
+<!-- native-suite-commands:start -->
 ```bash
 godot --headless --path . --import
-godot --headless --path . --script tests/game_smoke.gd -- --test-save
-godot --headless --path . --script tests/squadron_smoke.gd -- --test-save
-godot --headless --path . --script tests/combat_revision_smoke.gd -- --test-save
-godot --headless --path . --script tests/expansion_smoke.gd -- --test-save
-godot --headless --path . --script tests/duel_smoke.gd -- --test-save
-godot --headless --path . --script tests/orbit_smoke.gd -- --test-save
-godot --headless --path . --script tests/orbit_exploration_smoke.gd -- --test-save
+godot --headless --path . --script res://tests/music_smoke.gd -- --test-save
+godot --headless --path . --script res://tests/game_smoke.gd -- --test-save
+godot --headless --path . --script res://tests/squadron_smoke.gd -- --test-save
+godot --headless --path . --script res://tests/combat_revision_smoke.gd -- --test-save
+godot --headless --path . --script res://tests/expansion_smoke.gd -- --test-save
+godot --headless --path . --script res://tests/duel_smoke.gd -- --test-save
+godot --headless --path . --script res://tests/orbit_smoke.gd -- --test-save
+godot --headless --path . --script res://tests/orbit_exploration_smoke.gd -- --test-save
+godot --headless --path . --script res://tests/tank_support_smoke.gd -- --test-save
 python tools/package_release.py --godot godot
 ```
+<!-- native-suite-commands:end -->
 
-The seven native integration suites pass **345 checks**: 74 campaign, 35 squadron, 38 combat revision, 50 expansion, 38 duel, 40 orbit and 70 orbit-exploration checks. They exercise real scene state and input, swept pickup collection, ammunition and area damage, boss parts, tank hover/barrier collision, arena navigation and carrier damage, all six boss/result paths, retries and save migration. They use a separate save file. They do **not** substitute for human playtesting or demonstrate difficulty balance; boss-death cases reduce boss health to make transitions deterministic.
+The October 30 run passed **467 checks across nine native suites**, including 114 music checks and 353 campaign, squadron, combat, expansion, duel, orbit and tank-support checks. They exercise real scene state and input, audio decoding and transitions, swept pickups, ammunition, boss parts, tank hover, carrier defense, all six mission results, retries and save migration. They use a separate save file. Automated boss-death cases reduce boss health for deterministic transition coverage; human difficulty and enjoyment remain separate review.
+
+Run `python tools/check_documentation.py` to check local documentation links and suite lists. Regenerate those lists after changing the release packager with `python tools/check_documentation.py --write`.
 
 See [playtest resolutions](docs/PLAYTEST_RESOLUTION.md), [verification evidence](docs/VERIFICATION.md), [progress](PROGRESS.md), [design](docs/DESIGN.md), and [source provenance](docs/SOURCES.md). The [design handoff DOCX](docs/Foxlike_Design_and_Handoff.docx) records the brief and implementation choices.
 
-This is a compact arcade campaign combining rail flight, a tank mission and one free-flight defense arena. The expansion has native rendered evidence and successful Windows/Web exports. The local Chromium runtime check is blocked before the menu; see the dated verification record. It has no multiplayer, voice acting, rebinding interface or touch controls. Controller bindings are implemented; physical controller testing and Windows hardware performance remain to be checked.
+This is a compact arcade campaign combining rail flight, a tank mission and one free-flight defense arena. Windows and Web export successfully; the October 30 exported Web build passes thirteen Chromium checks, including soundtrack playback and mute. The [implementation status](docs/DESIGN.md#current-implementation-and-plan-status) distinguishes this build from the proposed expanded campaign. It has no multiplayer, voice acting, rebinding interface or touch controls. Physical controller testing, Windows hardware performance and the Phase One human acceptance review remain open.
 
 ## Project structure
 

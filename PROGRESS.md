@@ -1,5 +1,13 @@
 # Foxlike progress
 
+## 2026-10-30 — Documentation implementation audit
+
+Compared the current build with the preserved handoff, full Phase One guide and later phase plans. The six-mission game, peaceful exploration, soundtrack and technical practice foundation are implemented. The expanded campaign remains proposed work. Phase One still needs the human Standard win, explainable loss, counterplay observations and arena/pitch choice that Phase Two consumes. The [current design status](docs/DESIGN.md#current-implementation-and-plan-status) keeps that dependency visible.
+
+Corrected stale native-suite counts, browser status and MBean1 descriptions. Added `tools/check_documentation.py` to derive native-suite lists from the release packager and check every local Markdown link. CI and source packaging run the check. The source ZIP now includes linked handoffs, evidence and previews, including the previously omitted original design DOCX and paired duel trace. Text reads use UTF-8 and archive/resource paths use forward slashes for portability.
+
+Verification: the checker rejects both broken links and stale suite lists. The complete archive passes CRC and documentation-inclusion checks. A fresh unpacked copy passes documentation checks, imports in Godot 4.7.2 and launches the main scene without script or parse failures. Existing exit resource-cleanup warnings remain. Gameplay code is unchanged, so the earlier 467 native and thirteen browser results remain dated evidence rather than a new full test claim. Later-phase implementation is pending the required human review and configuration decision.
+
 ## 2026-10-30 — Original music for every campaign level
 
 Composed twelve original MBean1 cues using Sol 6.1 with extra-high reasoning as Jonathan requested. Each of the six missions has its own flight theme and related boss cue. The set contains 92 authored four-bar phrases and 9,706 events, with 70.6–80-second mission loops and 36.9–43.6-second boss loops. Changed answers, contrasting sections and developed returns give the cues different identities. Brief high pulse peaks have softer attacks. Existing scores, renders, effects and peaceful-orbit ambience remain preserved.

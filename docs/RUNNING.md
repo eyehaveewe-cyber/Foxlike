@@ -33,11 +33,29 @@ See the [complete control table](../README.md#controls). Physical controller tes
 
 Install Godot's matching **4.7.2 export templates** using **Editor → Manage Export Templates**. From the repository root:
 
+Use Python 3.11 or newer for the release packager.
+
 ```sh
 python tools/package_release.py --godot /path/to/godot
 ```
 
-The tool imports resources, runs all four suites (`game_smoke.gd`, `squadron_smoke.gd`, `combat_revision_smoke.gd` and `expansion_smoke.gd`), exports both platforms and writes ZIPs plus a SHA-256 manifest under `build/`. To export one platform, use `--platform windows` or `--platform web`. Use `--skip-tests` only after running the same tests separately.
+The tool imports resources, exports both platforms and writes ZIPs plus a SHA-256 manifest under `build/`. To export one platform, use `--platform windows` or `--platform web`. Use `--skip-tests` only after running the same suites separately.
+
+<!-- native-suite-list:start -->
+The packager runs these 9 native suites before exporting:
+
+- `tests/music_smoke.gd`
+- `tests/game_smoke.gd`
+- `tests/squadron_smoke.gd`
+- `tests/combat_revision_smoke.gd`
+- `tests/expansion_smoke.gd`
+- `tests/duel_smoke.gd`
+- `tests/orbit_smoke.gd`
+- `tests/orbit_exploration_smoke.gd`
+- `tests/tank_support_smoke.gd`
+<!-- native-suite-list:end -->
+
+Regenerate the documented lists with `python tools/check_documentation.py --write` after changing the packager. CI checks these lists and local documentation links.
 
 ## Play the browser build locally
 

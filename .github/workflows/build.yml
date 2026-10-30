@@ -24,6 +24,8 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v7.0.1
+      - name: Check documentation links and native suite lists
+        run: python3 tools/check_documentation.py
       - name: Validate MBean1 scores and rendered audio hashes
         run: node assets/audio/mbean/validate_campaign.cjs --hashes
       - name: Package editable Godot source
