@@ -2,7 +2,7 @@
 
 A six-mission **3D arcade campaign** in the Project Barrel Roll setting. Fly Mara “COMET” Venn's Arrow Mk I with two selectable companions, drive the jet-assisted Jackal tank, defend the Dragonfly carrier in an open arena, and face a separate boss on every mission.
 
-Built for **Godot 4.7.2 stable**, using the Compatibility renderer. All ships, environments and effects are procedural 3D geometry. Music combines original Foxlike synthesis with three MBean1 score excerpts rendered through MBean1's own audio engine; effects are synthesized. No external asset service, account, API key or network connection is needed to play a downloaded build.
+Built for **Godot 4.7.2 stable**, using the Compatibility renderer. All ships, environments and effects are procedural 3D geometry. Each campaign mission and boss has its own original MBean1 composition, rendered through MBean1's audio engine; effects are synthesized. No external asset service, account, API key or network connection is needed to play a downloaded build.
 
 ![Jackal jet tank clearing a barrier](docs/previews/tank-hover.png)
 
@@ -61,7 +61,7 @@ See [running and packaging](docs/RUNNING.md) for detailed export instructions.
 
 Mission approaches last 88–110 seconds before the boss; boss duration depends on aim and weapon use. Each mission restores the vehicle and ammunition. Defeat offers a mission retry. Completing missions saves unlocks, scores and difficulty-specific records; Tempest closes the expanded campaign. Existing saves that cleared Terminus unlock Cinder automatically.
 
-The flight rig banks and pitches into movement, flaps respond to throttle, thrusters lengthen under boost, and barrel rolls deflect shots. Boss cores rotate, carrier doors move, weapon arms articulate and collapse, and explosions throw spinning debris through expanding shockwaves. Every boss has individually damageable weapon systems with their own health. Destroying a system removes its shots; until all systems are down, the core takes only 8% damage. On Standard, Warden has a 260-health core and two 65-health cannons. The mission soundtrack uses three developed excerpts from MBean1's *The Bone Lantern Ballroom*, alongside Foxlike's original boss music. See [asset provenance](docs/ASSET_IMPORTS.md).
+The flight rig banks and pitches into movement, flaps respond to throttle, thrusters lengthen under boost, and barrel rolls deflect shots. Boss cores rotate, carrier doors move, weapon arms articulate and collapse, and explosions throw spinning debris through expanding shockwaves. Every boss has individually damageable weapon systems with their own health. Destroying a system removes its shots; until all systems are down, the core takes only 8% damage. On Standard, Warden has a 260-health core and two 65-health cannons. The soundtrack has six developed mission themes and six related boss cues, with looped playback and a 0.65-second crossfade when changing cues. Editable scores, phrase maps and regeneration tools are included. See [music and asset provenance](docs/ASSET_IMPORTS.md).
 
 Three difficulties adjust damage and, on Cadet, target durability and aim assistance. Mission selection unlocks as the campaign advances. Scores reward kills, chains, rings, surviving wingmen, remaining shields and weapon-pod destruction.
 

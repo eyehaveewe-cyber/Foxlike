@@ -407,7 +407,14 @@ func _process(delta:float) -> void:
 		qa_clock -= dt
 		if qa_clock <= 0.0:
 			qa_clock = .1
-			JavaScriptBridge.eval("window.__foxlikeQA="+JSON.stringify({"mode":Mode.keys()[mode],"paused":is_paused,"player_x":player.position.x,"player_y":player.position.y,"shots_fired":shots_fired,"flight_time":flight_time,"maneuver":maneuver.label(),"player_z":player.position.z}))
+			JavaScriptBridge.eval("window.__foxlikeQA="+JSON.stringify({
+				"mode":Mode.keys()[mode], "paused":is_paused,
+				"player_x":player.position.x, "player_y":player.position.y,
+				"shots_fired":shots_fired, "flight_time":flight_time,
+				"maneuver":maneuver.label(), "player_z":player.position.z,
+				"music_track":audio._current_track, "music_playing":audio._music.playing,
+				"music_position":audio._music.get_playback_position(), "music_muted":audio.muted,
+			}))
 	if is_paused: return
 	mode_time += dt
 	if mode in [Mode.MENU,Mode.BRIEFING]:

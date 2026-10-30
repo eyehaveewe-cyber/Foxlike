@@ -1,5 +1,15 @@
 # Foxlike progress
 
+## 2026-10-30 — Original music for every campaign level
+
+Composed twelve original MBean1 cues using Sol 6.1 with extra-high reasoning as Jonathan requested. Each of the six missions has its own flight theme and related boss cue. The set contains 92 authored four-bar phrases and 9,706 events, with 70.6–80-second mission loops and 36.9–43.6-second boss loops. Changed answers, contrasting sections and developed returns give the cues different identities. Brief high pulse peaks have softer attacks. Existing scores, renders, effects and peaceful-orbit ambience remain preserved.
+
+Included editable MBean1 projects, concert-pitch phrase source, a deterministic compiler, phrase maps, composition review and render evidence under `assets/audio/mbean/campaign/`. All fifteen score JSON artifacts regenerate byte-identically. The unchanged pinned MBean1 Web Audio engine renders the complete cues locally with synthesized voices. A waveform-cache comparison produces identical PCM. Decoded OGG checks cover source hashes, duration, levels, silence and loop boundaries.
+
+The audio controller selects twelve distinct streams and crossfades changes over 0.65 seconds. Repeated requests preserve playback position; rapid changes keep the louder outgoing voice; mute, volume and stop affect both players. Measured music levels informed a 6 dB gain increase relative to the old controller. Added native decoder and real mission-event checks, plus exported-browser audio telemetry and mute checks. See [music provenance and reproduction](docs/ASSET_IMPORTS.md) and [validation](docs/VERIFICATION.md).
+
+Godot 4.7.2 passes all 467 checks across nine native suites, including 114 music checks and the 353 existing regressions. Windows and Web release packages export successfully. The exported Web build passes thirteen real Chromium checks, including soundtrack playback, advancing audio position and mute, with no JavaScript or engine-console errors. The existing native rapid-teardown resource warnings remain. Human critical listening, physical-device mix review and Windows hardware playback are not claimed. No site publishing action was requested or performed.
+
 ## 2026-10-25 — Asterion orbit selection and reachable moons
 
 Reused Project Barrel Roll's complete twelve-world catalog, animated planetary thumbnails and original route chart. Planet Orbits now opens a four-column selection grid with every world available outside campaign unlock rules. Every sector contains its selected 3D planet and full catalogued moon population: 93 moons total across the catalog. Distinct procedural surfaces, atmosphere/cloud configurations and the three source-ringed planets replace the single Viridia backdrop. Each station's identity follows the selected world.

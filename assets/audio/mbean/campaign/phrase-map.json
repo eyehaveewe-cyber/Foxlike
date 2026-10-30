@@ -1,0 +1,2413 @@
+{
+  "version": 1,
+  "notation": "concert pitch:quarter-note length; _:length is a rest; each string is a 4/4 bar",
+  "phrases": [
+    {
+      "cue": "viridia-flight",
+      "phrase": 1,
+      "name": "Sea-wall call",
+      "startBar": 1,
+      "endBar": 4,
+      "startTick": 0,
+      "endTick": 7680,
+      "function": "hook",
+      "change": "Triadic lift reaches a dominant answer; the final rest leaves the next launch clear.",
+      "harmony": [
+        "D",
+        "G",
+        "Bm",
+        "A"
+      ],
+      "melody": [
+        "D5:.5 F#5:1 A5:1.5 F#5:.5 E5:.5",
+        "G5:1 B5:.5 A5:.5 G5:1 _:1",
+        "F#5:.5 B5:1 D6:1 B5:.5 A5:1",
+        "C#6:1 B5:.5 A5:1.5 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "5a5cfb48d1728d4a6129f5fe73e580771b433fb084a86f5b8f0824cbbf723cac"
+    },
+    {
+      "cue": "viridia-flight",
+      "phrase": 2,
+      "name": "Evacuation answer",
+      "startBar": 5,
+      "endBar": 8,
+      "startTick": 7680,
+      "endTick": 15360,
+      "function": "hook",
+      "change": "The answering descent closes lower than the call and changes its final rhythm.",
+      "harmony": [
+        "D",
+        "G",
+        "Em",
+        "A"
+      ],
+      "melody": [
+        "F#5:1 A5:.5 D6:1 A5:.5 F#5:1",
+        "B5:.5 A5:.5 G5:1 D6:1 B5:1",
+        "G5:1 F#5:.5 E5:.5 B5:1 G5:.5 E5:.5",
+        "E5:.5 F#5:.5 E5:.5 C#5:.5 A4:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "9152bccb6860b4b363b3f08d4d658101e12303cbcdb126fe7c8c4aeed0542a08"
+    },
+    {
+      "cue": "viridia-flight",
+      "phrase": 3,
+      "name": "Above the sea wall",
+      "startBar": 9,
+      "endBar": 12,
+      "startTick": 15360,
+      "endTick": 23040,
+      "function": "hook",
+      "change": "The opening cell fragments upward and reaches the first high E.",
+      "harmony": [
+        "D",
+        "Fsm",
+        "G",
+        "A"
+      ],
+      "melody": [
+        "D5:.5 F#5:.5 A5:.5 D6:1.5 C#6:.5 A5:.5",
+        "C#6:1 A5:1 F#5:.5 A5:.5 C#6:1",
+        "D6:1 B5:.5 G5:.5 A5:.5 B5:.5 D6:1",
+        "E6:1 C#6:.5 B5:.5 A5:1 _:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "a541cd85475a2bdc8ccf035256fb687e1b8042f1a447680dc7340172612e0b90"
+    },
+    {
+      "cue": "viridia-flight",
+      "phrase": 4,
+      "name": "Corridor opens",
+      "startBar": 13,
+      "endBar": 16,
+      "startTick": 23040,
+      "endTick": 30720,
+      "function": "hook",
+      "change": "Longer suspension and stepwise release relax the preceding ascent.",
+      "harmony": [
+        "Dsus",
+        "D",
+        "Bm",
+        "A"
+      ],
+      "melody": [
+        "D6:1.5 A5:.5 G5:1 A5:1",
+        "F#5:2 E5:.5 F#5:.5 A5:1",
+        "B5:1 A5:.5 F#5:.5 D5:1 F#5:1",
+        "E5:1 C#5:1 B4:.5 C#5:.5 E5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "c964d473c74ee7d9d0acb6ba4e9ede5f9f05c385b3b698ce96cb6000c32efaae"
+    },
+    {
+      "cue": "viridia-flight",
+      "phrase": 5,
+      "name": "City in shadow",
+      "startBar": 17,
+      "endBar": 20,
+      "startTick": 30720,
+      "endTick": 38400,
+      "function": "contrast",
+      "change": "Relative-minor register drop and wider rests make space for the burning city.",
+      "harmony": [
+        "Bm",
+        "G",
+        "Em",
+        "Fsm"
+      ],
+      "melody": [
+        "B4:1 F#5:.5 D5:1.5 _:1",
+        "D5:1 G5:1 F#5:.5 E5:.5 D5:1",
+        "B4:.5 E5:1 G5:1 F#5:.5 E5:1",
+        "C#5:1 F#5:1 A5:1 _:1"
+      ],
+      "answers": null,
+      "density": "sparse",
+      "signature": "7dfc3b32f1e2abc9150446e4b7f8b6af3915cd4f2c934dd5382ef9274e70311e"
+    },
+    {
+      "cue": "viridia-flight",
+      "phrase": 6,
+      "name": "Turning toward the line",
+      "startBar": 21,
+      "endBar": 24,
+      "startTick": 38400,
+      "endTick": 46080,
+      "function": "hook",
+      "change": "The bass route leaves the minor center and the line earns a new F-sharp summit.",
+      "harmony": [
+        "Em",
+        "A",
+        "D",
+        "Bm"
+      ],
+      "melody": [
+        "E5:.5 G5:.5 B5:1 G5:.5 E5:.5 F#5:1",
+        "A5:.5 C#6:.5 B5:.5 A5:.5 E5:1 C#5:1",
+        "F#5:1 A5:1 D6:.5 C#6:.5 A5:1",
+        "B5:1 D6:.5 F#6:1 D6:.5 B5:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "02e1ae3948ffb4eff3f1742fc4044781a2070db9228f38f1af20e10326c84e50"
+    },
+    {
+      "cue": "viridia-flight",
+      "phrase": 7,
+      "name": "Rooftop crossings",
+      "startBar": 25,
+      "endBar": 28,
+      "startTick": 46080,
+      "endTick": 53760,
+      "function": "hook",
+      "change": "Contrary registral motion turns repeated climbs into alternating rooftop arcs.",
+      "harmony": [
+        "G",
+        "D",
+        "Em",
+        "A"
+      ],
+      "melody": [
+        "D6:1 B5:1 G5:.5 A5:.5 B5:1",
+        "A5:.5 F#5:.5 E5:.5 D5:.5 A5:1 F#5:1",
+        "G5:.5 B5:.5 E6:1 D6:.5 B5:.5 G5:1",
+        "A5:1 E6:.5 C#6:.5 B5:1 A5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "7b4b264740ddb3891d3fa29dee9ff2aaed73e000ec7c7ca88dc94665df713990"
+    },
+    {
+      "cue": "viridia-flight",
+      "phrase": 8,
+      "name": "Break through the fire",
+      "startBar": 29,
+      "endBar": 32,
+      "startTick": 53760,
+      "endTick": 61440,
+      "function": "hook",
+      "change": "The melodic sequence changes direction each bar and saves the highest G for the breach.",
+      "harmony": [
+        "Bm",
+        "Fsm",
+        "G",
+        "A"
+      ],
+      "melody": [
+        "F#5:.5 B5:.5 D6:.5 B5:.5 F#5:.5 D5:.5 B4:1",
+        "C#5:.5 F#5:.5 A5:.5 C#6:.5 A5:1 F#5:1",
+        "B5:.5 D6:1 G6:.5 D6:1 B5:1",
+        "E6:.5 C#6:.5 A5:1 B5:.5 C#6:.5 E6:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "d2b0fa0a3e5bfa4414e4fcaf588c0707f8ccfb35b693680e8e247ecba8d5187c"
+    },
+    {
+      "cue": "viridia-flight",
+      "phrase": 9,
+      "name": "Saltlight return",
+      "startBar": 33,
+      "endBar": 36,
+      "startTick": 61440,
+      "endTick": 69120,
+      "function": "hook",
+      "change": "The original head returns with a higher continuation and a suspended answer.",
+      "harmony": [
+        "D",
+        "G",
+        "Bm",
+        "Asus"
+      ],
+      "melody": [
+        "D5:.5 F#5:1 A5:1 D6:.5 C#6:.5 A5:.5",
+        "G5:1 B5:.5 D6:.5 B5:1 A5:1",
+        "B5:.5 F#5:.5 D6:1 C#6:.5 B5:.5 F#5:1",
+        "D6:1 E6:.5 D6:.5 A5:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "b8ae4db3928bddb1e1d209e5335295a47ba0fb194c25bc9a2cb8251c2488d732"
+    },
+    {
+      "cue": "viridia-flight",
+      "phrase": 10,
+      "name": "Course back to the coast",
+      "startBar": 37,
+      "endBar": 40,
+      "startTick": 69120,
+      "endTick": 76800,
+      "function": "ending",
+      "change": "An unclosed dominant leaves a clear breath and points back to the opening D.",
+      "harmony": [
+        "G",
+        "A",
+        "D",
+        "A"
+      ],
+      "melody": [
+        "B5:1 A5:.5 G5:.5 D5:1 G5:1",
+        "C#6:.5 B5:.5 A5:1 E5:1 C#5:1",
+        "D5:1 F#5:.5 A5:.5 F#5:1 E5:.5 D5:.5",
+        "E5:1 C#5:1 A4:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "3eb921015b9fc764aa270f2450ae132c98886e50970937ef827a907b616e119c"
+    },
+    {
+      "cue": "viridia-boss",
+      "phrase": 1,
+      "name": "Warden intercept",
+      "startBar": 1,
+      "endBar": 4,
+      "startTick": 0,
+      "endTick": 7680,
+      "function": "hook",
+      "change": "The coastal triad compresses into a minor attack and displaced rests.",
+      "harmony": [
+        "Dm",
+        "Gm",
+        "Bb",
+        "A7"
+      ],
+      "melody": [
+        "D5:.25 F5:.25 A5:.5 _:1 A5:.5 F5:.5 E5:.5 D5:.5",
+        "G5:.75 D5:.75 Bb5:.5 A5:.5 G5:.5 _:1",
+        "F5:.5 Bb5:.5 D6:1 F6:.5 D6:.5 Bb5:1",
+        "C#6:.75 E6:.75 C#6:.5 A5:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "9c32e5d1cecd9393b759e2ddee0f4aec258036ecd4b90d61b39d1961fe6861e4"
+    },
+    {
+      "cue": "viridia-boss",
+      "phrase": 2,
+      "name": "Broadside answer",
+      "startBar": 5,
+      "endBar": 8,
+      "startTick": 7680,
+      "endTick": 15360,
+      "function": "hook",
+      "change": "The answer sustains the first beat, reverses the arpeggiated route and lands on the leading tone.",
+      "harmony": [
+        "Dm",
+        "Bb",
+        "Gm",
+        "A7"
+      ],
+      "melody": [
+        "F5:1 A5:.25 D6:.25 A5:.5 F5:1 D5:1",
+        "D6:.5 Bb5:1 F5:.5 Bb5:1 A5:1",
+        "Bb5:.5 G5:.5 D6:.75 Bb5:.75 G5:.5 _:1",
+        "E6:.5 C#6:.5 A5:.5 G5:.5 E5:1 C#5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "8c6337f96c3518edea0db323217fbc8f8332b8f96182263ae35b381d157bde32"
+    },
+    {
+      "cue": "viridia-boss",
+      "phrase": 3,
+      "name": "Blockade closes",
+      "startBar": 9,
+      "endBar": 12,
+      "startTick": 15360,
+      "endTick": 23040,
+      "function": "hook",
+      "change": "Sequence rises across changing bass roots; the final bar tightens into the dominant.",
+      "harmony": [
+        "Gm",
+        "Dm",
+        "Bb",
+        "A7"
+      ],
+      "melody": [
+        "G5:.5 Bb5:.5 D6:.5 G6:.5 D6:1 Bb5:1",
+        "A5:.75 F5:.75 D5:.5 F5:.5 A5:.5 D6:1",
+        "F6:.5 D6:.5 Bb5:.5 A5:.5 Bb5:1 D6:1",
+        "C#6:.25 D6:.25 E6:.5 C#6:.5 A5:.5 G5:.5 E5:.5 C#5:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "cdf3674431879ea52b7b416d64cb592f6d340f1be6be9b255ef48147c9d15919"
+    },
+    {
+      "cue": "viridia-boss",
+      "phrase": 4,
+      "name": "Under the gun deck",
+      "startBar": 13,
+      "endBar": 16,
+      "startTick": 23040,
+      "endTick": 30720,
+      "function": "breakdown",
+      "change": "A low, exposed version of the call clears space before the final assault.",
+      "harmony": [
+        "Dm",
+        "Dm",
+        "Gm",
+        "A7"
+      ],
+      "melody": [
+        "D5:2 _:1 F5:1",
+        "A5:1 F5:1 E5:.5 D5:.5 _:1",
+        "Bb4:1 D5:.5 G5:.5 D5:1 _:1",
+        "C#5:1 E5:1 G5:1 _:1"
+      ],
+      "answers": null,
+      "density": "sparse",
+      "signature": "9af41e07564ef587793e2d199c1287c29e86aadd5bb9efe3a59736a91c3d6aa3"
+    },
+    {
+      "cue": "viridia-boss",
+      "phrase": 5,
+      "name": "Attack the command bridge",
+      "startBar": 17,
+      "endBar": 20,
+      "startTick": 30720,
+      "endTick": 38400,
+      "function": "hook",
+      "change": "The triad now starts above the original range and climbs to the dominant seventh.",
+      "harmony": [
+        "Bb",
+        "Gm",
+        "Dm",
+        "A7"
+      ],
+      "melody": [
+        "D6:.5 F6:.5 D6:1 Bb5:.5 A5:.5 F5:1",
+        "G5:.25 Bb5:.25 D6:.5 G6:1 F6:.5 D6:.5 Bb5:1",
+        "A5:.5 D6:.5 F6:1 E6:.5 D6:.5 A5:1",
+        "G5:.5 A5:.5 C#6:.5 E6:.5 G6:1 E6:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "9c8919f8844ddb39729869602c3ce261a5c8bf86944a44e6dfad0ffa99136482"
+    },
+    {
+      "cue": "viridia-boss",
+      "phrase": 6,
+      "name": "Frigate turns to fire",
+      "startBar": 21,
+      "endBar": 24,
+      "startTick": 38400,
+      "endTick": 46080,
+      "function": "ending",
+      "change": "A shortened falling return retains the coastal identity while the dominant resets combat.",
+      "harmony": [
+        "Dm",
+        "Bb",
+        "Gm",
+        "A7"
+      ],
+      "melody": [
+        "D6:.25 F6:.25 A6:.5 F6:1 D6:.5 A5:.5 F5:1",
+        "Bb5:.75 D6:.75 F6:.5 D6:.5 Bb5:.5 A5:1",
+        "G5:.5 D6:1 Bb5:.5 G5:1 D5:1",
+        "E5:.5 G5:.5 A5:1 C#6:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "86979367f39bd4dc38979d8b599d991a4ce38ce9a02ff0003bbb858c338e4b7a"
+    },
+    {
+      "cue": "aurora-flight",
+      "phrase": 1,
+      "name": "A signal in the ice",
+      "startBar": 1,
+      "endBar": 4,
+      "startTick": 0,
+      "endTick": 7680,
+      "function": "hook",
+      "change": "An isolated fifth leap is answered by a Dorian sixth and a falling third.",
+      "harmony": [
+        "Em",
+        "A",
+        "Em",
+        "D"
+      ],
+      "melody": [
+        "E5:1.5 _:1 B5:.5 A5:.5 F#5:.5",
+        "E5:1 C#5:1 _:1 E5:1",
+        "G5:1.5 F#5:.5 E5:1 _:1",
+        "F#5:2 A5:.5 F#5:.5 E5:.5 _:0.5"
+      ],
+      "answers": [
+        "_:4",
+        "_:2.5 A4:.5 E5:1",
+        "_:3 B4:.5 _:0.5",
+        "_:4"
+      ],
+      "density": "normal",
+      "signature": "813817005163f0c1950cdc2e370cd35a7382bf00ab1ca459566f62fee869f1d0"
+    },
+    {
+      "cue": "aurora-flight",
+      "phrase": 2,
+      "name": "Crystal answer",
+      "startBar": 5,
+      "endBar": 8,
+      "startTick": 7680,
+      "endTick": 15360,
+      "function": "hook",
+      "change": "The answer fills the original silence and reaches the Dorian color above the line.",
+      "harmony": [
+        "C",
+        "D",
+        "Em",
+        "A"
+      ],
+      "melody": [
+        "G5:1 E5:.5 D5:.5 E5:1 _:1",
+        "A5:1.5 F#5:.5 E5:.5 D5:.5 _:1",
+        "B5:1 G5:.5 E5:.5 F#5:1 G5:1",
+        "A5:1 C#6:.5 B5:.5 E5:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "b789ef4efa19562cd5c5520060b358b159c82c4d74e929cfed03f6b780736141"
+    },
+    {
+      "cue": "aurora-flight",
+      "phrase": 3,
+      "name": "Through blue fractures",
+      "startBar": 9,
+      "endBar": 12,
+      "startTick": 15360,
+      "endTick": 23040,
+      "function": "contrast",
+      "change": "The signal is rhythmically broadened, then moves down through a full register.",
+      "harmony": [
+        "Em",
+        "G",
+        "D",
+        "A"
+      ],
+      "melody": [
+        "B5:2 A5:.5 G5:.5 E5:1",
+        "D6:1 B5:.5 G5:.5 A5:1 B5:1",
+        "A5:1 F#5:1 E5:1 D5:1",
+        "C#5:1 E5:.5 A5:1.5 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "31b245fe16124da69f19faee49ad177ee874f230c517bed3ab366aca8bb6716a"
+    },
+    {
+      "cue": "aurora-flight",
+      "phrase": 4,
+      "name": "Suspended corridor",
+      "startBar": 13,
+      "endBar": 16,
+      "startTick": 23040,
+      "endTick": 30720,
+      "function": "breakdown",
+      "change": "Prepared A falls to G while accompaniment clears its third; the cadence remains remote.",
+      "harmony": [
+        "Esus",
+        "Em",
+        "A",
+        "Bm"
+      ],
+      "melody": [
+        "A5:1.5 B5:.5 A5:1 _:1",
+        "G5:2 F#5:.5 E5:.5 _:1",
+        "E5:1 C#5:1 B4:.5 C#5:.5 E5:1",
+        "F#5:1 D5:.5 B4:1.5 _:1"
+      ],
+      "answers": [
+        "_:4",
+        "_:3 B4:.5 _:0.5",
+        "_:4",
+        "_:3 F#4:.5 _:0.5"
+      ],
+      "density": "sparse",
+      "signature": "10031980607ccd41e7fdc4994790fe84d1099362dfb58e9ca13680b8a3e8d0cf"
+    },
+    {
+      "cue": "aurora-flight",
+      "phrase": 5,
+      "name": "Relay refractions",
+      "startBar": 17,
+      "endBar": 20,
+      "startTick": 30720,
+      "endTick": 38400,
+      "function": "hook",
+      "change": "Related rising cells gain different continuations and a new high E.",
+      "harmony": [
+        "C",
+        "A",
+        "D",
+        "Em"
+      ],
+      "melody": [
+        "E5:.5 G5:.5 C6:1 B5:.5 G5:.5 E5:1",
+        "C#6:1 E6:.5 C#6:.5 A5:1 E5:1",
+        "F#5:.5 A5:.5 D6:1 C#6:.5 A5:.5 F#5:1",
+        "E6:1 B5:.5 G5:.5 F#5:1 E5:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "9210ba7f231c71af04c65a4724e8fe2200c5276d2c3e5bf9009ef8a1c8ec374d"
+    },
+    {
+      "cue": "aurora-flight",
+      "phrase": 6,
+      "name": "The moon remembers",
+      "startBar": 21,
+      "endBar": 24,
+      "startTick": 38400,
+      "endTick": 46080,
+      "function": "contrast",
+      "change": "The same signal now rises from below and opens into a major arrival.",
+      "harmony": [
+        "Em",
+        "Bm",
+        "A",
+        "D"
+      ],
+      "melody": [
+        "G5:1.5 E5:.5 B4:1 _:1",
+        "D5:1 F#5:.5 B5:1.5 A5:1",
+        "E5:1 C#5:.5 E5:.5 A5:1 B5:.5 C#6:.5",
+        "D6:2 A5:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "fc37a3fb867eaf728565eaaca16a7c0945d18df72e0678ab7f223743c3467a52"
+    },
+    {
+      "cue": "aurora-flight",
+      "phrase": 7,
+      "name": "Distant signal return",
+      "startBar": 25,
+      "endBar": 28,
+      "startTick": 46080,
+      "endTick": 53760,
+      "function": "hook",
+      "change": "The signal head returns with a shorter gap, a new upper turn and an ascending answer.",
+      "harmony": [
+        "Em",
+        "A",
+        "C",
+        "D"
+      ],
+      "melody": [
+        "E5:1.5 _:0.5 B5:.5 D6:.5 B5:.5 A5:.5",
+        "C#6:1 A5:.5 E5:.5 F#5:1 E5:1",
+        "G5:1 E5:.5 G5:.5 C6:1 B5:1",
+        "A5:.5 F#5:.5 D5:1 F#5:.5 A5:.5 D6:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "671972ed5fc8a5a3dc140d13f1418c898c0c4e047d87ee1dcfd2f6afffc92061"
+    },
+    {
+      "cue": "aurora-flight",
+      "phrase": 8,
+      "name": "Under the relay lights",
+      "startBar": 29,
+      "endBar": 32,
+      "startTick": 53760,
+      "endTick": 61440,
+      "function": "ending",
+      "change": "A modal settling gesture leaves half a beat before the original isolated E.",
+      "harmony": [
+        "C",
+        "Bm",
+        "A",
+        "Em"
+      ],
+      "melody": [
+        "C6:1 B5:.5 G5:.5 E5:1 D5:1",
+        "F#5:1 D5:1 B4:1 _:1",
+        "C#5:1 E5:.5 A5:.5 E5:1 F#5:1",
+        "G5:1 B5:.5 A5:.5 F#5:1 E5:.5 _:0.5"
+      ],
+      "answers": [
+        "_:4",
+        "_:3 F#4:.5 _:0.5",
+        "_:4",
+        "_:4"
+      ],
+      "density": "normal",
+      "signature": "20db9832f5a538c15317846a5d32000723d0d82cfbfc9e1448f5a1005ca36e4e"
+    },
+    {
+      "cue": "aurora-boss",
+      "phrase": 1,
+      "name": "RIME acquires the signal",
+      "startBar": 1,
+      "endBar": 4,
+      "startTick": 0,
+      "endTick": 7680,
+      "function": "hook",
+      "change": "The long-distance signal loses its sustain and becomes clipped tracking bursts.",
+      "harmony": [
+        "Em",
+        "A",
+        "Em",
+        "B7"
+      ],
+      "melody": [
+        "E5:.5 _:0.5 B5:.25 A5:.25 F#5:.5 E5:.5 B5:.5 _:1",
+        "C#6:.5 A5:.25 E5:.25 _:0.5 A5:.5 B5:.5 C#6:.5 E6:1",
+        "B5:.25 A5:.25 G5:.5 E5:1 _:0.5 F#5:.5 G5:.5 B5:.5",
+        "D#6:.5 F#6:.5 B5:1 A5:.5 F#5:.5 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "92aeae36fdbfbf48acfa1720e294330149dcd2430ede7b091ed17eb937ad9c1b"
+    },
+    {
+      "cue": "aurora-boss",
+      "phrase": 2,
+      "name": "Hunter arms answer",
+      "startBar": 5,
+      "endBar": 8,
+      "startTick": 7680,
+      "endTick": 15360,
+      "function": "hook",
+      "change": "The reply changes the attack positions and drives toward a lower leading tone.",
+      "harmony": [
+        "C",
+        "D",
+        "Em",
+        "B7"
+      ],
+      "melody": [
+        "G5:.75 E5:.25 G5:.5 C6:.5 E6:.5 D6:.5 C6:1",
+        "A5:.25 D6:.25 F#6:.5 D6:1 A5:.5 F#5:.5 E5:1",
+        "G5:1 B5:.5 E6:.5 D6:.5 B5:.5 G5:1",
+        "F#5:.5 D#5:.5 B4:1 _:0.5 D#5:.5 F#5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "1fee6f6c1c10357982039f8e87a3da1489b947abb6078e1cf827146873c50a37"
+    },
+    {
+      "cue": "aurora-boss",
+      "phrase": 3,
+      "name": "Frost breach",
+      "startBar": 9,
+      "endBar": 12,
+      "startTick": 15360,
+      "endTick": 23040,
+      "function": "hook",
+      "change": "F-natural interrupts the Dorian memory and resolves into E before the dominant peak.",
+      "harmony": [
+        "F",
+        "Em",
+        "C",
+        "B7"
+      ],
+      "melody": [
+        "F5:.5 A5:.5 C6:.5 B5:.5 A5:1 F5:1",
+        "E5:.25 F5:.25 E5:.5 G5:.5 B5:.5 E6:1 D6:1",
+        "C6:.5 E6:.5 G6:1 E6:.5 D6:.5 C6:1",
+        "B5:.25 C6:.25 D#6:.5 F#6:.5 A6:.5 F#6:1 D#6:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "b58b72b5436c056fd6e4f5ec092afc0d3c321a13e638b5e5c2fc7bf79a1430cb"
+    },
+    {
+      "cue": "aurora-boss",
+      "phrase": 4,
+      "name": "Cold central eye",
+      "startBar": 13,
+      "endBar": 16,
+      "startTick": 23040,
+      "endTick": 30720,
+      "function": "breakdown",
+      "change": "A stripped signal reveals its original spacing but alters the suspended answer.",
+      "harmony": [
+        "Em",
+        "Esus",
+        "Em",
+        "B7"
+      ],
+      "melody": [
+        "E5:1 _:1 B5:1 _:1",
+        "A5:1.5 B5:.5 E5:1 _:1",
+        "G5:1 F#5:.5 E5:.5 B4:1 _:1",
+        "D#5:1 F#5:1 A5:1 _:1"
+      ],
+      "answers": null,
+      "density": "sparse",
+      "signature": "34c5932e708470adf3a4fedf59e9f43314a8c233c84977ce5cefdbe3b2ea2d7e"
+    },
+    {
+      "cue": "aurora-boss",
+      "phrase": 5,
+      "name": "Pursuit vectors",
+      "startBar": 17,
+      "endBar": 20,
+      "startTick": 30720,
+      "endTick": 38400,
+      "function": "hook",
+      "change": "The fleeting Dorian sixth now initiates a registral chase through different chord shapes.",
+      "harmony": [
+        "A",
+        "C",
+        "Em",
+        "B7"
+      ],
+      "melody": [
+        "C#6:.25 E6:.25 A6:.5 E6:1 C#6:.5 B5:.5 A5:1",
+        "G5:.5 C6:.5 E6:.5 G6:.5 E6:.5 D6:.5 C6:1",
+        "E6:.5 B5:.25 G5:.25 E5:.5 G5:.5 B5:1 D6:1",
+        "D#6:.75 F#6:.75 A6:.5 F#6:.5 D#6:.5 B5:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "6285f140ccd468aae383a88359340a584bb6da6fc75bccf2bed0a1d21bc3bcd0"
+    },
+    {
+      "cue": "aurora-boss",
+      "phrase": 6,
+      "name": "The hunter re-locks",
+      "startBar": 21,
+      "endBar": 24,
+      "startTick": 38400,
+      "endTick": 46080,
+      "function": "ending",
+      "change": "A changed signal head falls through the intrusive F harmony before resetting on B.",
+      "harmony": [
+        "Em",
+        "C",
+        "F",
+        "B7"
+      ],
+      "melody": [
+        "E5:.5 B5:.25 A5:.25 G5:.5 E6:1 D6:.5 B5:1",
+        "C6:1 G5:.5 E5:.5 G5:.5 C6:.5 E6:1",
+        "F6:.5 C6:.5 A5:1 G5:.5 F5:.5 E5:1",
+        "F#5:.5 A5:.5 D#6:1 B5:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "175ec1dc7027fe0861437445f09b52b34e283485a1b223f55e6019a487dce4f7"
+    },
+    {
+      "cue": "terminus-flight",
+      "phrase": 1,
+      "name": "Command on an open channel",
+      "startBar": 1,
+      "endBar": 4,
+      "startTick": 0,
+      "endTick": 7680,
+      "function": "hook",
+      "change": "A clipped command pickup meets weighty quarter-note answers.",
+      "harmony": [
+        "Cm",
+        "Ab",
+        "Eb",
+        "G7"
+      ],
+      "melody": [
+        "C5:.75 G5:.25 Eb5:1 Bb5:1 G5:1",
+        "Ab5:1 Eb6:.5 C6:.5 Ab5:1 _:1",
+        "G5:.75 Bb5:.25 Eb6:1 D6:1 Bb5:1",
+        "B5:1 D6:1 G5:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "deff1296a4a75fe30a41c758f0559170a2267664a9e83e5d11244390081e21bd"
+    },
+    {
+      "cue": "terminus-flight",
+      "phrase": 2,
+      "name": "The squadron answers",
+      "startBar": 5,
+      "endBar": 8,
+      "startTick": 7680,
+      "endTick": 15360,
+      "function": "hook",
+      "change": "The answer changes the harmonic route and sends the command below its starting register.",
+      "harmony": [
+        "Cm",
+        "Fm",
+        "Bb",
+        "G7"
+      ],
+      "melody": [
+        "Eb5:1 G5:.5 C6:.5 G5:1 Eb5:1",
+        "F5:.75 Ab5:.25 C6:1 Eb6:.5 C6:.5 Ab5:1",
+        "F5:1 Bb5:.5 D6:.5 F6:1 D6:1",
+        "D6:.5 B5:.5 G5:1 F5:.5 D5:.5 B4:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "f5eb6696002d2544fa56a43a3fbff3149f50a92bcf27f7202e35b4e702f0793d"
+    },
+    {
+      "cue": "terminus-flight",
+      "phrase": 3,
+      "name": "Shipyard gantries",
+      "startBar": 9,
+      "endBar": 12,
+      "startTick": 15360,
+      "endTick": 23040,
+      "function": "hook",
+      "change": "Alternating downward and upward spans trace the gantries without copying the command period.",
+      "harmony": [
+        "Ab",
+        "Eb",
+        "Fm",
+        "G7"
+      ],
+      "melody": [
+        "C6:.5 Eb6:.5 Ab6:1 G6:.5 Eb6:.5 C6:1",
+        "Bb5:.5 G5:.5 Eb5:1 G5:.5 Bb5:.5 Eb6:1",
+        "C6:.5 Ab5:.5 F5:1 Ab5:.5 C6:.5 F6:1",
+        "F6:.5 D6:.5 B5:.5 G5:.5 D6:1 B5:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "e5d027a0f3359dcf5a9780d22f263f77ae363087c0dece0ba4cfd6b74acec2f2"
+    },
+    {
+      "cue": "terminus-flight",
+      "phrase": 4,
+      "name": "Drop into the trench",
+      "startBar": 13,
+      "endBar": 16,
+      "startTick": 23040,
+      "endTick": 30720,
+      "function": "hook",
+      "change": "A low falling route narrows the space before an upward dominant signal.",
+      "harmony": [
+        "Cm",
+        "Bb",
+        "Ab",
+        "G7"
+      ],
+      "melody": [
+        "G5:1 Eb5:1 C5:.5 G4:.5 C5:1",
+        "D5:1 F5:.5 Bb5:.5 A5:1 F5:1",
+        "Eb5:1 C5:.5 Ab4:.5 C5:1 Eb5:1",
+        "D5:.5 F5:.5 G5:1 B5:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "a02f0df84f218c7912a1b960ca6fc311bf029c0e69e22cded420a56179a8327f"
+    },
+    {
+      "cue": "terminus-flight",
+      "phrase": 5,
+      "name": "Hold your breath",
+      "startBar": 17,
+      "endBar": 20,
+      "startTick": 30720,
+      "endTick": 38400,
+      "function": "breakdown",
+      "change": "Long notes and low dominant support create a clearing inside the driving approach.",
+      "harmony": [
+        "Fm",
+        "Cm",
+        "Ab",
+        "G7"
+      ],
+      "melody": [
+        "Ab5:2 G5:.5 F5:.5 _:1",
+        "Eb5:1 G5:1 C6:1 _:1",
+        "C6:1.5 Ab5:.5 Eb5:1 _:1",
+        "B4:1 D5:1 F5:1 _:1"
+      ],
+      "answers": null,
+      "density": "sparse",
+      "signature": "bde33f9207a290d318df079a89e7d4e8934764a3787362cda24ec97f0e50b85a"
+    },
+    {
+      "cue": "terminus-flight",
+      "phrase": 6,
+      "name": "Weapon emplacements",
+      "startBar": 21,
+      "endBar": 24,
+      "startTick": 38400,
+      "endTick": 46080,
+      "function": "hook",
+      "change": "The command fragments into escalating thirds; diminished pressure has a directed dominant release.",
+      "harmony": [
+        "Cm",
+        "Fm",
+        "Bbdim",
+        "G7"
+      ],
+      "melody": [
+        "C5:.5 Eb5:.5 G5:.5 C6:.5 Eb6:1 D6:1",
+        "C6:.5 Ab5:.5 F5:.5 Ab5:.5 C6:1 F6:1",
+        "E6:.5 G6:.5 Bb6:1 G6:.5 E6:.5 Bb5:1",
+        "B5:.25 D6:.25 F6:.5 D6:.5 B5:.5 G5:1 F5:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "d0863734b3a05f8451a4cf0d29cf168eeb43c727079fb425d1887cea34aa5a46"
+    },
+    {
+      "cue": "terminus-flight",
+      "phrase": 7,
+      "name": "Asterion behind us",
+      "startBar": 25,
+      "endBar": 28,
+      "startTick": 46080,
+      "endTick": 53760,
+      "function": "contrast",
+      "change": "A major-side refuge broadens the melody before the carrier blocks the route.",
+      "harmony": [
+        "Eb",
+        "Bb",
+        "Ab",
+        "G7"
+      ],
+      "melody": [
+        "G5:1 Bb5:.5 Eb6:1.5 G6:1",
+        "F6:1 D6:.5 Bb5:.5 F5:1 Bb5:1",
+        "C6:1 Eb6:.5 C6:.5 Ab5:1 G5:1",
+        "F5:.5 G5:.5 B5:1 D6:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "73a9cc84ad7cdb56e6aac835468f3cd8b6b502e3345c1fd32ec8e56c59c18398"
+    },
+    {
+      "cue": "terminus-flight",
+      "phrase": 8,
+      "name": "Last light in the trench",
+      "startBar": 29,
+      "endBar": 32,
+      "startTick": 53760,
+      "endTick": 61440,
+      "function": "hook",
+      "change": "A long rising chain saves the octave C for the approach climax.",
+      "harmony": [
+        "Fm",
+        "Ab",
+        "Cm",
+        "G7"
+      ],
+      "melody": [
+        "F6:1 Eb6:.5 C6:.5 Ab5:1 F5:1",
+        "Ab5:.75 C6:.25 Eb6:1 G6:.5 Eb6:.5 C6:1",
+        "G5:.5 C6:.5 Eb6:.5 G6:.5 C7:1 Bb6:1",
+        "B6:.5 G6:.5 F6:.5 D6:.5 B5:1 G5:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "b1990f04ec546c30018abb60faa9a7d6e7e8a5afd217afea6ac5c3ea3b3cefcd"
+    },
+    {
+      "cue": "terminus-flight",
+      "phrase": 9,
+      "name": "Command returns changed",
+      "startBar": 33,
+      "endBar": 36,
+      "startTick": 61440,
+      "endTick": 69120,
+      "function": "hook",
+      "change": "The command pickup is recognizable; its answer now rises and the cadence changes roots.",
+      "harmony": [
+        "Cm",
+        "Ab",
+        "Fm",
+        "G7"
+      ],
+      "melody": [
+        "C5:.75 G5:.25 Eb5:.5 G5:.5 C6:1 Eb6:1",
+        "Eb6:1 C6:.5 Ab5:.5 G5:1 Eb5:1",
+        "F5:.75 Ab5:.25 C6:.5 F6:.5 Eb6:1 C6:1",
+        "D6:1 B5:.5 G5:.5 D5:1 F5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "e5bbc68b5321dd74d345d5a7f8756d06e77ee6faa64818c32e3c2a8359ed9707"
+    },
+    {
+      "cue": "terminus-flight",
+      "phrase": 10,
+      "name": "Commit to the core",
+      "startBar": 37,
+      "endBar": 40,
+      "startTick": 69120,
+      "endTick": 76800,
+      "function": "ending",
+      "change": "A falling unclosed G dominant points back into the command pickup.",
+      "harmony": [
+        "Ab",
+        "Bb",
+        "Cm",
+        "G7"
+      ],
+      "melody": [
+        "C6:1 Ab5:.5 Eb5:.5 Ab5:1 C6:1",
+        "D6:.5 F6:.5 D6:.5 Bb5:.5 F5:1 D5:1",
+        "Eb5:1 G5:.5 C6:.5 Bb5:1 G5:1",
+        "F5:.5 D5:.5 B4:1 G4:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "bdf0ad42e06292614884758ac656628146354ee60979b2890ca7e67a31cd0b16"
+    },
+    {
+      "cue": "terminus-boss",
+      "phrase": 1,
+      "name": "Sovereign fires",
+      "startBar": 1,
+      "endBar": 4,
+      "startTick": 0,
+      "endTick": 7680,
+      "function": "hook",
+      "change": "The command pickup becomes a clipped low attack and the answer loses its safe major refuge.",
+      "harmony": [
+        "Cm",
+        "Ab",
+        "Fm",
+        "G7"
+      ],
+      "melody": [
+        "C5:.25 G5:.25 Eb5:.5 _:1 Bb5:.5 G5:.5 Eb5:1",
+        "Ab5:.5 C6:.5 Eb6:1 C6:.5 Ab5:.5 _:1",
+        "F5:.5 C6:.5 Ab5:1 F6:.5 Eb6:.5 C6:1",
+        "B5:.5 D6:.5 F6:1 D6:.5 B5:.5 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "4f956a5341d63418b3bba824a56ddb790f7ba60d7bf6ebf3408461638dff4869"
+    },
+    {
+      "cue": "terminus-boss",
+      "phrase": 2,
+      "name": "Carrier armor",
+      "startBar": 5,
+      "endBar": 8,
+      "startTick": 7680,
+      "endTick": 15360,
+      "function": "hook",
+      "change": "Broad armor phrases alternate whole-register descent and ascent.",
+      "harmony": [
+        "Cm",
+        "Bb",
+        "Ab",
+        "G7"
+      ],
+      "melody": [
+        "Eb6:1 C6:.5 G5:.5 C6:.5 Eb6:.5 G6:1",
+        "F6:.5 D6:.5 Bb5:.5 F5:.5 D5:1 Bb4:1",
+        "C5:.5 Eb5:.5 Ab5:1 C6:.5 Eb6:.5 Ab6:1",
+        "G6:.5 F6:.5 D6:.5 B5:.5 G5:1 F5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "49c641ae9bae23875c294d8b5f76fbd919724f524971269a82ec4c847b63f600"
+    },
+    {
+      "cue": "terminus-boss",
+      "phrase": 3,
+      "name": "Jump-drive charge",
+      "startBar": 9,
+      "endBar": 12,
+      "startTick": 15360,
+      "endTick": 23040,
+      "function": "hook",
+      "change": "Diminished thirds compress the march while a high leading tone points toward the core.",
+      "harmony": [
+        "Fm",
+        "Bbdim",
+        "Cm",
+        "G7"
+      ],
+      "melody": [
+        "F5:.25 Ab5:.25 C6:.5 F6:1 Eb6:.5 C6:.5 Ab5:1",
+        "E5:.25 G5:.25 Bb5:.5 E6:.5 G6:.5 Bb6:1 G6:1",
+        "G6:.5 Eb6:.5 C6:.5 G5:.5 C6:.5 Eb6:.5 G6:1",
+        "B6:.5 G6:.5 F6:.5 D6:.5 B5:.5 G5:.5 F5:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "e712bac70f2176c8a2c21030b8fad706faf415230ff71183c9a31569e90b2138"
+    },
+    {
+      "cue": "terminus-boss",
+      "phrase": 4,
+      "name": "The command core is exposed",
+      "startBar": 13,
+      "endBar": 16,
+      "startTick": 23040,
+      "endTick": 30720,
+      "function": "breakdown",
+      "change": "A bare low command and prepared fourth-to-third resolution reveal the core.",
+      "harmony": [
+        "Cm",
+        "Csus",
+        "Cm",
+        "G7"
+      ],
+      "melody": [
+        "C5:1 G5:1 _:1 Eb5:1",
+        "F5:2 G5:1 _:1",
+        "Eb5:1 D5:.5 C5:.5 G4:1 _:1",
+        "B4:1 D5:.5 F5:.5 G5:1 _:1"
+      ],
+      "answers": null,
+      "density": "sparse",
+      "signature": "b019b3cd55bbf02a967375ecdb872272366bfdbc8e3df24f1c5eb24a30a4718f"
+    },
+    {
+      "cue": "terminus-boss",
+      "phrase": 5,
+      "name": "All weapons converge",
+      "startBar": 17,
+      "endBar": 20,
+      "startTick": 30720,
+      "endTick": 38400,
+      "function": "hook",
+      "change": "The mission summit is re-earned through a compressed high command and contrary bass route.",
+      "harmony": [
+        "Ab",
+        "Fm",
+        "Cm",
+        "G7"
+      ],
+      "melody": [
+        "Eb6:.5 Ab6:.5 G6:.5 Eb6:.5 C6:1 Ab5:1",
+        "C6:.5 F6:.5 Ab6:1 G6:.5 F6:.5 C6:1",
+        "Eb6:.25 G6:.25 C7:.5 Bb6:.5 G6:.5 Eb6:.5 C6:.5 G5:1",
+        "F5:.5 G5:.5 B5:.5 D6:.5 F6:1 G6:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "1f9d55836af6ade536fcac1516befb8a5e7c991d899525f9b8ddc7a79b782adf"
+    },
+    {
+      "cue": "terminus-boss",
+      "phrase": 6,
+      "name": "Threshold pressure",
+      "startBar": 21,
+      "endBar": 24,
+      "startTick": 38400,
+      "endTick": 46080,
+      "function": "ending",
+      "change": "The opening head returns with a changed climb, then descends into the loop dominant.",
+      "harmony": [
+        "Cm",
+        "Fm",
+        "Ab",
+        "G7"
+      ],
+      "melody": [
+        "C5:.25 G5:.25 Eb5:.5 G5:.5 C6:.5 Eb6:1 D6:1",
+        "C6:1 Ab5:.5 F5:.5 Ab5:.5 C6:.5 F6:1",
+        "Eb6:.5 C6:.5 Ab5:1 G5:.5 Eb5:.5 C5:1",
+        "D5:.5 F5:.5 B5:1 G5:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "5458a4ef8e39da9dc255f6f1341c6571b8ec97f6a5f71c51f4b0e27c637696b7"
+    },
+    {
+      "cue": "cinder-flight",
+      "phrase": 1,
+      "name": "Jackal tread riff",
+      "startBar": 1,
+      "endBar": 4,
+      "startTick": 0,
+      "endTick": 7680,
+      "function": "hook",
+      "change": "A low blues pickup and semitone approach lock onto the tank backbeat.",
+      "harmony": [
+        "Am",
+        "Am",
+        "D",
+        "E7"
+      ],
+      "melody": [
+        "A4:.75 C5:.25 E5:.5 _:0.5 D#5:.25 E5:.75 A4:1",
+        "C5:.5 E5:.5 A5:.75 G5:.25 E5:1 _:1",
+        "D5:.75 F#5:.25 A5:.5 F#5:.5 E5:1 D5:1",
+        "B4:.5 D5:.5 G#5:.75 E5:.25 D5:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "53fea2725087d000852959646318e65dc24e3639a61a69ddc8203d5b5093350d"
+    },
+    {
+      "cue": "cinder-flight",
+      "phrase": 2,
+      "name": "Convoy answer",
+      "startBar": 5,
+      "endBar": 8,
+      "startTick": 7680,
+      "endTick": 15360,
+      "function": "hook",
+      "change": "The answer begins on the bass pickup and redirects the riff into a brighter Dorian route.",
+      "harmony": [
+        "Am",
+        "C",
+        "D",
+        "E7"
+      ],
+      "melody": [
+        "A4:.5 E5:.5 G5:.5 A5:.5 E5:1 C5:1",
+        "G5:.75 E5:.25 C5:.5 E5:.5 G5:.5 C6:.5 G5:1",
+        "F#5:1 A5:.5 D6:.5 A5:.5 F#5:.5 D5:1",
+        "E5:.75 G#5:.25 B5:1 D6:.5 B5:.5 G#5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "e72b0ca449132629344b2dde77e6553f428350a69ed1f4553c6423b77fac5687"
+    },
+    {
+      "cue": "cinder-flight",
+      "phrase": 3,
+      "name": "Jets over the causeway",
+      "startBar": 9,
+      "endBar": 12,
+      "startTick": 15360,
+      "endTick": 23040,
+      "function": "hook",
+      "change": "Wide leaps crest above the low riff for the jet-assisted jump.",
+      "harmony": [
+        "F",
+        "G",
+        "Am",
+        "E7"
+      ],
+      "melody": [
+        "A5:.5 C6:.5 F6:1 E6:.5 C6:.5 A5:1",
+        "B5:.5 D6:.5 G6:.75 F6:.25 D6:1 B5:1",
+        "A5:1 E6:.5 C6:.5 B5:.5 A5:.5 E5:1",
+        "G#5:.5 B5:.5 E6:.5 D6:.5 B5:1 G#5:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "ffc4195bf5f3bb3df8d5ddd59e92f0563cf6e5e4b87dc8b6729cc7ff21a99d63"
+    },
+    {
+      "cue": "cinder-flight",
+      "phrase": 4,
+      "name": "Foundry rollers",
+      "startBar": 13,
+      "endBar": 16,
+      "startTick": 23040,
+      "endTick": 30720,
+      "function": "hook",
+      "change": "The riff fragments through changing bass roots and alternates rising and falling machinery.",
+      "harmony": [
+        "Am",
+        "G",
+        "D",
+        "E7"
+      ],
+      "melody": [
+        "A4:.5 C5:.25 D5:.25 E5:.5 G5:.5 A5:1 E5:1",
+        "D5:.75 G5:.25 B5:.5 G5:.5 D5:.5 B4:.5 G4:1",
+        "A4:.5 D5:.5 F#5:1 E5:.5 D5:.5 A4:1",
+        "B4:.5 E5:.5 G#5:1 B5:.5 G#5:.5 E5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "697cda748ccbc4bef5cbdfb399d62dd282bb6762f53afbeaf8f37e39ff49d0c4"
+    },
+    {
+      "cue": "cinder-flight",
+      "phrase": 5,
+      "name": "Empty broken span",
+      "startBar": 17,
+      "endBar": 20,
+      "startTick": 30720,
+      "endTick": 38400,
+      "function": "breakdown",
+      "change": "The tread rhythm drops out, leaving low notes and open space over the causeway.",
+      "harmony": [
+        "F",
+        "Am",
+        "D",
+        "E7"
+      ],
+      "melody": [
+        "C5:2 A4:1 _:1",
+        "E5:1 C5:1 A4:1 _:1",
+        "F#5:1 E5:.5 D5:.5 A4:1 _:1",
+        "G#4:1 B4:1 D5:1 _:1"
+      ],
+      "answers": null,
+      "density": "sparse",
+      "signature": "91daadbb802279d07f324e3592a7bd9c9993e528b13dfaf19dca59cfd8b5be75"
+    },
+    {
+      "cue": "cinder-flight",
+      "phrase": 6,
+      "name": "Furnace mouths",
+      "startBar": 21,
+      "endBar": 24,
+      "startTick": 38400,
+      "endTick": 46080,
+      "function": "contrast",
+      "change": "Minor subdominant heat replaces the Dorian lift and the chromatic pickup returns in descent.",
+      "harmony": [
+        "Dm",
+        "F",
+        "Am",
+        "E7"
+      ],
+      "melody": [
+        "F5:.75 A5:.25 D6:.5 C6:.5 A5:1 F5:1",
+        "C6:.5 A5:.5 F5:.5 A5:.5 C6:1 F6:1",
+        "E6:.5 C6:.5 A5:.5 G5:.5 E5:.25 D#5:.25 E5:.5 A5:1",
+        "B5:.75 G#5:.25 E5:.5 D5:.5 B4:1 E5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "eea2c4bca34f0b0030aff8159e9023411dfc8b0ac352800af3b843bbf3b5466b"
+    },
+    {
+      "cue": "cinder-flight",
+      "phrase": 7,
+      "name": "Jackal finds a lane",
+      "startBar": 25,
+      "endBar": 28,
+      "startTick": 46080,
+      "endTick": 53760,
+      "function": "hook",
+      "change": "A major-side opening becomes a Dorian climb, then settles in the original low register.",
+      "harmony": [
+        "C",
+        "G",
+        "D",
+        "Am"
+      ],
+      "melody": [
+        "E5:.5 G5:.5 C6:.75 B5:.25 G5:1 E5:1",
+        "D5:.5 G5:.5 B5:1 A5:.5 G5:.5 D5:1",
+        "F#5:1 A5:.5 D6:.5 E6:1 D6:1",
+        "C6:.5 A5:.5 G5:.5 E5:.5 C5:1 A4:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "05d614a2c553d6f209ed8266aea6d5e865d0dbd2172238b7ef2a102663163a0b"
+    },
+    {
+      "cue": "cinder-flight",
+      "phrase": 8,
+      "name": "Steel under fire",
+      "startBar": 29,
+      "endBar": 32,
+      "startTick": 53760,
+      "endTick": 61440,
+      "function": "hook",
+      "change": "Short anacruses climb to the strongest dominant color of the mission.",
+      "harmony": [
+        "F",
+        "D",
+        "Am",
+        "E7"
+      ],
+      "melody": [
+        "A5:.25 C6:.25 F6:.5 C6:.5 A5:.5 F5:1 A5:1",
+        "A5:.25 D6:.25 F#6:.5 E6:.5 D6:.5 A5:1 F#5:1",
+        "A5:.5 C6:.5 E6:.75 G6:.25 E6:.5 C6:.5 A5:1",
+        "G#5:.5 B5:.5 D6:.5 E6:.5 G#6:1 E6:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "dd213958246ba40fabd1ca45d5e72ebd0f3cc172f406f716ff92e4f75be7e78a"
+    },
+    {
+      "cue": "cinder-flight",
+      "phrase": 9,
+      "name": "Treads catch again",
+      "startBar": 33,
+      "endBar": 36,
+      "startTick": 61440,
+      "endTick": 69120,
+      "function": "hook",
+      "change": "The recognizable tread head gets a new upper answer, then falls beneath the convoy.",
+      "harmony": [
+        "Am",
+        "C",
+        "D",
+        "E7"
+      ],
+      "melody": [
+        "A4:.75 C5:.25 E5:.5 A5:.5 G5:.5 E5:.5 C5:1",
+        "E5:.5 G5:.5 C6:1 B5:.5 G5:.5 E5:1",
+        "D5:.75 F#5:.25 A5:.5 D6:.5 C#6:.5 A5:.5 F#5:1",
+        "E5:1 B5:.5 G#5:.5 D5:1 B4:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "09915641e3d507a7d30490febd88d2dd66fcad8cf7a7f96daf6f0c65c9d99877"
+    },
+    {
+      "cue": "cinder-flight",
+      "phrase": 10,
+      "name": "Toward the siege line",
+      "startBar": 37,
+      "endBar": 40,
+      "startTick": 69120,
+      "endTick": 76800,
+      "function": "ending",
+      "change": "A shorter blues gesture drops to E, leaving room for the riff pickup at the loop.",
+      "harmony": [
+        "F",
+        "D",
+        "Am",
+        "E7"
+      ],
+      "melody": [
+        "C6:.5 A5:.5 F5:1 E5:.5 F5:.5 A5:1",
+        "F#5:.5 A5:.5 D6:1 A5:1 F#5:1",
+        "E5:.75 C5:.25 A4:1 C5:.5 D#5:.25 E5:.25 C5:1",
+        "B4:.5 D5:.5 G#4:1 E4:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "d60506ddbfc7e7ac8b08a6909ca78a72dff86ef9d29c8f25b369db74d185a165"
+    },
+    {
+      "cue": "cinder-boss",
+      "phrase": 1,
+      "name": "Iron Maw footprint",
+      "startBar": 1,
+      "endBar": 4,
+      "startTick": 0,
+      "endTick": 7680,
+      "function": "hook",
+      "change": "The tread riff is augmented and interrupted by a flat-second footprint.",
+      "harmony": [
+        "Am",
+        "Bb",
+        "Am",
+        "E7"
+      ],
+      "melody": [
+        "A4:1.5 C5:.5 E5:1 _:1",
+        "Bb4:.75 F5:.25 D5:1 Bb5:.5 A5:.5 F5:1",
+        "A4:.5 C5:.5 E5:.75 D#5:.25 E5:1 A5:1",
+        "G#5:1 E5:.5 D5:.5 B4:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "c2daffecd97d052735088456034606f830206f964665cb048d2edcc75cf7b1f6"
+    },
+    {
+      "cue": "cinder-boss",
+      "phrase": 2,
+      "name": "Crushing counterstroke",
+      "startBar": 5,
+      "endBar": 8,
+      "startTick": 7680,
+      "endTick": 15360,
+      "function": "hook",
+      "change": "The answer alternates high and low weight, then climbs on the dominant seventh.",
+      "harmony": [
+        "Dm",
+        "Bb",
+        "Am",
+        "E7"
+      ],
+      "melody": [
+        "F5:1 A5:.5 D6:.5 C6:1 A5:1",
+        "F6:.75 D6:.25 Bb5:.5 F5:.5 D5:1 Bb4:1",
+        "C5:.75 E5:.25 A5:1 G5:.5 E5:.5 C5:1",
+        "B4:.5 D5:.5 E5:1 G#5:.5 B5:.5 D6:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "f8c2fca3ada7849bd59907a9f1225c5cf608cbe4ca6f62b3be9fbebe2f167517"
+    },
+    {
+      "cue": "cinder-boss",
+      "phrase": 3,
+      "name": "Piston tower",
+      "startBar": 9,
+      "endBar": 12,
+      "startTick": 15360,
+      "endTick": 23040,
+      "function": "hook",
+      "change": "A rising piston sequence increases register without reusing the original riff rhythm.",
+      "harmony": [
+        "F",
+        "Dm",
+        "Bb",
+        "E7"
+      ],
+      "melody": [
+        "F5:.5 A5:.5 C6:1 F6:.5 E6:.5 C6:1",
+        "D6:.5 F6:.5 A6:1 G6:.5 F6:.5 D6:1",
+        "D6:.5 F6:.5 Bb6:1 A6:.5 F6:.5 D6:1",
+        "D6:.25 E6:.25 G#6:.5 E6:.5 D6:.5 B5:1 G#5:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "2c8885f37495b81c9d653c00deb2de5bd336495cb373018d66be1889fda597a9"
+    },
+    {
+      "cue": "cinder-boss",
+      "phrase": 4,
+      "name": "Broken crawler armor",
+      "startBar": 13,
+      "endBar": 16,
+      "startTick": 23040,
+      "endTick": 30720,
+      "function": "breakdown",
+      "change": "Low sustained roots and separated replies expose the machinery between attacks.",
+      "harmony": [
+        "Am",
+        "Bb",
+        "Dm",
+        "E7"
+      ],
+      "melody": [
+        "A4:2 _:1 E5:1",
+        "F5:1 D5:1 Bb4:1 _:1",
+        "A4:1 D5:1 F5:1 _:1",
+        "G#4:1 B4:.5 D5:.5 E5:1 _:1"
+      ],
+      "answers": null,
+      "density": "sparse",
+      "signature": "60bdb1567527e12ef8fbe2fb3c21b98b3bbb336690b70c948298e1a2f0617672"
+    },
+    {
+      "cue": "cinder-boss",
+      "phrase": 5,
+      "name": "Siege retaliation",
+      "startBar": 17,
+      "endBar": 20,
+      "startTick": 30720,
+      "endTick": 38400,
+      "function": "hook",
+      "change": "The tread returns as a climbing attack while the flat-second reply falls across the line.",
+      "harmony": [
+        "Am",
+        "Dm",
+        "Bb",
+        "E7"
+      ],
+      "melody": [
+        "A4:.75 C5:.25 E5:.5 A5:.5 C6:1 E6:1",
+        "F6:.5 D6:.5 A5:.5 F5:.5 A5:.5 D6:.5 F6:1",
+        "Bb6:.5 F6:.5 D6:1 C6:.5 Bb5:.5 F5:1",
+        "E5:.5 G#5:.5 B5:.5 D6:.5 E6:1 G#6:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "0c7eb8a4f52066f9d3d02a82450b3eb7bc57e50e334e45231e9a5a322e32f10c"
+    },
+    {
+      "cue": "cinder-boss",
+      "phrase": 6,
+      "name": "Tracks close the circle",
+      "startBar": 21,
+      "endBar": 24,
+      "startTick": 38400,
+      "endTick": 46080,
+      "function": "ending",
+      "change": "The original chromatic pickup now falls into the low dominant before the crawler advances again.",
+      "harmony": [
+        "F",
+        "Bb",
+        "Am",
+        "E7"
+      ],
+      "melody": [
+        "A5:1 C6:.5 F6:.5 E6:.5 C6:.5 A5:1",
+        "Bb5:.75 F5:.25 D5:.5 F5:.5 Bb5:1 A5:1",
+        "E5:.5 C5:.5 A4:1 D#5:.25 E5:.75 C5:1",
+        "D5:.5 B4:.5 G#4:1 E4:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "5597a63bd987c593e261764ba50de6018b652da48683edf5a22012ff4e32059c"
+    },
+    {
+      "cue": "anchorage-flight",
+      "phrase": 1,
+      "name": "Dragonfly beacon",
+      "startBar": 1,
+      "endBar": 4,
+      "startTick": 0,
+      "endTick": 7680,
+      "function": "hook",
+      "change": "A broad rising third and falling fifth identify the carrier beacon over 3+3+2 phrasing.",
+      "harmony": [
+        "G",
+        "Em",
+        "C",
+        "D"
+      ],
+      "melody": [
+        "B5:1.5 D6:1.5 G5:1",
+        "B5:1 G5:.5 E5:.5 F#5:1 G5:1",
+        "E5:1.5 G5:.5 C6:1 B5:1",
+        "A5:1.5 F#5:.5 E5:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "0cea29ab301841245d16ab01166468bfc2544ff5cb80a2997332c81634b79310"
+    },
+    {
+      "cue": "anchorage-flight",
+      "phrase": 2,
+      "name": "The wide interception arc",
+      "startBar": 5,
+      "endBar": 8,
+      "startTick": 7680,
+      "endTick": 15360,
+      "function": "hook",
+      "change": "An answering curve changes the chord route and ends with an ascending dominant arc.",
+      "harmony": [
+        "G",
+        "C",
+        "Am",
+        "D"
+      ],
+      "melody": [
+        "D6:1 B5:.5 G5:.5 A5:1 B5:1",
+        "C6:1.5 B5:.5 G5:1 E5:1",
+        "A5:1 E5:.5 C5:.5 E5:1 A5:1",
+        "F#5:.5 A5:.5 D6:1 C6:.5 A5:.5 F#5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "7a0066fa69362ad2a8b711b14b5848e06a93dec5bab586434abc9da827208e77"
+    },
+    {
+      "cue": "anchorage-flight",
+      "phrase": 3,
+      "name": "Bombers beyond the ring",
+      "startBar": 9,
+      "endBar": 12,
+      "startTick": 15360,
+      "endTick": 23040,
+      "function": "contrast",
+      "change": "Shorter notes and relative-minor footing turn the broad beacon into a warning.",
+      "harmony": [
+        "Em",
+        "Bm",
+        "C",
+        "D"
+      ],
+      "melody": [
+        "B5:.5 G5:.5 E5:1 F#5:.5 G5:.5 B5:1",
+        "D6:1 F#6:.5 D6:.5 B5:1 A5:1",
+        "G5:1 E5:1 C5:.5 E5:.5 G5:1",
+        "A5:.5 D6:.5 F#6:1 E6:.5 D6:.5 A5:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "cc9a908d28f2faff1c9ad3d965559fcc4a6fd9fa00c1e1cf82a7a25580236c66"
+    },
+    {
+      "cue": "anchorage-flight",
+      "phrase": 4,
+      "name": "Hold the carrier line",
+      "startBar": 13,
+      "endBar": 16,
+      "startTick": 23040,
+      "endTick": 30720,
+      "function": "breakdown",
+      "change": "Sustained upper notes give the defensive orbit a stable center.",
+      "harmony": [
+        "C",
+        "G",
+        "Am",
+        "D"
+      ],
+      "melody": [
+        "E6:2 D6:.5 C6:.5 G5:1",
+        "D6:1.5 B5:.5 G5:1 _:1",
+        "C6:1 B5:.5 A5:.5 E5:1 _:1",
+        "F#5:1 A5:1 D6:1 _:1"
+      ],
+      "answers": null,
+      "density": "sparse",
+      "signature": "1265499864508cedbfd6053bd2dcd91b93b0df1db975fa10c2b77bbc098c9ccc"
+    },
+    {
+      "cue": "anchorage-flight",
+      "phrase": 5,
+      "name": "Climbing turnaround",
+      "startBar": 17,
+      "endBar": 20,
+      "startTick": 30720,
+      "endTick": 38400,
+      "function": "hook",
+      "change": "The beacon third expands into a full climbing turnaround before falling back toward the carrier.",
+      "harmony": [
+        "G",
+        "D",
+        "Em",
+        "C"
+      ],
+      "melody": [
+        "G5:.5 B5:.5 D6:1 G6:1 F#6:1",
+        "F#6:1 D6:.5 A5:.5 F#5:.5 A5:.5 D6:1",
+        "E6:1 G6:.5 B6:.5 G6:1 E6:1",
+        "G6:1 E6:.5 D6:.5 C6:1 G5:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "5645357f18b094272d4089fdcc6354a6717cc2e9b330275db18c7b9c4cd82a90"
+    },
+    {
+      "cue": "anchorage-flight",
+      "phrase": 6,
+      "name": "Across the vulnerable side",
+      "startBar": 21,
+      "endBar": 24,
+      "startTick": 38400,
+      "endTick": 46080,
+      "function": "contrast",
+      "change": "A low arc and changing phrase endpoints make the patrol feel newly exposed.",
+      "harmony": [
+        "Am",
+        "Em",
+        "C",
+        "D"
+      ],
+      "melody": [
+        "E5:1 C5:.5 A4:.5 C5:1 E5:1",
+        "G5:1.5 B5:.5 G5:1 E5:1",
+        "C6:1 B5:.5 G5:.5 E5:1 D5:1",
+        "A5:1 F#5:.5 D5:.5 E5:.5 F#5:.5 A5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "21f7d8ec4665fc6499f0c49ae376ef12240e83a67a05918f060d4e2270a98053"
+    },
+    {
+      "cue": "anchorage-flight",
+      "phrase": 7,
+      "name": "Beacon in the clear",
+      "startBar": 25,
+      "endBar": 28,
+      "startTick": 46080,
+      "endTick": 53760,
+      "function": "hook",
+      "change": "The beacon head returns with an added summit and a suspended, unresolved answer.",
+      "harmony": [
+        "G",
+        "Em",
+        "C",
+        "Gsus"
+      ],
+      "melody": [
+        "B5:1.5 D6:1 G6:.5 D6:.5 B5:.5",
+        "E6:1 B5:.5 G5:.5 F#5:1 E5:1",
+        "G5:.5 C6:.5 E6:1 D6:1 C6:1",
+        "C6:1.5 D6:.5 G5:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "4f001e5a49b3b06b2af083ee6b6cce198146c5c16a9b68a8c4a868ebf1021524"
+    },
+    {
+      "cue": "anchorage-flight",
+      "phrase": 8,
+      "name": "Keep the circle open",
+      "startBar": 29,
+      "endBar": 32,
+      "startTick": 53760,
+      "endTick": 61440,
+      "function": "ending",
+      "change": "An open dominant rises toward the beacon B rather than stopping on a full cadence.",
+      "harmony": [
+        "C",
+        "Am",
+        "G",
+        "D"
+      ],
+      "melody": [
+        "E6:1 D6:.5 C6:.5 G5:1 E5:1",
+        "A5:1 C6:.5 B5:.5 A5:1 E5:1",
+        "G5:1 B5:.5 D6:.5 B5:1 A5:.5 G5:.5",
+        "F#5:1 A5:.5 D6:.5 A5:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "89d445bc7620e39e94563362c627458c55dc19dc7c00d2e8ed03953336e3dfb3"
+    },
+    {
+      "cue": "anchorage-boss",
+      "phrase": 1,
+      "name": "Harrow inverts the beacon",
+      "startBar": 1,
+      "endBar": 4,
+      "startTick": 0,
+      "endTick": 7680,
+      "function": "hook",
+      "change": "The beacon third turns downward, starts off the beat and falls through the carrier harmony.",
+      "harmony": [
+        "Em",
+        "C",
+        "Am",
+        "B7"
+      ],
+      "melody": [
+        "_:0.5 B5:.75 G5:.75 E5:1 B4:1",
+        "G5:.5 E5:.5 C6:1 B5:.5 G5:.5 _:1",
+        "_:0.5 E5:.5 A5:.75 C6:.25 B5:1 A5:1",
+        "F#5:.5 D#5:.5 B4:1 A5:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "f955e9928ce704ced50a6bfdf1bfc954a1fe3e163b0ca8c862e45f6d4432f5b5"
+    },
+    {
+      "cue": "anchorage-boss",
+      "phrase": 2,
+      "name": "Hunter crosses the wake",
+      "startBar": 5,
+      "endBar": 8,
+      "startTick": 7680,
+      "endTick": 15360,
+      "function": "hook",
+      "change": "The reply trades a downbeat climb for an offbeat answer and a long falling dominant.",
+      "harmony": [
+        "Em",
+        "G",
+        "C",
+        "B7"
+      ],
+      "melody": [
+        "G5:.5 B5:.5 E6:1 D6:.5 B5:.5 G5:1",
+        "_:0.5 D6:.5 B5:.5 G5:.5 A5:.5 B5:.5 D6:1",
+        "E6:.75 G6:.25 E6:1 C6:.5 B5:.5 G5:1",
+        "F#6:1 D#6:.5 B5:.5 A5:.5 F#5:.5 D#5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "07234b51fe57f54ec02da8390a9b2ab8dab8f35cd33147ee97a51056663d8dbd"
+    },
+    {
+      "cue": "anchorage-boss",
+      "phrase": 3,
+      "name": "Narrowing defense ring",
+      "startBar": 9,
+      "endBar": 12,
+      "startTick": 15360,
+      "endTick": 23040,
+      "function": "hook",
+      "change": "The broad orbit contracts into a compressed falling cell while the dominant climbs.",
+      "harmony": [
+        "Am",
+        "C",
+        "Em",
+        "B7"
+      ],
+      "melody": [
+        "C6:.5 E6:.5 A6:1 G6:.5 E6:.5 C6:1",
+        "G6:.5 E6:.5 C6:.5 G5:.5 E5:1 G5:1",
+        "B5:.25 E6:.25 G6:.5 E6:.5 D6:.5 B5:.5 G5:.5 E5:1",
+        "D#5:.5 F#5:.5 B5:.5 D#6:.5 F#6:1 A6:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "5dce6debda9a23fafe48b2e69ed0004714326d688b183ea75d9bc2d461b35a16"
+    },
+    {
+      "cue": "anchorage-boss",
+      "phrase": 4,
+      "name": "Dragonfly exposed",
+      "startBar": 13,
+      "endBar": 16,
+      "startTick": 23040,
+      "endTick": 30720,
+      "function": "breakdown",
+      "change": "The wide original breathing briefly returns in a lower, vulnerable register.",
+      "harmony": [
+        "C",
+        "Em",
+        "Am",
+        "B7"
+      ],
+      "melody": [
+        "E5:1.5 G5:.5 C6:1 _:1",
+        "B5:1 G5:1 E5:1 _:1",
+        "A4:1 C5:.5 E5:.5 A5:1 _:1",
+        "F#5:1 D#5:.5 B4:.5 A4:1 _:1"
+      ],
+      "answers": null,
+      "density": "sparse",
+      "signature": "3bd48957004ed1697b1f3f2d6febdac40c848b1fadf1f576ca9fe482992d617b"
+    },
+    {
+      "cue": "anchorage-boss",
+      "phrase": 5,
+      "name": "Intercept from above",
+      "startBar": 17,
+      "endBar": 20,
+      "startTick": 30720,
+      "endTick": 38400,
+      "function": "hook",
+      "change": "The carrier beacon fights back in a shorter high-register arc before the hunter dominant.",
+      "harmony": [
+        "G",
+        "C",
+        "Am",
+        "B7"
+      ],
+      "melody": [
+        "B5:.75 D6:.75 G6:.5 D6:.5 B5:.5 G5:1",
+        "C6:.5 E6:.5 G6:1 E6:.5 D6:.5 C6:1",
+        "_:0.5 E6:.5 C6:.5 A5:.5 B5:.5 C6:.5 E6:1",
+        "F#6:.5 D#6:.5 B5:1 D#6:.5 F#6:.5 A6:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "eb87adee189c4aa6ecfa9685213c9b2c56cb817c0ec305a14a747a59b877544d"
+    },
+    {
+      "cue": "anchorage-boss",
+      "phrase": 6,
+      "name": "Blind arc reopens",
+      "startBar": 21,
+      "endBar": 24,
+      "startTick": 38400,
+      "endTick": 46080,
+      "function": "ending",
+      "change": "The initial inversion now leaps upward before its changed descent resets the pursuit.",
+      "harmony": [
+        "Em",
+        "C",
+        "Am",
+        "B7"
+      ],
+      "melody": [
+        "_:0.5 B5:.75 G5:.75 E6:1 D6:1",
+        "C6:1 G5:.5 E5:.5 G5:1 B5:1",
+        "A5:.5 E5:.5 C5:1 E5:.5 A5:.5 C6:1",
+        "B5:.5 A5:.5 F#5:1 D#5:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "d8da1c2188ed44748c89287bfa5dbd5089f5c18be248ffb95e37be6aa5b09f6c"
+    },
+    {
+      "cue": "tempest-flight",
+      "phrase": 1,
+      "name": "Lightning cuts the conduit",
+      "startBar": 1,
+      "endBar": 4,
+      "startTick": 0,
+      "endTick": 7680,
+      "function": "hook",
+      "change": "A sixteenth spark and a missing beat establish the storm cut; three-part accents follow.",
+      "harmony": [
+        "Fsm",
+        "D",
+        "A",
+        "Cs7"
+      ],
+      "melody": [
+        "F#5:.25 A5:.25 C#6:.5 _:0.5 E6:.5 C#6:.5 A5:.5 G#5:1",
+        "F#5:.75 A5:.75 D6:.5 C#6:.5 A5:.5 F#5:1",
+        "E6:.5 C#6:.5 A5:1 B5:.5 C#6:.5 E6:1",
+        "E#6:.5 C#6:.5 B5:.5 G#5:.5 E#5:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "908b8b387ce464ffde19b94e580ddce931fc172a31528283a64aa87fc8085cf7"
+    },
+    {
+      "cue": "tempest-flight",
+      "phrase": 2,
+      "name": "Ride the clear interval",
+      "startBar": 5,
+      "endBar": 8,
+      "startTick": 7680,
+      "endTick": 15360,
+      "function": "hook",
+      "change": "The answering line widens into longer arcs and replaces the opening harmonic route.",
+      "harmony": [
+        "Fsm",
+        "E",
+        "D",
+        "Cs7"
+      ],
+      "melody": [
+        "A5:1 C#6:.5 F#6:.5 E6:1 C#6:1",
+        "B5:.5 G#5:.5 E5:1 G#5:.5 B5:.5 E6:1",
+        "D6:1 A5:.5 F#5:.5 E5:.5 F#5:.5 A5:1",
+        "G#5:.25 B5:.25 C#6:.5 E#6:1 D#6:.5 C#6:.5 B5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "131977c4bc7f4876c2ff0adf702f07376ad433f8c4bd7cab8a8721d4837d3451"
+    },
+    {
+      "cue": "tempest-flight",
+      "phrase": 3,
+      "name": "Storm-vane sequence",
+      "startBar": 9,
+      "endBar": 12,
+      "startTick": 15360,
+      "endTick": 23040,
+      "function": "hook",
+      "change": "Fragmented sparks rise through a new bass route toward a dominant upper seventh.",
+      "harmony": [
+        "Bm",
+        "D",
+        "Fsm",
+        "Cs7"
+      ],
+      "melody": [
+        "B5:.25 D6:.25 F#6:.5 D6:.5 B5:.5 A5:1 F#5:1",
+        "A5:.25 D6:.25 F#6:.5 A6:1 F#6:.5 D6:.5 A5:1",
+        "C#6:.5 F#6:.5 A6:.75 G#6:.25 F#6:1 C#6:1",
+        "B5:.25 C#6:.25 E#6:.5 G#6:.5 B6:.5 G#6:1 E#6:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "7cc61e147010c985f70d14a56cbd8c3eb1666193e8ed6d817081a4713b9531ff"
+    },
+    {
+      "cue": "tempest-flight",
+      "phrase": 4,
+      "name": "Fall behind the lightning front",
+      "startBar": 13,
+      "endBar": 16,
+      "startTick": 23040,
+      "endTick": 30720,
+      "function": "hook",
+      "change": "A descending contour mirrors the storm climb and opens a gap before the eye.",
+      "harmony": [
+        "Fsm",
+        "E",
+        "D",
+        "Cs7"
+      ],
+      "melody": [
+        "F#6:1 E6:.5 C#6:.5 A5:1 F#5:1",
+        "E5:.5 G#5:.5 B5:.75 A5:.25 G#5:1 E5:1",
+        "F#5:.5 A5:.5 D6:1 C#6:.5 A5:.5 F#5:1",
+        "E#5:.5 G#5:.5 C#6:1 B5:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "b79038e914fa26b0131384a0faca1562925aa199c3d1aed699def8950fa47939"
+    },
+    {
+      "cue": "tempest-flight",
+      "phrase": 5,
+      "name": "Eye of the storm",
+      "startBar": 17,
+      "endBar": 20,
+      "startTick": 30720,
+      "endTick": 38400,
+      "function": "breakdown",
+      "change": "Long notes and reduced percussion leave an audible calm between lightning fronts.",
+      "harmony": [
+        "Fsm",
+        "A",
+        "D",
+        "Cs7"
+      ],
+      "melody": [
+        "A5:2 C#6:1 _:1",
+        "E6:1.5 C#6:.5 A5:1 _:1",
+        "F#5:1 A5:.5 D6:1.5 C#6:1",
+        "B5:1 G#5:1 E#5:1 _:1"
+      ],
+      "answers": null,
+      "density": "sparse",
+      "signature": "66c90cf5cf2fc811485bafebf366cf9b966ea13d6b8fcd2f9cf9cf84b90b4542"
+    },
+    {
+      "cue": "tempest-flight",
+      "phrase": 6,
+      "name": "Conduits reconnect",
+      "startBar": 21,
+      "endBar": 24,
+      "startTick": 38400,
+      "endTick": 46080,
+      "function": "hook",
+      "change": "Short sparks rebuild the pulse but the continuation stays broader than the opening.",
+      "harmony": [
+        "Bm",
+        "Fsm",
+        "D",
+        "Cs7"
+      ],
+      "melody": [
+        "F#5:.25 B5:.25 D6:.5 F#6:.5 E6:.5 D6:1 B5:1",
+        "C#6:1 A5:.5 F#5:.5 G#5:.5 A5:.5 C#6:1",
+        "D6:.75 F#6:.25 A6:1 G#6:.5 F#6:.5 D6:1",
+        "C#6:.5 E#6:.5 G#6:.5 F#6:.5 E#6:1 C#6:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "cc9be9138aa9cf0e0b84dd2c4715977593d9a48e2cd7d582c0125a9a19ec6dc0"
+    },
+    {
+      "cue": "tempest-flight",
+      "phrase": 7,
+      "name": "Light through the cloud deck",
+      "startBar": 25,
+      "endBar": 28,
+      "startTick": 46080,
+      "endTick": 53760,
+      "function": "contrast",
+      "change": "An A-major clearing removes the dominant and turns the line toward a broad minor landing.",
+      "harmony": [
+        "A",
+        "E",
+        "D",
+        "Bm"
+      ],
+      "melody": [
+        "C#6:1 E6:.5 A6:1 E6:.5 C#6:1",
+        "G#6:1 E6:.5 B5:.5 G#5:1 B5:1",
+        "A5:1 D6:.5 F#6:.5 E6:1 D6:1",
+        "F#6:1 D6:.5 B5:.5 A5:1 F#5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "5959aad13be0e2ef3c975575c212f48df7749238798438cbace843450964a55d"
+    },
+    {
+      "cue": "tempest-flight",
+      "phrase": 8,
+      "name": "Above the final front",
+      "startBar": 29,
+      "endBar": 32,
+      "startTick": 53760,
+      "endTick": 61440,
+      "function": "hook",
+      "change": "The register peaks at high B, then collapses toward the exposed dominant root.",
+      "harmony": [
+        "D",
+        "E",
+        "Fsm",
+        "Cs7"
+      ],
+      "melody": [
+        "A5:.25 D6:.25 F#6:.5 A6:.5 F#6:.5 D6:1 A5:1",
+        "B5:.25 E6:.25 G#6:.5 B6:1 G#6:.5 E6:.5 B5:1",
+        "A6:.5 F#6:.5 C#6:.5 A5:.5 C#6:.5 F#6:.5 A6:1",
+        "G#6:.5 E#6:.5 C#6:.5 B5:.5 G#5:.5 E#5:.5 C#5:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "164ee9e19fb3fffca7a3765168ccdfc42bc523d4da8d63aec7d7b661576ea7d6"
+    },
+    {
+      "cue": "tempest-flight",
+      "phrase": 9,
+      "name": "Lightning call returns",
+      "startBar": 33,
+      "endBar": 36,
+      "startTick": 61440,
+      "endTick": 69120,
+      "function": "hook",
+      "change": "The spark head returns, but its destination, second-bar direction and dominant ending all change.",
+      "harmony": [
+        "Fsm",
+        "D",
+        "A",
+        "Cs7"
+      ],
+      "melody": [
+        "F#5:.25 A5:.25 C#6:.5 _:0.5 F#6:.5 E6:.5 C#6:.5 A5:1",
+        "D6:.75 A5:.75 F#5:.5 A5:.5 C#6:.5 D6:1",
+        "C#6:1 E6:.5 A6:.5 G#6:.5 E6:.5 C#6:1",
+        "B5:.5 C#6:.5 E#6:1 G#6:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "e7e88779a5e788d391c84df07fa6a13c61e665ce93f3c431c1125567b3988f23"
+    },
+    {
+      "cue": "tempest-flight",
+      "phrase": 10,
+      "name": "Bring the squadron home",
+      "startBar": 37,
+      "endBar": 40,
+      "startTick": 69120,
+      "endTick": 76800,
+      "function": "ending",
+      "change": "A falling final arc leaves a quiet dominant breath for the next storm cut.",
+      "harmony": [
+        "D",
+        "Bm",
+        "Fsm",
+        "Cs7"
+      ],
+      "melody": [
+        "F#6:1 D6:.5 A5:.5 F#5:1 A5:1",
+        "B5:.5 D6:.5 F#6:1 E6:.5 D6:.5 B5:1",
+        "A5:.75 C#6:.25 F#6:1 E6:.5 C#6:.5 A5:1",
+        "G#5:.5 E#5:.5 C#5:1 B4:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "e071e9af7bffc922421f0795e85d31361182bd55a118263d7f7e2b6886e3ef25"
+    },
+    {
+      "cue": "tempest-boss",
+      "phrase": 1,
+      "name": "Crown claims the storm",
+      "startBar": 1,
+      "endBar": 4,
+      "startTick": 0,
+      "endTick": 7680,
+      "function": "hook",
+      "change": "The lightning spark becomes a four-note cut, interrupted by a deliberate flat-second front.",
+      "harmony": [
+        "Fsm",
+        "G",
+        "Fsm",
+        "Cs7"
+      ],
+      "melody": [
+        "F#5:.25 A5:.25 C#6:.25 F#6:.25 _:0.5 E6:.5 C#6:.5 A5:.5 G#5:1",
+        "G5:.5 B5:.5 D6:.75 F#6:.25 D6:1 B5:1",
+        "A5:.25 C#6:.25 F#6:.5 E6:.5 C#6:.5 A5:1 F#5:1",
+        "E#5:.5 G#5:.5 B5:.5 C#6:.5 E#6:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "21fcb2b9229fb2fa39c9794a6392e5a39f004e21abd557e501c9aaa15317dc65"
+    },
+    {
+      "cue": "tempest-boss",
+      "phrase": 2,
+      "name": "Fortress storm reply",
+      "startBar": 5,
+      "endBar": 8,
+      "startTick": 7680,
+      "endTick": 15360,
+      "function": "hook",
+      "change": "The answer starts on a held peak and moves through changing registers rather than copying the cut.",
+      "harmony": [
+        "D",
+        "Bm",
+        "Fsm",
+        "Cs7"
+      ],
+      "melody": [
+        "F#6:1 D6:.5 A5:.5 F#5:.5 A5:.5 D6:1",
+        "D6:.25 F#6:.25 B6:.5 A6:.5 F#6:.5 D6:1 B5:1",
+        "C#6:.5 A5:.5 F#5:.75 A5:.25 C#6:1 F#6:1",
+        "G#6:.5 E#6:.5 C#6:1 B5:.5 G#5:.5 E#5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "abba2c2434d08c85bc8a916bf9d89eff2d1f5be30800d5ba93b5b4fb6af9dead"
+    },
+    {
+      "cue": "tempest-boss",
+      "phrase": 3,
+      "name": "Strip the storm vanes",
+      "startBar": 9,
+      "endBar": 12,
+      "startTick": 15360,
+      "endTick": 23040,
+      "function": "hook",
+      "change": "A descending series of vane calls meets an ascending dominant counterforce.",
+      "harmony": [
+        "Bm",
+        "D",
+        "G",
+        "Cs7"
+      ],
+      "melody": [
+        "B5:.25 D6:.25 F#6:.5 B6:1 A6:.5 F#6:.5 D6:1",
+        "A5:.25 D6:.25 F#6:.5 A6:.5 F#6:.5 D6:1 A5:1",
+        "G5:.25 B5:.25 D6:.5 G6:.5 F#6:.5 D6:1 B5:1",
+        "B5:.25 C#6:.25 E#6:.5 G#6:.5 B6:.5 G#6:1 E#6:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "01d0a647b6941445a35e1cd8ae9645143bed8029a838c1e9037e727248bd357d"
+    },
+    {
+      "cue": "tempest-boss",
+      "phrase": 4,
+      "name": "Heart above the clouds",
+      "startBar": 13,
+      "endBar": 16,
+      "startTick": 23040,
+      "endTick": 30720,
+      "function": "breakdown",
+      "change": "The cut expands into silence and a prepared B-to-A release reveals the fortress heart.",
+      "harmony": [
+        "Fsm",
+        "Fssus",
+        "Fsm",
+        "Cs7"
+      ],
+      "melody": [
+        "F#5:1 _:1 C#6:1 _:1",
+        "B5:2 C#6:1 _:1",
+        "A5:1 G#5:.5 F#5:.5 C#5:1 _:1",
+        "E#5:1 G#5:1 B5:1 _:1"
+      ],
+      "answers": null,
+      "density": "sparse",
+      "signature": "3241aef8263934b734947514990a16a9fed143962a2d77668f8a97f15d3b3d67"
+    },
+    {
+      "cue": "tempest-boss",
+      "phrase": 5,
+      "name": "Crown unleashes the front",
+      "startBar": 17,
+      "endBar": 20,
+      "startTick": 30720,
+      "endTick": 38400,
+      "function": "hook",
+      "change": "The original spark reaches its only high C-sharp while the flat second forces a new route.",
+      "harmony": [
+        "D",
+        "G",
+        "Fsm",
+        "Cs7"
+      ],
+      "melody": [
+        "D6:.25 F#6:.25 A6:.5 F#6:.5 D6:.5 A5:1 F#5:1",
+        "G5:.25 B5:.25 D6:.5 G6:1 F#6:.5 D6:.5 B5:1",
+        "F#6:.25 A6:.25 C#7:.5 A6:.5 F#6:.5 E6:.5 C#6:.5 A5:1",
+        "G#5:.5 B5:.5 C#6:.5 E#6:.5 G#6:1 B6:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "c165fdf1d497aeb70cc683cf214eb6d7365a67b277f22b548e188357b1045bd9"
+    },
+    {
+      "cue": "tempest-boss",
+      "phrase": 6,
+      "name": "Storm front closes again",
+      "startBar": 21,
+      "endBar": 24,
+      "startTick": 38400,
+      "endTick": 46080,
+      "function": "ending",
+      "change": "The four-note cut returns as a falling line, then a flat-second detour redirects the loop dominant.",
+      "harmony": [
+        "Fsm",
+        "D",
+        "G",
+        "Cs7"
+      ],
+      "melody": [
+        "F#5:.25 A5:.25 C#6:.25 F#6:.25 E6:.5 C#6:.5 A5:.5 F#5:.5 E5:1",
+        "F#5:.75 A5:.25 D6:1 C#6:.5 A5:.5 F#5:1",
+        "G5:.5 D6:.5 B5:1 A5:.5 G5:.5 D5:1",
+        "E#5:.5 G#5:.5 C#6:1 B5:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "090e90f10bb36cc37feab60f29895d9cdd937f402f49c48ead6cfbf2680cd2f1"
+    }
+  ]
+}

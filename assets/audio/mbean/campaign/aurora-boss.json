@@ -1,0 +1,6257 @@
+{
+  "version": 4,
+  "bpm": 148,
+  "bars": 24,
+  "tracks": [
+    {
+      "id": "aurora-boss-lead-0",
+      "name": "Flight theme",
+      "instrument": "pulseLead",
+      "volume": 0.55,
+      "role": "lead",
+      "pan": -0.06,
+      "mute": false,
+      "solo": false,
+      "sound": {
+        "attack": 0.003,
+        "decay": 0.045,
+        "sustain": 0.27,
+        "release": 0.025,
+        "pulseWidth": 0.125,
+        "vibratoDepth": 0.02,
+        "vibratoRate": 5,
+        "cutoff": 6400,
+        "bassWave": "triangle",
+        "guitarDrive": 16,
+        "guitarTone": 4500
+      },
+      "preset": "custom",
+      "viewTop": 83,
+      "notes": [
+        {
+          "id": "aurora-boss-n1",
+          "startTick": 0,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-boss-n2",
+          "startTick": 480,
+          "durationTicks": 83,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-boss-n3",
+          "startTick": 600,
+          "durationTicks": 83,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-boss-n4",
+          "startTick": 720,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-boss-n5",
+          "startTick": 960,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-boss-n6",
+          "startTick": 1200,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-boss-n7",
+          "startTick": 1920,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 85
+        },
+        {
+          "id": "aurora-boss-n8",
+          "startTick": 2160,
+          "durationTicks": 83,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-boss-n9",
+          "startTick": 2280,
+          "durationTicks": 83,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-boss-n10",
+          "startTick": 2640,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-boss-n11",
+          "startTick": 2880,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-boss-n12",
+          "startTick": 3120,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 85
+        },
+        {
+          "id": "aurora-boss-n13",
+          "startTick": 3360,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 88
+        },
+        {
+          "id": "aurora-boss-n14",
+          "startTick": 3840,
+          "durationTicks": 83,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-boss-n15",
+          "startTick": 3960,
+          "durationTicks": 83,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-boss-n16",
+          "startTick": 4080,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-boss-n17",
+          "startTick": 4320,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-boss-n18",
+          "startTick": 5040,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-boss-n19",
+          "startTick": 5280,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-boss-n20",
+          "startTick": 5520,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-boss-n21",
+          "startTick": 5760,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 87
+        },
+        {
+          "id": "aurora-boss-n22",
+          "startTick": 6000,
+          "durationTicks": 203,
+          "velocity": 0.6952,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 90
+        },
+        {
+          "id": "aurora-boss-n23",
+          "startTick": 6240,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-boss-n24",
+          "startTick": 6720,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-boss-n25",
+          "startTick": 6960,
+          "durationTicks": 203,
+          "velocity": 0.7,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-boss-n120",
+          "startTick": 7680,
+          "durationTicks": 323,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-boss-n121",
+          "startTick": 8040,
+          "durationTicks": 83,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-boss-n122",
+          "startTick": 8160,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-boss-n123",
+          "startTick": 8400,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 84
+        },
+        {
+          "id": "aurora-boss-n124",
+          "startTick": 8640,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 88
+        },
+        {
+          "id": "aurora-boss-n125",
+          "startTick": 8880,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 86
+        },
+        {
+          "id": "aurora-boss-n126",
+          "startTick": 9120,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 84
+        },
+        {
+          "id": "aurora-boss-n127",
+          "startTick": 9600,
+          "durationTicks": 83,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-boss-n128",
+          "startTick": 9720,
+          "durationTicks": 83,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 86
+        },
+        {
+          "id": "aurora-boss-n129",
+          "startTick": 9840,
+          "durationTicks": 203,
+          "velocity": 0.6952,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 90
+        },
+        {
+          "id": "aurora-boss-n130",
+          "startTick": 10080,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 86
+        },
+        {
+          "id": "aurora-boss-n131",
+          "startTick": 10560,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-boss-n132",
+          "startTick": 10800,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-boss-n133",
+          "startTick": 11040,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-boss-n134",
+          "startTick": 11520,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-boss-n135",
+          "startTick": 12000,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-boss-n136",
+          "startTick": 12240,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 88
+        },
+        {
+          "id": "aurora-boss-n137",
+          "startTick": 12480,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 86
+        },
+        {
+          "id": "aurora-boss-n138",
+          "startTick": 12720,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-boss-n139",
+          "startTick": 12960,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-boss-n140",
+          "startTick": 13440,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-boss-n141",
+          "startTick": 13680,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 75
+        },
+        {
+          "id": "aurora-boss-n142",
+          "startTick": 13920,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-boss-n143",
+          "startTick": 14640,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 75
+        },
+        {
+          "id": "aurora-boss-n144",
+          "startTick": 14880,
+          "durationTicks": 443,
+          "velocity": 0.7999999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-boss-n238",
+          "startTick": 15360,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 77
+        },
+        {
+          "id": "aurora-boss-n239",
+          "startTick": 15600,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-boss-n240",
+          "startTick": 15840,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 84
+        },
+        {
+          "id": "aurora-boss-n241",
+          "startTick": 16080,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-boss-n242",
+          "startTick": 16320,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-boss-n243",
+          "startTick": 16800,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 77
+        },
+        {
+          "id": "aurora-boss-n244",
+          "startTick": 17280,
+          "durationTicks": 83,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-boss-n245",
+          "startTick": 17400,
+          "durationTicks": 83,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 77
+        },
+        {
+          "id": "aurora-boss-n246",
+          "startTick": 17520,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-boss-n247",
+          "startTick": 17760,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-boss-n248",
+          "startTick": 18000,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-boss-n249",
+          "startTick": 18240,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 88
+        },
+        {
+          "id": "aurora-boss-n250",
+          "startTick": 18720,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 86
+        },
+        {
+          "id": "aurora-boss-n251",
+          "startTick": 19200,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 84
+        },
+        {
+          "id": "aurora-boss-n252",
+          "startTick": 19440,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 88
+        },
+        {
+          "id": "aurora-boss-n253",
+          "startTick": 19680,
+          "durationTicks": 443,
+          "velocity": 0.7392,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 91
+        },
+        {
+          "id": "aurora-boss-n254",
+          "startTick": 20160,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 88
+        },
+        {
+          "id": "aurora-boss-n255",
+          "startTick": 20400,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 86
+        },
+        {
+          "id": "aurora-boss-n256",
+          "startTick": 20640,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 84
+        },
+        {
+          "id": "aurora-boss-n257",
+          "startTick": 21120,
+          "durationTicks": 83,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-boss-n258",
+          "startTick": 21240,
+          "durationTicks": 83,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 84
+        },
+        {
+          "id": "aurora-boss-n259",
+          "startTick": 21360,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 87
+        },
+        {
+          "id": "aurora-boss-n260",
+          "startTick": 21600,
+          "durationTicks": 203,
+          "velocity": 0.7392,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 90
+        },
+        {
+          "id": "aurora-boss-n261",
+          "startTick": 21840,
+          "durationTicks": 203,
+          "velocity": 0.6952,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 93
+        },
+        {
+          "id": "aurora-boss-n262",
+          "startTick": 22080,
+          "durationTicks": 443,
+          "velocity": 0.7392,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 90
+        },
+        {
+          "id": "aurora-boss-n263",
+          "startTick": 22560,
+          "durationTicks": 443,
+          "velocity": 0.7999999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 87
+        },
+        {
+          "id": "aurora-boss-n359",
+          "startTick": 23040,
+          "durationTicks": 443,
+          "velocity": 0.6215999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-boss-n360",
+          "startTick": 24000,
+          "durationTicks": 443,
+          "velocity": 0.6586,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-boss-n361",
+          "startTick": 24960,
+          "durationTicks": 683,
+          "velocity": 0.6215999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-boss-n362",
+          "startTick": 25680,
+          "durationTicks": 203,
+          "velocity": 0.5846,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-boss-n363",
+          "startTick": 25920,
+          "durationTicks": 443,
+          "velocity": 0.6215999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-boss-n364",
+          "startTick": 26880,
+          "durationTicks": 443,
+          "velocity": 0.6215999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-boss-n365",
+          "startTick": 27360,
+          "durationTicks": 203,
+          "velocity": 0.6215999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-boss-n366",
+          "startTick": 27600,
+          "durationTicks": 203,
+          "velocity": 0.5476,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-boss-n367",
+          "startTick": 27840,
+          "durationTicks": 443,
+          "velocity": 0.6215999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-boss-n368",
+          "startTick": 28800,
+          "durationTicks": 443,
+          "velocity": 0.6215999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 75
+        },
+        {
+          "id": "aurora-boss-n369",
+          "startTick": 29280,
+          "durationTicks": 443,
+          "velocity": 0.6215999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-boss-n370",
+          "startTick": 29760,
+          "durationTicks": 443,
+          "velocity": 0.592,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-boss-n393",
+          "startTick": 30720,
+          "durationTicks": 83,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 85
+        },
+        {
+          "id": "aurora-boss-n394",
+          "startTick": 30840,
+          "durationTicks": 83,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 88
+        },
+        {
+          "id": "aurora-boss-n395",
+          "startTick": 30960,
+          "durationTicks": 203,
+          "velocity": 0.6952,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 93
+        },
+        {
+          "id": "aurora-boss-n396",
+          "startTick": 31200,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 88
+        },
+        {
+          "id": "aurora-boss-n397",
+          "startTick": 31680,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 85
+        },
+        {
+          "id": "aurora-boss-n398",
+          "startTick": 31920,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-boss-n399",
+          "startTick": 32160,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-boss-n400",
+          "startTick": 32640,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-boss-n401",
+          "startTick": 32880,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 84
+        },
+        {
+          "id": "aurora-boss-n402",
+          "startTick": 33120,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 88
+        },
+        {
+          "id": "aurora-boss-n403",
+          "startTick": 33360,
+          "durationTicks": 203,
+          "velocity": 0.6512,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 91
+        },
+        {
+          "id": "aurora-boss-n404",
+          "startTick": 33600,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 88
+        },
+        {
+          "id": "aurora-boss-n405",
+          "startTick": 33840,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 86
+        },
+        {
+          "id": "aurora-boss-n406",
+          "startTick": 34080,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 84
+        },
+        {
+          "id": "aurora-boss-n407",
+          "startTick": 34560,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 88
+        },
+        {
+          "id": "aurora-boss-n408",
+          "startTick": 34800,
+          "durationTicks": 83,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-boss-n409",
+          "startTick": 34920,
+          "durationTicks": 83,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-boss-n410",
+          "startTick": 35040,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-boss-n411",
+          "startTick": 35280,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-boss-n412",
+          "startTick": 35520,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-boss-n413",
+          "startTick": 36000,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 86
+        },
+        {
+          "id": "aurora-boss-n414",
+          "startTick": 36480,
+          "durationTicks": 323,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 87
+        },
+        {
+          "id": "aurora-boss-n415",
+          "startTick": 36840,
+          "durationTicks": 323,
+          "velocity": 0.6512,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 90
+        },
+        {
+          "id": "aurora-boss-n416",
+          "startTick": 37200,
+          "durationTicks": 203,
+          "velocity": 0.6952,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 93
+        },
+        {
+          "id": "aurora-boss-n417",
+          "startTick": 37440,
+          "durationTicks": 203,
+          "velocity": 0.7392,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 90
+        },
+        {
+          "id": "aurora-boss-n418",
+          "startTick": 37680,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 87
+        },
+        {
+          "id": "aurora-boss-n419",
+          "startTick": 37920,
+          "durationTicks": 443,
+          "velocity": 0.7999999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-boss-n515",
+          "startTick": 38400,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-boss-n516",
+          "startTick": 38640,
+          "durationTicks": 83,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-boss-n517",
+          "startTick": 38760,
+          "durationTicks": 83,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-boss-n518",
+          "startTick": 38880,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-boss-n519",
+          "startTick": 39120,
+          "durationTicks": 443,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 88
+        },
+        {
+          "id": "aurora-boss-n520",
+          "startTick": 39600,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 86
+        },
+        {
+          "id": "aurora-boss-n521",
+          "startTick": 39840,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-boss-n522",
+          "startTick": 40320,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 84
+        },
+        {
+          "id": "aurora-boss-n523",
+          "startTick": 40800,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-boss-n524",
+          "startTick": 41040,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-boss-n525",
+          "startTick": 41280,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-boss-n526",
+          "startTick": 41520,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 84
+        },
+        {
+          "id": "aurora-boss-n527",
+          "startTick": 41760,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 88
+        },
+        {
+          "id": "aurora-boss-n528",
+          "startTick": 42240,
+          "durationTicks": 203,
+          "velocity": 0.7832,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 89
+        },
+        {
+          "id": "aurora-boss-n529",
+          "startTick": 42480,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 84
+        },
+        {
+          "id": "aurora-boss-n530",
+          "startTick": 42720,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-boss-n531",
+          "startTick": 43200,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-boss-n532",
+          "startTick": 43440,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 77
+        },
+        {
+          "id": "aurora-boss-n533",
+          "startTick": 43680,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-boss-n534",
+          "startTick": 44160,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-boss-n535",
+          "startTick": 44400,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-boss-n536",
+          "startTick": 44640,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 87
+        },
+        {
+          "id": "aurora-boss-n537",
+          "startTick": 45120,
+          "durationTicks": 443,
+          "velocity": 0.7999999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        }
+      ]
+    },
+    {
+      "id": "aurora-boss-harmony-1",
+      "name": "Open harmonic shells",
+      "instrument": "pulseLead",
+      "volume": 0.2,
+      "role": "harmony",
+      "pan": 0.1,
+      "mute": false,
+      "solo": false,
+      "sound": {
+        "attack": 0.075,
+        "decay": 0.14,
+        "sustain": 0.44,
+        "release": 0.045,
+        "pulseWidth": 0.5,
+        "vibratoDepth": 0,
+        "vibratoRate": 5,
+        "cutoff": 2100,
+        "bassWave": "triangle",
+        "guitarDrive": 16,
+        "guitarTone": 4500
+      },
+      "preset": "custom",
+      "viewTop": 83,
+      "notes": [
+        {
+          "id": "aurora-boss-n31",
+          "startTick": 240,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n32",
+          "startTick": 240,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n33",
+          "startTick": 240,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-boss-n34",
+          "startTick": 1200,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n35",
+          "startTick": 1200,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n36",
+          "startTick": 1200,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-boss-n55",
+          "startTick": 2160,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n56",
+          "startTick": 2160,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-boss-n57",
+          "startTick": 2160,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 73
+        },
+        {
+          "id": "aurora-boss-n58",
+          "startTick": 3120,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n59",
+          "startTick": 3120,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-boss-n60",
+          "startTick": 3120,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 73
+        },
+        {
+          "id": "aurora-boss-n78",
+          "startTick": 4080,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n79",
+          "startTick": 4080,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n80",
+          "startTick": 4080,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-boss-n81",
+          "startTick": 5040,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n82",
+          "startTick": 5040,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n83",
+          "startTick": 5040,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-boss-n101",
+          "startTick": 6000,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 57
+        },
+        {
+          "id": "aurora-boss-n102",
+          "startTick": 6000,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 63
+        },
+        {
+          "id": "aurora-boss-n103",
+          "startTick": 6000,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-boss-n104",
+          "startTick": 6960,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 57
+        },
+        {
+          "id": "aurora-boss-n105",
+          "startTick": 6960,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 63
+        },
+        {
+          "id": "aurora-boss-n106",
+          "startTick": 6960,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-boss-n150",
+          "startTick": 7920,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n151",
+          "startTick": 7920,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n152",
+          "startTick": 7920,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 72
+        },
+        {
+          "id": "aurora-boss-n153",
+          "startTick": 8880,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n154",
+          "startTick": 8880,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n155",
+          "startTick": 8880,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 72
+        },
+        {
+          "id": "aurora-boss-n173",
+          "startTick": 9840,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-boss-n174",
+          "startTick": 9840,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-boss-n175",
+          "startTick": 9840,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 74
+        },
+        {
+          "id": "aurora-boss-n176",
+          "startTick": 10800,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-boss-n177",
+          "startTick": 10800,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-boss-n178",
+          "startTick": 10800,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 74
+        },
+        {
+          "id": "aurora-boss-n196",
+          "startTick": 11760,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n197",
+          "startTick": 11760,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n198",
+          "startTick": 11760,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-boss-n199",
+          "startTick": 12720,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n200",
+          "startTick": 12720,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n201",
+          "startTick": 12720,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-boss-n219",
+          "startTick": 13680,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 57
+        },
+        {
+          "id": "aurora-boss-n220",
+          "startTick": 13680,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 63
+        },
+        {
+          "id": "aurora-boss-n221",
+          "startTick": 13680,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-boss-n222",
+          "startTick": 14640,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 57
+        },
+        {
+          "id": "aurora-boss-n223",
+          "startTick": 14640,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 63
+        },
+        {
+          "id": "aurora-boss-n224",
+          "startTick": 14640,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-boss-n269",
+          "startTick": 15600,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 65
+        },
+        {
+          "id": "aurora-boss-n270",
+          "startTick": 15600,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-boss-n271",
+          "startTick": 15600,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 72
+        },
+        {
+          "id": "aurora-boss-n272",
+          "startTick": 16560,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 65
+        },
+        {
+          "id": "aurora-boss-n273",
+          "startTick": 16560,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-boss-n274",
+          "startTick": 16560,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 72
+        },
+        {
+          "id": "aurora-boss-n293",
+          "startTick": 17520,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n294",
+          "startTick": 17520,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n295",
+          "startTick": 17520,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-boss-n296",
+          "startTick": 18480,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n297",
+          "startTick": 18480,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n298",
+          "startTick": 18480,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-boss-n316",
+          "startTick": 19440,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n317",
+          "startTick": 19440,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n318",
+          "startTick": 19440,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 72
+        },
+        {
+          "id": "aurora-boss-n319",
+          "startTick": 20400,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n320",
+          "startTick": 20400,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n321",
+          "startTick": 20400,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 72
+        },
+        {
+          "id": "aurora-boss-n339",
+          "startTick": 21360,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 57
+        },
+        {
+          "id": "aurora-boss-n340",
+          "startTick": 21360,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 63
+        },
+        {
+          "id": "aurora-boss-n341",
+          "startTick": 21360,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-boss-n342",
+          "startTick": 22320,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 57
+        },
+        {
+          "id": "aurora-boss-n343",
+          "startTick": 22320,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 63
+        },
+        {
+          "id": "aurora-boss-n344",
+          "startTick": 22320,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-boss-n372",
+          "startTick": 23040,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n373",
+          "startTick": 23040,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n374",
+          "startTick": 23040,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-boss-n377",
+          "startTick": 24960,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n378",
+          "startTick": 24960,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-boss-n379",
+          "startTick": 24960,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-boss-n383",
+          "startTick": 26880,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n384",
+          "startTick": 26880,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n385",
+          "startTick": 26880,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-boss-n388",
+          "startTick": 28800,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 57
+        },
+        {
+          "id": "aurora-boss-n389",
+          "startTick": 28800,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 63
+        },
+        {
+          "id": "aurora-boss-n390",
+          "startTick": 28800,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-boss-n425",
+          "startTick": 30960,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n426",
+          "startTick": 30960,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-boss-n427",
+          "startTick": 30960,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 73
+        },
+        {
+          "id": "aurora-boss-n428",
+          "startTick": 31920,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n429",
+          "startTick": 31920,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-boss-n430",
+          "startTick": 31920,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 73
+        },
+        {
+          "id": "aurora-boss-n449",
+          "startTick": 32880,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n450",
+          "startTick": 32880,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n451",
+          "startTick": 32880,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 72
+        },
+        {
+          "id": "aurora-boss-n452",
+          "startTick": 33840,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n453",
+          "startTick": 33840,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n454",
+          "startTick": 33840,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 72
+        },
+        {
+          "id": "aurora-boss-n472",
+          "startTick": 34800,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n473",
+          "startTick": 34800,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n474",
+          "startTick": 34800,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-boss-n475",
+          "startTick": 35760,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n476",
+          "startTick": 35760,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n477",
+          "startTick": 35760,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-boss-n495",
+          "startTick": 36720,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 57
+        },
+        {
+          "id": "aurora-boss-n496",
+          "startTick": 36720,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 63
+        },
+        {
+          "id": "aurora-boss-n497",
+          "startTick": 36720,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-boss-n498",
+          "startTick": 37680,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 57
+        },
+        {
+          "id": "aurora-boss-n499",
+          "startTick": 37680,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 63
+        },
+        {
+          "id": "aurora-boss-n500",
+          "startTick": 37680,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-boss-n543",
+          "startTick": 38640,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n544",
+          "startTick": 38640,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n545",
+          "startTick": 38640,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-boss-n546",
+          "startTick": 39600,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n547",
+          "startTick": 39600,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n548",
+          "startTick": 39600,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-boss-n566",
+          "startTick": 40560,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n567",
+          "startTick": 40560,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n568",
+          "startTick": 40560,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 72
+        },
+        {
+          "id": "aurora-boss-n569",
+          "startTick": 41520,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-boss-n570",
+          "startTick": 41520,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-boss-n571",
+          "startTick": 41520,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 72
+        },
+        {
+          "id": "aurora-boss-n589",
+          "startTick": 42480,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 65
+        },
+        {
+          "id": "aurora-boss-n590",
+          "startTick": 42480,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-boss-n591",
+          "startTick": 42480,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 72
+        },
+        {
+          "id": "aurora-boss-n592",
+          "startTick": 43440,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 65
+        },
+        {
+          "id": "aurora-boss-n593",
+          "startTick": 43440,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-boss-n594",
+          "startTick": 43440,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 72
+        },
+        {
+          "id": "aurora-boss-n612",
+          "startTick": 44400,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 57
+        },
+        {
+          "id": "aurora-boss-n613",
+          "startTick": 44400,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 63
+        },
+        {
+          "id": "aurora-boss-n614",
+          "startTick": 44400,
+          "durationTicks": 384,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-boss-n615",
+          "startTick": 45360,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 57
+        },
+        {
+          "id": "aurora-boss-n616",
+          "startTick": 45360,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 63
+        },
+        {
+          "id": "aurora-boss-n617",
+          "startTick": 45360,
+          "durationTicks": 384,
+          "velocity": 0.5,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        }
+      ]
+    },
+    {
+      "id": "aurora-boss-bass-2",
+      "name": "Bass foundation",
+      "instrument": "chipBass",
+      "volume": 0.43,
+      "role": "bass",
+      "pan": 0,
+      "mute": false,
+      "solo": false,
+      "sound": {
+        "attack": 0.006,
+        "decay": 0.11,
+        "sustain": 0.65,
+        "release": 0.035,
+        "pulseWidth": 0.25,
+        "vibratoDepth": 0,
+        "vibratoRate": 5,
+        "cutoff": 1000,
+        "bassWave": "triangle",
+        "guitarDrive": 16,
+        "guitarTone": 4500
+      },
+      "preset": "custom",
+      "viewTop": 83,
+      "notes": [
+        {
+          "id": "aurora-boss-n26",
+          "startTick": 0,
+          "durationTicks": 168,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-boss-n27",
+          "startTick": 240,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 52
+        },
+        {
+          "id": "aurora-boss-n28",
+          "startTick": 840,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-boss-n29",
+          "startTick": 1200,
+          "durationTicks": 144,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-boss-n30",
+          "startTick": 1680,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-boss-n50",
+          "startTick": 1920,
+          "durationTicks": 168,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 33
+        },
+        {
+          "id": "aurora-boss-n51",
+          "startTick": 2160,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 45
+        },
+        {
+          "id": "aurora-boss-n52",
+          "startTick": 2760,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-boss-n53",
+          "startTick": 3120,
+          "durationTicks": 144,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 33
+        },
+        {
+          "id": "aurora-boss-n54",
+          "startTick": 3600,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-boss-n73",
+          "startTick": 3840,
+          "durationTicks": 168,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-boss-n74",
+          "startTick": 4080,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 52
+        },
+        {
+          "id": "aurora-boss-n75",
+          "startTick": 4680,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-boss-n76",
+          "startTick": 5040,
+          "durationTicks": 144,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-boss-n77",
+          "startTick": 5520,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-boss-n96",
+          "startTick": 5760,
+          "durationTicks": 168,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 35
+        },
+        {
+          "id": "aurora-boss-n97",
+          "startTick": 6000,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-boss-n98",
+          "startTick": 6600,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 42
+        },
+        {
+          "id": "aurora-boss-n99",
+          "startTick": 6960,
+          "durationTicks": 144,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 35
+        },
+        {
+          "id": "aurora-boss-n100",
+          "startTick": 7440,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 42
+        },
+        {
+          "id": "aurora-boss-n145",
+          "startTick": 7680,
+          "durationTicks": 168,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 36
+        },
+        {
+          "id": "aurora-boss-n146",
+          "startTick": 7920,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 48
+        },
+        {
+          "id": "aurora-boss-n147",
+          "startTick": 8520,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 43
+        },
+        {
+          "id": "aurora-boss-n148",
+          "startTick": 8880,
+          "durationTicks": 144,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 36
+        },
+        {
+          "id": "aurora-boss-n149",
+          "startTick": 9360,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 43
+        },
+        {
+          "id": "aurora-boss-n168",
+          "startTick": 9600,
+          "durationTicks": 168,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 38
+        },
+        {
+          "id": "aurora-boss-n169",
+          "startTick": 9840,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 50
+        },
+        {
+          "id": "aurora-boss-n170",
+          "startTick": 10440,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 45
+        },
+        {
+          "id": "aurora-boss-n171",
+          "startTick": 10800,
+          "durationTicks": 144,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 38
+        },
+        {
+          "id": "aurora-boss-n172",
+          "startTick": 11280,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 45
+        },
+        {
+          "id": "aurora-boss-n191",
+          "startTick": 11520,
+          "durationTicks": 168,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-boss-n192",
+          "startTick": 11760,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 52
+        },
+        {
+          "id": "aurora-boss-n193",
+          "startTick": 12360,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-boss-n194",
+          "startTick": 12720,
+          "durationTicks": 144,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-boss-n195",
+          "startTick": 13200,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-boss-n214",
+          "startTick": 13440,
+          "durationTicks": 168,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 35
+        },
+        {
+          "id": "aurora-boss-n215",
+          "startTick": 13680,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-boss-n216",
+          "startTick": 14280,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 42
+        },
+        {
+          "id": "aurora-boss-n217",
+          "startTick": 14640,
+          "durationTicks": 144,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 35
+        },
+        {
+          "id": "aurora-boss-n218",
+          "startTick": 15120,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 42
+        },
+        {
+          "id": "aurora-boss-n264",
+          "startTick": 15360,
+          "durationTicks": 168,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 29
+        },
+        {
+          "id": "aurora-boss-n265",
+          "startTick": 15600,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 41
+        },
+        {
+          "id": "aurora-boss-n266",
+          "startTick": 16200,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 36
+        },
+        {
+          "id": "aurora-boss-n267",
+          "startTick": 16560,
+          "durationTicks": 144,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 29
+        },
+        {
+          "id": "aurora-boss-n268",
+          "startTick": 17040,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 36
+        },
+        {
+          "id": "aurora-boss-n288",
+          "startTick": 17280,
+          "durationTicks": 168,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-boss-n289",
+          "startTick": 17520,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 52
+        },
+        {
+          "id": "aurora-boss-n290",
+          "startTick": 18120,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-boss-n291",
+          "startTick": 18480,
+          "durationTicks": 144,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-boss-n292",
+          "startTick": 18960,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-boss-n311",
+          "startTick": 19200,
+          "durationTicks": 168,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 36
+        },
+        {
+          "id": "aurora-boss-n312",
+          "startTick": 19440,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 48
+        },
+        {
+          "id": "aurora-boss-n313",
+          "startTick": 20040,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 43
+        },
+        {
+          "id": "aurora-boss-n314",
+          "startTick": 20400,
+          "durationTicks": 144,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 36
+        },
+        {
+          "id": "aurora-boss-n315",
+          "startTick": 20880,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 43
+        },
+        {
+          "id": "aurora-boss-n334",
+          "startTick": 21120,
+          "durationTicks": 168,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 35
+        },
+        {
+          "id": "aurora-boss-n335",
+          "startTick": 21360,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-boss-n336",
+          "startTick": 21960,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 42
+        },
+        {
+          "id": "aurora-boss-n337",
+          "startTick": 22320,
+          "durationTicks": 144,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 35
+        },
+        {
+          "id": "aurora-boss-n338",
+          "startTick": 22800,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 42
+        },
+        {
+          "id": "aurora-boss-n371",
+          "startTick": 23040,
+          "durationTicks": 1248,
+          "velocity": 0.5994,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-boss-n376",
+          "startTick": 24960,
+          "durationTicks": 1248,
+          "velocity": 0.5994,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-boss-n382",
+          "startTick": 26880,
+          "durationTicks": 1248,
+          "velocity": 0.5994,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-boss-n387",
+          "startTick": 28800,
+          "durationTicks": 1248,
+          "velocity": 0.5994,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 35
+        },
+        {
+          "id": "aurora-boss-n420",
+          "startTick": 30720,
+          "durationTicks": 168,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 33
+        },
+        {
+          "id": "aurora-boss-n421",
+          "startTick": 30960,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 45
+        },
+        {
+          "id": "aurora-boss-n422",
+          "startTick": 31560,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-boss-n423",
+          "startTick": 31920,
+          "durationTicks": 144,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 33
+        },
+        {
+          "id": "aurora-boss-n424",
+          "startTick": 32400,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-boss-n444",
+          "startTick": 32640,
+          "durationTicks": 168,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 36
+        },
+        {
+          "id": "aurora-boss-n445",
+          "startTick": 32880,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 48
+        },
+        {
+          "id": "aurora-boss-n446",
+          "startTick": 33480,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 43
+        },
+        {
+          "id": "aurora-boss-n447",
+          "startTick": 33840,
+          "durationTicks": 144,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 36
+        },
+        {
+          "id": "aurora-boss-n448",
+          "startTick": 34320,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 43
+        },
+        {
+          "id": "aurora-boss-n467",
+          "startTick": 34560,
+          "durationTicks": 168,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-boss-n468",
+          "startTick": 34800,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 52
+        },
+        {
+          "id": "aurora-boss-n469",
+          "startTick": 35400,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-boss-n470",
+          "startTick": 35760,
+          "durationTicks": 144,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-boss-n471",
+          "startTick": 36240,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-boss-n490",
+          "startTick": 36480,
+          "durationTicks": 168,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 35
+        },
+        {
+          "id": "aurora-boss-n491",
+          "startTick": 36720,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-boss-n492",
+          "startTick": 37320,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 42
+        },
+        {
+          "id": "aurora-boss-n493",
+          "startTick": 37680,
+          "durationTicks": 144,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 35
+        },
+        {
+          "id": "aurora-boss-n494",
+          "startTick": 38160,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 42
+        },
+        {
+          "id": "aurora-boss-n538",
+          "startTick": 38400,
+          "durationTicks": 168,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-boss-n539",
+          "startTick": 38640,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 52
+        },
+        {
+          "id": "aurora-boss-n540",
+          "startTick": 39240,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-boss-n541",
+          "startTick": 39600,
+          "durationTicks": 144,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-boss-n542",
+          "startTick": 40080,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-boss-n561",
+          "startTick": 40320,
+          "durationTicks": 168,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 36
+        },
+        {
+          "id": "aurora-boss-n562",
+          "startTick": 40560,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 48
+        },
+        {
+          "id": "aurora-boss-n563",
+          "startTick": 41160,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 43
+        },
+        {
+          "id": "aurora-boss-n564",
+          "startTick": 41520,
+          "durationTicks": 144,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 36
+        },
+        {
+          "id": "aurora-boss-n565",
+          "startTick": 42000,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 43
+        },
+        {
+          "id": "aurora-boss-n584",
+          "startTick": 42240,
+          "durationTicks": 168,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 29
+        },
+        {
+          "id": "aurora-boss-n585",
+          "startTick": 42480,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 41
+        },
+        {
+          "id": "aurora-boss-n586",
+          "startTick": 43080,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 36
+        },
+        {
+          "id": "aurora-boss-n587",
+          "startTick": 43440,
+          "durationTicks": 144,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 29
+        },
+        {
+          "id": "aurora-boss-n588",
+          "startTick": 43920,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 36
+        },
+        {
+          "id": "aurora-boss-n607",
+          "startTick": 44160,
+          "durationTicks": 168,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 35
+        },
+        {
+          "id": "aurora-boss-n608",
+          "startTick": 44400,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-boss-n609",
+          "startTick": 45000,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 42
+        },
+        {
+          "id": "aurora-boss-n610",
+          "startTick": 45360,
+          "durationTicks": 144,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 35
+        },
+        {
+          "id": "aurora-boss-n611",
+          "startTick": 45840,
+          "durationTicks": 96,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 42
+        }
+      ]
+    },
+    {
+      "id": "aurora-boss-auto-3",
+      "name": "Scene pulse",
+      "instrument": "chipDrums",
+      "volume": 0.36,
+      "role": "auto",
+      "pan": 0.025,
+      "mute": false,
+      "solo": false,
+      "sound": {
+        "attack": 0.008,
+        "decay": 0.09,
+        "sustain": 0.55,
+        "release": 0.04,
+        "pulseWidth": 0.25,
+        "vibratoDepth": 0,
+        "vibratoRate": 5,
+        "cutoff": 18000,
+        "bassWave": "triangle",
+        "guitarDrive": 16,
+        "guitarTone": 4500
+      },
+      "preset": "custom",
+      "viewTop": 83,
+      "notes": [
+        {
+          "id": "aurora-boss-n37",
+          "startTick": 0,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n49",
+          "startTick": 0,
+          "durationTicks": 60,
+          "velocity": 0.3,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "crash"
+        },
+        {
+          "id": "aurora-boss-n42",
+          "startTick": 240,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n43",
+          "startTick": 360,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n40",
+          "startTick": 480,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n44",
+          "startTick": 720,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n38",
+          "startTick": 840,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n45",
+          "startTick": 960,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n39",
+          "startTick": 1200,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n46",
+          "startTick": 1200,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n47",
+          "startTick": 1320,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n41",
+          "startTick": 1560,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n48",
+          "startTick": 1680,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n61",
+          "startTick": 1920,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n66",
+          "startTick": 2160,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n67",
+          "startTick": 2280,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n64",
+          "startTick": 2400,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n68",
+          "startTick": 2640,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n62",
+          "startTick": 2760,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n69",
+          "startTick": 2880,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n63",
+          "startTick": 3120,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n70",
+          "startTick": 3120,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n71",
+          "startTick": 3240,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n65",
+          "startTick": 3480,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n72",
+          "startTick": 3600,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n84",
+          "startTick": 3840,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n89",
+          "startTick": 4080,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n90",
+          "startTick": 4200,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n87",
+          "startTick": 4320,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n91",
+          "startTick": 4560,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n85",
+          "startTick": 4680,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n92",
+          "startTick": 4800,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n86",
+          "startTick": 5040,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n93",
+          "startTick": 5040,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n94",
+          "startTick": 5160,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n88",
+          "startTick": 5400,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n95",
+          "startTick": 5520,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n107",
+          "startTick": 5760,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n112",
+          "startTick": 6000,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n113",
+          "startTick": 6120,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n110",
+          "startTick": 6240,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n114",
+          "startTick": 6480,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n108",
+          "startTick": 6600,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n115",
+          "startTick": 6720,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n109",
+          "startTick": 6960,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n116",
+          "startTick": 6960,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n117",
+          "startTick": 7080,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n119",
+          "startTick": 7200,
+          "durationTicks": 60,
+          "velocity": 0.49,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "tom"
+        },
+        {
+          "id": "aurora-boss-n111",
+          "startTick": 7320,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n118",
+          "startTick": 7440,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n156",
+          "startTick": 7680,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n161",
+          "startTick": 7920,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n162",
+          "startTick": 8040,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n159",
+          "startTick": 8160,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n163",
+          "startTick": 8400,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n157",
+          "startTick": 8520,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n164",
+          "startTick": 8640,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n158",
+          "startTick": 8880,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n165",
+          "startTick": 8880,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n166",
+          "startTick": 9000,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n160",
+          "startTick": 9240,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n167",
+          "startTick": 9360,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n179",
+          "startTick": 9600,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n184",
+          "startTick": 9840,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n185",
+          "startTick": 9960,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n182",
+          "startTick": 10080,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n186",
+          "startTick": 10320,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n180",
+          "startTick": 10440,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n187",
+          "startTick": 10560,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n181",
+          "startTick": 10800,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n188",
+          "startTick": 10800,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n189",
+          "startTick": 10920,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n183",
+          "startTick": 11160,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n190",
+          "startTick": 11280,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n202",
+          "startTick": 11520,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n207",
+          "startTick": 11760,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n208",
+          "startTick": 11880,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n205",
+          "startTick": 12000,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n209",
+          "startTick": 12240,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n203",
+          "startTick": 12360,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n210",
+          "startTick": 12480,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n204",
+          "startTick": 12720,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n211",
+          "startTick": 12720,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n212",
+          "startTick": 12840,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n206",
+          "startTick": 13080,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n213",
+          "startTick": 13200,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n225",
+          "startTick": 13440,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n230",
+          "startTick": 13680,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n231",
+          "startTick": 13800,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n228",
+          "startTick": 13920,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n232",
+          "startTick": 14160,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n226",
+          "startTick": 14280,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n233",
+          "startTick": 14400,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n227",
+          "startTick": 14640,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n234",
+          "startTick": 14640,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n235",
+          "startTick": 14760,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n237",
+          "startTick": 14880,
+          "durationTicks": 60,
+          "velocity": 0.49,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "tom"
+        },
+        {
+          "id": "aurora-boss-n229",
+          "startTick": 15000,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n236",
+          "startTick": 15120,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n275",
+          "startTick": 15360,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n287",
+          "startTick": 15360,
+          "durationTicks": 60,
+          "velocity": 0.3,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "crash"
+        },
+        {
+          "id": "aurora-boss-n280",
+          "startTick": 15600,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n281",
+          "startTick": 15720,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n278",
+          "startTick": 15840,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n282",
+          "startTick": 16080,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n276",
+          "startTick": 16200,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n283",
+          "startTick": 16320,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n277",
+          "startTick": 16560,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n284",
+          "startTick": 16560,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n285",
+          "startTick": 16680,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n279",
+          "startTick": 16920,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n286",
+          "startTick": 17040,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n299",
+          "startTick": 17280,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n304",
+          "startTick": 17520,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n305",
+          "startTick": 17640,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n302",
+          "startTick": 17760,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n306",
+          "startTick": 18000,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n300",
+          "startTick": 18120,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n307",
+          "startTick": 18240,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n301",
+          "startTick": 18480,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n308",
+          "startTick": 18480,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n309",
+          "startTick": 18600,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n303",
+          "startTick": 18840,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n310",
+          "startTick": 18960,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n322",
+          "startTick": 19200,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n327",
+          "startTick": 19440,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n328",
+          "startTick": 19560,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n325",
+          "startTick": 19680,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n329",
+          "startTick": 19920,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n323",
+          "startTick": 20040,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n330",
+          "startTick": 20160,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n324",
+          "startTick": 20400,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n331",
+          "startTick": 20400,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n332",
+          "startTick": 20520,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n326",
+          "startTick": 20760,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n333",
+          "startTick": 20880,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n345",
+          "startTick": 21120,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n350",
+          "startTick": 21360,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n351",
+          "startTick": 21480,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n348",
+          "startTick": 21600,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n352",
+          "startTick": 21840,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n346",
+          "startTick": 21960,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n353",
+          "startTick": 22080,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n347",
+          "startTick": 22320,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n354",
+          "startTick": 22320,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n355",
+          "startTick": 22440,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n357",
+          "startTick": 22560,
+          "durationTicks": 60,
+          "velocity": 0.49,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "tom"
+        },
+        {
+          "id": "aurora-boss-n349",
+          "startTick": 22680,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n356",
+          "startTick": 22800,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n358",
+          "startTick": 22800,
+          "durationTicks": 60,
+          "velocity": 0.44,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "tom"
+        },
+        {
+          "id": "aurora-boss-n375",
+          "startTick": 23040,
+          "durationTicks": 60,
+          "velocity": 0.44,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n380",
+          "startTick": 24960,
+          "durationTicks": 60,
+          "velocity": 0.44,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n381",
+          "startTick": 26160,
+          "durationTicks": 60,
+          "velocity": 0.27,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n386",
+          "startTick": 26880,
+          "durationTicks": 60,
+          "velocity": 0.44,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n391",
+          "startTick": 28800,
+          "durationTicks": 60,
+          "velocity": 0.44,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n392",
+          "startTick": 30000,
+          "durationTicks": 60,
+          "velocity": 0.27,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n431",
+          "startTick": 30720,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n443",
+          "startTick": 30720,
+          "durationTicks": 60,
+          "velocity": 0.3,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "crash"
+        },
+        {
+          "id": "aurora-boss-n436",
+          "startTick": 30960,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n437",
+          "startTick": 31080,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n434",
+          "startTick": 31200,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n438",
+          "startTick": 31440,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n432",
+          "startTick": 31560,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n439",
+          "startTick": 31680,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n433",
+          "startTick": 31920,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n440",
+          "startTick": 31920,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n441",
+          "startTick": 32040,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n435",
+          "startTick": 32280,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n442",
+          "startTick": 32400,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n455",
+          "startTick": 32640,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n460",
+          "startTick": 32880,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n461",
+          "startTick": 33000,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n458",
+          "startTick": 33120,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n462",
+          "startTick": 33360,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n456",
+          "startTick": 33480,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n463",
+          "startTick": 33600,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n457",
+          "startTick": 33840,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n464",
+          "startTick": 33840,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n465",
+          "startTick": 33960,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n459",
+          "startTick": 34200,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n466",
+          "startTick": 34320,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n478",
+          "startTick": 34560,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n483",
+          "startTick": 34800,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n484",
+          "startTick": 34920,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n481",
+          "startTick": 35040,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n485",
+          "startTick": 35280,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n479",
+          "startTick": 35400,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n486",
+          "startTick": 35520,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n480",
+          "startTick": 35760,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n487",
+          "startTick": 35760,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n488",
+          "startTick": 35880,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n482",
+          "startTick": 36120,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n489",
+          "startTick": 36240,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n501",
+          "startTick": 36480,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n506",
+          "startTick": 36720,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n507",
+          "startTick": 36840,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n504",
+          "startTick": 36960,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n508",
+          "startTick": 37200,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n502",
+          "startTick": 37320,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n509",
+          "startTick": 37440,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n503",
+          "startTick": 37680,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n510",
+          "startTick": 37680,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n511",
+          "startTick": 37800,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n513",
+          "startTick": 37920,
+          "durationTicks": 60,
+          "velocity": 0.49,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "tom"
+        },
+        {
+          "id": "aurora-boss-n505",
+          "startTick": 38040,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n512",
+          "startTick": 38160,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n514",
+          "startTick": 38160,
+          "durationTicks": 60,
+          "velocity": 0.44,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "tom"
+        },
+        {
+          "id": "aurora-boss-n549",
+          "startTick": 38400,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n554",
+          "startTick": 38640,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n555",
+          "startTick": 38760,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n552",
+          "startTick": 38880,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n556",
+          "startTick": 39120,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n550",
+          "startTick": 39240,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n557",
+          "startTick": 39360,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n551",
+          "startTick": 39600,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n558",
+          "startTick": 39600,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n559",
+          "startTick": 39720,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n553",
+          "startTick": 39960,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n560",
+          "startTick": 40080,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n572",
+          "startTick": 40320,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n577",
+          "startTick": 40560,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n578",
+          "startTick": 40680,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n575",
+          "startTick": 40800,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n579",
+          "startTick": 41040,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n573",
+          "startTick": 41160,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n580",
+          "startTick": 41280,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n574",
+          "startTick": 41520,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n581",
+          "startTick": 41520,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n582",
+          "startTick": 41640,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n576",
+          "startTick": 41880,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n583",
+          "startTick": 42000,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n595",
+          "startTick": 42240,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n600",
+          "startTick": 42480,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n601",
+          "startTick": 42600,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n598",
+          "startTick": 42720,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n602",
+          "startTick": 42960,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n596",
+          "startTick": 43080,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n603",
+          "startTick": 43200,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n597",
+          "startTick": 43440,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n604",
+          "startTick": 43440,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n605",
+          "startTick": 43560,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n599",
+          "startTick": 43800,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n606",
+          "startTick": 43920,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n618",
+          "startTick": 44160,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n622",
+          "startTick": 44400,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n623",
+          "startTick": 44520,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n621",
+          "startTick": 44640,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-boss-n624",
+          "startTick": 44880,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n619",
+          "startTick": 45000,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n625",
+          "startTick": 45120,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n620",
+          "startTick": 45360,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-boss-n626",
+          "startTick": 45360,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-boss-n627",
+          "startTick": 45480,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        }
+      ]
+    }
+  ],
+  "currentTrack": 0,
+  "currentPage": 0,
+  "currentTick": 0,
+  "playhead": 0,
+  "entryMode": "step",
+  "selection": [
+    0,
+    7680
+  ],
+  "playRange": [
+    0,
+    46080
+  ],
+  "composition": {
+    "root": 4,
+    "scale": "minor",
+    "length": 1920,
+    "action": "continue",
+    "groove": "syncopated",
+    "chromatic": "manual",
+    "mood": "neutral",
+    "density": "normal",
+    "leadRegister": "wide",
+    "purpose": "hook",
+    "humanize": 0,
+    "randomSeed": 12345,
+    "motif": {
+      "kind": "pitched",
+      "length": 3840,
+      "notes": [
+        {
+          "startTick": 0,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 76
+        },
+        {
+          "startTick": 480,
+          "durationTicks": 83,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 83
+        },
+        {
+          "startTick": 600,
+          "durationTicks": 83,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitch": 81
+        },
+        {
+          "startTick": 720,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitch": 78
+        },
+        {
+          "startTick": 960,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 76
+        },
+        {
+          "startTick": 1200,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitch": 83
+        },
+        {
+          "startTick": 1920,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 85
+        },
+        {
+          "startTick": 2160,
+          "durationTicks": 83,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitch": 81
+        },
+        {
+          "startTick": 2280,
+          "durationTicks": 83,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitch": 76
+        },
+        {
+          "startTick": 2640,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitch": 81
+        },
+        {
+          "startTick": 2880,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 83
+        },
+        {
+          "startTick": 3120,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitch": 85
+        },
+        {
+          "startTick": 3360,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 88
+        }
+      ]
+    },
+    "locks": {
+      "rhythm": false,
+      "contour": false,
+      "pitches": false
+    },
+    "chords": [
+      {
+        "startTick": 0,
+        "durationTicks": 1920,
+        "root": 4,
+        "quality": "minor"
+      },
+      {
+        "startTick": 1920,
+        "durationTicks": 1920,
+        "root": 9,
+        "quality": "major"
+      },
+      {
+        "startTick": 3840,
+        "durationTicks": 1920,
+        "root": 4,
+        "quality": "minor"
+      },
+      {
+        "startTick": 5760,
+        "durationTicks": 1920,
+        "root": 11,
+        "quality": "dominant7"
+      },
+      {
+        "startTick": 7680,
+        "durationTicks": 1920,
+        "root": 0,
+        "quality": "major"
+      },
+      {
+        "startTick": 9600,
+        "durationTicks": 1920,
+        "root": 2,
+        "quality": "major"
+      },
+      {
+        "startTick": 11520,
+        "durationTicks": 1920,
+        "root": 4,
+        "quality": "minor"
+      },
+      {
+        "startTick": 13440,
+        "durationTicks": 1920,
+        "root": 11,
+        "quality": "dominant7"
+      },
+      {
+        "startTick": 15360,
+        "durationTicks": 1920,
+        "root": 5,
+        "quality": "major"
+      },
+      {
+        "startTick": 17280,
+        "durationTicks": 1920,
+        "root": 4,
+        "quality": "minor"
+      },
+      {
+        "startTick": 19200,
+        "durationTicks": 1920,
+        "root": 0,
+        "quality": "major"
+      },
+      {
+        "startTick": 21120,
+        "durationTicks": 1920,
+        "root": 11,
+        "quality": "dominant7"
+      },
+      {
+        "startTick": 23040,
+        "durationTicks": 1920,
+        "root": 4,
+        "quality": "minor"
+      },
+      {
+        "startTick": 24960,
+        "durationTicks": 1920,
+        "root": 4,
+        "quality": "sus4"
+      },
+      {
+        "startTick": 26880,
+        "durationTicks": 1920,
+        "root": 4,
+        "quality": "minor"
+      },
+      {
+        "startTick": 28800,
+        "durationTicks": 1920,
+        "root": 11,
+        "quality": "dominant7"
+      },
+      {
+        "startTick": 30720,
+        "durationTicks": 1920,
+        "root": 9,
+        "quality": "major"
+      },
+      {
+        "startTick": 32640,
+        "durationTicks": 1920,
+        "root": 0,
+        "quality": "major"
+      },
+      {
+        "startTick": 34560,
+        "durationTicks": 1920,
+        "root": 4,
+        "quality": "minor"
+      },
+      {
+        "startTick": 36480,
+        "durationTicks": 1920,
+        "root": 11,
+        "quality": "dominant7"
+      },
+      {
+        "startTick": 38400,
+        "durationTicks": 1920,
+        "root": 4,
+        "quality": "minor"
+      },
+      {
+        "startTick": 40320,
+        "durationTicks": 1920,
+        "root": 0,
+        "quality": "major"
+      },
+      {
+        "startTick": 42240,
+        "durationTicks": 1920,
+        "root": 5,
+        "quality": "major"
+      },
+      {
+        "startTick": 44160,
+        "durationTicks": 1920,
+        "root": 11,
+        "quality": "dominant7"
+      }
+    ]
+  },
+  "arrangement": {
+    "multiEdit": false,
+    "clips": [
+      {
+        "id": "aurora-boss-clip-0",
+        "name": "RIME acquires the signal",
+        "trackId": "aurora-boss-lead-0",
+        "startTick": 0,
+        "durationTicks": 7680
+      },
+      {
+        "id": "aurora-boss-clip-1",
+        "name": "Hunter arms answer",
+        "trackId": "aurora-boss-lead-0",
+        "startTick": 7680,
+        "durationTicks": 7680
+      },
+      {
+        "id": "aurora-boss-clip-2",
+        "name": "Frost breach",
+        "trackId": "aurora-boss-lead-0",
+        "startTick": 15360,
+        "durationTicks": 7680
+      },
+      {
+        "id": "aurora-boss-clip-3",
+        "name": "Cold central eye",
+        "trackId": "aurora-boss-lead-0",
+        "startTick": 23040,
+        "durationTicks": 7680
+      },
+      {
+        "id": "aurora-boss-clip-4",
+        "name": "Pursuit vectors",
+        "trackId": "aurora-boss-lead-0",
+        "startTick": 30720,
+        "durationTicks": 7680
+      },
+      {
+        "id": "aurora-boss-clip-5",
+        "name": "The hunter re-locks",
+        "trackId": "aurora-boss-lead-0",
+        "startTick": 38400,
+        "durationTicks": 7680
+      }
+    ],
+    "sections": [
+      {
+        "id": "aurora-boss-section-0",
+        "name": "RIME acquires the signal",
+        "startTick": 0,
+        "durationTicks": 7680,
+        "purpose": "hook",
+        "density": "normal",
+        "transpose": 0
+      },
+      {
+        "id": "aurora-boss-section-1",
+        "name": "Hunter arms answer",
+        "startTick": 7680,
+        "durationTicks": 7680,
+        "purpose": "hook",
+        "density": "normal",
+        "transpose": 0
+      },
+      {
+        "id": "aurora-boss-section-2",
+        "name": "Frost breach",
+        "startTick": 15360,
+        "durationTicks": 7680,
+        "purpose": "hook",
+        "density": "busy",
+        "transpose": 0
+      },
+      {
+        "id": "aurora-boss-section-3",
+        "name": "Cold central eye",
+        "startTick": 23040,
+        "durationTicks": 7680,
+        "purpose": "breakdown",
+        "density": "sparse",
+        "transpose": 0
+      },
+      {
+        "id": "aurora-boss-section-4",
+        "name": "Pursuit vectors",
+        "startTick": 30720,
+        "durationTicks": 7680,
+        "purpose": "hook",
+        "density": "busy",
+        "transpose": 0
+      },
+      {
+        "id": "aurora-boss-section-5",
+        "name": "The hunter re-locks",
+        "startTick": 38400,
+        "durationTicks": 7680,
+        "purpose": "ending",
+        "density": "normal",
+        "transpose": 0
+      }
+    ],
+    "endTick": 46080,
+    "zoom": 48,
+    "editBars": 4,
+    "rollStart": 0,
+    "selectedTrackIds": [
+      "aurora-boss-lead-0"
+    ],
+    "selectedClipIds": []
+  },
+  "suggestions": [],
+  "brief": {
+    "title": "RIME Wakes",
+    "description": "RIME autonomous hunter. E minor with Dorian recall and F-natural intrusion. Signal compression, stalking reply, semitone breach, stripped core, pursuit. Original manually authored melody and harmony; phrase map and source accompany this project.",
+    "mood": "dark",
+    "root": 4,
+    "scale": "minor",
+    "bpm": 148,
+    "groove": "syncopated",
+    "density": "normal",
+    "palette": "chip",
+    "leadRegister": "middle",
+    "chromatic": "manual",
+    "form": "none",
+    "randomSeed": 731,
+    "motif": {
+      "kind": "pitched",
+      "length": 3840,
+      "notes": [
+        {
+          "startTick": 0,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 76
+        },
+        {
+          "startTick": 480,
+          "durationTicks": 83,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 83
+        },
+        {
+          "startTick": 600,
+          "durationTicks": 83,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitch": 81
+        },
+        {
+          "startTick": 720,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitch": 78
+        },
+        {
+          "startTick": 960,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 76
+        },
+        {
+          "startTick": 1200,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitch": 83
+        },
+        {
+          "startTick": 1920,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 85
+        },
+        {
+          "startTick": 2160,
+          "durationTicks": 83,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitch": 81
+        },
+        {
+          "startTick": 2280,
+          "durationTicks": 83,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitch": 76
+        },
+        {
+          "startTick": 2640,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitch": 81
+        },
+        {
+          "startTick": 2880,
+          "durationTicks": 203,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 83
+        },
+        {
+          "startTick": 3120,
+          "durationTicks": 203,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitch": 85
+        },
+        {
+          "startTick": 3360,
+          "durationTicks": 443,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 88
+        }
+      ]
+    }
+  }
+}

@@ -50,6 +50,7 @@ def main() -> int:
     output.mkdir(parents=True, exist_ok=True)
     run([godot, "--headless", "--path", str(ROOT), "--import"])
     if not args.skip_tests:
+        run([godot, "--headless", "--path", str(ROOT), "--script", "res://tests/music_smoke.gd", "--", "--test-save"])
         run([godot, "--headless", "--path", str(ROOT), "--script", "res://tests/game_smoke.gd", "--", "--test-save"])
         run([godot, "--headless", "--path", str(ROOT), "--script", "res://tests/squadron_smoke.gd", "--", "--test-save"])
         run([godot, "--headless", "--path", str(ROOT), "--script", "res://tests/combat_revision_smoke.gd", "--", "--test-save"])

@@ -1,0 +1,271 @@
+{
+  "version": 1,
+  "rendererModel": "../renderer/model.js",
+  "modelSha256": "6264121d6adf636772255ace49a74422065ef72b34052749ae356a374497baba",
+  "source": "phrases.cjs",
+  "sourceSha256": "5986b0ed9330ded1c40bf840e9a97eddadd797aa1c09b05ea57a1191c4a78baa",
+  "method": "MBean1 model validation plus note/phrase/release inspection. Audio rendering and playback are separate.",
+  "highPulseTreatment": "Velocity multiplied by 0.88 above MIDI88 and 0.80 at MIDI94 and above; no register transposition.",
+  "frictionReview": "Only one >=0.17s lead/support semitone compound: Tempest flight bar24 F#6 over E#4 for 0.214s, a weak-eighth passing fourth resolving to E#6. No >=0.25s exposures.",
+  "cues": [
+    {
+      "id": "viridia-flight",
+      "bpm": 128,
+      "bars": 40,
+      "seconds": 75,
+      "tracks": 4,
+      "notes": 1063,
+      "foregroundRange": [
+        69,
+        91
+      ],
+      "upperSupportMaximum": 74,
+      "highPulseEvents": 1,
+      "longestHighPulseGateSeconds": 0.1826171875,
+      "exposedSemitoneReview": [],
+      "uniquePhraseSignatures": 10,
+      "phraseCount": 10,
+      "sha256": "1e0f7383ff4a34843116cf30378e46aa76a1cff56b688cb0918dbad113b5700e",
+      "modelValidation": "pass",
+      "releaseSeam": "pass"
+    },
+    {
+      "id": "viridia-boss",
+      "bpm": 144,
+      "bars": 24,
+      "seconds": 40,
+      "tracks": 4,
+      "notes": 698,
+      "foregroundRange": [
+        70,
+        93
+      ],
+      "upperSupportMaximum": 74,
+      "highPulseEvents": 4,
+      "longestHighPulseGateSeconds": 0.375,
+      "exposedSemitoneReview": [],
+      "uniquePhraseSignatures": 6,
+      "phraseCount": 6,
+      "sha256": "ec625ee89806181071da7f60e6a96660a1882d402667e9cb6b47e3b76c3e572e",
+      "modelValidation": "pass",
+      "releaseSeam": "pass"
+    },
+    {
+      "id": "aurora-flight",
+      "bpm": 96,
+      "bars": 32,
+      "seconds": 80,
+      "tracks": 5,
+      "notes": 511,
+      "foregroundRange": [
+        71,
+        88
+      ],
+      "upperSupportMaximum": 74,
+      "highPulseEvents": 0,
+      "longestHighPulseGateSeconds": 0,
+      "exposedSemitoneReview": [],
+      "uniquePhraseSignatures": 8,
+      "phraseCount": 8,
+      "sha256": "aae78d8a202f1c0a0aafd6cb192b7cdd93fe8c3d67d6733be4243753120ce04f",
+      "modelValidation": "pass",
+      "releaseSeam": "pass"
+    },
+    {
+      "id": "aurora-boss",
+      "bpm": 148,
+      "bars": 24,
+      "seconds": 38.91891891891892,
+      "tracks": 4,
+      "notes": 627,
+      "foregroundRange": [
+        71,
+        93
+      ],
+      "upperSupportMaximum": 74,
+      "highPulseEvents": 5,
+      "longestHighPulseGateSeconds": 0.37415540540540543,
+      "exposedSemitoneReview": [],
+      "uniquePhraseSignatures": 6,
+      "phraseCount": 6,
+      "sha256": "29132bf1ffbe7280ffac2e948b34cd43eaba35fcad355a667248113fc4fabbc1",
+      "modelValidation": "pass",
+      "releaseSeam": "pass"
+    },
+    {
+      "id": "terminus-flight",
+      "bpm": 132,
+      "bars": 40,
+      "seconds": 72.72727272727273,
+      "tracks": 4,
+      "notes": 1099,
+      "foregroundRange": [
+        67,
+        96
+      ],
+      "upperSupportMaximum": 75,
+      "highPulseEvents": 12,
+      "longestHighPulseGateSeconds": 0.4081439393939394,
+      "exposedSemitoneReview": [],
+      "uniquePhraseSignatures": 10,
+      "phraseCount": 10,
+      "sha256": "162d53f14d1f0c50d9dfc45f2c4889315219af0db88f2badc98529c1d0bfc74b",
+      "modelValidation": "pass",
+      "releaseSeam": "pass"
+    },
+    {
+      "id": "terminus-boss",
+      "bpm": 152,
+      "bars": 24,
+      "seconds": 37.89473684210526,
+      "tracks": 4,
+      "notes": 744,
+      "foregroundRange": [
+        67,
+        96
+      ],
+      "upperSupportMaximum": 75,
+      "highPulseEvents": 19,
+      "longestHighPulseGateSeconds": 0.35855263157894735,
+      "exposedSemitoneReview": [],
+      "uniquePhraseSignatures": 6,
+      "phraseCount": 6,
+      "sha256": "a47e9b31757d06407b1a70a81f290fb5db932aaaa7214416a5730316bc1815c5",
+      "modelValidation": "pass",
+      "releaseSeam": "pass"
+    },
+    {
+      "id": "cinder-flight",
+      "bpm": 120,
+      "bars": 40,
+      "seconds": 80,
+      "tracks": 4,
+      "notes": 1130,
+      "foregroundRange": [
+        64,
+        92
+      ],
+      "upperSupportMaximum": 74,
+      "highPulseEvents": 3,
+      "longestHighPulseGateSeconds": 0.4583333333333333,
+      "exposedSemitoneReview": [],
+      "uniquePhraseSignatures": 10,
+      "phraseCount": 10,
+      "sha256": "dc543f6f097d96834406cd42733f95b2d34865de9c1d0112982dfe3cf2cf82bb",
+      "modelValidation": "pass",
+      "releaseSeam": "pass"
+    },
+    {
+      "id": "cinder-boss",
+      "bpm": 132,
+      "bars": 24,
+      "seconds": 43.63636363636363,
+      "tracks": 4,
+      "notes": 554,
+      "foregroundRange": [
+        64,
+        94
+      ],
+      "upperSupportMaximum": 74,
+      "highPulseEvents": 7,
+      "longestHighPulseGateSeconds": 0.4128787878787879,
+      "exposedSemitoneReview": [],
+      "uniquePhraseSignatures": 6,
+      "phraseCount": 6,
+      "sha256": "a2ef513a69d83749b642f82225ddf5818da4e1a2acee878d6acad84472e5e86f",
+      "modelValidation": "pass",
+      "releaseSeam": "pass"
+    },
+    {
+      "id": "anchorage-flight",
+      "bpm": 104,
+      "bars": 32,
+      "seconds": 73.84615384615384,
+      "tracks": 4,
+      "notes": 631,
+      "foregroundRange": [
+        69,
+        95
+      ],
+      "upperSupportMaximum": 74,
+      "highPulseEvents": 6,
+      "longestHighPulseGateSeconds": 0.4951923076923077,
+      "exposedSemitoneReview": [],
+      "uniquePhraseSignatures": 8,
+      "phraseCount": 8,
+      "sha256": "a54955f33dd7b3317f2083a28f7d27b8cefbda81e38c64addef3ed5d04f0c714",
+      "modelValidation": "pass",
+      "releaseSeam": "pass"
+    },
+    {
+      "id": "anchorage-boss",
+      "bpm": 140,
+      "bars": 24,
+      "seconds": 41.142857142857146,
+      "tracks": 4,
+      "notes": 612,
+      "foregroundRange": [
+        69,
+        93
+      ],
+      "upperSupportMaximum": 74,
+      "highPulseEvents": 9,
+      "longestHighPulseGateSeconds": 0.3821428571428571,
+      "exposedSemitoneReview": [],
+      "uniquePhraseSignatures": 6,
+      "phraseCount": 6,
+      "sha256": "6fb19333410ca26f58ba06ac3e4fd207f4be6d09225cad362b807b5370ca6eae",
+      "modelValidation": "pass",
+      "releaseSeam": "pass"
+    },
+    {
+      "id": "tempest-flight",
+      "bpm": 136,
+      "bars": 40,
+      "seconds": 70.58823529411765,
+      "tracks": 4,
+      "notes": 1267,
+      "foregroundRange": [
+        71,
+        95
+      ],
+      "upperSupportMaximum": 74,
+      "highPulseEvents": 21,
+      "longestHighPulseGateSeconds": 0.40441176470588236,
+      "exposedSemitoneReview": [
+        {
+          "bar": 24,
+          "melody": 90,
+          "support": 65,
+          "seconds": 0.21382352941176416
+        }
+      ],
+      "uniquePhraseSignatures": 10,
+      "phraseCount": 10,
+      "sha256": "9a05f4cde72d154c298e9d0fbf429540d63ee83c365e956a5371b8edac6c2da1",
+      "modelValidation": "pass",
+      "releaseSeam": "pass"
+    },
+    {
+      "id": "tempest-boss",
+      "bpm": 156,
+      "bars": 24,
+      "seconds": 36.92307692307692,
+      "tracks": 4,
+      "notes": 770,
+      "foregroundRange": [
+        73,
+        97
+      ],
+      "upperSupportMaximum": 74,
+      "highPulseEvents": 17,
+      "longestHighPulseGateSeconds": 0.35336538461538464,
+      "exposedSemitoneReview": [],
+      "uniquePhraseSignatures": 6,
+      "phraseCount": 6,
+      "sha256": "ea10629b92b0461fa1c7365d6f7c984da3c3e26e4e06250f6c8ef5b649c50fc5",
+      "modelValidation": "pass",
+      "releaseSeam": "pass"
+    }
+  ]
+}

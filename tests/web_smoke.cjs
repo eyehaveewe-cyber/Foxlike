@@ -90,6 +90,16 @@ function serve(request, response) {
   await page.keyboard.press('Enter');
   const briefing = await waitMode('BRIEFING');
   check('Keyboard launches mission briefing', briefing.mode === 'BRIEFING', briefing);
+  check('Exported MBean1 mission stream is playing', briefing.music_track === 0 && briefing.music_playing, briefing);
+  const beforeMusic = Number(briefing.music_position);
+  await waitAction('advance exported music', position => Number(window.__foxlikeQA?.music_position) > position + 0.1, beforeMusic);
+  check('Exported music playback advances', Number((await state()).music_position) > beforeMusic + 0.1, await state());
+  const beforeMute = briefing.music_muted;
+  await page.keyboard.press('m');
+  await waitAction('mute exported music', muted => window.__foxlikeQA?.music_muted !== muted, beforeMute);
+  check('Keyboard mute reaches exported audio controller', (await state()).music_muted !== beforeMute, await state());
+  await page.keyboard.press('m');
+  await waitAction('restore exported music', muted => window.__foxlikeQA?.music_muted === muted, beforeMute);
   await picture('web-briefing');
   await page.keyboard.press('Enter');
   await waitMode('LAUNCH');

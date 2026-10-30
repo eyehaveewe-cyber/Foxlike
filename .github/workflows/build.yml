@@ -24,6 +24,8 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v7.0.1
+      - name: Validate MBean1 scores and rendered audio hashes
+        run: node assets/audio/mbean/validate_campaign.cjs --hashes
       - name: Package editable Godot source
         run: python3 tools/package_source.py
       - name: Downloadable Godot source project

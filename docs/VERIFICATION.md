@@ -1,5 +1,38 @@
 # Verification
 
+## Per-level MBean1 soundtrack, October 30, 2026
+
+All twelve editable projects pass the actual pinned MBean1 model validator. All fifteen JSON artifacts regenerate byte-identically from `phrases.cjs` and `author_campaign.cjs`. The score audit records 92 distinct four-bar phrases and 9,706 events. The validator also checks actual pitched release envelopes and fixed percussion tails against each loop end.
+
+All twelve shipped OGG files decode as stereo 44.1 kHz Vorbis at the score's exact duration, within 0.01 seconds. The maximum decoded PCM peak is 0.624, and the largest last-to-first sample difference is 0.00433. The longest measured silence is 0.6 seconds in Aurora's sparse phrasing. No nonfinite samples, overloads or long empty padding are present. `assets/audio/mbean/campaign/render-report.json` records every source and audio hash and all measurements. Original-versus-cached pulse synthesis produces a maximum PCM difference of zero. These are score and signal checks, not human listening.
+
+Godot `4.7.2.stable.official.ed1daf0bf` passes **467 native checks across nine suites**:
+
+| Suite | Checks | Result |
+| --- | ---: | --- |
+| Music | 114 | Pass |
+| Campaign | 74 | Pass |
+| Squadron | 35 | Pass |
+| Combat revision | 38 | Pass |
+| Six-mission expansion | 50 | Pass |
+| Practice duel | 38 | Pass |
+| Orbit | 40 | Pass |
+| Orbit exploration | 70 | Pass |
+| Tank support | 8 | Pass |
+
+The music suite loads all twelve actual streams, compares their durations to the score manifest, waits for native decoding, seeks near the end and observes the Vorbis loop counter advancing. It exercises every real mission's briefing, launch, boss, death and retry events, plus menu return. Additional checks cover repeat requests, midpoint gains, immediate and interrupted transitions, mute and volume during a fade, stage bounds, stop and restart. Test saves remain isolated and are restored.
+
+Windows and Web exports and ZIP integrity checks succeed through `tools/package_release.py`. The packager now runs the music suite before the existing regressions. Existing rapid-teardown ObjectDB and resource-cleanup warnings remain; there are no script or parse failures. Physical-device critical listening, final music-to-effects balance, physical controllers and Windows hardware playback remain unverified.
+
+The exported Web build also passes thirteen real Chromium checks, with no JavaScript or engine-console errors. New checks confirm the imported MBean1 mission stream is playing, its playback position advances after a user gesture, and keyboard mute reaches the audio controller. Existing checks exercise launch, steering, lasers, the long-loop maneuver, pause and resume. This run uses a 640 × 360 software-rendered browser and establishes no hardware performance or critical-listening result. The exact browser version, telemetry and checks are preserved in [browser results](evidence/music-web-results.json).
+
+Reproduce score/audio verification and the native build from the repository root:
+
+```sh
+node assets/audio/mbean/validate_campaign.cjs --audio
+python tools/package_release.py --godot /path/to/godot-4.7.2
+```
+
 ## Cinder airborne support — 2026-10-25
 
 Eight new checks pass in `tests/tank_support_smoke.gd`: opposite-edge staggered entry, real projectile firing, withdrawal, support ending with the encounter, retry reset and restoration of ordinary flight formations/yaw. The existing 74 campaign, 35 squadron and 50 expansion checks also pass. Hidden support aircraft are excluded from projectile interception, and ground-mode bodyguard commands are suppressed. The HUD labels the mode AIR SUPPORT PASSES. No rendered capture, controller test or human playtest was performed for this change. PBR’s Bastion/Bulwark are armored airframes with tank roles. Its actual ground walker and RIME boss were located separately; no PBR ground model is imported in this change.

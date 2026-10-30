@@ -1,0 +1,5236 @@
+{
+  "version": 4,
+  "bpm": 96,
+  "bars": 32,
+  "tracks": [
+    {
+      "id": "aurora-flight-lead-0",
+      "name": "Flight theme",
+      "instrument": "pulseLead",
+      "volume": 0.55,
+      "role": "lead",
+      "pan": -0.06,
+      "mute": false,
+      "solo": false,
+      "sound": {
+        "attack": 0.035,
+        "decay": 0.18,
+        "sustain": 0.56,
+        "release": 0.065,
+        "pulseWidth": 0.5,
+        "vibratoDepth": 0.19,
+        "vibratoRate": 4.1,
+        "cutoff": 3500,
+        "bassWave": "triangle",
+        "guitarDrive": 16,
+        "guitarTone": 4500
+      },
+      "preset": "custom",
+      "viewTop": 83,
+      "notes": [
+        {
+          "id": "aurora-flight-n1",
+          "startTick": 0,
+          "durationTicks": 665,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n2",
+          "startTick": 1200,
+          "durationTicks": 185,
+          "velocity": 0.79,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-flight-n3",
+          "startTick": 1440,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n4",
+          "startTick": 1680,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-flight-n5",
+          "startTick": 1920,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n6",
+          "startTick": 2400,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 73
+        },
+        {
+          "id": "aurora-flight-n7",
+          "startTick": 3360,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n8",
+          "startTick": 3840,
+          "durationTicks": 665,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-flight-n9",
+          "startTick": 4560,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-flight-n10",
+          "startTick": 4800,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n11",
+          "startTick": 5760,
+          "durationTicks": 905,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-flight-n12",
+          "startTick": 6720,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n13",
+          "startTick": 6960,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-flight-n14",
+          "startTick": 7200,
+          "durationTicks": 185,
+          "velocity": 0.7999999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n68",
+          "startTick": 7680,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-flight-n69",
+          "startTick": 8160,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n70",
+          "startTick": 8400,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 74
+        },
+        {
+          "id": "aurora-flight-n71",
+          "startTick": 8640,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n72",
+          "startTick": 9600,
+          "durationTicks": 665,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n73",
+          "startTick": 10320,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-flight-n74",
+          "startTick": 10560,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n75",
+          "startTick": 10800,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 74
+        },
+        {
+          "id": "aurora-flight-n76",
+          "startTick": 11520,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-flight-n77",
+          "startTick": 12000,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-flight-n78",
+          "startTick": 12240,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n79",
+          "startTick": 12480,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-flight-n80",
+          "startTick": 12960,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-flight-n81",
+          "startTick": 13440,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n82",
+          "startTick": 13920,
+          "durationTicks": 185,
+          "velocity": 0.89,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 85
+        },
+        {
+          "id": "aurora-flight-n83",
+          "startTick": 14160,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-flight-n84",
+          "startTick": 14400,
+          "durationTicks": 425,
+          "velocity": 0.7999999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n134",
+          "startTick": 15360,
+          "durationTicks": 905,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-flight-n135",
+          "startTick": 16320,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n136",
+          "startTick": 16560,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-flight-n137",
+          "startTick": 16800,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n138",
+          "startTick": 17280,
+          "durationTicks": 425,
+          "velocity": 0.89,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 86
+        },
+        {
+          "id": "aurora-flight-n139",
+          "startTick": 17760,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-flight-n140",
+          "startTick": 18000,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-flight-n141",
+          "startTick": 18240,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n142",
+          "startTick": 18720,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-flight-n143",
+          "startTick": 19200,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n144",
+          "startTick": 19680,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-flight-n145",
+          "startTick": 20160,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n146",
+          "startTick": 20640,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 74
+        },
+        {
+          "id": "aurora-flight-n147",
+          "startTick": 21120,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 73
+        },
+        {
+          "id": "aurora-flight-n148",
+          "startTick": 21600,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n149",
+          "startTick": 21840,
+          "durationTicks": 665,
+          "velocity": 0.7,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n200",
+          "startTick": 23040,
+          "durationTicks": 665,
+          "velocity": 0.6215999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n201",
+          "startTick": 23760,
+          "durationTicks": 185,
+          "velocity": 0.5846,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-flight-n202",
+          "startTick": 24000,
+          "durationTicks": 425,
+          "velocity": 0.6215999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n203",
+          "startTick": 24960,
+          "durationTicks": 905,
+          "velocity": 0.6215999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-flight-n204",
+          "startTick": 25920,
+          "durationTicks": 185,
+          "velocity": 0.6215999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-flight-n205",
+          "startTick": 26160,
+          "durationTicks": 185,
+          "velocity": 0.5476,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n206",
+          "startTick": 26880,
+          "durationTicks": 425,
+          "velocity": 0.6215999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n207",
+          "startTick": 27360,
+          "durationTicks": 425,
+          "velocity": 0.6215999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 73
+        },
+        {
+          "id": "aurora-flight-n208",
+          "startTick": 27840,
+          "durationTicks": 185,
+          "velocity": 0.6215999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-flight-n209",
+          "startTick": 28080,
+          "durationTicks": 185,
+          "velocity": 0.5476,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 73
+        },
+        {
+          "id": "aurora-flight-n210",
+          "startTick": 28320,
+          "durationTicks": 425,
+          "velocity": 0.6215999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n211",
+          "startTick": 28800,
+          "durationTicks": 425,
+          "velocity": 0.6215999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-flight-n212",
+          "startTick": 29280,
+          "durationTicks": 185,
+          "velocity": 0.6215999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 74
+        },
+        {
+          "id": "aurora-flight-n213",
+          "startTick": 29520,
+          "durationTicks": 665,
+          "velocity": 0.518,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-flight-n238",
+          "startTick": 30720,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n239",
+          "startTick": 30960,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-flight-n240",
+          "startTick": 31200,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 84
+        },
+        {
+          "id": "aurora-flight-n241",
+          "startTick": 31680,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-flight-n242",
+          "startTick": 31920,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-flight-n243",
+          "startTick": 32160,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n244",
+          "startTick": 32640,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 85
+        },
+        {
+          "id": "aurora-flight-n245",
+          "startTick": 33120,
+          "durationTicks": 185,
+          "velocity": 0.89,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 88
+        },
+        {
+          "id": "aurora-flight-n246",
+          "startTick": 33360,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 85
+        },
+        {
+          "id": "aurora-flight-n247",
+          "startTick": 33600,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n248",
+          "startTick": 34080,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n249",
+          "startTick": 34560,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-flight-n250",
+          "startTick": 34800,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n251",
+          "startTick": 35040,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 86
+        },
+        {
+          "id": "aurora-flight-n252",
+          "startTick": 35520,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 85
+        },
+        {
+          "id": "aurora-flight-n253",
+          "startTick": 35760,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n254",
+          "startTick": 36000,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-flight-n255",
+          "startTick": 36480,
+          "durationTicks": 425,
+          "velocity": 0.89,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 88
+        },
+        {
+          "id": "aurora-flight-n256",
+          "startTick": 36960,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-flight-n257",
+          "startTick": 37200,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-flight-n258",
+          "startTick": 37440,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-flight-n259",
+          "startTick": 37920,
+          "durationTicks": 425,
+          "velocity": 0.7999999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n311",
+          "startTick": 38400,
+          "durationTicks": 665,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-flight-n312",
+          "startTick": 39120,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n313",
+          "startTick": 39360,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-flight-n314",
+          "startTick": 40320,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 74
+        },
+        {
+          "id": "aurora-flight-n315",
+          "startTick": 40800,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-flight-n316",
+          "startTick": 41040,
+          "durationTicks": 665,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-flight-n317",
+          "startTick": 41760,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n318",
+          "startTick": 42240,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n319",
+          "startTick": 42720,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 73
+        },
+        {
+          "id": "aurora-flight-n320",
+          "startTick": 42960,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n321",
+          "startTick": 43200,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n322",
+          "startTick": 43680,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-flight-n323",
+          "startTick": 43920,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 85
+        },
+        {
+          "id": "aurora-flight-n324",
+          "startTick": 44160,
+          "durationTicks": 905,
+          "velocity": 0.89,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 86
+        },
+        {
+          "id": "aurora-flight-n325",
+          "startTick": 45120,
+          "durationTicks": 425,
+          "velocity": 0.7999999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n375",
+          "startTick": 46080,
+          "durationTicks": 665,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n376",
+          "startTick": 47040,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-flight-n377",
+          "startTick": 47280,
+          "durationTicks": 185,
+          "velocity": 0.79,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 86
+        },
+        {
+          "id": "aurora-flight-n378",
+          "startTick": 47520,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-flight-n379",
+          "startTick": 47760,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n380",
+          "startTick": 48000,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 85
+        },
+        {
+          "id": "aurora-flight-n381",
+          "startTick": 48480,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n382",
+          "startTick": 48720,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n383",
+          "startTick": 48960,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-flight-n384",
+          "startTick": 49440,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n385",
+          "startTick": 49920,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-flight-n386",
+          "startTick": 50400,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n387",
+          "startTick": 50640,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-flight-n388",
+          "startTick": 50880,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 84
+        },
+        {
+          "id": "aurora-flight-n389",
+          "startTick": 51360,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-flight-n390",
+          "startTick": 51840,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n391",
+          "startTick": 52080,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-flight-n392",
+          "startTick": 52320,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 74
+        },
+        {
+          "id": "aurora-flight-n393",
+          "startTick": 52800,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-flight-n394",
+          "startTick": 53040,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n395",
+          "startTick": 53280,
+          "durationTicks": 425,
+          "velocity": 0.89,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 86
+        },
+        {
+          "id": "aurora-flight-n446",
+          "startTick": 53760,
+          "durationTicks": 425,
+          "velocity": 0.89,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 84
+        },
+        {
+          "id": "aurora-flight-n447",
+          "startTick": 54240,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-flight-n448",
+          "startTick": 54480,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-flight-n449",
+          "startTick": 54720,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n450",
+          "startTick": 55200,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 74
+        },
+        {
+          "id": "aurora-flight-n451",
+          "startTick": 55680,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-flight-n452",
+          "startTick": 56160,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 74
+        },
+        {
+          "id": "aurora-flight-n453",
+          "startTick": 56640,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-flight-n454",
+          "startTick": 57600,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 73
+        },
+        {
+          "id": "aurora-flight-n455",
+          "startTick": 58080,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n456",
+          "startTick": 58320,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n457",
+          "startTick": 58560,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n458",
+          "startTick": 59040,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-flight-n459",
+          "startTick": 59520,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 79
+        },
+        {
+          "id": "aurora-flight-n460",
+          "startTick": 60000,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 83
+        },
+        {
+          "id": "aurora-flight-n461",
+          "startTick": 60240,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 81
+        },
+        {
+          "id": "aurora-flight-n462",
+          "startTick": 60480,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 78
+        },
+        {
+          "id": "aurora-flight-n463",
+          "startTick": 60960,
+          "durationTicks": 185,
+          "velocity": 0.7999999999999999,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        }
+      ]
+    },
+    {
+      "id": "aurora-flight-harmony-1",
+      "name": "Open harmonic shells",
+      "instrument": "pulseLead",
+      "volume": 0.2,
+      "role": "harmony",
+      "pan": 0.1,
+      "mute": false,
+      "solo": false,
+      "sound": {
+        "attack": 0.075,
+        "decay": 0.14,
+        "sustain": 0.44,
+        "release": 0.045,
+        "pulseWidth": 0.5,
+        "vibratoDepth": 0,
+        "vibratoRate": 5,
+        "cutoff": 2100,
+        "bassWave": "triangle",
+        "guitarDrive": 16,
+        "guitarTone": 4500
+      },
+      "preset": "custom",
+      "viewTop": 83,
+      "notes": [
+        {
+          "id": "aurora-flight-n20",
+          "startTick": 0,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n21",
+          "startTick": 0,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-flight-n22",
+          "startTick": 0,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-flight-n33",
+          "startTick": 1920,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n34",
+          "startTick": 1920,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-flight-n35",
+          "startTick": 1920,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 73
+        },
+        {
+          "id": "aurora-flight-n45",
+          "startTick": 3840,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n46",
+          "startTick": 3840,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-flight-n47",
+          "startTick": 3840,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-flight-n57",
+          "startTick": 5760,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-flight-n58",
+          "startTick": 5760,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-flight-n59",
+          "startTick": 5760,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 74
+        },
+        {
+          "id": "aurora-flight-n87",
+          "startTick": 7680,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n88",
+          "startTick": 7680,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-flight-n89",
+          "startTick": 7680,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 72
+        },
+        {
+          "id": "aurora-flight-n99",
+          "startTick": 9600,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-flight-n100",
+          "startTick": 9600,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-flight-n101",
+          "startTick": 9600,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 74
+        },
+        {
+          "id": "aurora-flight-n111",
+          "startTick": 11520,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n112",
+          "startTick": 11520,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-flight-n113",
+          "startTick": 11520,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-flight-n123",
+          "startTick": 13440,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n124",
+          "startTick": 13440,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-flight-n125",
+          "startTick": 13440,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 73
+        },
+        {
+          "id": "aurora-flight-n152",
+          "startTick": 15360,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n153",
+          "startTick": 15360,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-flight-n154",
+          "startTick": 15360,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-flight-n165",
+          "startTick": 17280,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-flight-n166",
+          "startTick": 17280,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-flight-n167",
+          "startTick": 17280,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 74
+        },
+        {
+          "id": "aurora-flight-n177",
+          "startTick": 19200,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-flight-n178",
+          "startTick": 19200,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-flight-n179",
+          "startTick": 19200,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 74
+        },
+        {
+          "id": "aurora-flight-n189",
+          "startTick": 21120,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n190",
+          "startTick": 21120,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-flight-n191",
+          "startTick": 21120,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 73
+        },
+        {
+          "id": "aurora-flight-n217",
+          "startTick": 23040,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n218",
+          "startTick": 23040,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-flight-n219",
+          "startTick": 23040,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-flight-n222",
+          "startTick": 24960,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n223",
+          "startTick": 24960,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-flight-n224",
+          "startTick": 24960,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-flight-n228",
+          "startTick": 26880,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n229",
+          "startTick": 26880,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-flight-n230",
+          "startTick": 26880,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 73
+        },
+        {
+          "id": "aurora-flight-n233",
+          "startTick": 28800,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-flight-n234",
+          "startTick": 28800,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-flight-n235",
+          "startTick": 28800,
+          "durationTicks": 1296,
+          "velocity": 0.45139999999999997,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 74
+        },
+        {
+          "id": "aurora-flight-n262",
+          "startTick": 30720,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n263",
+          "startTick": 30720,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-flight-n264",
+          "startTick": 30720,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 72
+        },
+        {
+          "id": "aurora-flight-n275",
+          "startTick": 32640,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n276",
+          "startTick": 32640,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-flight-n277",
+          "startTick": 32640,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 73
+        },
+        {
+          "id": "aurora-flight-n287",
+          "startTick": 34560,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-flight-n288",
+          "startTick": 34560,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-flight-n289",
+          "startTick": 34560,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 74
+        },
+        {
+          "id": "aurora-flight-n299",
+          "startTick": 36480,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n300",
+          "startTick": 36480,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-flight-n301",
+          "startTick": 36480,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-flight-n328",
+          "startTick": 38400,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n329",
+          "startTick": 38400,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-flight-n330",
+          "startTick": 38400,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-flight-n340",
+          "startTick": 40320,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-flight-n341",
+          "startTick": 40320,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-flight-n342",
+          "startTick": 40320,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 74
+        },
+        {
+          "id": "aurora-flight-n352",
+          "startTick": 42240,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n353",
+          "startTick": 42240,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-flight-n354",
+          "startTick": 42240,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 73
+        },
+        {
+          "id": "aurora-flight-n364",
+          "startTick": 44160,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-flight-n365",
+          "startTick": 44160,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-flight-n366",
+          "startTick": 44160,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 74
+        },
+        {
+          "id": "aurora-flight-n398",
+          "startTick": 46080,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n399",
+          "startTick": 46080,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-flight-n400",
+          "startTick": 46080,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-flight-n411",
+          "startTick": 48000,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n412",
+          "startTick": 48000,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-flight-n413",
+          "startTick": 48000,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 73
+        },
+        {
+          "id": "aurora-flight-n423",
+          "startTick": 49920,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n424",
+          "startTick": 49920,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-flight-n425",
+          "startTick": 49920,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 72
+        },
+        {
+          "id": "aurora-flight-n435",
+          "startTick": 51840,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-flight-n436",
+          "startTick": 51840,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-flight-n437",
+          "startTick": 51840,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 74
+        },
+        {
+          "id": "aurora-flight-n467",
+          "startTick": 53760,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n468",
+          "startTick": 53760,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-flight-n469",
+          "startTick": 53760,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 72
+        },
+        {
+          "id": "aurora-flight-n479",
+          "startTick": 55680,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-flight-n480",
+          "startTick": 55680,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-flight-n481",
+          "startTick": 55680,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 74
+        },
+        {
+          "id": "aurora-flight-n491",
+          "startTick": 57600,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n492",
+          "startTick": 57600,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-flight-n493",
+          "startTick": 57600,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 73
+        },
+        {
+          "id": "aurora-flight-n503",
+          "startTick": 59520,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 64
+        },
+        {
+          "id": "aurora-flight-n504",
+          "startTick": 59520,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 67
+        },
+        {
+          "id": "aurora-flight-n505",
+          "startTick": 59520,
+          "durationTicks": 1392,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        }
+      ]
+    },
+    {
+      "id": "aurora-flight-bass-2",
+      "name": "Bass foundation",
+      "instrument": "chipBass",
+      "volume": 0.43,
+      "role": "bass",
+      "pan": 0,
+      "mute": false,
+      "solo": false,
+      "sound": {
+        "attack": 0.006,
+        "decay": 0.11,
+        "sustain": 0.65,
+        "release": 0.035,
+        "pulseWidth": 0.25,
+        "vibratoDepth": 0,
+        "vibratoRate": 5,
+        "cutoff": 1300,
+        "bassWave": "triangle",
+        "guitarDrive": 16,
+        "guitarTone": 4500
+      },
+      "preset": "custom",
+      "viewTop": 83,
+      "notes": [
+        {
+          "id": "aurora-flight-n18",
+          "startTick": 0,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-flight-n19",
+          "startTick": 1200,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-flight-n31",
+          "startTick": 1920,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 33
+        },
+        {
+          "id": "aurora-flight-n32",
+          "startTick": 3120,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-flight-n43",
+          "startTick": 3840,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-flight-n44",
+          "startTick": 5040,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-flight-n55",
+          "startTick": 5760,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 38
+        },
+        {
+          "id": "aurora-flight-n56",
+          "startTick": 6960,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 45
+        },
+        {
+          "id": "aurora-flight-n85",
+          "startTick": 7680,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 36
+        },
+        {
+          "id": "aurora-flight-n86",
+          "startTick": 8880,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 43
+        },
+        {
+          "id": "aurora-flight-n97",
+          "startTick": 9600,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 38
+        },
+        {
+          "id": "aurora-flight-n98",
+          "startTick": 10800,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 45
+        },
+        {
+          "id": "aurora-flight-n109",
+          "startTick": 11520,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-flight-n110",
+          "startTick": 12720,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-flight-n121",
+          "startTick": 13440,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 33
+        },
+        {
+          "id": "aurora-flight-n122",
+          "startTick": 14640,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-flight-n150",
+          "startTick": 15360,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-flight-n151",
+          "startTick": 16560,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-flight-n163",
+          "startTick": 17280,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 31
+        },
+        {
+          "id": "aurora-flight-n164",
+          "startTick": 18480,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 38
+        },
+        {
+          "id": "aurora-flight-n175",
+          "startTick": 19200,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 38
+        },
+        {
+          "id": "aurora-flight-n176",
+          "startTick": 20400,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 45
+        },
+        {
+          "id": "aurora-flight-n187",
+          "startTick": 21120,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 33
+        },
+        {
+          "id": "aurora-flight-n188",
+          "startTick": 22320,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-flight-n216",
+          "startTick": 23040,
+          "durationTicks": 1248,
+          "velocity": 0.5994,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-flight-n221",
+          "startTick": 24960,
+          "durationTicks": 1248,
+          "velocity": 0.5994,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-flight-n227",
+          "startTick": 26880,
+          "durationTicks": 1248,
+          "velocity": 0.5994,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 33
+        },
+        {
+          "id": "aurora-flight-n232",
+          "startTick": 28800,
+          "durationTicks": 1248,
+          "velocity": 0.5994,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 35
+        },
+        {
+          "id": "aurora-flight-n260",
+          "startTick": 30720,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 36
+        },
+        {
+          "id": "aurora-flight-n261",
+          "startTick": 31920,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 43
+        },
+        {
+          "id": "aurora-flight-n273",
+          "startTick": 32640,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 33
+        },
+        {
+          "id": "aurora-flight-n274",
+          "startTick": 33840,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-flight-n285",
+          "startTick": 34560,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 38
+        },
+        {
+          "id": "aurora-flight-n286",
+          "startTick": 35760,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 45
+        },
+        {
+          "id": "aurora-flight-n297",
+          "startTick": 36480,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-flight-n298",
+          "startTick": 37680,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-flight-n326",
+          "startTick": 38400,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-flight-n327",
+          "startTick": 39600,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-flight-n338",
+          "startTick": 40320,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 35
+        },
+        {
+          "id": "aurora-flight-n339",
+          "startTick": 41520,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 42
+        },
+        {
+          "id": "aurora-flight-n350",
+          "startTick": 42240,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 33
+        },
+        {
+          "id": "aurora-flight-n351",
+          "startTick": 43440,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-flight-n362",
+          "startTick": 44160,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 38
+        },
+        {
+          "id": "aurora-flight-n363",
+          "startTick": 45360,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 45
+        },
+        {
+          "id": "aurora-flight-n396",
+          "startTick": 46080,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-flight-n397",
+          "startTick": 47280,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        },
+        {
+          "id": "aurora-flight-n409",
+          "startTick": 48000,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 33
+        },
+        {
+          "id": "aurora-flight-n410",
+          "startTick": 49200,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-flight-n421",
+          "startTick": 49920,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 36
+        },
+        {
+          "id": "aurora-flight-n422",
+          "startTick": 51120,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 43
+        },
+        {
+          "id": "aurora-flight-n433",
+          "startTick": 51840,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 38
+        },
+        {
+          "id": "aurora-flight-n434",
+          "startTick": 53040,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 45
+        },
+        {
+          "id": "aurora-flight-n465",
+          "startTick": 53760,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 36
+        },
+        {
+          "id": "aurora-flight-n466",
+          "startTick": 54960,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 43
+        },
+        {
+          "id": "aurora-flight-n477",
+          "startTick": 55680,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 35
+        },
+        {
+          "id": "aurora-flight-n478",
+          "startTick": 56880,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 42
+        },
+        {
+          "id": "aurora-flight-n489",
+          "startTick": 57600,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 33
+        },
+        {
+          "id": "aurora-flight-n490",
+          "startTick": 58800,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-flight-n501",
+          "startTick": 59520,
+          "durationTicks": 624,
+          "velocity": 0.81,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 40
+        },
+        {
+          "id": "aurora-flight-n502",
+          "startTick": 60720,
+          "durationTicks": 336,
+          "velocity": 0.66,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 47
+        }
+      ]
+    },
+    {
+      "id": "aurora-flight-auto-3",
+      "name": "Scene pulse",
+      "instrument": "chipDrums",
+      "volume": 0.26,
+      "role": "auto",
+      "pan": 0.025,
+      "mute": false,
+      "solo": false,
+      "sound": {
+        "attack": 0.008,
+        "decay": 0.09,
+        "sustain": 0.55,
+        "release": 0.04,
+        "pulseWidth": 0.25,
+        "vibratoDepth": 0,
+        "vibratoRate": 5,
+        "cutoff": 18000,
+        "bassWave": "triangle",
+        "guitarDrive": 16,
+        "guitarTone": 4500
+      },
+      "preset": "custom",
+      "viewTop": 83,
+      "notes": [
+        {
+          "id": "aurora-flight-n23",
+          "startTick": 0,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n30",
+          "startTick": 0,
+          "durationTicks": 60,
+          "velocity": 0.3,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "crash"
+        },
+        {
+          "id": "aurora-flight-n26",
+          "startTick": 240,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n27",
+          "startTick": 720,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n25",
+          "startTick": 960,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n24",
+          "startTick": 1200,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n28",
+          "startTick": 1200,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n29",
+          "startTick": 1680,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n36",
+          "startTick": 1920,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n39",
+          "startTick": 2160,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n40",
+          "startTick": 2640,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n38",
+          "startTick": 2880,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n37",
+          "startTick": 3120,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n41",
+          "startTick": 3120,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n42",
+          "startTick": 3600,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n48",
+          "startTick": 3840,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n51",
+          "startTick": 4080,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n52",
+          "startTick": 4560,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n50",
+          "startTick": 4800,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n49",
+          "startTick": 5040,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n53",
+          "startTick": 5040,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n54",
+          "startTick": 5520,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n60",
+          "startTick": 5760,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n63",
+          "startTick": 6000,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n64",
+          "startTick": 6480,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n62",
+          "startTick": 6720,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n61",
+          "startTick": 6960,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n65",
+          "startTick": 6960,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n67",
+          "startTick": 7200,
+          "durationTicks": 60,
+          "velocity": 0.49,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "tom"
+        },
+        {
+          "id": "aurora-flight-n66",
+          "startTick": 7440,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n90",
+          "startTick": 7680,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n93",
+          "startTick": 7920,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n94",
+          "startTick": 8400,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n92",
+          "startTick": 8640,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n91",
+          "startTick": 8880,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n95",
+          "startTick": 8880,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n96",
+          "startTick": 9360,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n102",
+          "startTick": 9600,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n105",
+          "startTick": 9840,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n106",
+          "startTick": 10320,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n104",
+          "startTick": 10560,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n103",
+          "startTick": 10800,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n107",
+          "startTick": 10800,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n108",
+          "startTick": 11280,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n114",
+          "startTick": 11520,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n117",
+          "startTick": 11760,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n118",
+          "startTick": 12240,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n116",
+          "startTick": 12480,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n115",
+          "startTick": 12720,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n119",
+          "startTick": 12720,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n120",
+          "startTick": 13200,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n126",
+          "startTick": 13440,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n129",
+          "startTick": 13680,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n130",
+          "startTick": 14160,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n128",
+          "startTick": 14400,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n127",
+          "startTick": 14640,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n131",
+          "startTick": 14640,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n133",
+          "startTick": 14880,
+          "durationTicks": 60,
+          "velocity": 0.49,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "tom"
+        },
+        {
+          "id": "aurora-flight-n132",
+          "startTick": 15120,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n155",
+          "startTick": 15360,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n162",
+          "startTick": 15360,
+          "durationTicks": 60,
+          "velocity": 0.3,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "crash"
+        },
+        {
+          "id": "aurora-flight-n158",
+          "startTick": 15600,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n159",
+          "startTick": 16080,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n157",
+          "startTick": 16320,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n156",
+          "startTick": 16560,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n160",
+          "startTick": 16560,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n161",
+          "startTick": 17040,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n168",
+          "startTick": 17280,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n171",
+          "startTick": 17520,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n172",
+          "startTick": 18000,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n170",
+          "startTick": 18240,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n169",
+          "startTick": 18480,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n173",
+          "startTick": 18480,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n174",
+          "startTick": 18960,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n180",
+          "startTick": 19200,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n183",
+          "startTick": 19440,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n184",
+          "startTick": 19920,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n182",
+          "startTick": 20160,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n181",
+          "startTick": 20400,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n185",
+          "startTick": 20400,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n186",
+          "startTick": 20880,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n192",
+          "startTick": 21120,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n195",
+          "startTick": 21360,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n196",
+          "startTick": 21840,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n194",
+          "startTick": 22080,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n193",
+          "startTick": 22320,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n197",
+          "startTick": 22320,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n199",
+          "startTick": 22560,
+          "durationTicks": 60,
+          "velocity": 0.49,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "tom"
+        },
+        {
+          "id": "aurora-flight-n198",
+          "startTick": 22800,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n220",
+          "startTick": 23040,
+          "durationTicks": 60,
+          "velocity": 0.44,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n225",
+          "startTick": 24960,
+          "durationTicks": 60,
+          "velocity": 0.44,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n226",
+          "startTick": 26160,
+          "durationTicks": 60,
+          "velocity": 0.27,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n231",
+          "startTick": 26880,
+          "durationTicks": 60,
+          "velocity": 0.44,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n236",
+          "startTick": 28800,
+          "durationTicks": 60,
+          "velocity": 0.44,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n237",
+          "startTick": 30000,
+          "durationTicks": 60,
+          "velocity": 0.27,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n265",
+          "startTick": 30720,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n272",
+          "startTick": 30720,
+          "durationTicks": 60,
+          "velocity": 0.3,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "crash"
+        },
+        {
+          "id": "aurora-flight-n268",
+          "startTick": 30960,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n269",
+          "startTick": 31440,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n267",
+          "startTick": 31680,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n266",
+          "startTick": 31920,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n270",
+          "startTick": 31920,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n271",
+          "startTick": 32400,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n278",
+          "startTick": 32640,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n281",
+          "startTick": 32880,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n282",
+          "startTick": 33360,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n280",
+          "startTick": 33600,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n279",
+          "startTick": 33840,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n283",
+          "startTick": 33840,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n284",
+          "startTick": 34320,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n290",
+          "startTick": 34560,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n293",
+          "startTick": 34800,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n294",
+          "startTick": 35280,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n292",
+          "startTick": 35520,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n291",
+          "startTick": 35760,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n295",
+          "startTick": 35760,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n296",
+          "startTick": 36240,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n302",
+          "startTick": 36480,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n305",
+          "startTick": 36720,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n306",
+          "startTick": 37200,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n304",
+          "startTick": 37440,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n303",
+          "startTick": 37680,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n307",
+          "startTick": 37680,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n309",
+          "startTick": 37920,
+          "durationTicks": 60,
+          "velocity": 0.49,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "tom"
+        },
+        {
+          "id": "aurora-flight-n308",
+          "startTick": 38160,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n310",
+          "startTick": 38160,
+          "durationTicks": 60,
+          "velocity": 0.44,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "tom"
+        },
+        {
+          "id": "aurora-flight-n331",
+          "startTick": 38400,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n334",
+          "startTick": 38640,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n335",
+          "startTick": 39120,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n333",
+          "startTick": 39360,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n332",
+          "startTick": 39600,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n336",
+          "startTick": 39600,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n337",
+          "startTick": 40080,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n343",
+          "startTick": 40320,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n346",
+          "startTick": 40560,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n347",
+          "startTick": 41040,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n345",
+          "startTick": 41280,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n344",
+          "startTick": 41520,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n348",
+          "startTick": 41520,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n349",
+          "startTick": 42000,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n355",
+          "startTick": 42240,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n358",
+          "startTick": 42480,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n359",
+          "startTick": 42960,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n357",
+          "startTick": 43200,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n356",
+          "startTick": 43440,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n360",
+          "startTick": 43440,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n361",
+          "startTick": 43920,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n367",
+          "startTick": 44160,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n370",
+          "startTick": 44400,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n371",
+          "startTick": 44880,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n369",
+          "startTick": 45120,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n368",
+          "startTick": 45360,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n372",
+          "startTick": 45360,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n374",
+          "startTick": 45600,
+          "durationTicks": 60,
+          "velocity": 0.49,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "tom"
+        },
+        {
+          "id": "aurora-flight-n373",
+          "startTick": 45840,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n401",
+          "startTick": 46080,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n408",
+          "startTick": 46080,
+          "durationTicks": 60,
+          "velocity": 0.3,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "crash"
+        },
+        {
+          "id": "aurora-flight-n404",
+          "startTick": 46320,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n405",
+          "startTick": 46800,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n403",
+          "startTick": 47040,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n402",
+          "startTick": 47280,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n406",
+          "startTick": 47280,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n407",
+          "startTick": 47760,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n414",
+          "startTick": 48000,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n417",
+          "startTick": 48240,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n418",
+          "startTick": 48720,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n416",
+          "startTick": 48960,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n415",
+          "startTick": 49200,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n419",
+          "startTick": 49200,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n420",
+          "startTick": 49680,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n426",
+          "startTick": 49920,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n429",
+          "startTick": 50160,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n430",
+          "startTick": 50640,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n428",
+          "startTick": 50880,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n427",
+          "startTick": 51120,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n431",
+          "startTick": 51120,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n432",
+          "startTick": 51600,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n438",
+          "startTick": 51840,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n441",
+          "startTick": 52080,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n442",
+          "startTick": 52560,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n440",
+          "startTick": 52800,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n439",
+          "startTick": 53040,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n443",
+          "startTick": 53040,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n445",
+          "startTick": 53280,
+          "durationTicks": 60,
+          "velocity": 0.49,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "tom"
+        },
+        {
+          "id": "aurora-flight-n444",
+          "startTick": 53520,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n470",
+          "startTick": 53760,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n473",
+          "startTick": 54000,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n474",
+          "startTick": 54480,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n472",
+          "startTick": 54720,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n471",
+          "startTick": 54960,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n475",
+          "startTick": 54960,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n476",
+          "startTick": 55440,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n482",
+          "startTick": 55680,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n485",
+          "startTick": 55920,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n486",
+          "startTick": 56400,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n484",
+          "startTick": 56640,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n483",
+          "startTick": 56880,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n487",
+          "startTick": 56880,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n488",
+          "startTick": 57360,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n494",
+          "startTick": 57600,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n497",
+          "startTick": 57840,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n498",
+          "startTick": 58320,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n496",
+          "startTick": 58560,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n495",
+          "startTick": 58800,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n499",
+          "startTick": 58800,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n500",
+          "startTick": 59280,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n506",
+          "startTick": 59520,
+          "durationTicks": 60,
+          "velocity": 0.8,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n509",
+          "startTick": 59760,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n510",
+          "startTick": 60240,
+          "durationTicks": 60,
+          "velocity": 0.32,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        },
+        {
+          "id": "aurora-flight-n508",
+          "startTick": 60480,
+          "durationTicks": 60,
+          "velocity": 0.57,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "snare"
+        },
+        {
+          "id": "aurora-flight-n507",
+          "startTick": 60720,
+          "durationTicks": 60,
+          "velocity": 0.61,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "kick"
+        },
+        {
+          "id": "aurora-flight-n511",
+          "startTick": 60720,
+          "durationTicks": 60,
+          "velocity": 0.4,
+          "articulation": "normal",
+          "pitchBend": [],
+          "drumVoice": "closedHat"
+        }
+      ]
+    },
+    {
+      "id": "aurora-flight-harmony-4",
+      "name": "Motif answers",
+      "instrument": "chipTom",
+      "volume": 0.25,
+      "role": "harmony",
+      "pan": 0.16,
+      "mute": false,
+      "solo": false,
+      "sound": {
+        "attack": 0.012,
+        "decay": 0.09,
+        "sustain": 0.34,
+        "release": 0.04,
+        "pulseWidth": 0.125,
+        "vibratoDepth": 0,
+        "vibratoRate": 5,
+        "cutoff": 3300,
+        "bassWave": "triangle",
+        "guitarDrive": 16,
+        "guitarTone": 4500
+      },
+      "preset": "custom",
+      "viewTop": 83,
+      "notes": [
+        {
+          "id": "aurora-flight-n15",
+          "startTick": 3120,
+          "durationTicks": 180,
+          "velocity": 0.62,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 69
+        },
+        {
+          "id": "aurora-flight-n16",
+          "startTick": 3360,
+          "durationTicks": 420,
+          "velocity": 0.62,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 76
+        },
+        {
+          "id": "aurora-flight-n17",
+          "startTick": 5280,
+          "durationTicks": 180,
+          "velocity": 0.62,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-flight-n214",
+          "startTick": 26400,
+          "durationTicks": 180,
+          "velocity": 0.4588,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 71
+        },
+        {
+          "id": "aurora-flight-n215",
+          "startTick": 30240,
+          "durationTicks": 180,
+          "velocity": 0.4588,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        },
+        {
+          "id": "aurora-flight-n464",
+          "startTick": 57120,
+          "durationTicks": 180,
+          "velocity": 0.62,
+          "articulation": "normal",
+          "pitchBend": [],
+          "pitch": 66
+        }
+      ]
+    }
+  ],
+  "currentTrack": 0,
+  "currentPage": 0,
+  "currentTick": 0,
+  "playhead": 0,
+  "entryMode": "step",
+  "selection": [
+    0,
+    7680
+  ],
+  "playRange": [
+    0,
+    61440
+  ],
+  "composition": {
+    "root": 4,
+    "scale": "dorian",
+    "length": 1920,
+    "action": "continue",
+    "groove": "syncopated",
+    "chromatic": "manual",
+    "mood": "neutral",
+    "density": "normal",
+    "leadRegister": "wide",
+    "purpose": "hook",
+    "humanize": 0,
+    "randomSeed": 12345,
+    "motif": {
+      "kind": "pitched",
+      "length": 3840,
+      "notes": [
+        {
+          "startTick": 0,
+          "durationTicks": 665,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 76
+        },
+        {
+          "startTick": 1200,
+          "durationTicks": 185,
+          "velocity": 0.79,
+          "articulation": "normal",
+          "pitch": 83
+        },
+        {
+          "startTick": 1440,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 81
+        },
+        {
+          "startTick": 1680,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitch": 78
+        },
+        {
+          "startTick": 1920,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 76
+        },
+        {
+          "startTick": 2400,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 73
+        },
+        {
+          "startTick": 3360,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 76
+        }
+      ]
+    },
+    "locks": {
+      "rhythm": false,
+      "contour": false,
+      "pitches": false
+    },
+    "chords": [
+      {
+        "startTick": 0,
+        "durationTicks": 1920,
+        "root": 4,
+        "quality": "minor"
+      },
+      {
+        "startTick": 1920,
+        "durationTicks": 1920,
+        "root": 9,
+        "quality": "major"
+      },
+      {
+        "startTick": 3840,
+        "durationTicks": 1920,
+        "root": 4,
+        "quality": "minor"
+      },
+      {
+        "startTick": 5760,
+        "durationTicks": 1920,
+        "root": 2,
+        "quality": "major"
+      },
+      {
+        "startTick": 7680,
+        "durationTicks": 1920,
+        "root": 0,
+        "quality": "major"
+      },
+      {
+        "startTick": 9600,
+        "durationTicks": 1920,
+        "root": 2,
+        "quality": "major"
+      },
+      {
+        "startTick": 11520,
+        "durationTicks": 1920,
+        "root": 4,
+        "quality": "minor"
+      },
+      {
+        "startTick": 13440,
+        "durationTicks": 1920,
+        "root": 9,
+        "quality": "major"
+      },
+      {
+        "startTick": 15360,
+        "durationTicks": 1920,
+        "root": 4,
+        "quality": "minor"
+      },
+      {
+        "startTick": 17280,
+        "durationTicks": 1920,
+        "root": 7,
+        "quality": "major"
+      },
+      {
+        "startTick": 19200,
+        "durationTicks": 1920,
+        "root": 2,
+        "quality": "major"
+      },
+      {
+        "startTick": 21120,
+        "durationTicks": 1920,
+        "root": 9,
+        "quality": "major"
+      },
+      {
+        "startTick": 23040,
+        "durationTicks": 1920,
+        "root": 4,
+        "quality": "sus4"
+      },
+      {
+        "startTick": 24960,
+        "durationTicks": 1920,
+        "root": 4,
+        "quality": "minor"
+      },
+      {
+        "startTick": 26880,
+        "durationTicks": 1920,
+        "root": 9,
+        "quality": "major"
+      },
+      {
+        "startTick": 28800,
+        "durationTicks": 1920,
+        "root": 11,
+        "quality": "minor"
+      },
+      {
+        "startTick": 30720,
+        "durationTicks": 1920,
+        "root": 0,
+        "quality": "major"
+      },
+      {
+        "startTick": 32640,
+        "durationTicks": 1920,
+        "root": 9,
+        "quality": "major"
+      },
+      {
+        "startTick": 34560,
+        "durationTicks": 1920,
+        "root": 2,
+        "quality": "major"
+      },
+      {
+        "startTick": 36480,
+        "durationTicks": 1920,
+        "root": 4,
+        "quality": "minor"
+      },
+      {
+        "startTick": 38400,
+        "durationTicks": 1920,
+        "root": 4,
+        "quality": "minor"
+      },
+      {
+        "startTick": 40320,
+        "durationTicks": 1920,
+        "root": 11,
+        "quality": "minor"
+      },
+      {
+        "startTick": 42240,
+        "durationTicks": 1920,
+        "root": 9,
+        "quality": "major"
+      },
+      {
+        "startTick": 44160,
+        "durationTicks": 1920,
+        "root": 2,
+        "quality": "major"
+      },
+      {
+        "startTick": 46080,
+        "durationTicks": 1920,
+        "root": 4,
+        "quality": "minor"
+      },
+      {
+        "startTick": 48000,
+        "durationTicks": 1920,
+        "root": 9,
+        "quality": "major"
+      },
+      {
+        "startTick": 49920,
+        "durationTicks": 1920,
+        "root": 0,
+        "quality": "major"
+      },
+      {
+        "startTick": 51840,
+        "durationTicks": 1920,
+        "root": 2,
+        "quality": "major"
+      },
+      {
+        "startTick": 53760,
+        "durationTicks": 1920,
+        "root": 0,
+        "quality": "major"
+      },
+      {
+        "startTick": 55680,
+        "durationTicks": 1920,
+        "root": 11,
+        "quality": "minor"
+      },
+      {
+        "startTick": 57600,
+        "durationTicks": 1920,
+        "root": 9,
+        "quality": "major"
+      },
+      {
+        "startTick": 59520,
+        "durationTicks": 1920,
+        "root": 4,
+        "quality": "minor"
+      }
+    ]
+  },
+  "arrangement": {
+    "multiEdit": false,
+    "clips": [
+      {
+        "id": "aurora-flight-clip-0",
+        "name": "A signal in the ice",
+        "trackId": "aurora-flight-lead-0",
+        "startTick": 0,
+        "durationTicks": 7680
+      },
+      {
+        "id": "aurora-flight-clip-1",
+        "name": "Crystal answer",
+        "trackId": "aurora-flight-lead-0",
+        "startTick": 7680,
+        "durationTicks": 7680
+      },
+      {
+        "id": "aurora-flight-clip-2",
+        "name": "Through blue fractures",
+        "trackId": "aurora-flight-lead-0",
+        "startTick": 15360,
+        "durationTicks": 7680
+      },
+      {
+        "id": "aurora-flight-clip-3",
+        "name": "Suspended corridor",
+        "trackId": "aurora-flight-lead-0",
+        "startTick": 23040,
+        "durationTicks": 7680
+      },
+      {
+        "id": "aurora-flight-clip-4",
+        "name": "Relay refractions",
+        "trackId": "aurora-flight-lead-0",
+        "startTick": 30720,
+        "durationTicks": 7680
+      },
+      {
+        "id": "aurora-flight-clip-5",
+        "name": "The moon remembers",
+        "trackId": "aurora-flight-lead-0",
+        "startTick": 38400,
+        "durationTicks": 7680
+      },
+      {
+        "id": "aurora-flight-clip-6",
+        "name": "Distant signal return",
+        "trackId": "aurora-flight-lead-0",
+        "startTick": 46080,
+        "durationTicks": 7680
+      },
+      {
+        "id": "aurora-flight-clip-7",
+        "name": "Under the relay lights",
+        "trackId": "aurora-flight-lead-0",
+        "startTick": 53760,
+        "durationTicks": 7680
+      }
+    ],
+    "sections": [
+      {
+        "id": "aurora-flight-section-0",
+        "name": "A signal in the ice",
+        "startTick": 0,
+        "durationTicks": 7680,
+        "purpose": "hook",
+        "density": "normal",
+        "transpose": 0
+      },
+      {
+        "id": "aurora-flight-section-1",
+        "name": "Crystal answer",
+        "startTick": 7680,
+        "durationTicks": 7680,
+        "purpose": "hook",
+        "density": "normal",
+        "transpose": 0
+      },
+      {
+        "id": "aurora-flight-section-2",
+        "name": "Through blue fractures",
+        "startTick": 15360,
+        "durationTicks": 7680,
+        "purpose": "contrast",
+        "density": "normal",
+        "transpose": 0
+      },
+      {
+        "id": "aurora-flight-section-3",
+        "name": "Suspended corridor",
+        "startTick": 23040,
+        "durationTicks": 7680,
+        "purpose": "breakdown",
+        "density": "sparse",
+        "transpose": 0
+      },
+      {
+        "id": "aurora-flight-section-4",
+        "name": "Relay refractions",
+        "startTick": 30720,
+        "durationTicks": 7680,
+        "purpose": "hook",
+        "density": "busy",
+        "transpose": 0
+      },
+      {
+        "id": "aurora-flight-section-5",
+        "name": "The moon remembers",
+        "startTick": 38400,
+        "durationTicks": 7680,
+        "purpose": "contrast",
+        "density": "normal",
+        "transpose": 0
+      },
+      {
+        "id": "aurora-flight-section-6",
+        "name": "Distant signal return",
+        "startTick": 46080,
+        "durationTicks": 7680,
+        "purpose": "hook",
+        "density": "normal",
+        "transpose": 0
+      },
+      {
+        "id": "aurora-flight-section-7",
+        "name": "Under the relay lights",
+        "startTick": 53760,
+        "durationTicks": 7680,
+        "purpose": "ending",
+        "density": "normal",
+        "transpose": 0
+      }
+    ],
+    "endTick": 61440,
+    "zoom": 48,
+    "editBars": 4,
+    "rollStart": 0,
+    "selectedTrackIds": [
+      "aurora-flight-lead-0"
+    ],
+    "selectedClipIds": []
+  },
+  "suggestions": [],
+  "brief": {
+    "title": "Signals Beneath the Ice",
+    "description": "Crystalline moon corridor and relay approach. E Dorian with suspended fourths. Separated signal, answer, suspended corridor, refracted descent, distant return. Original manually authored melody and harmony; phrase map and source accompany this project.",
+    "mood": "peaceful",
+    "root": 4,
+    "scale": "dorian",
+    "bpm": 96,
+    "groove": "syncopated",
+    "density": "normal",
+    "palette": "chip",
+    "leadRegister": "middle",
+    "chromatic": "manual",
+    "form": "none",
+    "randomSeed": 731,
+    "motif": {
+      "kind": "pitched",
+      "length": 3840,
+      "notes": [
+        {
+          "startTick": 0,
+          "durationTicks": 665,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 76
+        },
+        {
+          "startTick": 1200,
+          "durationTicks": 185,
+          "velocity": 0.79,
+          "articulation": "normal",
+          "pitch": 83
+        },
+        {
+          "startTick": 1440,
+          "durationTicks": 185,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 81
+        },
+        {
+          "startTick": 1680,
+          "durationTicks": 185,
+          "velocity": 0.74,
+          "articulation": "normal",
+          "pitch": 78
+        },
+        {
+          "startTick": 1920,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 76
+        },
+        {
+          "startTick": 2400,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 73
+        },
+        {
+          "startTick": 3360,
+          "durationTicks": 425,
+          "velocity": 0.84,
+          "articulation": "normal",
+          "pitch": 76
+        }
+      ]
+    }
+  }
+}
