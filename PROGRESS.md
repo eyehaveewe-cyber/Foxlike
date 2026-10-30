@@ -1,6 +1,16 @@
 # Foxlike progress
 
-## 2026-10-30 — Expanded campaign programming and completion checks
+Newest entries first. UTC timestamps identify the corresponding implementation commits; older date-only entries retain their original dates.
+
+## 2026-10-30 08:40:42 UTC — Checkpoint validation and completed delivery
+
+[Commit f9e5432](https://github.com/eyehaveewe-cyber/Foxlike/commit/f9e5432272af9b09b4512ddcec4c6c9a4c5224aa) rejects malformed nested checkpoint data before changing live actors. Validation covers pending arrivals, tank state, motion fields, required carrier/settings fields and actor-ID frontiers. An invalid checkpoint now visibly explains its safe return to the operation briefing. Valid campaign checkpoints retain their prior behavior.
+
+Verification passes **771 native checks across twelve suites** and **fourteen exported-browser checks**. The sequential journey still passes every operation boundary, cold checkpoint/result reload and idempotent settlement. All sixteen MBean1 scores and decoded loops pass validation. Windows, Web and editable-source packages are built; the final source ZIP matches the current files and imports and launches from a fresh extraction. [CI run 41028068763](https://github.com/eyehaveewe-cyber/Foxlike/actions/runs/41028068763) passed. Site publishing was skipped.
+
+The ten-operation programming pass and updated six-page DOCX handoff are delivered. Human feel/balance, listening, physical-controller operation and target Windows hardware performance remain unmeasured validation, not programming gates. Original Phase Two–Eight DOCX transfers were denied by the environment's download policy (HTTP CONNECT 403); their extracted-text snapshots and original Library links are included. See the [implementation map](docs/EXPANDED_CAMPAIGN.md) and [verification record](docs/VERIFICATION.md).
+
+## 2026-10-30 08:31:11 UTC — Expanded campaign programming and completion checks
 
 Implemented the ten-operation plan under Jonathan’s instruction to disregard human-check prerequisites for programming. The normal flight deck uses shared spatial flight, independent companions, stable mission IDs and checkpoint/save settlement. Added ferry continuity, courier drive interception, functional capital targets, finite encounters, Cinder walker/hover routes, carrier repair, emergency vessel boundaries, Stormbreak controls, Crown escape/recovery and outcome text. Keyboard/controller button rebinding, safe pause/rearm and independent camera/UI options are exposed.
 
@@ -9,7 +19,7 @@ Four new original MBean1 mission cues extend the unchanged original twelve to si
 [Implementation and source-plan mapping](docs/EXPANDED_CAMPAIGN.md), [controls](docs/RUNNING.md), and [dated verification](docs/VERIFICATION.md) supersede the earlier audit’s programming gate. Human feel, listening, physical controller and target-PC measurements remain unclaimed validation.
 
 
-## 2026-10-30 — Documentation implementation audit
+## 2026-10-30 06:34:33 UTC — Documentation implementation audit
 
 Compared the current build with the preserved handoff, full Phase One guide and later phase plans. The six-mission game, peaceful exploration, soundtrack and technical practice foundation are implemented. The expanded campaign remains proposed work. Phase One still needs the human Standard win, explainable loss, counterplay observations and arena/pitch choice that Phase Two consumes. The [current design status](docs/DESIGN.md#current-implementation-and-plan-status) keeps that dependency visible.
 
@@ -17,7 +27,7 @@ Corrected stale native-suite counts, browser status and MBean1 descriptions. Add
 
 Verification: the checker rejects both broken links and stale suite lists. The complete archive passes CRC and documentation-inclusion checks. A fresh unpacked copy passes documentation checks, imports in Godot 4.7.2 and launches the main scene without script or parse failures. Existing exit resource-cleanup warnings remain. Gameplay code is unchanged, so the earlier 467 native and thirteen browser results remain dated evidence rather than a new full test claim. Later-phase implementation is pending the required human review and configuration decision.
 
-## 2026-10-30 — Original music for every campaign level
+## 2026-10-30 01:07:17 UTC — Original music for every campaign level
 
 Composed twelve original MBean1 cues using Sol 6.1 with extra-high reasoning as Jonathan requested. Each of the six missions has its own flight theme and related boss cue. The set contains 92 authored four-bar phrases and 9,706 events, with 70.6–80-second mission loops and 36.9–43.6-second boss loops. Changed answers, contrasting sections and developed returns give the cues different identities. Brief high pulse peaks have softer attacks. Existing scores, renders, effects and peaceful-orbit ambience remain preserved.
 
