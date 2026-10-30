@@ -1,8 +1,18 @@
 # Foxlike progress
 
-Newest entries first. UTC timestamps identify the corresponding implementation commits; older date-only entries retain their original dates.
+Newest entries first. Historical timestamps were recovered from the linked Git commits and converted to UTC; they do not imply undocumented event times. Descriptions and validation limits are preserved.
+
+## 2026-10-30 08:50:53 UTC — Complete UTC progress history and prevent regressions
+
+Timestamp source: recorded UTC clock time for this documentation update.
+
+Replaced the eight remaining date-only headings and the undated Cinder heading with verified UTC commit timestamps. Moved Cinder to its chronological position and promoted the misplaced orbital momentum and light-lance updates into separate dated entries. All fifteen historical timestamps match linked Git commits after timezone conversion; all original history body text is preserved.
+
+The [documentation checker](tools/check_documentation.py) now rejects missing or invalid UTC timestamps, entries outside newest-first order and malformed source-commit references. CI and source packaging already call this checker. Five negative fixtures were rejected, and a new clock-recorded entry can pass without requiring a future commit hash. Documentation and diff checks pass. No gameplay code changed; the earlier 771 native and fourteen browser checks remain the recorded gameplay evidence.
 
 ## 2026-10-30 08:40:42 UTC — Checkpoint validation and completed delivery
+
+Source commit: [f9e5432](https://github.com/eyehaveewe-cyber/Foxlike/commit/f9e5432272af9b09b4512ddcec4c6c9a4c5224aa)
 
 [Commit f9e5432](https://github.com/eyehaveewe-cyber/Foxlike/commit/f9e5432272af9b09b4512ddcec4c6c9a4c5224aa) rejects malformed nested checkpoint data before changing live actors. Validation covers pending arrivals, tank state, motion fields, required carrier/settings fields and actor-ID frontiers. An invalid checkpoint now visibly explains its safe return to the operation briefing. Valid campaign checkpoints retain their prior behavior.
 
@@ -12,14 +22,17 @@ The ten-operation programming pass and updated six-page DOCX handoff are deliver
 
 ## 2026-10-30 08:31:11 UTC — Expanded campaign programming and completion checks
 
+Source commit: [0f91b63](https://github.com/eyehaveewe-cyber/Foxlike/commit/0f91b630b29f04c3e7a77f027f2dcc561cefd6f4)
+
 Implemented the ten-operation plan under Jonathan’s instruction to disregard human-check prerequisites for programming. The normal flight deck uses shared spatial flight, independent companions, stable mission IDs and checkpoint/save settlement. Added ferry continuity, courier drive interception, functional capital targets, finite encounters, Cinder walker/hover routes, carrier repair, emergency vessel boundaries, Stormbreak controls, Crown escape/recovery and outcome text. Keyboard/controller button rebinding, safe pause/rearm and independent camera/UI options are exposed.
 
 Four new original MBean1 mission cues extend the unchanged original twelve to sixteen tracks. The supplied phase guides are preserved as extracted text with original Library links. A bounded recovery-pose adapter passes 90 checks in the pinned actual PBR lab; its existing 366-check suite also passes. No PBR merge or site publication.
 
 [Implementation and source-plan mapping](docs/EXPANDED_CAMPAIGN.md), [controls](docs/RUNNING.md), and [dated verification](docs/VERIFICATION.md) supersede the earlier audit’s programming gate. Human feel, listening, physical controller and target-PC measurements remain unclaimed validation.
 
-
 ## 2026-10-30 06:34:33 UTC — Documentation implementation audit
+
+Source commit: [6570a7c](https://github.com/eyehaveewe-cyber/Foxlike/commit/6570a7cf65cbc0f72f2fbcde2b5a1a953a5eeeec)
 
 Compared the current build with the preserved handoff, full Phase One guide and later phase plans. The six-mission game, peaceful exploration, soundtrack and technical practice foundation are implemented. The expanded campaign remains proposed work. Phase One still needs the human Standard win, explainable loss, counterplay observations and arena/pitch choice that Phase Two consumes. The [current design status](docs/DESIGN.md#current-implementation-and-plan-status) keeps that dependency visible.
 
@@ -29,6 +42,8 @@ Verification: the checker rejects both broken links and stale suite lists. The c
 
 ## 2026-10-30 01:07:17 UTC — Original music for every campaign level
 
+Source commit: [39b5aa7](https://github.com/eyehaveewe-cyber/Foxlike/commit/39b5aa7202a9216fc2504f983665e535e6afec5f)
+
 Composed twelve original MBean1 cues using Sol 6.1 with extra-high reasoning as Jonathan requested. Each of the six missions has its own flight theme and related boss cue. The set contains 92 authored four-bar phrases and 9,706 events, with 70.6–80-second mission loops and 36.9–43.6-second boss loops. Changed answers, contrasting sections and developed returns give the cues different identities. Brief high pulse peaks have softer attacks. Existing scores, renders, effects and peaceful-orbit ambience remain preserved.
 
 Included editable MBean1 projects, concert-pitch phrase source, a deterministic compiler, phrase maps, composition review and render evidence under `assets/audio/mbean/campaign/`. All fifteen score JSON artifacts regenerate byte-identically. The unchanged pinned MBean1 Web Audio engine renders the complete cues locally with synthesized voices. A waveform-cache comparison produces identical PCM. Decoded OGG checks cover source hashes, duration, levels, silence and loop boundaries.
@@ -37,7 +52,19 @@ The audio controller selects twelve distinct streams and crossfades changes over
 
 Godot 4.7.2 passes all 467 checks across nine native suites, including 114 music checks and the 353 existing regressions. Windows and Web release packages export successfully. The exported Web build passes thirteen real Chromium checks, including soundtrack playback, advancing audio position and mute, with no JavaScript or engine-console errors. The existing native rapid-teardown resource warnings remain. Human critical listening, physical-device mix review and Windows hardware playback are not claimed. No site publishing action was requested or performed.
 
-## 2026-10-25 — Asterion orbit selection and reachable moons
+## 2026-10-25 22:20:18 UTC — Cinder tank air support
+
+Source commit: [0374ec6](https://github.com/eyehaveewe-cyber/Foxlike/commit/0374ec6574cfbab07e2318824a9580d93269fee1)
+
+Tank-mission companions now make staggered five-second strafing passes from opposite screen edges, then withdraw before returning. They fire their real lasers and offensive specialist abilities during the attack window. Bodyguard interception is disabled during ground support; off-screen aircraft cannot intercept projectiles. Normal flight formations are unchanged. Pass timers reset on mission refit/retry.
+
+Inspected Project Barrel Roll `codex/two-legged-ground-walker`: Bastion Assault (`assault_tank`) and Bulwark Fortress (`bulwark`) are armored aircraft chassis with tank roles, not tracked ground tanks. Its actual ground assets include the articulated two-leg walker (`scenes/ground_walker_preview.tscn`, documented in `docs/GROUND_WALKER.md`) and the RIME ground boss. These assets were located, not imported in this change; Cinder retains Foxlike’s existing Jackal tank.
+
+Validation: eight new tank-support checks and 159 existing campaign/squadron/expansion checks pass in Godot 4.7.2. Rendering, physical controller play and a human tank-mission playtest were not performed for this change.
+
+## 2026-10-25 04:58:27 UTC — Asterion orbit selection and reachable moons
+
+Source commit: [ed76cb0](https://github.com/eyehaveewe-cyber/Foxlike/commit/ed76cb0aed49b59384bc42358962b07457fdcc4c)
 
 Reused Project Barrel Roll's complete twelve-world catalog, animated planetary thumbnails and original route chart. Planet Orbits now opens a four-column selection grid with every world available outside campaign unlock rules. Every sector contains its selected 3D planet and full catalogued moon population: 93 moons total across the catalog. Distinct procedural surfaces, atmosphere/cloud configurations and the three source-ringed planets replace the single Viridia backdrop. Each station's identity follows the selected world.
 
@@ -47,17 +74,37 @@ Distant worlds/moons swap among three shared sphere resolutions and cheaper surf
 
 Validation: all 345 checks pass across seven suites. New checks cover every world/card/moon/ring, the reused chart, all 93 unique satellite IDs, safe world swaps and continuous moon travel. The Viridia transfer test reached less than 300 m from the first moon in 13.72 simulated seconds at a peak of 795.89 m/s, without crossing a celestial surface. A 1,500 m/s engine-off approach was stopped by the physical moon. Native grid/chart/planet/moon views and a continuous scripted transfer were captured and inspected; Windows/Web exports and editable source packaging succeed. Browser runtime, physical controller and human flight feel remain unverified. See [orbit details](docs/ORBIT_EXPLORATION.md) and [verification](docs/VERIFICATION.md). Phase One's human duel completion gate remains open.
 
-## 2026-10-24 — Viridia peaceful orbital hub
+## 2026-10-25 04:14:01 UTC — Orbital light lance
+
+Source commit: [95fcd2c](https://github.com/eyehaveewe-cyber/Foxlike/commit/95fcd2ccc9b3f4e07d32b1fe02cbf0bdd7fc1bb0)
+
+Aim the ship nose at a visible asteroid within 700 m. Press **G / left mouse / controller A** to latch it, then press again to fling. The glowing tether reels the real asteroid toward a stand-off point using a damped spring. Hold for two seconds to charge the fantasy launch from 120 to 320 m/s; ship velocity and part of the asteroid swing velocity carry into the throw. **R** drops the tether without a launch impulse. Solid station cover blocks acquisition and breaks tethers. Returning home, disabling visitors or losing the target releases it safely. The lance works with engines off. Rocks retain ordinary gravity, collisions and momentum after release; the station remains indestructible.
+
+## 2026-10-25 03:28:38 UTC — Orbital hub momentum update
+
+Source commit: [972586f](https://github.com/eyehaveewe-cyber/Foxlike/commit/972586f72f4a080ce133dbbab1e0ecfb6000cd34)
+
+Press **I** or use the options menu to cut/restart the engines. Cutoff disables thrust, hover damping and powered braking; attitude control remains available, and existing velocity survives turns and boost release. Restart engines before using Space to brake. H still toggles powered hover assistance. The outer-room safety arrest and harmless proximity stops remain active.
+
+Asteroids now integrate velocity under scaled planetary tidal gravity and rotating-frame forces, with mass-based rock collision impulses and station rebounds. They no longer follow scripted circles or freeze near the ship. This is a local co-orbiting approximation, not a full solar-system simulation. The station turns slowly at the planet surface rotation rate; its collision volumes rotate with its meshes. Orbital time controls both.
+
+## 2026-10-25 01:21:03 UTC — Viridia peaceful orbital hub
+
+Source commit: [4f77be1](https://github.com/eyehaveewe-cyber/Foxlike/commit/4f77be10d8452613782eca3322fb108da0c0b0ef)
 
 Added Viridia Orbit on the latest flight deck, alongside the existing campaign and Phase One practice duel. The room starts with a stationary ship at an orbital observatory. Six-axis thrusters, hover assist, free momentum drift, brake, boost, safe structural/asteroid proximity stops and an explicit station return support roaming or long idling. The two habitat rings, open docks, solar fields, lit windows and observation cameras frame a large procedural planet with ocean/land/ice, night lights, moving clouds, atmosphere, a moon and sun. Outer asteroid visitors reveal gently and are bounded; orbital time can pause or accelerate independently of ship handling. Added an original sample-free quiet ambient loop with reproducible generation source.
 
 Validation: 26 new hub checks pass, including actual flight-deck entry/return, 30-second idle holding, drift, braking, diagonal speed caps, station and rock clearance, orbital-time separation, bounded visitor admission and fade-in. All 235 existing campaign/duel regressions pass separately. Native views and an eight-second scripted orbit tour were rendered and inspected. Windows/Web exports and source packaging are verified separately below. Physical controller operation and target-machine performance remain unmeasured. This room is an artistic orbit presentation, not an N-body simulation. Phase One's human duel acceptance gates remain open.
 
-## 2026-10-23 — Phase One fair-flight practice implementation
+## 2026-10-23 18:30:30 UTC — Phase One fair-flight practice implementation
+
+Source commit: [3b8314a](https://github.com/eyehaveewe-cyber/Foxlike/commit/3b8314a905f9845da8341feafcaa151e7ae206b8)
 
 Implemented the complete Phase One guide's technical foundation as Practice Duel on the flight deck: shared nose-directed player/AI flight, matched energy/roll/weapons, solid cover, swept world collisions/projectiles, pitch-aware chase camera, relative-height/rear/stale cues, delayed observation and memory, committed high passes, extension/search, cover routes and one observed-shot evasion. Both arena heights and pitch modes remain reversible experiments. Added local bounded traces with source fingerprints and explicitly labeled arranged native capture. Phase One is **not signed off**: the required human win, explainable loss, cover/high-attack counters, blocked approach and final volume/control selection remain open. See [implementation and review](docs/PHASE_01_IMPLEMENTATION.md). Validation: 38 new duel checks and all 197 existing regressions pass in Godot 4.7.2; Windows/Web exports build. Native arranged flight/camera capture and a paired source-stamped trace were reviewed. No human completion or new browser-runtime verification is claimed.
 
-## 2026-10-23 — Playtest fixes and six-mission expansion
+## 2026-10-23 07:02:21 UTC — Playtest fixes and six-mission expansion
+
+Source commit: [84e9d31](https://github.com/eyehaveewe-cyber/Foxlike/commit/84e9d31428e15d1a5271eddc18dac7d4fe0d5782)
 
 Applied the Foxlike section of the October 22 Crunch-Time Jam notes. Ring and pickup collection now sweeps both pickup and player motion between frames and displays an immediate reward notice. Player missiles start at six, cap at eight, consume ammunition and create an 18-unit area blast; cyan ammo crates add three and green repair supplies add two. Boss weapons have separate health, visible destruction and disabled attacks. A core receives only 8% damage until its weapons are down; Warden now has a 260-health core and two 65-health cannons on Standard.
 
@@ -67,7 +114,9 @@ Imported three 34.909-second excerpts of MBean1's original *The Bone Lantern Bal
 
 Validation: all 197 native Godot 4.7.2 assertions pass (74 campaign, 35 squadron, 38 combat revision, 50 expansion). Coverage includes pickup sweeps and near misses, ammo depletion/resupply, area damage, boss subsystem targeting, real hover/barrier collisions, fuel/rearm behavior, arena coordinate and projectile continuity, 20/120 fps turnaround containment, carrier attacks/failure, six boss/result paths and old-save migration. Native screenshots and motion clips were rendered and inspected. Windows and Web expansion exports and the editable source ZIP package successfully. The local browser process still exits before the menu, so no new Web runtime pass is claimed. Physical controller, human balance and native Windows runtime testing remain outstanding. See [playtest resolutions](docs/PLAYTEST_RESOLUTION.md).
 
-## 2026-10-22 — Companion roster, combat and formations
+## 2026-10-23 00:46:04 UTC — Companion roster, combat and formations
+
+Source commit: [4348b16](https://github.com/eyehaveewe-cyber/Foxlike/commit/4348b161232d9f36da814623260dc2c2a8804f8e)
 
 Added five pilots and two saved equipment slots on the main screen. Latch intercepts shots, Glint fires rapid bursts, Pike unlocks after Viridia with homing missiles, Ember unlocks after Aurora with local Nova blasts, and Bastion unlocks after Terminus with heavier shields and faster interception. Each has separate health, laser rate, damage, ability cooldown and temporary Mk I–III arsenal level. Existing mission unlocks/clear records migrate to roster access; invalid or duplicate selections sanitize to valid distinct pilots.
 
@@ -75,17 +124,23 @@ Added Wide V, Spearhead and Close Guard, selected on the main screen or cycled w
 
 Validation: the existing 74-assertion campaign suite and a new 35-assertion squadron suite pass in Godot 4.7.2. Coverage includes real menu signals, formation input/motion, interception and damage ordering, missiles and Nova impacts, actual upgraded laser damage/rate, independent cooldowns, pause, roster unlocks, loadout persistence/migration, upgrade caps and refits. Native rendered screenshots cover locked/unlocked rosters, all three formations and specialist weapons. Windows and Web exports and the source ZIP package successfully. Physical controller and human balance testing remain outstanding.
 
-## 2026-10-22 — Boost maneuvers
+## 2026-10-22 21:17:13 UTC — Boost maneuvers
+
+Source commit: [3b730c3](https://github.com/eyehaveewe-cyber/Foxlike/commit/3b730c3c3eb69221e76d5e2ba5eca3696043462a)
 
 Added three boost-direction abilities using Motionwright: left for an in-place somersault, down for the long forward surge and vertical loop, right for a rising corkscrew with gradual forward-position and speed recovery. Keyboard WASD/arrows and the controller stick share the direction detector. Cost is 30 energy, with a shared four-second cooldown. Inputs require a new direction edge, so held controls cannot auto-repeat. The controller owns the actual flight path; the airframe rig adds unclamped full rotations after steering. Pause preserves the path; death, victory, menu and retry clear it. HUD displays action/cooldown, and the controls are in the menu and README.
 
 Verified in Godot 4.7.2: 74 integration assertions pass, including maneuver input, energy, pause, overlap prevention, recovery, no repeat, interruption, edge bounds, and matching 20/120fps sampling. The committed capture harness renders the three moves through the real gameplay update. Windows and Web exports package successfully. Added a browser regression for the boost-down loop and return depth; the local Chromium process closed before the game started, so that updated browser check awaits CI. Physical controller testing remains outstanding.
 
-## 2026-10-22 — Editable source delivery
+## 2026-10-22 19:59:35 UTC — Editable source delivery
+
+Source commit: [41ebc14](https://github.com/eyehaveewe-cyber/Foxlike/commit/41ebc149cf589b47053c393873fb6bc569612c1b)
 
 The complete Godot project remains at the repository root, including `project.godot`, scenes, GDScript and audio. Added a prominent direct source ZIP link and import instructions to the README. Added `tools/package_source.py` to check resource inclusion and ZIP integrity and create `build/Foxlike-source.zip` without an engine installation. CI uploads this as the separate `Foxlike-Godot-source` artifact before installing Godot or exporting playable builds.
 
-## 2026-10-22 — First complete campaign
+## 2026-10-22 17:48:41 UTC — First complete campaign
+
+Source commit: [331bb56](https://github.com/eyehaveewe-cyber/Foxlike/commit/331bb563df6b282960298056349f2b447c3533ef)
 
 Implemented under Jonathan's request for a best-effort, one-shot Starfox-like game, with permission to draw from Project Barrel Roll. This repository was empty at the start.
 
@@ -105,21 +160,3 @@ Read `docs/VERIFICATION.md` for actual validation and build status. The integrat
 ### Next useful work
 
 Play one complete campaign on the user's Windows PC. Tune aim assistance, dodge readability and boss durability from that session. Then consider branching routes or an all-range encounter, a larger enemy roster, rebinding/accessibility options and voice dialogue. Keep substantial flight feel improvements ahead of cosmetic menu churn.
-
-### Orbital hub momentum update
-
-Press **I** or use the options menu to cut/restart the engines. Cutoff disables thrust, hover damping and powered braking; attitude control remains available, and existing velocity survives turns and boost release. Restart engines before using Space to brake. H still toggles powered hover assistance. The outer-room safety arrest and harmless proximity stops remain active.
-
-Asteroids now integrate velocity under scaled planetary tidal gravity and rotating-frame forces, with mass-based rock collision impulses and station rebounds. They no longer follow scripted circles or freeze near the ship. This is a local co-orbiting approximation, not a full solar-system simulation. The station turns slowly at the planet surface rotation rate; its collision volumes rotate with its meshes. Orbital time controls both.
-
-### Orbital light lance
-
-Aim the ship nose at a visible asteroid within 700 m. Press **G / left mouse / controller A** to latch it, then press again to fling. The glowing tether reels the real asteroid toward a stand-off point using a damped spring. Hold for two seconds to charge the fantasy launch from 120 to 320 m/s; ship velocity and part of the asteroid swing velocity carry into the throw. **R** drops the tether without a launch impulse. Solid station cover blocks acquisition and breaks tethers. Returning home, disabling visitors or losing the target releases it safely. The lance works with engines off. Rocks retain ordinary gravity, collisions and momentum after release; the station remains indestructible.
-
-## Cinder tank air support
-
-Tank-mission companions now make staggered five-second strafing passes from opposite screen edges, then withdraw before returning. They fire their real lasers and offensive specialist abilities during the attack window. Bodyguard interception is disabled during ground support; off-screen aircraft cannot intercept projectiles. Normal flight formations are unchanged. Pass timers reset on mission refit/retry.
-
-Inspected Project Barrel Roll `codex/two-legged-ground-walker`: Bastion Assault (`assault_tank`) and Bulwark Fortress (`bulwark`) are armored aircraft chassis with tank roles, not tracked ground tanks. Its actual ground assets include the articulated two-leg walker (`scenes/ground_walker_preview.tscn`, documented in `docs/GROUND_WALKER.md`) and the RIME ground boss. These assets were located, not imported in this change; Cinder retains Foxlike’s existing Jackal tank.
-
-Validation: eight new tank-support checks and 159 existing campaign/squadron/expansion checks pass in Godot 4.7.2. Rendering, physical controller play and a human tank-mission playtest were not performed for this change.

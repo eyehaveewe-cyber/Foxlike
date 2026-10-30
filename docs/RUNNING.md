@@ -59,7 +59,7 @@ The packager runs these 12 native suites before exporting:
 - `tests/tank_support_smoke.gd`
 <!-- native-suite-list:end -->
 
-Regenerate the documented lists with `python tools/check_documentation.py --write` after changing the packager. CI checks these lists and local documentation links.
+Regenerate the documented lists with `python tools/check_documentation.py --write` after changing the packager. CI checks these lists, local documentation links and complete UTC timestamps in newest-first progress-history order.
 
 ## Play the browser build locally
 

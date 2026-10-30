@@ -97,4 +97,4 @@ python tools/package_release.py --godot godot
 ```
 <!-- native-suite-commands:end -->
 
-`python tools/package_release.py --godot /path/to/godot` imports, checks and exports Windows and Web. `python tools/package_source.py` builds the editable source ZIP. `python tools/check_documentation.py` checks local links and generated suite lists. [Music source and provenance](docs/ASSET_IMPORTS.md), [asset credits](CREDITS.md), and [original design/handoff](docs/Foxlike_Design_and_Handoff.docx) are included.
+`python tools/package_release.py --godot /path/to/godot` imports, checks and exports Windows and Web. `python tools/package_source.py` builds the editable source ZIP. `python tools/check_documentation.py` checks local links, UTC progress-history order and generated suite lists. [Music source and provenance](docs/ASSET_IMPORTS.md), [asset credits](CREDITS.md), and [original design/handoff](docs/Foxlike_Design_and_Handoff.docx) are included.

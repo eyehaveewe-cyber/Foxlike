@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Check local documentation links and regenerate the documented native suite lists."""
+"""Check links, UTC progress history, and the documented native suite lists."""
 from __future__ import annotations
 
 import argparse
 import ast
+from datetime import datetime
 from pathlib import Path
 import re
 from urllib.parse import unquote, urlsplit
@@ -13,6 +14,37 @@ REGIONS = {
     "README.md": "native-suite-commands",
     "docs/RUNNING.md": "native-suite-list",
 }
+
+
+def check_progress_history(text: str) -> int:
+    entries = re.split(r"(?m)^## ", text)[1:]
+    if not entries:
+        raise RuntimeError("PROGRESS.md has no history entries")
+    previous = None
+    for entry in entries:
+        heading = entry.splitlines()[0]
+        match = re.fullmatch(r"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) UTC — .+", heading)
+        if not match:
+            raise RuntimeError(f"PROGRESS.md entry needs a complete UTC timestamp: {heading}")
+        try:
+            timestamp = datetime.strptime(match[1], "%Y-%m-%d %H:%M:%S")
+        except ValueError as error:
+            raise RuntimeError(f"Invalid PROGRESS.md timestamp: {heading}") from error
+        if previous is not None and timestamp > previous:
+            raise RuntimeError(f"PROGRESS.md is not newest first: {heading}")
+        previous = timestamp
+        sources = re.findall(
+            r"(?m)^Source commit: \[([0-9a-f]{7,40})\]\(https://github\.com/eyehaveewe-cyber/Foxlike/commit/([0-9a-f]{40})\)$",
+            entry,
+        )
+        source_lines = re.findall(r"(?m)^Source commit:.*$", entry)
+        if (
+            len(sources) != len(source_lines)
+            or len(sources) > 1
+            or (sources and not sources[0][1].startswith(sources[0][0]))
+        ):
+            raise RuntimeError(f"Invalid PROGRESS.md source commit: {heading}")
+    return len(entries)
 
 
 def documentation_files() -> set[Path]:
@@ -68,6 +100,7 @@ def anchors(document: Path) -> set[str]:
 
 
 def check_docs(write: bool = False) -> tuple[int, int]:
+    check_progress_history((ROOT / "PROGRESS.md").read_text(encoding="utf-8"))
     suites = native_suites()
     if not suites or len(suites) != len(set(suites)):
         raise RuntimeError("Missing or duplicate native suites in package_release.py")
