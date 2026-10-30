@@ -7,9 +7,9 @@
   },
   "mode_timeout_ms": 180000,
   "action_timeout_ms": 45000,
-  "elapsed_ms": 39194,
+  "elapsed_ms": 36285,
   "last_telemetry": {
-    "energy": 88.0000000000007,
+    "energy": 85.3000000000006,
     "flight_time": 6.34999999999999,
     "hostiles": 3,
     "input_armed": true,
@@ -26,13 +26,13 @@
     "mode": "FLIGHT",
     "music_muted": false,
     "music_playing": true,
-    "music_position": 28.9291610717773,
+    "music_position": 25.9018592834473,
     "music_track": 0,
     "paused": false,
-    "player_x": 16.0249996185303,
+    "player_x": 16.9477367401123,
     "player_y": 80,
-    "player_z": 32.848518371582,
-    "shield": 82,
+    "player_z": 36.6727447509766,
+    "shield": 100,
     "shots_fired": 6,
     "stage": 0,
     "viewport": [
@@ -43,7 +43,7 @@
   "checks": [
     {
       "name": "WebGL game starts at flight deck",
-      "elapsed_ms": 8368,
+      "elapsed_ms": 8393,
       "details": {
         "menu_bounds": [
           190,
@@ -66,7 +66,7 @@
     },
     {
       "name": "Flight deck fits the actual viewport",
-      "elapsed_ms": 8368,
+      "elapsed_ms": 8393,
       "details": {
         "menu_bounds": [
           190,
@@ -89,7 +89,7 @@
     },
     {
       "name": "Keyboard launches mission briefing",
-      "elapsed_ms": 10213,
+      "elapsed_ms": 9257,
       "details": {
         "menu_bounds": [
           190,
@@ -101,7 +101,7 @@
         "mode": "BRIEFING",
         "music_muted": false,
         "music_playing": true,
-        "music_position": 0.49922901391983,
+        "music_position": 0.00290249427780509,
         "music_track": 0,
         "paused": false,
         "viewport": [
@@ -112,7 +112,7 @@
     },
     {
       "name": "Exported MBean1 mission stream is playing",
-      "elapsed_ms": 10214,
+      "elapsed_ms": 9257,
       "details": {
         "menu_bounds": [
           190,
@@ -124,7 +124,7 @@
         "mode": "BRIEFING",
         "music_muted": false,
         "music_playing": true,
-        "music_position": 0.49922901391983,
+        "music_position": 0.00290249427780509,
         "music_track": 0,
         "paused": false,
         "viewport": [
@@ -135,7 +135,7 @@
     },
     {
       "name": "Exported music playback advances",
-      "elapsed_ms": 10523,
+      "elapsed_ms": 9729,
       "details": {
         "menu_bounds": [
           190,
@@ -147,7 +147,7 @@
         "mode": "BRIEFING",
         "music_muted": false,
         "music_playing": true,
-        "music_position": 0.989750564098358,
+        "music_position": 0.269931972026825,
         "music_track": 0,
         "paused": false,
         "viewport": [
@@ -158,7 +158,7 @@
     },
     {
       "name": "Keyboard mute reaches exported audio controller",
-      "elapsed_ms": 10945,
+      "elapsed_ms": 10070,
       "details": {
         "menu_bounds": [
           190,
@@ -170,7 +170,7 @@
         "mode": "BRIEFING",
         "music_muted": true,
         "music_playing": true,
-        "music_position": 1.43963718414307,
+        "music_position": 0.580498874187469,
         "music_track": 0,
         "paused": false,
         "viewport": [
@@ -181,7 +181,7 @@
     },
     {
       "name": "Briefing launches the spatial campaign",
-      "elapsed_ms": 15036,
+      "elapsed_ms": 13274,
       "details": {
         "energy": 100,
         "flight_time": 0.1,
@@ -200,7 +200,7 @@
         "mode": "FLIGHT",
         "music_muted": false,
         "music_playing": true,
-        "music_position": 5.4189567565918,
+        "music_position": 3.72099781036377,
         "music_track": 0,
         "paused": false,
         "player_x": 100,
@@ -217,15 +217,15 @@
     },
     {
       "name": "Keyboard steers ship right",
-      "elapsed_ms": 17270,
+      "elapsed_ms": 15648,
       "details": {
         "xBefore": 100,
-        "xAfter": 104.21875
+        "xAfter": 105.182411193848
       }
     },
     {
       "name": "Holding fire creates laser shots",
-      "elapsed_ms": 23502,
+      "elapsed_ms": 21855,
       "details": {
         "before": 2,
         "after": 6
@@ -233,10 +233,10 @@
     },
     {
       "name": "Dedicated control starts a powered spatial loop",
-      "elapsed_ms": 24695,
+      "elapsed_ms": 23249,
       "details": {
         "energy": 70,
-        "flight_time": 2.85,
+        "flight_time": 3,
         "hostiles": 3,
         "input_armed": true,
         "maneuver": "long_loop",
@@ -252,12 +252,12 @@
         "mode": "FLIGHT",
         "music_muted": false,
         "music_playing": true,
-        "music_position": 14.889796257019,
+        "music_position": 13.1018590927124,
         "music_track": 0,
         "paused": false,
-        "player_x": 72.5199813842773,
+        "player_x": 71.8945846557617,
         "player_y": 81.9861755371094,
-        "player_z": 83.5103454589844,
+        "player_z": 80.6352005004883,
         "shield": 100,
         "shots_fired": 6,
         "stage": 0,
@@ -269,12 +269,12 @@
     },
     {
       "name": "Long loop traverses world space",
-      "elapsed_ms": 32371,
+      "elapsed_ms": 30211,
       "details": {
-        "distance": 65.21370358356941,
+        "distance": 63.97788064086605,
         "afterLoop": {
-          "energy": 72.7000000000001,
-          "flight_time": 5.49999999999999,
+          "energy": 70.9,
+          "flight_time": 5.54999999999999,
           "hostiles": 3,
           "input_armed": true,
           "maneuver": "",
@@ -290,12 +290,12 @@
           "mode": "FLIGHT",
           "music_muted": false,
           "music_playing": true,
-          "music_position": 22.3317909240723,
+          "music_position": 19.8995018005371,
           "music_track": 0,
           "paused": false,
-          "player_x": 36.281120300293,
+          "player_x": 34.859375,
           "player_y": 80,
-          "player_z": 51.0275421142578,
+          "player_z": 51.0036659240723,
           "shield": 100,
           "shots_fired": 6,
           "stage": 0,
@@ -308,7 +308,7 @@
     },
     {
       "name": "Pause freezes mission clock",
-      "elapsed_ms": 35907,
+      "elapsed_ms": 33795,
       "details": {
         "before": 6.09999999999999,
         "after": 6.09999999999999
@@ -316,9 +316,9 @@
     },
     {
       "name": "Resume advances flight again",
-      "elapsed_ms": 39193,
+      "elapsed_ms": 36285,
       "details": {
-        "energy": 88.0000000000007,
+        "energy": 85.3000000000006,
         "flight_time": 6.34999999999999,
         "hostiles": 3,
         "input_armed": true,
@@ -335,13 +335,13 @@
         "mode": "FLIGHT",
         "music_muted": false,
         "music_playing": true,
-        "music_position": 28.9291610717773,
+        "music_position": 25.9018592834473,
         "music_track": 0,
         "paused": false,
-        "player_x": 16.0249996185303,
+        "player_x": 16.9477367401123,
         "player_y": 80,
-        "player_z": 32.848518371582,
-        "shield": 82,
+        "player_z": 36.6727447509766,
+        "shield": 100,
         "shots_fired": 6,
         "stage": 0,
         "viewport": [
@@ -352,7 +352,7 @@
     },
     {
       "name": "No JavaScript or engine console errors",
-      "elapsed_ms": 39194,
+      "elapsed_ms": 36285,
       "details": []
     }
   ],

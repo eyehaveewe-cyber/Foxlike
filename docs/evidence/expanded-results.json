@@ -3,7 +3,7 @@
   "engine": "4.7.2.stable.official.ed1daf0bf",
   "native_suites": {
     "OPERATIONS_SMOKE": {
-      "checks": 113,
+      "checks": 120,
       "failures": 0
     },
     "OPERATION_ROUTES": {
@@ -51,7 +51,7 @@
       "failures": 0
     }
   },
-  "native_total": 764,
+  "native_total": 771,
   "browser": {
     "version": "154.0.8037.57",
     "viewport": {
@@ -67,10 +67,10 @@
     "scripts/arena_carrier.gd": "6ba760df58fc048b54d4aff0aadf86dfdd34ddf6900407b277cfa4794887f920",
     "scripts/campaign/airframe_pose.gd": "55638cec7ea3383ee3462d5aef91fee9f2587da00d79b4f1076dec1745811fe8",
     "scripts/campaign/campaign_save.gd": "c486fafdfe58e39318d5e8ff75f0507a37bb973c24d972f3453b73f3be280697",
-    "scripts/campaign/expanded_game.gd": "6370c890067b2b41269137fd062d758dd6585caeecedbac576efe1955cadc656",
+    "scripts/campaign/expanded_game.gd": "6baa1a96235099b7beb65732ed236895c305355cc88ebf9f402a4f29e75918b1",
     "scripts/campaign/operation_actor.gd": "c4fafba4fb956683c029a65fa6c1f3aab96bd978b9fbea260a86025a05eccb9e",
     "scripts/campaign/operation_catalog.gd": "65fe8622142979be842904e2a6e97fef1f96c8144ccc03d58adb9c7edeae129f",
-    "scripts/campaign/operation_session.gd": "d62902ba078e56fa1a769f0b016a2b92cb0d03c472e46d159d496e3d000a0281",
+    "scripts/campaign/operation_session.gd": "6b43659ed3257e68b01a9206bcf00120d1c058b343f659b395e7e8e9375b0614",
     "scripts/campaign/operation_walker.gd": "a7a05ebeb64d3b2075b41fedc35fd76122ba6b44506fd2af8e2094f9e95dbece",
     "scripts/campaign/pbr_ground_walker.gd": "fd9dfc2fd4b93c074063d79fb45484646924563c3c08df9ec8dfa10eb5598885",
     "scripts/campaign/spatial_maneuver.gd": "2407bfe009cf1a1adbad754458cf08453cb0ee05803d3152257fad546b45f4db",
@@ -118,14 +118,14 @@
     {
       "platform": "windows",
       "file": "Foxlike-windows.zip",
-      "bytes": 54987280,
-      "sha256": "a542acb39a807db49d7c35f10daa611ae4e4c3754ccaffdb48c842bb5882d008"
+      "bytes": 54988736,
+      "sha256": "41b8fdbe55df2b49aa2e58aa61b2926a92a37acc3a182a5752accc37dce970c4"
     },
     {
       "platform": "web",
       "file": "Foxlike-web.zip",
-      "bytes": 27145084,
-      "sha256": "bc3f0d7bf1a193d41d940197ae748d6174780bd1c795343f72404b39d3374bfe"
+      "bytes": 27146542,
+      "sha256": "329544babc195b29708c4e269d290ee36d3a3db40396147e77363248dfa4ee43"
     }
   ],
   "scope": "Arranged native state/physics tests and actual Chromium keyboard smoke; no human campaign completion, physical controller or Windows hardware result.",

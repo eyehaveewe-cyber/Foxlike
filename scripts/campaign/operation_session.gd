@@ -705,12 +705,22 @@ func snapshot() -> Dictionary:
 func restore(record: Dictionary) -> bool:
 	if record.get("version")!=1 or not record.get("mission","") in Catalog.IDS: return false
 	var candidate := Catalog.definition(record.mission)
+	if not _number(record.get("stage")) or record.stage!=int(record.stage): return false
 	if int(record.get("stage",-1))<0 or int(record.stage)>=candidate.states.size(): return false
 	for key in ["elapsed","stage_time","score","next_uid","core_hp","boss_kind","reserve","missiles","bombs","formation"]:
 		if not _number(record.get(key)): return false
 	for key in ["repair_cargo"]:
 		if not record.get(key) is bool: return false
 	if not record.get("required_cargo") is String: return false
+	if record.next_uid<0 or record.next_uid>1024 or record.next_uid!=int(record.next_uid): return false
+	if not record.get("pending") is Array or record.pending.size()>128 or not record.get("tank") is Dictionary: return false
+	for entry in record.pending:
+		if not entry is Dictionary or not entry.get("id") is String or not entry.get("kind") in ["fighter","bomber","interceptor","tank","walker"] or not _number(entry.get("hp")) or not _vector(entry.get("point")): return false
+	for key in record.tank:
+		if not key in ["height","vertical_speed","fuel","exhausted"]: return false
+	for key in ["height","vertical_speed","fuel"]:
+		if not _number(record.tank.get(key)): return false
+	if not record.tank.get("exhausted") is bool or record.tank.fuel<0 or record.tank.fuel>100: return false
 	if not record.get("pickups") is Array or not _number(record.get("rings")) or not _number(record.get("laser_level")): return false
 	for item in record.pickups:
 		if not item is Dictionary or not item.get("id") is String or not item.get("kind") in ["ring","ammo","wing","repair","nova"] or not _vector(item.get("point")): return false
@@ -722,6 +732,23 @@ func restore(record: Dictionary) -> bool:
 	if record.actors.size()>256 or not _vector(record.carrier_position): return false
 	if not record.facts.get("carrier") is Dictionary or not record.facts.get("rivals") is Dictionary or not record.facts.get("rescues") is Array: return false
 	if not _number(record.facts.carrier.get("hull")): return false
+	for id in record.facts.rivals:
+		if not id in ["rook","shrike","slate"] or not record.facts.rivals[id] in ["unseen","disabled","withdrawn","recovered","lost","ejected"]: return false
+	for key in ["drive_overstrained","parts_secured","repaired"]:
+		if not record.facts.carrier.get(key) is bool: return false
+	if not record.facts.get("companions") is Dictionary: return false
+	for id in record.facts.companions:
+		var condition: Variant = record.facts.companions[id]
+		if not condition is Dictionary or not _number(condition.get("hp")) or not condition.get("withdrawn") is bool: return false
+	for value in record.facts.rescues:
+		if not value is String: return false
+	for key in Catalog.DEFAULTS:
+		var value: Variant = record.settings.get(key)
+		var standard: Variant = Catalog.DEFAULTS[key]
+		if standard is bool and not value is bool: return false
+		if standard is String and not value is String: return false
+		if (standard is float or standard is int) and not _number(value): return false
+	if not record.settings.get("difficulty") in ["Cadet","Standard","Ace"]: return false
 	for name in record.components:
 		var part: Variant = record.components[name]
 		if not part is Dictionary or not _number(part.get("hp")) or not _vector(part.get("point")) or not part.get("disabled") is bool: return false
@@ -733,9 +760,9 @@ func restore(record: Dictionary) -> bool:
 			if not entry.get(key) is String: return false
 		for key in ["uid","team","hp","max_hp","cooldown","waypoint","level","radius","grace","route_side"]:
 			if not _number(entry.get(key)): return false
-		if seen.has(entry.id) or uids.has(entry.uid) or int(entry.uid)<0 or int(entry.uid)>1024: return false
+		if entry.uid!=int(entry.uid) or seen.has(entry.id) or uids.has(int(entry.uid)) or int(entry.uid)<0 or int(entry.uid)>=record.next_uid: return false
 		seen[entry.id] = true
-		uids[entry.uid] = true
+		uids[int(entry.uid)] = true
 		if not entry.get("critical") is bool or entry.max_hp<=0 or entry.hp<0 or entry.hp>entry.max_hp or entry.radius<=0: return false
 		if not entry.phase in ["active","secured","disabled","withdrawn","lost"]: return false
 		for key in ["position","previous_position","velocity"]:
@@ -744,6 +771,8 @@ func restore(record: Dictionary) -> bool:
 			if not _number(entry.motion.get(key)): return false
 		for key in ["depleted","boundary","pitch_hold"]:
 			if not entry.motion.get(key) is bool: return false
+		for key in entry.motion:
+			if not key in ["position","previous_position","velocity","heading","pitch","speed","energy","roll_time","roll_wait","roll_direction","bank","angular_rate","boundary_side","boundary_events","contact_cooldown","depleted","boundary","pitch_hold"]: return false
 		if not entry.get("path") is Array or not _vector(entry.get("goal")): return false
 		for point in entry.path:
 			if not _vector(point): return false
@@ -752,12 +781,13 @@ func restore(record: Dictionary) -> bool:
 		for key in Actor.Vehicle.PROFILE:
 			if key=="id": continue
 			if not _number(entry.profile.get(key)) or entry.profile[key]<0: return false
-		if entry.profile.angular_rate<=0 or entry.profile.extent<=0 or entry.profile.extent>12: return false
+		if not entry.profile.get("id") is String or entry.profile.response<=0 or entry.profile.roll_duration<=0 or entry.profile.angular_rate<=0 or entry.profile.extent<=0 or entry.profile.extent>12: return false
 		if not entry.get("parts",{}) is Dictionary: return false
 		for name in entry.get("parts",{}):
 			var part: Variant = entry.parts[name]
 			if not part is Dictionary or not _number(part.get("hp")) or not _vector(part.get("offset")): return false
 	if not seen.has("comet"): return false
+	if not record.required_cargo.is_empty() and not seen.has(record.required_cargo): return false
 	definition = candidate
 	actors.clear(); weapons.reset(); events.clear()
 	for entry in record.actors:
@@ -782,4 +812,4 @@ static func _number(value: Variant) -> bool:
 	return (value is int or value is float) and is_finite(float(value))
 
 static func _vector(value: Variant) -> bool:
-	return value is Array and value.size()==3 and value.all(func(v):return _number(v))
+	return value is Array and value.size()==3 and value.all(func(v):return _number(v) and absf(float(v))<=100000)

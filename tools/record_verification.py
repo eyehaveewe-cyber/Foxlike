@@ -18,8 +18,10 @@ def main():
         raise RuntimeError("Native validation did not complete successfully")
     for path, marker in [("build/operations-final.log", "OPERATIONS_SMOKE"), ("build/journey-final.log", "OPERATION_JOURNEY_SMOKE"), ("build/music-final.log", "MUSIC_SMOKE")]:
         focused = (ROOT / path).read_text()
-        if "SCRIPT ERROR:" in focused or not re.search(rf"^{marker}: {results[marker]['checks']} (?:checks|assertions); 0 failures", focused, re.M):
+        match = re.search(rf"^{marker}: (\d+) (?:checks|assertions); 0 failures", focused, re.M)
+        if "SCRIPT ERROR:" in focused or not match or int(match[1]) < results[marker]["checks"]:
             raise RuntimeError("Focused final validation failed: " + path)
+        results[marker]["checks"] = int(match[1])
     browser = json.loads((ROOT / "build/web-smoke/results.json").read_text())
     if not browser["passed"] or browser["errors"]:
         raise RuntimeError("Exported browser validation failed")

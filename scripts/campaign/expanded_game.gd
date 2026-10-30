@@ -138,10 +138,11 @@ func _new_save_choice() -> void:
 		save.error = ""; save.data = save.fresh(); save.write(); _briefing(Catalog.IDS[0])
 	)
 
-func _briefing(id: String) -> void:
+func _briefing(id: String, recovery_message: String = "") -> void:
 	mode = "briefing"; _clear_menu()
 	var mission := Catalog.definition(id)
 	_text(mission.title,28)
+	if not recovery_message.is_empty(): _text(recovery_message)
 	_text(" / ".join(mission.states.map(func(s):return str(s.text))))
 	_text("Required cargo and Dragonfly loss cause failure. Optional recovery losses affect the debrief. Retry restores the last objective checkpoint.")
 	_text("WASD/arrows or left stick: steer. Left mouse/RT: fire.\n%s: fire / %s: boost / %s: brake\n%s: target / %s: missile / %s: Nova / %s: interact\n%s tap: abilities, hold: assignments / %s: formation\n%s: somersault / %s: long loop / %s: corkscrew"%[_binding("fire"),_binding("boost"),_binding("brake"),_binding("target"),_binding("missile"),_binding("nova"),_binding("interact"),_binding("ability"),_binding("formation"),_binding("somersault"),_binding("long_loop"),_binding("corkscrew")])
@@ -153,7 +154,7 @@ func _briefing(id: String) -> void:
 
 func _launch(id: String, resume_checkpoint: bool = false) -> void:
 	session = Session.new(); session.begin(id,save.data)
-	if resume_checkpoint and not session.restore(save.data.checkpoint): notice = "Checkpoint could not be restored. Restarting this operation from its briefing."; _briefing(id); return
+	if resume_checkpoint and not session.restore(save.data.checkpoint): notice = "Checkpoint could not be restored. Restarting this operation from its briefing."; _briefing(id,notice); return
 	replay = save.data.completed.has(id)
 	mode = "flight"; paused = false; settled = false; input_armed = false; saved_stage = -1; saved_checkpoint_revision = -1; last_music_boss = false
 	_disarm_controls()

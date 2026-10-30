@@ -32,7 +32,7 @@ func run() -> void:
 	var malformed := Session.new()
 	check(not malformed.restore({"version":1,"mission":Catalog.IDS[0],"stage":0}),"Malformed checkpoint is rejected before mutation")
 	var valid := Session.new(); valid.begin("anchorage_defense",save.fresh())
-	for damage in ["missing-field","duplicate-uid","bad-vector","bad-part","bad-profile"]:
+	for damage in ["missing-field","duplicate-uid","bad-vector","bad-part","bad-profile","bad-arrivals","bad-tank","motion-extra","missing-carrier","missing-settings","uid-frontier"]:
 		var broken := valid.snapshot()
 		match damage:
 			"missing-field": broken.erase("repair_cargo")
@@ -40,6 +40,12 @@ func run() -> void:
 			"bad-vector": broken.actors[0].motion.position[0] = "not a number"
 			"bad-part": broken.actors[0].parts = {"Drive":{"hp":4,"offset":[1,2]}}
 			"bad-profile": broken.actors[0].profile.angular_rate = "fast"
+			"bad-arrivals": broken.pending = ["not an arrival"]
+			"bad-tank": broken.tank.fuel = "full"
+			"motion-extra": broken.actors[0].motion.script = "not a pose input"
+			"missing-carrier": broken.facts.carrier.erase("parts_secured")
+			"missing-settings": broken.settings.erase("difficulty")
+			"uid-frontier": broken.next_uid = 0
 		var original := valid.snapshot()
 		check(not valid.restore(broken) and valid.snapshot()==original,"Malformed checkpoint rejected atomically / "+damage)
 	var crown := Session.new(); crown.begin("tempest_crown",save.fresh()); crown.stage = 1; crown._enter()
@@ -134,6 +140,9 @@ func run() -> void:
 	scene.paused = false; scene.mode = "flight"
 	Input.joy_connection_changed.emit(0,false)
 	check(scene.paused and not scene.input_armed,"Controller-disconnect event pauses and requires neutral rearm")
+	scene.save.data.checkpoint = {"version":999}
+	scene._launch("anchorage_defense",true)
+	check(scene.mode=="briefing" and scene.ui_stack.get_children().any(func(node):return node is Label and node.text.begins_with("Checkpoint could not be restored")),"Invalid checkpoint fallback visibly explains the safe briefing restart")
 	scene.queue_free(); await process_frame
 	await create_timer(.15).timeout
 	print("OPERATIONS_SMOKE: %d checks; %d failures"%[checks,failures.size()])
