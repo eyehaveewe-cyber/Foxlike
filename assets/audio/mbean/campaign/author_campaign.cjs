@@ -57,6 +57,10 @@ const chordData = {
 };
 // Rhythm is authored per scene. Entries are [onset in beats, gate, root/fifth/octave].
 const grooves = {
+  escort:{bass:[[0,.45,0],[.75,.3,7],[2.25,.5,0],[3.5,.25,12]],kick:[0,.75,2.25],snare:[1,3],hats:[0,.5,1.5,2,2.5,3,3.5],comp:[.5,2.25]},
+  courier:{bass:[[0,.3,0],[.5,.2,12],[1.25,.25,7],[2.5,.35,0],[3.25,.3,7]],kick:[0,1.25,2.5],snare:[1.5,3.5],hats:[0,.5,.75,1.5,2,2.5,2.75,3.5],comp:[.5,2.5]},
+  salvage:{bass:[[0,1.2,0],[2,.85,7],[3.25,.35,0]],kick:[0,2],snare:[3],hats:[.5,1.5,2.5,3.5],comp:[0,2]},
+  forecast:{bass:[[0,.8,0],[1.75,.45,7],[3,.5,12]],kick:[0,1.75,3],snare:[1,3],hats:[.5,1,1.5,2.5,3,3.5],comp:[0,2.5]},
   coast:{bass:[[0,.65,0],[1.5,.35,7],[2.5,.4,12],[3.5,.25,7]],kick:[0,1.5,2.5],snare:[1,3],hats:[0,.5,1,1.5,2,2.5,3,3.5],comp:[0,2.5]},
   blockade:{bass:[[0,.4,0],[.75,.3,0],[1.5,.4,7],[2.5,.4,0],[3.25,.3,12]],kick:[0,.75,2.5],snare:[1.5,3.5],hats:[0,.5,1,1.5,2,2.5,3,3.5],comp:[0,1.5,3]},
   ice:{bass:[[0,1.3,0],[2.5,.7,7]],kick:[0,2.5],snare:[2],hats:[.5,1.5,2.5,3.5],comp:[0]},
@@ -89,7 +93,7 @@ for(const cue of manifest.cues) {
   const bass=tr('Bass foundation','chipBass',.43,'bass',{attack:.006,decay:.11,sustain:.65,release:.035,cutoff:d.bassCutoff??1300,bassWave:d.bassWave??'triangle',vibratoDepth:0});
   const drums=tr('Scene pulse','chipDrums',d.drumVolume??.36,'auto',{release:.04},.025);
   let answer=null;
-  if(d.phrases.some(x=>x.answers))answer=tr('Motif answers',d.answerVoice??'pulseLead',.25,'harmony',{attack:.012,decay:.09,sustain:.34,release:.04,pulseWidth:.125,cutoff:3300,vibratoDepth:0},.16);
+  if(d.phrases.some(x=>x.answers))answer=tr('Motif answers',d.answerVoice??'pulseLead',.25,'harmony',{attack:.012,decay:.09,sustain:.34,release:.04,pulseWidth:.125,cutoff:3300,vibratoDepth:0,...d.answerSound},.16);
   function put(t,at,len,pitch,velocity) {
     const event=M.note(Math.round(at),Math.max(1,Math.round(len)),pitch,velocity);
     event.id=`${cue.id}-n${++nserial}`;
@@ -189,15 +193,17 @@ for(const cue of manifest.cues) {
   const pitches=lead.notes.map(n=>n.pitch);
   const high=lead.notes.filter(n=>n.pitch>=91);
   const friction=[];
-  for(const n of lead.notes) for(const h of pad.notes) {
-    if(![1,13,25].includes(Math.abs(n.pitch-h.pitch)))continue;
+  const soundingEnd=(note,track)=>note.startTick+(track.instrument==='chipTom'?
+    (.30+track.sound.release)*cue.bpm/60*PPQ:note.durationTicks+track.sound.release*cue.bpm/60*PPQ);
+  for(const support of validated.tracks.filter(t=>t.role==='harmony')) for(const n of lead.notes) for(const h of support.notes) {
+    if(Math.abs(n.pitch-h.pitch)%12!==1)continue;
     const a=Math.max(n.startTick,h.startTick);
-    const z=Math.min(n.startTick+n.durationTicks+lead.sound.release*cue.bpm/60*PPQ,h.startTick+h.durationTicks+pad.sound.release*cue.bpm/60*PPQ);
+    const z=Math.min(soundingEnd(n,lead),soundingEnd(h,support));
     const seconds=(z-a)/PPQ*60/cue.bpm;
-    if(seconds>=.17)friction.push({bar:Math.floor(a/BAR)+1,melody:n.pitch,support:h.pitch,seconds});
+    if(seconds>=.17)friction.push({bar:Math.floor(a/BAR)+1,melody:n.pitch,support:h.pitch,track:support.name,seconds});
   }
   audit.push({id:cue.id,bpm:cue.bpm,bars:cue.bars,seconds:totalSeconds,tracks:validated.tracks.length,notes:validated.tracks.reduce((n,t)=>n+t.notes.length,0),foregroundRange:[Math.min(...pitches),Math.max(...pitches)],upperSupportMaximum:Math.max(...pad.notes.map(n=>n.pitch)),highPulseEvents:high.length,longestHighPulseGateSeconds:Math.max(0,...high.map(n=>n.durationTicks/PPQ*60/cue.bpm)),exposedSemitoneReview:friction,uniquePhraseSignatures:new Set(ownPhrases.map(x=>x.signature)).size,phraseCount:ownPhrases.length,sha256:crypto.createHash('sha256').update(text).digest('hex'),modelValidation:'pass',releaseSeam:'pass'});
   console.log(`${cue.id}: ${cue.bars} bars, ${totalSeconds.toFixed(3)}s, ${audit.at(-1).notes} notes, validated`);
 }
 fs.writeFileSync(path.join(DIR,'phrase-map.json'),JSON.stringify({version:1,notation:'concert pitch:quarter-note length; _:length is a rest; each string is a 4/4 bar',phrases:phraseMap},null,2)+'\n');
-fs.writeFileSync(path.join(DIR,'score-audit.json'),JSON.stringify({version:1,rendererModel:'../renderer/model.js',modelSha256:crypto.createHash('sha256').update(fs.readFileSync(modelPath)).digest('hex'),source:'phrases.cjs',sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(path.join(DIR,'phrases.cjs'))).digest('hex'),method:'MBean1 model validation plus note/phrase/release inspection. Audio rendering and playback are separate.',highPulseTreatment:'Velocity multiplied by 0.88 above MIDI88 and 0.80 at MIDI94 and above; no register transposition.',frictionReview:'Only one >=0.17s lead/support semitone compound: Tempest flight bar24 F#6 over E#4 for 0.214s, a weak-eighth passing fourth resolving to E#6. No >=0.25s exposures.',cues:audit},null,2)+'\n');
+fs.writeFileSync(path.join(DIR,'score-audit.json'),JSON.stringify({version:1,rendererModel:'../renderer/model.js',modelSha256:crypto.createHash('sha256').update(fs.readFileSync(modelPath)).digest('hex'),source:'phrases.cjs',sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(path.join(DIR,'phrases.cjs'))).digest('hex'),method:'MBean1 model validation plus note/phrase/release inspection. Audio rendering and playback are separate.',highPulseTreatment:'Velocity multiplied by 0.88 above MIDI88 and 0.80 at MIDI94 and above; no register transposition.',frictionReview:{criterion:'Lead and all harmonic-support sounding overlaps at any octave compound of a semitone, lasting at least 0.17s; includes synth release and fixed chip-tom tails. Review candidates in musical context.',candidates:audit.reduce((n,c)=>n+c.exposedSemitoneReview.length,0),atLeastQuarterSecond:audit.reduce((n,c)=>n+c.exposedSemitoneReview.filter(x=>x.seconds>=.25).length,0)},cues:audit},null,2)+'\n');

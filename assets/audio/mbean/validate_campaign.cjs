@@ -13,19 +13,36 @@ vm.runInContext(fs.readFileSync(path.join(__dirname, 'renderer/model.js'), 'utf8
 const M = context.model;
 const digest = file => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 const SYNTHS = new Set(['pulseLead', 'chipBass', 'chipDrums', 'chipTom']);
+const OPERATIONS = new Map([
+  ['viridia_last_ferry', {world:'viridia', index:12}],
+  ['aurora_courier', {world:'aurora', index:13}],
+  ['terminus_falling_yard', {world:'terminus', index:14}],
+  ['tempest_stormbreak', {world:'tempest', index:15}],
+]);
 
 function validateScores() {
   const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, 'manifest.json'), 'utf8'));
   assert.equal(manifest.version, 1);
-  assert.equal(manifest.cues.length, 12);
-  const ids = new Set(), destinations = new Set(), melodies = new Set();
+  assert.equal(manifest.cues.length, 16);
+  const ids = new Set(), destinations = new Set(), melodies = new Set(), eventIds = new Set();
   for (const cue of manifest.cues) {
-    assert.match(cue.id, /^(viridia|aurora|terminus|cinder|anchorage|tempest)-(flight|boss)$/);
     assert.equal(cue.file, cue.id + '.json');
-    assert(Number.isInteger(cue.stage) && cue.stage >= 0 && cue.stage < 6);
     assert.equal(typeof cue.boss, 'boolean');
     assert(!ids.has(cue.id)); ids.add(cue.id);
-    const destination = cue.stage * 2 + Number(cue.boss);
+    let destination;
+    if (OPERATIONS.has(cue.id)) {
+      const operation = OPERATIONS.get(cue.id);
+      assert.equal(cue.operation_id, cue.id);
+      assert.equal(cue.world, operation.world);
+      assert.equal(cue.playback_index, operation.index);
+      assert.equal(cue.stage, undefined, cue.id + ' uses an operation destination');
+      assert.equal(cue.boss, false);
+      destination = cue.playback_index;
+    } else {
+      assert.match(cue.id, /^(viridia|aurora|terminus|cinder|anchorage|tempest)-(flight|boss)$/);
+      assert(Number.isInteger(cue.stage) && cue.stage >= 0 && cue.stage < 6);
+      destination = cue.stage * 2 + Number(cue.boss);
+    }
     assert(!destinations.has(destination)); destinations.add(destination);
     const source = JSON.parse(fs.readFileSync(path.join(ROOT, cue.file), 'utf8'));
     const p = M.validate(source);
@@ -37,6 +54,10 @@ function validateScores() {
     assert(p.tracks.some(t => t.role === 'lead' && t.notes.length > 30));
     const notes = p.tracks.flatMap(t => t.notes);
     assert.equal(new Set(notes.map(n => n.id)).size, notes.length, cue.id + ' unique event IDs');
+    for (const note of notes) {
+      assert(!eventIds.has(note.id), cue.id + ' event ID unique across all projects');
+      eventIds.add(note.id);
+    }
     for (const track of p.tracks) {
       assert(SYNTHS.has(track.instrument), cue.id + ' must not download sample assets');
       assert(track.notes.length > 0);
@@ -55,10 +76,15 @@ function validateScores() {
           cue.id + ' sounding tail clears loop end');
       }
     }
+    // Compare authored rhythm and relative contour, ignoring absolute key,
+    // tempo, velocity, IDs and release trimming. A transposed/time-scaled copy
+    // does not become a distinct campaign composition.
     const signature = JSON.stringify(p.tracks.filter(t => t.role === 'lead').map(t =>
-      t.notes.map(n => [n.startTick, n.durationTicks, n.pitch])));
+      t.notes.map(n => [n.startTick, n.pitch - t.notes[0].pitch])));
     assert(!melodies.has(signature), cue.id + ' distinct authored line'); melodies.add(signature);
   }
+  assert.equal(destinations.size, 16);
+  for (let index=0; index<16; index++) assert(destinations.has(index), 'complete playback slot ' + index);
   return manifest;
 }
 
@@ -108,6 +134,8 @@ if (require.main === module) {
   const checkHashes = checkAudio || process.argv.includes('--hashes');
   if (checkHashes) {
     const report = JSON.parse(fs.readFileSync(path.join(ROOT, 'render-report.json'), 'utf8'));
+    assert.equal(report.cues.length, 16, 'complete audio render inventory');
+    assert.equal(new Set(report.cues.map(r=>r.id)).size, 16, 'unique audio render records');
     for (const [file, sha] of Object.entries(report.source))
       assert.equal(digest(path.join(__dirname, 'renderer', file)), sha, 'pinned renderer hash');
     for (const cue of manifest.cues) {
@@ -119,7 +147,7 @@ if (require.main === module) {
       if (checkAudio) console.log(JSON.stringify({id: cue.id, ...inspectAudio(cue, audio)}));
     }
   }
-  console.log('CAMPAIGN_SCORE: 12 valid, distinct MBean1 projects' +
-    (checkAudio ? '; 12 decoded OGG loops verified' : checkHashes ? '; renderer, score and audio hashes verified' : ''));
+  console.log('CAMPAIGN_SCORE: ' + manifest.cues.length + ' valid, distinct MBean1 projects' +
+    (checkAudio ? '; ' + manifest.cues.length + ' decoded OGG loops verified' : checkHashes ? '; renderer, score and audio hashes verified' : ''));
 }
 module.exports = {validateScores, inspectAudio, digest};

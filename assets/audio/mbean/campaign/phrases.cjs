@@ -5,6 +5,321 @@
 'use strict';
 const P=(name,chords,bars,change,extra={})=>({name,chords,bars,change,...extra});
 module.exports = {
+  'terminus_falling_yard': {
+    root:0,scale:'minor',groove:'salvage',mood:'dark',leadVolume:.51,drumVolume:.30,
+    leadSound:{attack:.018,decay:.13,sustain:.63,release:.05,pulseWidth:.46,vibratoDepth:.11,cutoff:3300},
+    phrases:[
+      P('Keep the gantry steady','Cm Fm Cm G7',[
+        'C5:1.5 G5:.5 Eb5:1 _:1',
+        'F5:1 Ab5:.5 C6:.5 Ab5:1 F5:1',
+        'G5:1 Eb5:.5 C5:.5 D5:1 Eb5:1',
+        'D5:1 B4:1 G4:1 _:1'
+      ],'The command pickup doubles its first duration and stays low while the structure is stabilized.',{energy:.82}),
+      P('Balance the collapsing frame','Fm Cm Bb G7',[
+        'Ab5:1 C6:.5 Ab5:.5 G5:1 F5:1',
+        'Eb5:.5 G5:.5 C6:1 Bb5:.5 G5:.5 Eb5:1',
+        'F5:1 D5:.5 Bb4:.5 D5:1 F5:1',
+        'G5:1 B5:.5 D6:.5 B5:1 G5:1'
+      ],'The response alternates a supported upper hold with a low counterweight.',{energy:.84}),
+      P('Emergency clamps hold','Ab Fm Cm G7',[
+        'C6:1.5 Ab5:.5 Eb5:1 _:1',
+        'F5:1 C5:1 Ab4:1 _:1',
+        'Eb5:1 G5:1 C6:.5 _:1.5',
+        'B5:1 G5:.5 D5:.5 F5:1 _:1'
+      ],'Separated notes and reduced density mark controlled progress without a triumphant close.',{function:'breakdown',density:'sparse'}),
+      P('Walk the load across','Cm Ab Fm G7',[
+        'C5:1 G5:.5 Eb5:.5 G5:1 Bb5:1',
+        'C6:.5 Eb6:.5 C6:1 Ab5:1 G5:1',
+        'F5:.5 Ab5:.5 C6:.5 Eb6:.5 C6:1 Ab5:1',
+        'B5:1 D6:.5 F6:.5 D6:.5 B5:.5 G5:1'
+      ],'The augmented command gains shorter replies as stabilization becomes more confident.',{energy:.88}),
+      P('A clear evacuation signal','Eb Bb Fm G7',[
+        'G5:2 Bb5:1 _:1',
+        'D6:1.5 Bb5:.5 F5:1 _:1',
+        'Ab5:1 C6:.5 Ab5:.5 F5:1 _:1',
+        'D5:1 F5:1 B4:1 _:1'
+      ],'A restrained major-side clearing finishes the controlled emergency before the wreck shifts.',{function:'contrast',density:'sparse'}),
+      P('The yard begins to fall','Cm Bbdim Ab G7',[
+        'C5:.25 G5:.25 Eb5:.5 C6:.5 Bb5:.5 G5:1 Eb5:1',
+        'E5:.25 G5:.25 Bb5:.5 E6:.5 G6:.5 E6:1 Bb5:1',
+        'C6:.5 Eb6:.5 Ab6:1 G6:.5 Eb6:.5 C6:1',
+        'B5:.25 D6:.25 F6:.5 G6:.5 F6:.5 D6:1 B5:1'
+      ],'The stable command breaks into a clipped pickup and a diminished rupture.',{groove:'sovereign',density:'busy'}),
+      P('Choose the wreck corridor','Fm Cm Bb G7',[
+        'F6:.5 C6:.5 Ab5:.5 F5:.5 Ab5:1 C6:1',
+        'Eb6:.5 G6:.5 Eb6:.75 C6:.25 G5:1 Eb5:1',
+        'D5:.5 F5:.5 Bb5:.5 D6:.5 F6:1 D6:1',
+        'F6:.5 D6:.5 B5:.5 G5:.5 D5:1 F5:1'
+      ],'An alternating high-and-low escape line reverses the stabilization contour.',{groove:'trench',density:'busy'}),
+      P('Under the broken assembly','Ab Bb Cm G7',[
+        'Ab5:.25 C6:.25 Eb6:.5 Ab6:.5 G6:.5 Eb6:1 C6:1',
+        'D6:.25 F6:.25 Bb6:.5 A6:.5 F6:.5 D6:1 Bb5:1',
+        'G5:.5 C6:.5 Eb6:1 D6:.5 C6:.5 G5:1',
+        'B5:.5 D6:.5 G6:.75 F6:.25 D6:.5 B5:.5 G5:1'
+      ],'Escape fragments crest at a short B-flat and fall through the unstable command harmony.',{groove:'sovereign',density:'busy'}),
+      P('The command finds an exit','Cm Fm Ab G7',[
+        'C5:.75 G5:.25 Eb5:.5 G5:.5 Bb5:.5 C6:.5 Eb6:1',
+        'C6:.5 Ab5:.5 F5:1 Ab5:.5 C6:.5 F6:1',
+        'Eb6:.75 C6:.25 Ab5:.5 G5:.5 Eb5:1 C5:1',
+        'D5:.5 G5:.5 B5:1 D6:.5 F6:.5 G6:1'
+      ],'The original command rhythm returns, with a new climbing answer aimed toward the exit.',{groove:'trench'}),
+      P('Clear of the falling yard','Fm Ab Cm G7',[
+        'C6:1 Ab5:.5 F5:.5 G5:.5 Ab5:.5 C6:1',
+        'Eb6:.5 C6:.5 Ab5:1 G5:.5 Eb5:.5 C5:1',
+        'G5:1 Eb5:.5 C5:.5 D5:1 Eb5:1',
+        'F5:.5 D5:.5 B4:1 G4:1 _:1'
+      ],'The exit narrows to the low command register and leaves the emergency loop open.',{function:'ending',groove:'trench'})
+    ]
+  },
+  'tempest_stormbreak': {
+    root:6,scale:'dorian',groove:'forecast',mood:'hopeful',leadVolume:.51,drumVolume:.29,
+    leadSound:{attack:.018,decay:.10,sustain:.58,release:.045,pulseWidth:.43,vibratoDepth:.10,cutoff:3900},
+    answerSound:{attack:.02,decay:.12,sustain:.42,release:.04,pulseWidth:.25,cutoff:2800},
+    phrases:[
+      P('Share the weather call','Fsm B A Cs7',[
+        'F#5:.5 A5:.5 C#6:1 _:2',
+        'B5:1 D#6:.5 F#6:.5 _:2',
+        'E6:.75 C#6:.25 A5:1 _:2',
+        'G#5:.5 B5:.5 E#6:1 _:2'
+      ],'The storm spark broadens into a two-beat call; another flight answers in the spaces.',{answers:[
+        '_:2 A5:.5 G#5:.5 F#5:1',
+        '_:2 F#5:.5 D#5:.5 B4:1',
+        '_:2 C#5:.5 E5:.5 A5:1',
+        '_:2 C#5:.5 E#5:.5 G#5:1'
+      ]}),
+      P('Rivals learn the same lane','Fsm Gsm B Cs7',[
+        'C#6:1 A5:.5 F#5:.5 _:2',
+        'G#5:.5 B5:.5 D#6:1 _:2',
+        'F#6:.5 D#6:.5 B5:1 A5:.5 G#5:.5 F#5:1',
+        'E#5:1 G#5:.5 B5:.5 _:2'
+      ],'The answer becomes the next call; natural sixths distinguish forecast hope from the original minor storm.',{answers:[
+        '_:2 F#5:.5 G#5:.5 A5:1',
+        '_:2 D#5:.5 F#5:.5 G#5:1',
+        '_:4',
+        '_:2 B5:.5 G#5:.5 E#5:1'
+      ]}),
+      P('Forecast the first gap','A E B Fsm',[
+        'C#6:.5 E6:.5 A6:1 G#6:.5 E6:.5 C#6:1',
+        'B5:.5 G#5:.5 E5:1 _:2',
+        'D#6:.75 F#6:.25 B6:.5 F#6:.5 D#6:1 B5:1',
+        'A5:1 C#6:.5 F#6:.5 _:2'
+      ],'A major-side clearing opens the shared route; one high B marks the forecast crest.',{function:'contrast',answers:[
+        '_:4',
+        '_:2 G#4:.5 B4:.5 E5:1',
+        '_:4',
+        '_:2 E5:.5 C#5:.5 A4:1'
+      ]}),
+      P('Storm hands across the wing','Bm D Fsm Cs7',[
+        'B5:.25 D6:.25 F#6:.5 D6:.5 B5:.5 _:2',
+        'F#5:.5 A5:.5 D6:1 C#6:.5 A5:.5 F#5:1',
+        'C#6:1 A5:.5 F#5:.5 _:2',
+        'B5:.5 C#6:.5 E#6:.5 G#6:.5 _:2'
+      ],'Borrowed minor-weather harmony tightens the shared call before the corridor opens.',{density:'busy',answers:[
+        '_:2 F#5:.5 D5:.5 B4:1',
+        '_:4',
+        '_:2 A5:.5 G#5:.5 F#5:1',
+        '_:2 G#5:.5 E#5:.5 C#5:1'
+      ]}),
+      P('The safe corridor is real','Fsm A B Fsm',[
+        'A5:2 C#6:1 _:1',
+        'E6:1.5 C#6:.5 A5:1 _:1',
+        'D#6:1 F#6:.5 D#6:.5 B5:1 _:1',
+        'C#6:1 A5:.5 F#5:.5 _:2'
+      ],'Long Dorian tones and a quiet foundation reveal an actual calm corridor.',{function:'breakdown',density:'sparse',answers:[
+        '_:3 F#5:.5 _:0.5',
+        '_:3 E5:.5 _:0.5',
+        '_:3 F#5:.5 _:0.5',
+        '_:2 A4:.5 C#5:.5 F#5:1'
+      ]}),
+      P('Recover the other flight','B Gsm Fsm Cs7',[
+        'B5:1 F#5:.5 D#5:.5 _:2',
+        'D#5:.5 G#5:.5 B5:1 _:2',
+        'A5:.75 C#6:.25 F#6:1 E6:.5 C#6:.5 A5:1',
+        'G#5:1 E#5:.5 C#5:.5 _:2'
+      ],'A low rescue call is answered upward before both parts regain the corridor.',{function:'contrast',answers:[
+        '_:2 F#4:.5 B4:.5 D#5:1',
+        '_:2 B5:.5 G#5:.5 D#5:1',
+        '_:4',
+        '_:2 C#5:.5 E#5:.5 G#5:1'
+      ]}),
+      P('Intertwined climb','A B Fsm Cs7',[
+        'E6:.5 C#6:.5 A5:1 _:2',
+        'D#6:.5 F#6:.5 B6:.5 A6:.5 F#6:1 D#6:1',
+        'F#6:.75 E6:.25 C#6:.5 A5:.5 _:2',
+        'E#6:.5 G#6:.5 B6:1 G#6:.5 E#6:.5 C#6:1'
+      ],'The flights exchange complete climbs instead of doubling the same high line.',{density:'busy',answers:[
+        '_:2 A5:.5 C#6:.5 E6:1',
+        '_:4',
+        '_:2 A4:.5 C#5:.5 F#5:1',
+        '_:4'
+      ]}),
+      P('Forecast the return crossing','D E B Cs7',[
+        'F#6:1 D6:.5 A5:.5 F#5:1 A5:1',
+        'B5:.5 E6:.5 G#6:1 _:2',
+        'F#6:.5 D#6:.5 B5:1 A5:.5 G#5:.5 F#5:1',
+        'E#5:.75 G#5:.25 C#6:1 _:2'
+      ],'A borrowed D front passes through E into a brighter B forecast; each voice keeps its own landing.',{answers:[
+        '_:4',
+        '_:2 G#5:.5 E5:.5 B4:1',
+        '_:4',
+        '_:2 B5:.5 G#5:.5 E#5:1'
+      ]}),
+      P('A shared call returns changed','Fsm B A Cs7',[
+        'F#5:.5 A5:.5 C#6:.5 F#6:.5 _:2',
+        'F#6:1 D#6:.5 B5:.5 _:2',
+        'C#6:.5 E6:.5 A6:1 E6:.5 C#6:.5 A5:1',
+        'G#5:.5 B5:.5 C#6:1 _:2'
+      ],'The opening call gains a higher destination; its partner now answers downward through a different register.',{answers:[
+        '_:2 E6:.5 C#6:.5 A5:1',
+        '_:2 A5:.5 F#5:.5 D#5:1',
+        '_:4',
+        '_:2 E#6:.5 C#6:.5 B5:1'
+      ]}),
+      P('Leave the corridor open','B A Fsm Cs7',[
+        'D#6:1 B5:.5 F#5:.5 D#5:1 F#5:1',
+        'E5:.5 A5:.5 C#6:1 _:2',
+        'A5:.75 C#6:.25 F#6:1 E6:.5 C#6:.5 A5:1',
+        'G#5:.5 E#5:.5 C#5:1 _:2'
+      ],'A final low answer leaves the dominant open and hands the next loop back to the shared call.',{function:'ending',answers:[
+        '_:4',
+        '_:2 B5:.5 A5:.5 E5:1',
+        '_:4',
+        '_:2 B4:.5 G#4:.5 E#4:.5 _:0.5'
+      ]})
+    ]
+  },
+  'viridia_last_ferry': {
+    root:2,scale:'major',groove:'escort',mood:'hopeful',drumVolume:.32,
+    leadSound:{attack:.006,decay:.09,sustain:.47,release:.04,pulseWidth:.30,vibratoDepth:.09,cutoff:5000},
+    phrases:[
+      P('The ferry answers the flare','D A Bm G',[
+        'D5:.25 F#5:.25 A5:1 E5:.5 F#5:.5 D5:1 _:0.5',
+        'C#5:.5 E5:.5 A5:.75 B5:.25 C#6:1 A5:1',
+        'F#5:.5 D5:.5 B4:.5 D5:.5 F#5:1 B5:1',
+        'B5:.75 A5:.25 G5:1 D5:.5 G5:.5 B5:1'
+      ],'The coastal triadic head becomes a short flare, answered through a new dominant-first route.'),
+      P('Escort the first sector','Em A D A',[
+        'E5:.5 G5:.5 B5:1 A5:.5 G5:.5 E5:1',
+        'A5:.75 E5:.25 C#5:.5 E5:.5 A5:.5 C#6:.5 B5:1',
+        'A5:1 F#5:.5 D5:.5 E5:.5 F#5:.5 A5:1',
+        'C#6:.5 B5:.5 A5:.75 E5:.25 C#5:1 _:1'
+      ],'The answer alternates short intercepts and longer downward reassurance.'),
+      P('Fire crosses the wake','Bm Fsm G A',[
+        'B5:.25 D6:.25 F#6:.5 E6:.5 D6:.5 B5:1 A5:1',
+        'C#6:.75 A5:.25 F#5:.5 A5:.5 C#6:1 E6:1',
+        'D6:.5 B5:.5 G5:1 A5:.25 B5:.25 D6:.5 G6:1',
+        'E6:.75 C#6:.25 B5:.5 A5:.5 E5:1 C#5:1'
+      ],'Rising fragments make the escort urgent, then fall toward the ferry instead of closing.',{density:'busy'}),
+      P('Find the sheltered channel','Em G Bm A',[
+        'G5:1 E5:.5 B4:.5 E5:1 F#5:1',
+        'G5:.5 B5:.5 D6:1 B5:1 A5:1',
+        'F#5:.5 D5:.5 B4:1 D5:.5 F#5:.5 B5:1',
+        'A5:1 E5:.5 C#5:.5 B4:1 _:1'
+      ],'The melody lowers its destination across four bars to make the approaching shelter audible.'),
+      P('Under the sea-wall shelter','G D Em A',[
+        'B4:1.5 D5:.5 G5:1 _:1',
+        'F#5:2 E5:.5 D5:.5 _:1',
+        'E5:1 B4:.5 G4:.5 B4:1 _:1',
+        'C#5:1 E5:1 A5:.5 _:1.5'
+      ],'A lower augmented coastal gesture removes the backbeat and leaves a sheltered breath.',{function:'breakdown',density:'sparse'}),
+      P('Lanterns ready to depart','G Bm Em Asus',[
+        'D5:1 G5:.5 B5:.5 A5:1 G5:1',
+        'F#5:1 D5:.5 B4:.5 D5:1 F#5:1',
+        'G5:.5 E5:.5 B5:1 A5:.5 G5:.5 E5:1',
+        'D5:1 E5:.5 A5:1.5 _:1'
+      ],'A suspended answer raises the ferry out of the respite before the next sector.',{function:'contrast',energy:.82}),
+      P('The second sector opens','D G Bm A',[
+        'D5:.25 F#5:.25 A5:.5 D6:1 C#6:.5 A5:.5 F#5:1',
+        'G5:.75 B5:.25 D6:.5 B5:.5 A5:1 G5:1',
+        'B5:.5 F#5:.5 D6:1 B5:.5 A5:.5 F#5:1',
+        'E5:.5 A5:.5 C#6:.5 E6:.5 C#6:1 B5:1'
+      ],'The flare head now clears a higher destination, and its answer climbs instead of falling.'),
+      P('Cover the open water','Em G D A',[
+        'B5:.5 G5:.5 E5:.5 G5:.5 B5:1 E6:1',
+        'D6:1 B5:.5 G5:.5 D5:.5 G5:.5 B5:1',
+        'A5:.5 F#5:.5 D5:1 F#5:.25 A5:.25 D6:.5 F#6:1',
+        'E6:.5 C#6:.5 A5:.5 E5:.5 C#5:1 E5:1'
+      ],'Alternating cover arcs let the second sector develop independently of the first.',{density:'busy'}),
+      P('The far shore is in sight','Bm G Em A',[
+        'D6:.5 F#6:.5 E6:.5 D6:.5 B5:1 F#5:1',
+        'G5:.25 B5:.25 D6:.5 G6:1 F#6:.5 D6:.5 B5:1',
+        'G5:.5 B5:.5 E6:1 D6:.5 B5:.5 G5:1',
+        'A5:1 C#6:.5 E6:.5 D6:.5 C#6:.5 A5:1'
+      ],'The last rising flare earns one brief high G and then settles into a broader major answer.',{density:'busy'}),
+      P('Keep one light on the water','G A D A',[
+        'B5:1 G5:.5 D5:.5 G5:.5 A5:.5 B5:1',
+        'C#6:.5 A5:.5 E5:1 B5:.5 A5:.5 E5:1',
+        'D5:.25 F#5:.25 A5:1 F#5:.5 E5:.5 D5:1 _:0.5',
+        'E5:.5 C#5:.5 A4:1 C#5:1 _:1'
+      ],'A changed low flare acknowledges the civilian landing while the open dominant preserves the gameplay loop.',{function:'ending'})
+    ]
+  },
+  'aurora_courier': {
+    root:4,scale:'dorian',groove:'courier',mood:'dark',drumVolume:.29,
+    leadSound:{attack:.003,decay:.055,sustain:.33,release:.028,pulseWidth:.20,vibratoDepth:.035,cutoff:4700},
+    phrases:[
+      P('Measure the courier signal','Em A Bm Em',[
+        'E5:.5 B5:.5 F#5:.5 G5:.5 _:1 C#6:.5 B5:.5',
+        'A5:.5 E5:.25 C#5:.25 _:0.5 E5:.5 A5:1 B5:1',
+        'F#5:.75 B5:.25 D6:.5 C#6:.5 B5:1 A5:1',
+        'G5:1 F#5:.25 E5:.25 _:0.5 B5:1 G5:1'
+      ],'Aurora’s isolated fifth is subdivided into a measured targeting cell with a new Dorian endpoint.'),
+      P('Compute the crossing','C D Em A',[
+        'E5:.25 G5:.25 C6:.5 B5:.5 G5:.5 E5:1 D5:1',
+        'F#5:.5 A5:.5 D6:1 A5:.25 F#5:.25 E5:.5 D5:1',
+        'E5:.5 G5:.25 B5:.25 _:0.5 E6:.5 D6:.5 B5:.5 G5:1',
+        'C#6:.75 B5:.25 A5:.5 E5:.5 F#5:1 E5:1'
+      ],'Short launches change interval size and destination as the route crosses separate ice lanes.'),
+      P('Pursuit beneath the arches','Em D A B7',[
+        'B5:.5 E6:.5 G6:.5 E6:.5 B5:1 A5:1',
+        'F#6:.5 D6:.25 A5:.25 F#5:.5 A5:.5 D6:1 E6:1',
+        'C#6:.25 E6:.25 A6:.5 E6:1 C#6:.5 B5:.5 A5:1',
+        'D#6:.5 B5:.5 F#5:.5 D#5:.5 B4:1 _:1'
+      ],'The pursuit opens into longer high arcs and first exposes a functional B dominant.',{density:'busy'}),
+      P('The false departure lane','C Bm A Em',[
+        'G5:.75 E5:.25 C5:.5 E5:.5 G5:.5 B5:.5 C6:1',
+        'B5:.5 F#5:.5 D5:1 F#5:.5 A5:.5 B5:1',
+        'C#6:1 A5:.25 E5:.25 _:0.5 F#5:1 E5:1',
+        'G5:.5 B5:.5 E6:1 D6:.5 B5:.5 G5:1'
+      ],'A low detour rebuilds the targeting cell before it re-enters the courier’s altitude.'),
+      P('Observe through the ice','Esus Em A Bm',[
+        'A5:1.5 B5:.5 E5:1 _:1',
+        'G5:1 F#5:.5 E5:.5 B4:1 _:1',
+        'C#5:1 E5:1 A5:.5 _:1.5',
+        'F#5:1 D5:.5 B4:.5 F#4:1 _:1'
+      ],'The hunter briefly holds its calculation; the prepared fourth releases without erasing the distant signal.',{function:'breakdown',density:'sparse'}),
+      P('High intercept window','Em A D B7',[
+        'E5:.5 B5:.5 G6:.5 F#6:.5 E6:.5 D6:.5 B5:1',
+        'C#6:.25 E6:.25 A6:.5 G6:.5 E6:.5 C#6:1 A5:1',
+        'A5:.5 D6:.5 F#6:.75 E6:.25 D6:.5 A5:.5 F#5:1',
+        'F#5:.25 B5:.25 D#6:.5 F#6:.5 A6:.5 F#6:1 D#6:1'
+      ],'The measured fifth leaps into a changed high landing and is answered by an ascending dominant.',{density:'busy'}),
+      P('Drive disabled','C D Em A',[
+        'C6:1 B5:.25 G5:.25 E5:.5 G5:.5 C6:.5 E6:1',
+        'D6:.5 A5:.5 F#5:1 E5:.5 F#5:.5 A5:1',
+        'B5:.75 G5:.25 E5:.5 B4:.5 E5:1 F#5:1',
+        'E5:.5 C#5:.5 A4:1 C#5:.5 E5:.5 A5:1'
+      ],'Descending targeting fragments lower the line as the courier stops rather than claiming a full victory cadence.'),
+      P('Secure the approach codes','A Em C B7',[
+        'C#6:1 E6:.5 C#6:.5 B5:1 A5:1',
+        'G5:.5 E5:.5 B4:1 E5:.5 G5:.5 B5:1',
+        'C6:.5 E6:.5 G6:.75 E6:.25 C6:1 G5:1',
+        'F#5:.5 A5:.5 B5:1 D#6:.5 F#6:.5 B6:1'
+      ],'A new A-major opening and one high B mark the completed intercept while pressure remains.',{function:'contrast'}),
+      P('Signal returns with the codes','Em C A D',[
+        'E5:.5 B5:.5 F#5:.25 G5:.25 B5:.5 E6:1 D6:1',
+        'C6:.75 G5:.25 E5:.5 G5:.5 B5:1 C6:1',
+        'C#6:.5 A5:.25 E5:.25 F#5:.5 E5:.5 C#5:1 A4:1',
+        'D5:.5 F#5:.5 A5:1 D6:.5 C#6:.5 A5:1'
+      ],'The exact fifth head returns with a shorter continuation, new harmonic route and rising answer.'),
+      P('Meridian homeward','C Bm A Em',[
+        'E6:.5 C6:.5 G5:1 E5:.5 D5:.5 C5:1',
+        'D5:.5 F#5:.5 B5:1 A5:.5 F#5:.5 D5:1',
+        'E5:.75 C#5:.25 A4:.5 C#5:.5 E5:1 A5:1',
+        'G5:.5 F#5:.5 E5:1 B4:1 _:1'
+      ],'A lower modal settling gesture leaves room for the opening measurement to start again.',{function:'ending'})
+    ]
+  },
   'tempest-flight': {
     root:6,scale:'minor',groove:'lightning',bassCutoff:1350,drumVolume:.36,
     leadSound:{attack:.003,decay:.075,sustain:.46,release:.03,pulseWidth:.16,vibratoDepth:.07,cutoff:5900},

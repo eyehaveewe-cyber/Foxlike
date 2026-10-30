@@ -13,6 +13,30 @@ const {validateScores, inspectAudio, digest} = require('./validate_campaign.cjs'
 
 async function main() {
   const manifest = validateScores();
+  const source = Object.fromEntries(['model.js', 'chip-audio.js', 'audio.js'].map(file =>
+    [file, digest(path.join(ROOT, 'renderer', file))]));
+  const reportPath = path.join(OUTPUT, 'render-report.json');
+  let prior = null;
+  if (fs.existsSync(reportPath)) {
+    try { prior = JSON.parse(fs.readFileSync(reportPath, 'utf8')); }
+    catch (error) { console.log('Prior render report is unreadable; rebuilding: ' + error.message); }
+  }
+  const compatible = prior && prior.version === 1 && prior.sampleRate === 44100 && prior.channels === 2 &&
+    Number.isFinite(prior.commonGain) && prior.commonGain > 0 && Array.isArray(prior.cues) &&
+    Object.entries(source).every(([file, sha]) => prior.source?.[file] === sha);
+  const reuse = new Map(), pending = [];
+  for (const cue of manifest.cues) {
+    const old = compatible && !process.argv.includes('--force') && prior.cues.find(r => r.id === cue.id);
+    const score = path.join(OUTPUT, cue.file), audio = path.join(OUTPUT, cue.id + '.ogg');
+    if (old && fs.existsSync(audio) && old.scoreSha256 === digest(score) && old.audioSha256 === digest(audio)) {
+      reuse.set(cue.id, old);
+      console.log('Reusing hash-matching ' + cue.id);
+    } else pending.push(cue);
+  }
+  if (!pending.length) {
+    console.log('CAMPAIGN_RENDER: ' + reuse.size + ' verified hash matches; no audio rewritten');
+    return;
+  }
   const browser = await chromium.launch({
     executablePath: process.env.CHROMIUM_PATH || undefined,
     args: ['--no-sandbox', '--disable-dev-shm-usage', '--single-process'],
@@ -56,7 +80,7 @@ async function main() {
       return delta;
     });
     console.log('Pulse-wave cache equivalence, maximum PCM delta: ' + waveCacheMaxDelta);
-    for (const cue of manifest.cues) {
+    for (const cue of pending) {
       console.log('Rendering ' + cue.id + ': ' + cue.title);
       const scoreText = fs.readFileSync(path.join(OUTPUT, cue.file), 'utf8');
       const score = JSON.parse(scoreText);
@@ -106,8 +130,12 @@ async function main() {
       captures.push({...capture, cue, wavPath, scoreSha256});
     }
     // One gain for the entire score preserves authored relative dynamics.
-    const commonGain = Math.min(6, 0.72 / Math.max(...captures.map(c => c.rawPeak)));
-    const records = [];
+    // Preserve the shipped gain whenever old audio is reused. Expanding the
+    // campaign must not silently normalize or rewrite the original twelve.
+    const commonGain = reuse.size ? prior.commonGain : Math.min(6, 0.72 / Math.max(...captures.map(c => c.rawPeak)));
+    if (captures.some(c => c.rawPeak * commonGain >= 0.96))
+      throw Error('A new cue overloads the preserved campaign gain; lower its authored mix before rendering');
+    const records = new Map(reuse);
     for (const c of captures) {
       if (digest(path.join(OUTPUT, c.cue.file)) !== c.scoreSha256)
         throw Error(c.cue.id + ': score changed during rendering; run again after authoring finishes');
@@ -116,16 +144,25 @@ async function main() {
         '-af', 'volume=' + commonGain, '-c:a', 'libvorbis', '-q:a', '5',
         '-metadata', 'title=' + c.cue.title, '-metadata', 'artist=Foxlike original MBean1 score', output]);
       const audio = inspectAudio(c.cue, output);
-      records.push({id: c.cue.id, scoreSha256: c.scoreSha256,
+      records.set(c.cue.id, {id: c.cue.id, scoreSha256: c.scoreSha256,
         audioSha256: digest(output), seed: crypto.createHash('sha256').update(c.cue.id).digest().readUInt32LE(),
         rawPeak: c.rawPeak, rawRms: c.rawRms, ...audio});
       console.log(JSON.stringify({id: c.cue.id, ...audio}));
     }
     const report = {version: 1, renderer: 'MBean1 Web Audio synthesis, full single-pass loops; authored gates and releases clear the seam',
       sampleRate: 44100, channels: 2, commonGain, waveCacheMaxDelta,
-      source: Object.fromEntries(['model.js', 'chip-audio.js', 'audio.js'].map(file =>
-        [file, digest(path.join(ROOT, 'renderer', file))])), cues: records};
-    fs.writeFileSync(path.join(OUTPUT, 'render-report.json'), JSON.stringify(report, null, 2) + '\n');
+      cachePolicy: 'Reuse only matching renderer, editable-score and encoded-audio SHA-256 hashes; preserve the existing common gain',
+      source, cues: manifest.cues.map(cue => records.get(cue.id))};
+    for (const cue of manifest.cues) {
+      const record = records.get(cue.id);
+      if (!record || digest(path.join(OUTPUT, cue.file)) !== record.scoreSha256 ||
+          digest(path.join(OUTPUT, cue.id + '.ogg')) !== record.audioSha256)
+        throw Error(cue.id + ': score/audio changed while rendering; report was not replaced');
+    }
+    const reportTemp = reportPath + '.tmp';
+    fs.writeFileSync(reportTemp, JSON.stringify(report, null, 2) + '\n');
+    fs.renameSync(reportTemp, reportPath);
+    console.log('CAMPAIGN_RENDER: ' + captures.length + ' rendered; ' + reuse.size + ' preserved; ' + records.size + ' total');
   } finally {
     await browser.close();
     fs.rmSync(temp, {recursive: true, force: true});

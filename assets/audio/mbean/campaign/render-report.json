@@ -5,6 +5,7 @@
   "channels": 2,
   "commonGain": 1.6739448781149253,
   "waveCacheMaxDelta": 0,
+  "cachePolicy": "Reuse only matching renderer, editable-score and encoded-audio SHA-256 hashes; preserve the existing common gain",
   "source": {
     "model.js": "6264121d6adf636772255ace49a74422065ef72b34052749ae356a374497baba",
     "chip-audio.js": "dc0ac27a938a1028e9d583983f82f71a043991add75419c571b59df003f91707",
@@ -202,6 +203,70 @@
       "seamDelta": 0.000504759605973959,
       "maxSilenceSeconds": 0.30000000000000004,
       "bytes": 534342
+    },
+    {
+      "id": "viridia_last_ferry",
+      "scoreSha256": "4a68eb87fed6c5d7ec72c8a94a93813d8235c4b08b90adef4a14bb8ea8d97e62",
+      "audioSha256": "de3e3cc3ce43f70d82cb01cced3d82cce70efca40568de7dfe89c5509e2325bb",
+      "seed": 1159560236,
+      "rawPeak": 0.17616119980812073,
+      "rawRms": 0.0246108373691654,
+      "seconds": 70.588231,
+      "frames": 3112941,
+      "peak": 0.29660892486572266,
+      "rms": 0.04132972750498281,
+      "rmsDb": -27.674749161954722,
+      "seamDelta": 0.0012608661781996489,
+      "maxSilenceSeconds": 0.4,
+      "bytes": 991777
+    },
+    {
+      "id": "aurora_courier",
+      "scoreSha256": "edfe29875c826434a0cf8986c023d7335875a54d83cd07c35143b91a5f62a5ae",
+      "audioSha256": "ac7c9ee889a38cc4533856eeab5f2f0dcf4275b79cd5d5572f9478cb5ae1a2e5",
+      "seed": 329473759,
+      "rawPeak": 0.1772657185792923,
+      "rawRms": 0.020702624516653816,
+      "seconds": 72.727279,
+      "frames": 3207273,
+      "peak": 0.29295235872268677,
+      "rms": 0.03476165662107253,
+      "rmsDb": -29.177990694958446,
+      "seamDelta": 0.001463447348214686,
+      "maxSilenceSeconds": 0.5,
+      "bytes": 1025620
+    },
+    {
+      "id": "terminus_falling_yard",
+      "scoreSha256": "0c338a1af81a3281ce8eba29df1e4e507cf70b5f36b50079c0c832dc176c64e5",
+      "audioSha256": "eb60509e1eee5eeb81f337b5164018cd4d14cca6a881c91ed6e5b517a885f8d9",
+      "seed": 1225133514,
+      "rawPeak": 0.16495153307914734,
+      "rawRms": 0.03100542945508033,
+      "seconds": 82.758617,
+      "frames": 3649655,
+      "peak": 0.28011655807495117,
+      "rms": 0.0521292483281463,
+      "rmsDb": -25.65837074576878,
+      "seamDelta": 0.0004127270949538797,
+      "maxSilenceSeconds": 0.5,
+      "bytes": 1133388
+    },
+    {
+      "id": "tempest_stormbreak",
+      "scoreSha256": "aabe8cea75b24b93c9e866e02f3d1c7bc03f7cad2c107e142ce98450ccc4e88f",
+      "audioSha256": "2daa6e0d734f55e732e459bb7dc7c79674935d3384bb92a83f1e51c502f60d05",
+      "seed": 3723617680,
+      "rawPeak": 0.16711148619651794,
+      "rawRms": 0.027449843700440128,
+      "seconds": 75,
+      "frames": 3307500,
+      "peak": 0.28198590874671936,
+      "rms": 0.04613837207656731,
+      "rmsDb": -26.71875465951321,
+      "seamDelta": 0.0011148828780278563,
+      "maxSilenceSeconds": 0.2,
+      "bytes": 1015355
     }
   ]
 }

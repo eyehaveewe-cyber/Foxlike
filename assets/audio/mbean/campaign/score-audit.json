@@ -3,10 +3,14 @@
   "rendererModel": "../renderer/model.js",
   "modelSha256": "6264121d6adf636772255ace49a74422065ef72b34052749ae356a374497baba",
   "source": "phrases.cjs",
-  "sourceSha256": "5986b0ed9330ded1c40bf840e9a97eddadd797aa1c09b05ea57a1191c4a78baa",
+  "sourceSha256": "11cf96d81a7d147f3308a47f7fe74dc39672116d5e9a7685882d2ce153404e1e",
   "method": "MBean1 model validation plus note/phrase/release inspection. Audio rendering and playback are separate.",
   "highPulseTreatment": "Velocity multiplied by 0.88 above MIDI88 and 0.80 at MIDI94 and above; no register transposition.",
-  "frictionReview": "Only one >=0.17s lead/support semitone compound: Tempest flight bar24 F#6 over E#4 for 0.214s, a weak-eighth passing fourth resolving to E#6. No >=0.25s exposures.",
+  "frictionReview": {
+    "criterion": "Lead and all harmonic-support sounding overlaps at any octave compound of a semitone, lasting at least 0.17s; includes synth release and fixed chip-tom tails. Review candidates in musical context.",
+    "candidates": 1,
+    "atLeastQuarterSecond": 0
+  },
   "cues": [
     {
       "id": "viridia-flight",
@@ -237,6 +241,7 @@
           "bar": 24,
           "melody": 90,
           "support": 65,
+          "track": "Open harmonic shells",
           "seconds": 0.21382352941176416
         }
       ],
@@ -264,6 +269,90 @@
       "uniquePhraseSignatures": 6,
       "phraseCount": 6,
       "sha256": "ea10629b92b0461fa1c7365d6f7c984da3c3e26e4e06250f6c8ef5b649c50fc5",
+      "modelValidation": "pass",
+      "releaseSeam": "pass"
+    },
+    {
+      "id": "viridia_last_ferry",
+      "bpm": 136,
+      "bars": 40,
+      "seconds": 70.58823529411765,
+      "tracks": 4,
+      "notes": 1049,
+      "foregroundRange": [
+        67,
+        91
+      ],
+      "upperSupportMaximum": 74,
+      "highPulseEvents": 2,
+      "longestHighPulseGateSeconds": 0.3943014705882353,
+      "exposedSemitoneReview": [],
+      "uniquePhraseSignatures": 10,
+      "phraseCount": 10,
+      "sha256": "4a68eb87fed6c5d7ec72c8a94a93813d8235c4b08b90adef4a14bb8ea8d97e62",
+      "modelValidation": "pass",
+      "releaseSeam": "pass"
+    },
+    {
+      "id": "aurora_courier",
+      "bpm": 132,
+      "bars": 40,
+      "seconds": 72.72727272727273,
+      "tracks": 4,
+      "notes": 1135,
+      "foregroundRange": [
+        66,
+        95
+      ],
+      "upperSupportMaximum": 74,
+      "highPulseEvents": 8,
+      "longestHighPulseGateSeconds": 0.42045454545454547,
+      "exposedSemitoneReview": [],
+      "uniquePhraseSignatures": 10,
+      "phraseCount": 10,
+      "sha256": "edfe29875c826434a0cf8986c023d7335875a54d83cd07c35143b91a5f62a5ae",
+      "modelValidation": "pass",
+      "releaseSeam": "pass"
+    },
+    {
+      "id": "terminus_falling_yard",
+      "bpm": 116,
+      "bars": 40,
+      "seconds": 82.75862068965517,
+      "tracks": 4,
+      "notes": 973,
+      "foregroundRange": [
+        67,
+        94
+      ],
+      "upperSupportMaximum": 75,
+      "highPulseEvents": 11,
+      "longestHighPulseGateSeconds": 0.46120689655172414,
+      "exposedSemitoneReview": [],
+      "uniquePhraseSignatures": 10,
+      "phraseCount": 10,
+      "sha256": "0c338a1af81a3281ce8eba29df1e4e507cf70b5f36b50079c0c832dc176c64e5",
+      "modelValidation": "pass",
+      "releaseSeam": "pass"
+    },
+    {
+      "id": "tempest_stormbreak",
+      "bpm": 128,
+      "bars": 40,
+      "seconds": 75,
+      "tracks": 5,
+      "notes": 989,
+      "foregroundRange": [
+        73,
+        95
+      ],
+      "upperSupportMaximum": 75,
+      "highPulseEvents": 11,
+      "longestHighPulseGateSeconds": 0.4169921875,
+      "exposedSemitoneReview": [],
+      "uniquePhraseSignatures": 10,
+      "phraseCount": 10,
+      "sha256": "aabe8cea75b24b93c9e866e02f3d1c7bc03f7cad2c107e142ce98450ccc4e88f",
       "modelValidation": "pass",
       "releaseSeam": "pass"
     }

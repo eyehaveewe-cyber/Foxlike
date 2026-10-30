@@ -2408,6 +2408,1096 @@
       "answers": null,
       "density": "normal",
       "signature": "090e90f10bb36cc37feab60f29895d9cdd937f402f49c48ead6cfbf2680cd2f1"
+    },
+    {
+      "cue": "viridia_last_ferry",
+      "phrase": 1,
+      "name": "The ferry answers the flare",
+      "startBar": 1,
+      "endBar": 4,
+      "startTick": 0,
+      "endTick": 7680,
+      "function": "hook",
+      "change": "The coastal triadic head becomes a short flare, answered through a new dominant-first route.",
+      "harmony": [
+        "D",
+        "A",
+        "Bm",
+        "G"
+      ],
+      "melody": [
+        "D5:.25 F#5:.25 A5:1 E5:.5 F#5:.5 D5:1 _:0.5",
+        "C#5:.5 E5:.5 A5:.75 B5:.25 C#6:1 A5:1",
+        "F#5:.5 D5:.5 B4:.5 D5:.5 F#5:1 B5:1",
+        "B5:.75 A5:.25 G5:1 D5:.5 G5:.5 B5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "8841fcd097b0c727541d2fbe4ee99c548799245202bd35503c2cf2c7e5bf1634"
+    },
+    {
+      "cue": "viridia_last_ferry",
+      "phrase": 2,
+      "name": "Escort the first sector",
+      "startBar": 5,
+      "endBar": 8,
+      "startTick": 7680,
+      "endTick": 15360,
+      "function": "hook",
+      "change": "The answer alternates short intercepts and longer downward reassurance.",
+      "harmony": [
+        "Em",
+        "A",
+        "D",
+        "A"
+      ],
+      "melody": [
+        "E5:.5 G5:.5 B5:1 A5:.5 G5:.5 E5:1",
+        "A5:.75 E5:.25 C#5:.5 E5:.5 A5:.5 C#6:.5 B5:1",
+        "A5:1 F#5:.5 D5:.5 E5:.5 F#5:.5 A5:1",
+        "C#6:.5 B5:.5 A5:.75 E5:.25 C#5:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "e05d971a089730674a848e379ee8f67b10753c309552b96bfa727731138e1663"
+    },
+    {
+      "cue": "viridia_last_ferry",
+      "phrase": 3,
+      "name": "Fire crosses the wake",
+      "startBar": 9,
+      "endBar": 12,
+      "startTick": 15360,
+      "endTick": 23040,
+      "function": "hook",
+      "change": "Rising fragments make the escort urgent, then fall toward the ferry instead of closing.",
+      "harmony": [
+        "Bm",
+        "Fsm",
+        "G",
+        "A"
+      ],
+      "melody": [
+        "B5:.25 D6:.25 F#6:.5 E6:.5 D6:.5 B5:1 A5:1",
+        "C#6:.75 A5:.25 F#5:.5 A5:.5 C#6:1 E6:1",
+        "D6:.5 B5:.5 G5:1 A5:.25 B5:.25 D6:.5 G6:1",
+        "E6:.75 C#6:.25 B5:.5 A5:.5 E5:1 C#5:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "432e3664d7506e04cbbd75358735386c82bf5635899acec24dc55fe149271f1d"
+    },
+    {
+      "cue": "viridia_last_ferry",
+      "phrase": 4,
+      "name": "Find the sheltered channel",
+      "startBar": 13,
+      "endBar": 16,
+      "startTick": 23040,
+      "endTick": 30720,
+      "function": "hook",
+      "change": "The melody lowers its destination across four bars to make the approaching shelter audible.",
+      "harmony": [
+        "Em",
+        "G",
+        "Bm",
+        "A"
+      ],
+      "melody": [
+        "G5:1 E5:.5 B4:.5 E5:1 F#5:1",
+        "G5:.5 B5:.5 D6:1 B5:1 A5:1",
+        "F#5:.5 D5:.5 B4:1 D5:.5 F#5:.5 B5:1",
+        "A5:1 E5:.5 C#5:.5 B4:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "16f6bc9cbb1d8d7658bc6cef86113922ed89ce978204a03cee0fe92feabc5d98"
+    },
+    {
+      "cue": "viridia_last_ferry",
+      "phrase": 5,
+      "name": "Under the sea-wall shelter",
+      "startBar": 17,
+      "endBar": 20,
+      "startTick": 30720,
+      "endTick": 38400,
+      "function": "breakdown",
+      "change": "A lower augmented coastal gesture removes the backbeat and leaves a sheltered breath.",
+      "harmony": [
+        "G",
+        "D",
+        "Em",
+        "A"
+      ],
+      "melody": [
+        "B4:1.5 D5:.5 G5:1 _:1",
+        "F#5:2 E5:.5 D5:.5 _:1",
+        "E5:1 B4:.5 G4:.5 B4:1 _:1",
+        "C#5:1 E5:1 A5:.5 _:1.5"
+      ],
+      "answers": null,
+      "density": "sparse",
+      "signature": "7dde2b80d8d251da948f7885e7309e7b7cc887ba744c03be07469ba405a5beee"
+    },
+    {
+      "cue": "viridia_last_ferry",
+      "phrase": 6,
+      "name": "Lanterns ready to depart",
+      "startBar": 21,
+      "endBar": 24,
+      "startTick": 38400,
+      "endTick": 46080,
+      "function": "contrast",
+      "change": "A suspended answer raises the ferry out of the respite before the next sector.",
+      "harmony": [
+        "G",
+        "Bm",
+        "Em",
+        "Asus"
+      ],
+      "melody": [
+        "D5:1 G5:.5 B5:.5 A5:1 G5:1",
+        "F#5:1 D5:.5 B4:.5 D5:1 F#5:1",
+        "G5:.5 E5:.5 B5:1 A5:.5 G5:.5 E5:1",
+        "D5:1 E5:.5 A5:1.5 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "9ed7979b984d5da25a545432b69024c8d7041bb9b66e04d38ee104330dfa51f6"
+    },
+    {
+      "cue": "viridia_last_ferry",
+      "phrase": 7,
+      "name": "The second sector opens",
+      "startBar": 25,
+      "endBar": 28,
+      "startTick": 46080,
+      "endTick": 53760,
+      "function": "hook",
+      "change": "The flare head now clears a higher destination, and its answer climbs instead of falling.",
+      "harmony": [
+        "D",
+        "G",
+        "Bm",
+        "A"
+      ],
+      "melody": [
+        "D5:.25 F#5:.25 A5:.5 D6:1 C#6:.5 A5:.5 F#5:1",
+        "G5:.75 B5:.25 D6:.5 B5:.5 A5:1 G5:1",
+        "B5:.5 F#5:.5 D6:1 B5:.5 A5:.5 F#5:1",
+        "E5:.5 A5:.5 C#6:.5 E6:.5 C#6:1 B5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "7af03e9813c14236bb7bff05649bef18c4a8e7f31466e3e0a5958a81c3901c20"
+    },
+    {
+      "cue": "viridia_last_ferry",
+      "phrase": 8,
+      "name": "Cover the open water",
+      "startBar": 29,
+      "endBar": 32,
+      "startTick": 53760,
+      "endTick": 61440,
+      "function": "hook",
+      "change": "Alternating cover arcs let the second sector develop independently of the first.",
+      "harmony": [
+        "Em",
+        "G",
+        "D",
+        "A"
+      ],
+      "melody": [
+        "B5:.5 G5:.5 E5:.5 G5:.5 B5:1 E6:1",
+        "D6:1 B5:.5 G5:.5 D5:.5 G5:.5 B5:1",
+        "A5:.5 F#5:.5 D5:1 F#5:.25 A5:.25 D6:.5 F#6:1",
+        "E6:.5 C#6:.5 A5:.5 E5:.5 C#5:1 E5:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "d3d14c2e846ab05133e11c5e29a99f47b7a688116c4b7dc8796570c07565f991"
+    },
+    {
+      "cue": "viridia_last_ferry",
+      "phrase": 9,
+      "name": "The far shore is in sight",
+      "startBar": 33,
+      "endBar": 36,
+      "startTick": 61440,
+      "endTick": 69120,
+      "function": "hook",
+      "change": "The last rising flare earns one brief high G and then settles into a broader major answer.",
+      "harmony": [
+        "Bm",
+        "G",
+        "Em",
+        "A"
+      ],
+      "melody": [
+        "D6:.5 F#6:.5 E6:.5 D6:.5 B5:1 F#5:1",
+        "G5:.25 B5:.25 D6:.5 G6:1 F#6:.5 D6:.5 B5:1",
+        "G5:.5 B5:.5 E6:1 D6:.5 B5:.5 G5:1",
+        "A5:1 C#6:.5 E6:.5 D6:.5 C#6:.5 A5:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "ae19d91c47a2d9dd4f00464cc3469d6ec794ad1d31e988fe1bc9696cdf722f9d"
+    },
+    {
+      "cue": "viridia_last_ferry",
+      "phrase": 10,
+      "name": "Keep one light on the water",
+      "startBar": 37,
+      "endBar": 40,
+      "startTick": 69120,
+      "endTick": 76800,
+      "function": "ending",
+      "change": "A changed low flare acknowledges the civilian landing while the open dominant preserves the gameplay loop.",
+      "harmony": [
+        "G",
+        "A",
+        "D",
+        "A"
+      ],
+      "melody": [
+        "B5:1 G5:.5 D5:.5 G5:.5 A5:.5 B5:1",
+        "C#6:.5 A5:.5 E5:1 B5:.5 A5:.5 E5:1",
+        "D5:.25 F#5:.25 A5:1 F#5:.5 E5:.5 D5:1 _:0.5",
+        "E5:.5 C#5:.5 A4:1 C#5:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "4dd1e779cb3fe99ff92a767662e14840111faf6c6b2bfbbcddadf2ae2b227081"
+    },
+    {
+      "cue": "aurora_courier",
+      "phrase": 1,
+      "name": "Measure the courier signal",
+      "startBar": 1,
+      "endBar": 4,
+      "startTick": 0,
+      "endTick": 7680,
+      "function": "hook",
+      "change": "Aurora’s isolated fifth is subdivided into a measured targeting cell with a new Dorian endpoint.",
+      "harmony": [
+        "Em",
+        "A",
+        "Bm",
+        "Em"
+      ],
+      "melody": [
+        "E5:.5 B5:.5 F#5:.5 G5:.5 _:1 C#6:.5 B5:.5",
+        "A5:.5 E5:.25 C#5:.25 _:0.5 E5:.5 A5:1 B5:1",
+        "F#5:.75 B5:.25 D6:.5 C#6:.5 B5:1 A5:1",
+        "G5:1 F#5:.25 E5:.25 _:0.5 B5:1 G5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "bc3657106f7aa918d8a9079b7409d14f8b4cd920b935f8cf5939f98fe9e5b1d1"
+    },
+    {
+      "cue": "aurora_courier",
+      "phrase": 2,
+      "name": "Compute the crossing",
+      "startBar": 5,
+      "endBar": 8,
+      "startTick": 7680,
+      "endTick": 15360,
+      "function": "hook",
+      "change": "Short launches change interval size and destination as the route crosses separate ice lanes.",
+      "harmony": [
+        "C",
+        "D",
+        "Em",
+        "A"
+      ],
+      "melody": [
+        "E5:.25 G5:.25 C6:.5 B5:.5 G5:.5 E5:1 D5:1",
+        "F#5:.5 A5:.5 D6:1 A5:.25 F#5:.25 E5:.5 D5:1",
+        "E5:.5 G5:.25 B5:.25 _:0.5 E6:.5 D6:.5 B5:.5 G5:1",
+        "C#6:.75 B5:.25 A5:.5 E5:.5 F#5:1 E5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "04a4fee2a7fe540c9b809ff5d10081202876ce9bccb34c5af70f67493ccbc7b4"
+    },
+    {
+      "cue": "aurora_courier",
+      "phrase": 3,
+      "name": "Pursuit beneath the arches",
+      "startBar": 9,
+      "endBar": 12,
+      "startTick": 15360,
+      "endTick": 23040,
+      "function": "hook",
+      "change": "The pursuit opens into longer high arcs and first exposes a functional B dominant.",
+      "harmony": [
+        "Em",
+        "D",
+        "A",
+        "B7"
+      ],
+      "melody": [
+        "B5:.5 E6:.5 G6:.5 E6:.5 B5:1 A5:1",
+        "F#6:.5 D6:.25 A5:.25 F#5:.5 A5:.5 D6:1 E6:1",
+        "C#6:.25 E6:.25 A6:.5 E6:1 C#6:.5 B5:.5 A5:1",
+        "D#6:.5 B5:.5 F#5:.5 D#5:.5 B4:1 _:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "1e004b53fc3437f106ff65f61fee3e23cc3019c6c99130bdec258c423a80a0df"
+    },
+    {
+      "cue": "aurora_courier",
+      "phrase": 4,
+      "name": "The false departure lane",
+      "startBar": 13,
+      "endBar": 16,
+      "startTick": 23040,
+      "endTick": 30720,
+      "function": "hook",
+      "change": "A low detour rebuilds the targeting cell before it re-enters the courier’s altitude.",
+      "harmony": [
+        "C",
+        "Bm",
+        "A",
+        "Em"
+      ],
+      "melody": [
+        "G5:.75 E5:.25 C5:.5 E5:.5 G5:.5 B5:.5 C6:1",
+        "B5:.5 F#5:.5 D5:1 F#5:.5 A5:.5 B5:1",
+        "C#6:1 A5:.25 E5:.25 _:0.5 F#5:1 E5:1",
+        "G5:.5 B5:.5 E6:1 D6:.5 B5:.5 G5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "6a0f3c91a3b730153ba0e62c9c9685788c33eb2565ad486bfd0f8d441f9e3c48"
+    },
+    {
+      "cue": "aurora_courier",
+      "phrase": 5,
+      "name": "Observe through the ice",
+      "startBar": 17,
+      "endBar": 20,
+      "startTick": 30720,
+      "endTick": 38400,
+      "function": "breakdown",
+      "change": "The hunter briefly holds its calculation; the prepared fourth releases without erasing the distant signal.",
+      "harmony": [
+        "Esus",
+        "Em",
+        "A",
+        "Bm"
+      ],
+      "melody": [
+        "A5:1.5 B5:.5 E5:1 _:1",
+        "G5:1 F#5:.5 E5:.5 B4:1 _:1",
+        "C#5:1 E5:1 A5:.5 _:1.5",
+        "F#5:1 D5:.5 B4:.5 F#4:1 _:1"
+      ],
+      "answers": null,
+      "density": "sparse",
+      "signature": "afe6892a061dc98942f19bdf725a66e22ee6fc29da28b4ef351731f03df81a2f"
+    },
+    {
+      "cue": "aurora_courier",
+      "phrase": 6,
+      "name": "High intercept window",
+      "startBar": 21,
+      "endBar": 24,
+      "startTick": 38400,
+      "endTick": 46080,
+      "function": "hook",
+      "change": "The measured fifth leaps into a changed high landing and is answered by an ascending dominant.",
+      "harmony": [
+        "Em",
+        "A",
+        "D",
+        "B7"
+      ],
+      "melody": [
+        "E5:.5 B5:.5 G6:.5 F#6:.5 E6:.5 D6:.5 B5:1",
+        "C#6:.25 E6:.25 A6:.5 G6:.5 E6:.5 C#6:1 A5:1",
+        "A5:.5 D6:.5 F#6:.75 E6:.25 D6:.5 A5:.5 F#5:1",
+        "F#5:.25 B5:.25 D#6:.5 F#6:.5 A6:.5 F#6:1 D#6:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "b18eed4f1f6b3bcfb0840741bbdc134f0da2ac714228c7b3ba417f55f2e1db04"
+    },
+    {
+      "cue": "aurora_courier",
+      "phrase": 7,
+      "name": "Drive disabled",
+      "startBar": 25,
+      "endBar": 28,
+      "startTick": 46080,
+      "endTick": 53760,
+      "function": "hook",
+      "change": "Descending targeting fragments lower the line as the courier stops rather than claiming a full victory cadence.",
+      "harmony": [
+        "C",
+        "D",
+        "Em",
+        "A"
+      ],
+      "melody": [
+        "C6:1 B5:.25 G5:.25 E5:.5 G5:.5 C6:.5 E6:1",
+        "D6:.5 A5:.5 F#5:1 E5:.5 F#5:.5 A5:1",
+        "B5:.75 G5:.25 E5:.5 B4:.5 E5:1 F#5:1",
+        "E5:.5 C#5:.5 A4:1 C#5:.5 E5:.5 A5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "9a6c1d1e4abdb9cc66e817517e55f85d1ca7f0d507d3e55b5c7933b52707918c"
+    },
+    {
+      "cue": "aurora_courier",
+      "phrase": 8,
+      "name": "Secure the approach codes",
+      "startBar": 29,
+      "endBar": 32,
+      "startTick": 53760,
+      "endTick": 61440,
+      "function": "contrast",
+      "change": "A new A-major opening and one high B mark the completed intercept while pressure remains.",
+      "harmony": [
+        "A",
+        "Em",
+        "C",
+        "B7"
+      ],
+      "melody": [
+        "C#6:1 E6:.5 C#6:.5 B5:1 A5:1",
+        "G5:.5 E5:.5 B4:1 E5:.5 G5:.5 B5:1",
+        "C6:.5 E6:.5 G6:.75 E6:.25 C6:1 G5:1",
+        "F#5:.5 A5:.5 B5:1 D#6:.5 F#6:.5 B6:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "1690cf0894f74c4505d0df21c53fece3c2cde7141c55baf672ed89a39b982726"
+    },
+    {
+      "cue": "aurora_courier",
+      "phrase": 9,
+      "name": "Signal returns with the codes",
+      "startBar": 33,
+      "endBar": 36,
+      "startTick": 61440,
+      "endTick": 69120,
+      "function": "hook",
+      "change": "The exact fifth head returns with a shorter continuation, new harmonic route and rising answer.",
+      "harmony": [
+        "Em",
+        "C",
+        "A",
+        "D"
+      ],
+      "melody": [
+        "E5:.5 B5:.5 F#5:.25 G5:.25 B5:.5 E6:1 D6:1",
+        "C6:.75 G5:.25 E5:.5 G5:.5 B5:1 C6:1",
+        "C#6:.5 A5:.25 E5:.25 F#5:.5 E5:.5 C#5:1 A4:1",
+        "D5:.5 F#5:.5 A5:1 D6:.5 C#6:.5 A5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "d384319c9a29e7c16c9f0e8c53c81ed87fb381a118818607b378c20cce1676e3"
+    },
+    {
+      "cue": "aurora_courier",
+      "phrase": 10,
+      "name": "Meridian homeward",
+      "startBar": 37,
+      "endBar": 40,
+      "startTick": 69120,
+      "endTick": 76800,
+      "function": "ending",
+      "change": "A lower modal settling gesture leaves room for the opening measurement to start again.",
+      "harmony": [
+        "C",
+        "Bm",
+        "A",
+        "Em"
+      ],
+      "melody": [
+        "E6:.5 C6:.5 G5:1 E5:.5 D5:.5 C5:1",
+        "D5:.5 F#5:.5 B5:1 A5:.5 F#5:.5 D5:1",
+        "E5:.75 C#5:.25 A4:.5 C#5:.5 E5:1 A5:1",
+        "G5:.5 F#5:.5 E5:1 B4:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "6fb7e74d20c8a9d15841b5a636ca7e90586aa83693bf3e9699eeeedf9abcb3cc"
+    },
+    {
+      "cue": "terminus_falling_yard",
+      "phrase": 1,
+      "name": "Keep the gantry steady",
+      "startBar": 1,
+      "endBar": 4,
+      "startTick": 0,
+      "endTick": 7680,
+      "function": "hook",
+      "change": "The command pickup doubles its first duration and stays low while the structure is stabilized.",
+      "harmony": [
+        "Cm",
+        "Fm",
+        "Cm",
+        "G7"
+      ],
+      "melody": [
+        "C5:1.5 G5:.5 Eb5:1 _:1",
+        "F5:1 Ab5:.5 C6:.5 Ab5:1 F5:1",
+        "G5:1 Eb5:.5 C5:.5 D5:1 Eb5:1",
+        "D5:1 B4:1 G4:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "03e7d5dfe08ea43cc827e6ecac3bff03fdf22304e989f929a5c3dbf821ef0b2e"
+    },
+    {
+      "cue": "terminus_falling_yard",
+      "phrase": 2,
+      "name": "Balance the collapsing frame",
+      "startBar": 5,
+      "endBar": 8,
+      "startTick": 7680,
+      "endTick": 15360,
+      "function": "hook",
+      "change": "The response alternates a supported upper hold with a low counterweight.",
+      "harmony": [
+        "Fm",
+        "Cm",
+        "Bb",
+        "G7"
+      ],
+      "melody": [
+        "Ab5:1 C6:.5 Ab5:.5 G5:1 F5:1",
+        "Eb5:.5 G5:.5 C6:1 Bb5:.5 G5:.5 Eb5:1",
+        "F5:1 D5:.5 Bb4:.5 D5:1 F5:1",
+        "G5:1 B5:.5 D6:.5 B5:1 G5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "59edd33798dc3f5764be20de4eb8d1253ecc4acd6d1348390f2710a18fb276b5"
+    },
+    {
+      "cue": "terminus_falling_yard",
+      "phrase": 3,
+      "name": "Emergency clamps hold",
+      "startBar": 9,
+      "endBar": 12,
+      "startTick": 15360,
+      "endTick": 23040,
+      "function": "breakdown",
+      "change": "Separated notes and reduced density mark controlled progress without a triumphant close.",
+      "harmony": [
+        "Ab",
+        "Fm",
+        "Cm",
+        "G7"
+      ],
+      "melody": [
+        "C6:1.5 Ab5:.5 Eb5:1 _:1",
+        "F5:1 C5:1 Ab4:1 _:1",
+        "Eb5:1 G5:1 C6:.5 _:1.5",
+        "B5:1 G5:.5 D5:.5 F5:1 _:1"
+      ],
+      "answers": null,
+      "density": "sparse",
+      "signature": "cf8abb1179cd1c4c33632b25792e4836bf0ea2eadf01c4451329c6abbbee8a2b"
+    },
+    {
+      "cue": "terminus_falling_yard",
+      "phrase": 4,
+      "name": "Walk the load across",
+      "startBar": 13,
+      "endBar": 16,
+      "startTick": 23040,
+      "endTick": 30720,
+      "function": "hook",
+      "change": "The augmented command gains shorter replies as stabilization becomes more confident.",
+      "harmony": [
+        "Cm",
+        "Ab",
+        "Fm",
+        "G7"
+      ],
+      "melody": [
+        "C5:1 G5:.5 Eb5:.5 G5:1 Bb5:1",
+        "C6:.5 Eb6:.5 C6:1 Ab5:1 G5:1",
+        "F5:.5 Ab5:.5 C6:.5 Eb6:.5 C6:1 Ab5:1",
+        "B5:1 D6:.5 F6:.5 D6:.5 B5:.5 G5:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "778b628f0308a4a58e2c95001fac439c9662b234a68dd361ddc1fffb8d1679fc"
+    },
+    {
+      "cue": "terminus_falling_yard",
+      "phrase": 5,
+      "name": "A clear evacuation signal",
+      "startBar": 17,
+      "endBar": 20,
+      "startTick": 30720,
+      "endTick": 38400,
+      "function": "contrast",
+      "change": "A restrained major-side clearing finishes the controlled emergency before the wreck shifts.",
+      "harmony": [
+        "Eb",
+        "Bb",
+        "Fm",
+        "G7"
+      ],
+      "melody": [
+        "G5:2 Bb5:1 _:1",
+        "D6:1.5 Bb5:.5 F5:1 _:1",
+        "Ab5:1 C6:.5 Ab5:.5 F5:1 _:1",
+        "D5:1 F5:1 B4:1 _:1"
+      ],
+      "answers": null,
+      "density": "sparse",
+      "signature": "5e451e43d0dfdacea69f792d6ae4181be1cd57171ddfe190169ccdca7439546e"
+    },
+    {
+      "cue": "terminus_falling_yard",
+      "phrase": 6,
+      "name": "The yard begins to fall",
+      "startBar": 21,
+      "endBar": 24,
+      "startTick": 38400,
+      "endTick": 46080,
+      "function": "hook",
+      "change": "The stable command breaks into a clipped pickup and a diminished rupture.",
+      "harmony": [
+        "Cm",
+        "Bbdim",
+        "Ab",
+        "G7"
+      ],
+      "melody": [
+        "C5:.25 G5:.25 Eb5:.5 C6:.5 Bb5:.5 G5:1 Eb5:1",
+        "E5:.25 G5:.25 Bb5:.5 E6:.5 G6:.5 E6:1 Bb5:1",
+        "C6:.5 Eb6:.5 Ab6:1 G6:.5 Eb6:.5 C6:1",
+        "B5:.25 D6:.25 F6:.5 G6:.5 F6:.5 D6:1 B5:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "3b7e9bd0988dad2d2d85fcab713654fa04d2ad5eece2fe3580280cbf38ca6051"
+    },
+    {
+      "cue": "terminus_falling_yard",
+      "phrase": 7,
+      "name": "Choose the wreck corridor",
+      "startBar": 25,
+      "endBar": 28,
+      "startTick": 46080,
+      "endTick": 53760,
+      "function": "hook",
+      "change": "An alternating high-and-low escape line reverses the stabilization contour.",
+      "harmony": [
+        "Fm",
+        "Cm",
+        "Bb",
+        "G7"
+      ],
+      "melody": [
+        "F6:.5 C6:.5 Ab5:.5 F5:.5 Ab5:1 C6:1",
+        "Eb6:.5 G6:.5 Eb6:.75 C6:.25 G5:1 Eb5:1",
+        "D5:.5 F5:.5 Bb5:.5 D6:.5 F6:1 D6:1",
+        "F6:.5 D6:.5 B5:.5 G5:.5 D5:1 F5:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "f9774ff7238b7dbb6ff053b7c4083d0a3edd206e1b69ad917083b8257d883a8b"
+    },
+    {
+      "cue": "terminus_falling_yard",
+      "phrase": 8,
+      "name": "Under the broken assembly",
+      "startBar": 29,
+      "endBar": 32,
+      "startTick": 53760,
+      "endTick": 61440,
+      "function": "hook",
+      "change": "Escape fragments crest at a short B-flat and fall through the unstable command harmony.",
+      "harmony": [
+        "Ab",
+        "Bb",
+        "Cm",
+        "G7"
+      ],
+      "melody": [
+        "Ab5:.25 C6:.25 Eb6:.5 Ab6:.5 G6:.5 Eb6:1 C6:1",
+        "D6:.25 F6:.25 Bb6:.5 A6:.5 F6:.5 D6:1 Bb5:1",
+        "G5:.5 C6:.5 Eb6:1 D6:.5 C6:.5 G5:1",
+        "B5:.5 D6:.5 G6:.75 F6:.25 D6:.5 B5:.5 G5:1"
+      ],
+      "answers": null,
+      "density": "busy",
+      "signature": "b372894e4014e98c36d29c71199ff0a909db480eb2790e1c6637004b5d9309b4"
+    },
+    {
+      "cue": "terminus_falling_yard",
+      "phrase": 9,
+      "name": "The command finds an exit",
+      "startBar": 33,
+      "endBar": 36,
+      "startTick": 61440,
+      "endTick": 69120,
+      "function": "hook",
+      "change": "The original command rhythm returns, with a new climbing answer aimed toward the exit.",
+      "harmony": [
+        "Cm",
+        "Fm",
+        "Ab",
+        "G7"
+      ],
+      "melody": [
+        "C5:.75 G5:.25 Eb5:.5 G5:.5 Bb5:.5 C6:.5 Eb6:1",
+        "C6:.5 Ab5:.5 F5:1 Ab5:.5 C6:.5 F6:1",
+        "Eb6:.75 C6:.25 Ab5:.5 G5:.5 Eb5:1 C5:1",
+        "D5:.5 G5:.5 B5:1 D6:.5 F6:.5 G6:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "bcfa331a1a3a1da3a61d9ddc9e24fd7dbf227edfe3c0a6ddfa22dbf8084cb0d9"
+    },
+    {
+      "cue": "terminus_falling_yard",
+      "phrase": 10,
+      "name": "Clear of the falling yard",
+      "startBar": 37,
+      "endBar": 40,
+      "startTick": 69120,
+      "endTick": 76800,
+      "function": "ending",
+      "change": "The exit narrows to the low command register and leaves the emergency loop open.",
+      "harmony": [
+        "Fm",
+        "Ab",
+        "Cm",
+        "G7"
+      ],
+      "melody": [
+        "C6:1 Ab5:.5 F5:.5 G5:.5 Ab5:.5 C6:1",
+        "Eb6:.5 C6:.5 Ab5:1 G5:.5 Eb5:.5 C5:1",
+        "G5:1 Eb5:.5 C5:.5 D5:1 Eb5:1",
+        "F5:.5 D5:.5 B4:1 G4:1 _:1"
+      ],
+      "answers": null,
+      "density": "normal",
+      "signature": "5ae33581fd52740b9edcaf4793fd900d87f964c705f621fc2d0d05ef56c0d9ca"
+    },
+    {
+      "cue": "tempest_stormbreak",
+      "phrase": 1,
+      "name": "Share the weather call",
+      "startBar": 1,
+      "endBar": 4,
+      "startTick": 0,
+      "endTick": 7680,
+      "function": "hook",
+      "change": "The storm spark broadens into a two-beat call; another flight answers in the spaces.",
+      "harmony": [
+        "Fsm",
+        "B",
+        "A",
+        "Cs7"
+      ],
+      "melody": [
+        "F#5:.5 A5:.5 C#6:1 _:2",
+        "B5:1 D#6:.5 F#6:.5 _:2",
+        "E6:.75 C#6:.25 A5:1 _:2",
+        "G#5:.5 B5:.5 E#6:1 _:2"
+      ],
+      "answers": [
+        "_:2 A5:.5 G#5:.5 F#5:1",
+        "_:2 F#5:.5 D#5:.5 B4:1",
+        "_:2 C#5:.5 E5:.5 A5:1",
+        "_:2 C#5:.5 E#5:.5 G#5:1"
+      ],
+      "density": "normal",
+      "signature": "057c79dba58258acded50344490acf7c8f5fa889f3f9b999a0a0981b4656681a"
+    },
+    {
+      "cue": "tempest_stormbreak",
+      "phrase": 2,
+      "name": "Rivals learn the same lane",
+      "startBar": 5,
+      "endBar": 8,
+      "startTick": 7680,
+      "endTick": 15360,
+      "function": "hook",
+      "change": "The answer becomes the next call; natural sixths distinguish forecast hope from the original minor storm.",
+      "harmony": [
+        "Fsm",
+        "Gsm",
+        "B",
+        "Cs7"
+      ],
+      "melody": [
+        "C#6:1 A5:.5 F#5:.5 _:2",
+        "G#5:.5 B5:.5 D#6:1 _:2",
+        "F#6:.5 D#6:.5 B5:1 A5:.5 G#5:.5 F#5:1",
+        "E#5:1 G#5:.5 B5:.5 _:2"
+      ],
+      "answers": [
+        "_:2 F#5:.5 G#5:.5 A5:1",
+        "_:2 D#5:.5 F#5:.5 G#5:1",
+        "_:4",
+        "_:2 B5:.5 G#5:.5 E#5:1"
+      ],
+      "density": "normal",
+      "signature": "b1a023a90e4e756917e5b53beb524ce3bf5fbcd9c061bcf69936e1c028b2f834"
+    },
+    {
+      "cue": "tempest_stormbreak",
+      "phrase": 3,
+      "name": "Forecast the first gap",
+      "startBar": 9,
+      "endBar": 12,
+      "startTick": 15360,
+      "endTick": 23040,
+      "function": "contrast",
+      "change": "A major-side clearing opens the shared route; one high B marks the forecast crest.",
+      "harmony": [
+        "A",
+        "E",
+        "B",
+        "Fsm"
+      ],
+      "melody": [
+        "C#6:.5 E6:.5 A6:1 G#6:.5 E6:.5 C#6:1",
+        "B5:.5 G#5:.5 E5:1 _:2",
+        "D#6:.75 F#6:.25 B6:.5 F#6:.5 D#6:1 B5:1",
+        "A5:1 C#6:.5 F#6:.5 _:2"
+      ],
+      "answers": [
+        "_:4",
+        "_:2 G#4:.5 B4:.5 E5:1",
+        "_:4",
+        "_:2 E5:.5 C#5:.5 A4:1"
+      ],
+      "density": "normal",
+      "signature": "4f22414fd9dd7cde39bd41e5321caa2c8ef4f1c99ff87bd8454945da5a3d882c"
+    },
+    {
+      "cue": "tempest_stormbreak",
+      "phrase": 4,
+      "name": "Storm hands across the wing",
+      "startBar": 13,
+      "endBar": 16,
+      "startTick": 23040,
+      "endTick": 30720,
+      "function": "hook",
+      "change": "Borrowed minor-weather harmony tightens the shared call before the corridor opens.",
+      "harmony": [
+        "Bm",
+        "D",
+        "Fsm",
+        "Cs7"
+      ],
+      "melody": [
+        "B5:.25 D6:.25 F#6:.5 D6:.5 B5:.5 _:2",
+        "F#5:.5 A5:.5 D6:1 C#6:.5 A5:.5 F#5:1",
+        "C#6:1 A5:.5 F#5:.5 _:2",
+        "B5:.5 C#6:.5 E#6:.5 G#6:.5 _:2"
+      ],
+      "answers": [
+        "_:2 F#5:.5 D5:.5 B4:1",
+        "_:4",
+        "_:2 A5:.5 G#5:.5 F#5:1",
+        "_:2 G#5:.5 E#5:.5 C#5:1"
+      ],
+      "density": "busy",
+      "signature": "21759df876a97f52f42b1bcd1548cb7e9feaf9e8d8ee0ebf55f9bfc6f62a7190"
+    },
+    {
+      "cue": "tempest_stormbreak",
+      "phrase": 5,
+      "name": "The safe corridor is real",
+      "startBar": 17,
+      "endBar": 20,
+      "startTick": 30720,
+      "endTick": 38400,
+      "function": "breakdown",
+      "change": "Long Dorian tones and a quiet foundation reveal an actual calm corridor.",
+      "harmony": [
+        "Fsm",
+        "A",
+        "B",
+        "Fsm"
+      ],
+      "melody": [
+        "A5:2 C#6:1 _:1",
+        "E6:1.5 C#6:.5 A5:1 _:1",
+        "D#6:1 F#6:.5 D#6:.5 B5:1 _:1",
+        "C#6:1 A5:.5 F#5:.5 _:2"
+      ],
+      "answers": [
+        "_:3 F#5:.5 _:0.5",
+        "_:3 E5:.5 _:0.5",
+        "_:3 F#5:.5 _:0.5",
+        "_:2 A4:.5 C#5:.5 F#5:1"
+      ],
+      "density": "sparse",
+      "signature": "6f7ef9d84f177367735e6e70a727288fd25639e8f02d092f78726198f70b80dd"
+    },
+    {
+      "cue": "tempest_stormbreak",
+      "phrase": 6,
+      "name": "Recover the other flight",
+      "startBar": 21,
+      "endBar": 24,
+      "startTick": 38400,
+      "endTick": 46080,
+      "function": "contrast",
+      "change": "A low rescue call is answered upward before both parts regain the corridor.",
+      "harmony": [
+        "B",
+        "Gsm",
+        "Fsm",
+        "Cs7"
+      ],
+      "melody": [
+        "B5:1 F#5:.5 D#5:.5 _:2",
+        "D#5:.5 G#5:.5 B5:1 _:2",
+        "A5:.75 C#6:.25 F#6:1 E6:.5 C#6:.5 A5:1",
+        "G#5:1 E#5:.5 C#5:.5 _:2"
+      ],
+      "answers": [
+        "_:2 F#4:.5 B4:.5 D#5:1",
+        "_:2 B5:.5 G#5:.5 D#5:1",
+        "_:4",
+        "_:2 C#5:.5 E#5:.5 G#5:1"
+      ],
+      "density": "normal",
+      "signature": "410c835bf5b5c19baa14b1abd5bd5cef8bb89823a1466f56fbbbc9900a787968"
+    },
+    {
+      "cue": "tempest_stormbreak",
+      "phrase": 7,
+      "name": "Intertwined climb",
+      "startBar": 25,
+      "endBar": 28,
+      "startTick": 46080,
+      "endTick": 53760,
+      "function": "hook",
+      "change": "The flights exchange complete climbs instead of doubling the same high line.",
+      "harmony": [
+        "A",
+        "B",
+        "Fsm",
+        "Cs7"
+      ],
+      "melody": [
+        "E6:.5 C#6:.5 A5:1 _:2",
+        "D#6:.5 F#6:.5 B6:.5 A6:.5 F#6:1 D#6:1",
+        "F#6:.75 E6:.25 C#6:.5 A5:.5 _:2",
+        "E#6:.5 G#6:.5 B6:1 G#6:.5 E#6:.5 C#6:1"
+      ],
+      "answers": [
+        "_:2 A5:.5 C#6:.5 E6:1",
+        "_:4",
+        "_:2 A4:.5 C#5:.5 F#5:1",
+        "_:4"
+      ],
+      "density": "busy",
+      "signature": "9df78e5dd137aaacfa3d83bc8a86f56c4e939a6e9c5eda1f6a757264a045b7db"
+    },
+    {
+      "cue": "tempest_stormbreak",
+      "phrase": 8,
+      "name": "Forecast the return crossing",
+      "startBar": 29,
+      "endBar": 32,
+      "startTick": 53760,
+      "endTick": 61440,
+      "function": "hook",
+      "change": "A borrowed D front passes through E into a brighter B forecast; each voice keeps its own landing.",
+      "harmony": [
+        "D",
+        "E",
+        "B",
+        "Cs7"
+      ],
+      "melody": [
+        "F#6:1 D6:.5 A5:.5 F#5:1 A5:1",
+        "B5:.5 E6:.5 G#6:1 _:2",
+        "F#6:.5 D#6:.5 B5:1 A5:.5 G#5:.5 F#5:1",
+        "E#5:.75 G#5:.25 C#6:1 _:2"
+      ],
+      "answers": [
+        "_:4",
+        "_:2 G#5:.5 E5:.5 B4:1",
+        "_:4",
+        "_:2 B5:.5 G#5:.5 E#5:1"
+      ],
+      "density": "normal",
+      "signature": "c263a9d3eb9fb0b2d1aa07eabec466779cc5566e696ef8e1e39f51938feec4bf"
+    },
+    {
+      "cue": "tempest_stormbreak",
+      "phrase": 9,
+      "name": "A shared call returns changed",
+      "startBar": 33,
+      "endBar": 36,
+      "startTick": 61440,
+      "endTick": 69120,
+      "function": "hook",
+      "change": "The opening call gains a higher destination; its partner now answers downward through a different register.",
+      "harmony": [
+        "Fsm",
+        "B",
+        "A",
+        "Cs7"
+      ],
+      "melody": [
+        "F#5:.5 A5:.5 C#6:.5 F#6:.5 _:2",
+        "F#6:1 D#6:.5 B5:.5 _:2",
+        "C#6:.5 E6:.5 A6:1 E6:.5 C#6:.5 A5:1",
+        "G#5:.5 B5:.5 C#6:1 _:2"
+      ],
+      "answers": [
+        "_:2 E6:.5 C#6:.5 A5:1",
+        "_:2 A5:.5 F#5:.5 D#5:1",
+        "_:4",
+        "_:2 E#6:.5 C#6:.5 B5:1"
+      ],
+      "density": "normal",
+      "signature": "19d1cad4d678950686b623e322868429a28294f46e5541b2f8f9e7d85a7d83a3"
+    },
+    {
+      "cue": "tempest_stormbreak",
+      "phrase": 10,
+      "name": "Leave the corridor open",
+      "startBar": 37,
+      "endBar": 40,
+      "startTick": 69120,
+      "endTick": 76800,
+      "function": "ending",
+      "change": "A final low answer leaves the dominant open and hands the next loop back to the shared call.",
+      "harmony": [
+        "B",
+        "A",
+        "Fsm",
+        "Cs7"
+      ],
+      "melody": [
+        "D#6:1 B5:.5 F#5:.5 D#5:1 F#5:1",
+        "E5:.5 A5:.5 C#6:1 _:2",
+        "A5:.75 C#6:.25 F#6:1 E6:.5 C#6:.5 A5:1",
+        "G#5:.5 E#5:.5 C#5:1 _:2"
+      ],
+      "answers": [
+        "_:4",
+        "_:2 B5:.5 A5:.5 E5:1",
+        "_:4",
+        "_:2 B4:.5 G#4:.5 E#4:.5 _:0.5"
+      ],
+      "density": "normal",
+      "signature": "ac9d9da3392f449d1b17350a36ea7f6c74fb86d7e79648c32d4459a8eae3b1b5"
     }
   ]
 }
