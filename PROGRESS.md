@@ -2,6 +2,14 @@
 
 Newest entries first. Historical timestamps were recovered from the linked Git commits and converted to UTC; they do not imply undocumented event times. Descriptions and validation limits are preserved.
 
+## 2026-10-30 09:13:27 UTC — Complete component orders and rival cover roles
+
+Timestamp source: recorded UTC clock time for this integration update.
+
+Unified live aircraft, courier Drive, walker parts, capital components and core marks for the target picker, companion orders and specialist/player missiles. Blocked orders retain their mark and route around cover; lost marks regroup with feedback. Protect follows required friendly cargo. The flight HUD retains companion health, task, named target and cooldown, with readable aircraft labels. Guard abilities require a reachable interception and use actual flight/body collision before cooldown starts. Healthy Stormbreak rivals receive explicit attack and cover roles; damage and withdrawal interrupt the setup within the existing observation and firing rules.
+
+All 53 new command checks pass, including real subsystem missile impacts, physical guard interception, blocked/invalid launches, unavailable companions, persistent HUD state and rival-role changes. The full release run passes 824 native checks across 13 suites, with 14 exported-browser checks. Four normal/large-text native views were inspected. The handoff and reproduction lists include these contracts and checks. Human feel, listening, physical-controller and Windows-device validation remain unmeasured; they do not block this implementation. No music assets changed in this pass; the sixteen original MBean1 cues remain integrated.
+
 ## 2026-10-30 08:50:53 UTC — Complete UTC progress history and prevent regressions
 
 Timestamp source: recorded UTC clock time for this documentation update.

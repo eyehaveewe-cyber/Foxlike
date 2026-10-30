@@ -43,8 +43,9 @@ python tools/package_release.py --godot /path/to/godot
 The tool imports resources, exports both platforms and writes ZIPs plus a SHA-256 manifest under `build/`. To export one platform, use `--platform windows` or `--platform web`. Use `--skip-tests` only after running the same suites separately.
 
 <!-- native-suite-list:start -->
-The packager runs these 12 native suites before exporting:
+The packager runs these 13 native suites before exporting:
 
+- `tests/command_smoke.gd`
 - `tests/operations_smoke.gd`
 - `tests/operation_routes.gd`
 - `tests/operation_journey_smoke.gd`

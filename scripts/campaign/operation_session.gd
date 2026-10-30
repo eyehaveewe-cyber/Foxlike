@@ -6,6 +6,7 @@ const Pilot = preload("res://scripts/duel/duel_pilot.gd")
 const Geometry = preload("res://scripts/duel/duel_geometry.gd")
 const Weapons = preload("res://scripts/duel/duel_weapons.gd")
 const Squadron = preload("res://scripts/flight_squadron.gd")
+const Target = preload("res://scripts/campaign/operation_target.gd")
 var definition: Dictionary = {}
 var actors: Dictionary = {}
 var stage := 0
@@ -223,6 +224,7 @@ func advance(dt: float, request: Dictionary) -> void:
 	missile_wait = maxf(0.0,missile_wait-dt)
 	_admit()
 	_update_hazards(dt)
+	_coordinate_rivals()
 	ground_fire_wait = maxf(0,ground_fire_wait-dt)
 	var hostile_firing := 0
 	for actor in actors.values():
@@ -268,7 +270,7 @@ func advance(dt: float, request: Dictionary) -> void:
 		for j in range(i+1,active.size()):
 			var a = active[i]; var b = active[j]
 			if Geometry.sphere_time(a.vehicle.previous_position-b.vehicle.previous_position,a.vehicle.position-b.vehicle.position,Vector3.ZERO,a.radius+b.radius)!=INF:
-				hurt(a.id,18,"Aircraft contact with "+b.id); hurt(b.id,18,"Aircraft contact with "+a.id)
+				hurt(a.id,18,"Aircraft contact with "+b.display_name()); hurt(b.id,18,"Aircraft contact with "+a.display_name())
 	var bodies: Array = []
 	for actor in actors.values():
 		if actor.hp>0 and actor.phase=="active": bodies.append({"id":actor.uid,"team":actor.team,"position":actor.vehicle.position,"previous":actor.vehicle.previous_position,"radius":actor.radius})
@@ -390,7 +392,14 @@ func _intent(actor: RefCounted, dt: float) -> Dictionary:
 		if actor.id=="slate":
 			for partner in living_hostiles():
 				if partner.id in ["rook","shrike"] and partner.hp<50 and own.position.distance_to(partner.vehicle.position)<180:
-					return {"steer":Pilot.steer_to(own,partner.vehicle.position+partner.vehicle.forward()*35),"fire":intent.fire}
+					if actor.task!="rival_cover": return _navigate(actor,partner.vehicle.position+partner.vehicle.forward()*35,bool(intent.fire))
+		if actor.task=="rival_cover":
+			var partner = actors.get(actor.target)
+			if partner!=null and partner.hp>0 and partner.phase=="active":
+				var side: float = -1.0 if actor.uid%2==0 else 1.0
+				var flank: Vector3 = partner.vehicle.position+partner.vehicle.orientation()*Vector3(side*45,15,45)
+				actor.goal = flank
+				return _navigate(actor,flank,bool(intent.fire) and actor.pilot.visible)
 		var radio_active: bool = components.has("Contact antenna") and not components["Contact antenna"].disabled
 		if radio_active and not actor.pilot.visible:
 			for reporter in living_hostiles():
@@ -400,6 +409,7 @@ func _intent(actor: RefCounted, dt: float) -> Dictionary:
 	else:
 		var index := allies().find(actor)
 		if actor.hp<actor.max_hp*.2 or actor.task=="withdraw":
+			if actor.task!="withdraw": events.append({"type":"assignment","text":actor.display_name()+" withdrawing / low shield"})
 			actor.task = "withdraw"
 			var retreat := carrier_position+Vector3(110,25,80)
 			if own.position.distance_to(retreat)<25:
@@ -407,24 +417,37 @@ func _intent(actor: RefCounted, dt: float) -> Dictionary:
 			return {"steer":Pilot.steer_to(own,retreat),"brake":true}
 		goal = player().vehicle.position+player().vehicle.orientation()*Squadron.offset(formation,maxi(index,0))
 		if ground_mode(): goal = player().vehicle.position+Vector3(130 if fmod(elapsed+index*6,12)<6 else -130,45,-70)
-		if actor.task=="protect": goal = carrier_position+Vector3((index*2-1)*45,30,-50)
+		if actor.task=="protect":
+			var protected_actor = actors.get(actor.target)
+			var anchor: Vector3 = protected_actor.vehicle.position if protected_actor!=null and protected_actor.hp>0 and protected_actor.phase=="active" else carrier_position
+			goal = anchor+Vector3((index*2-1)*30,15,-30)
 		if actor.task=="cover": goal = player().vehicle.position+player().vehicle.forward()*18+Vector3((index*2-1)*6,0,0)
-		if actor.task=="attack" and components.has(actor.target) and components[actor.target].hp>0:
-			goal = Actor.point(components[actor.target].point)
-			fire = own.position.distance_to(goal)<180 and own.forward().dot(own.position.direction_to(goal))>.96 and Geometry.first_cover(own.position,goal,cover).is_empty()
-		var target = actors.get(actor.target)
-		if actor.task=="attack" and target!=null and target.hp>0:
-			goal = actor.goal
-			if Geometry.first_cover(own.position,target.vehicle.position,cover).is_empty(): actor.goal = target.vehicle.position; goal = actor.goal
-		elif actor.task!="attack":
+		if actor.task=="guard":
+			if elapsed<actor.task_until: goal = actor.goal
+			else: actor.task = "regroup"; actor.target = ""; events.append({"type":"assignment","text":actor.display_name()+" guard pass complete / regrouping"})
+		if actor.task=="attack":
+			var mark = resolve_target(actor.target)
+			if mark==null:
+				actor.task = "regroup"; actor.target = ""
+				events.append({"type":"assignment","text":actor.display_name()+" target unavailable / regrouping"})
+			else:
+				var velocity := Vector3.ZERO
+				if not mark.actor_id.is_empty(): velocity = actors[mark.actor_id].vehicle.velocity
+				actor.pilot.feed(Pilot.sensor(own.position,own.forward(),mark.point,velocity,weapons.shots,cover,elapsed))
+				actor.pilot.update(dt,own,cover,float(definition.radius),float(definition.height))
+				if actor.pilot.visible: actor.goal = actor.pilot.predicted_contact()
+				goal = actor.goal
+				fire = actor.pilot.visible and mark.firing_solution(own,cover,180,.96)
+		elif actor.task!="guard":
 			for enemy in living_hostiles():
 				if own.position.distance_to(enemy.vehicle.position)<120 and own.forward().dot(own.position.direction_to(enemy.vehicle.position))>.94:
-					target = enemy; break
-		if target!=null and target.hp>0:
-			fire = own.position.distance_to(target.vehicle.position)<180 and own.forward().dot(own.position.direction_to(target.vehicle.position))>.96 and Geometry.first_cover(own.position,target.vehicle.position,cover,.15).is_empty()
+					fire = Geometry.first_cover(own.muzzle(),enemy.vehicle.position,cover,.13).is_empty(); break
+	return _navigate(actor,goal,fire)
+
+func _navigate(actor: RefCounted, goal: Vector3, fire: bool) -> Dictionary:
+	var own = actor.vehicle
 	if not Geometry.first_cover(own.position,goal,cover,4).is_empty():
 		goal = Vector3(actor.route_side*135,maxf(95,own.position.y),-110 if own.position.z>0 else 100)
-		actor.target = actor.target if actor.task=="attack" else ""
 	for other in actors.values():
 		if other==actor or other.hp<=0 or other.phase!="active": continue
 		var relative: Vector3 = other.vehicle.position-own.position
@@ -432,6 +455,36 @@ func _intent(actor: RefCounted, dt: float) -> Dictionary:
 		var time := clampf(-relative.dot(closing)/maxf(closing.length_squared(),.01),0,2)
 		if (relative+closing*time).length()<12: return {"steer":Vector2(-1,0),"brake":true,"fire":false}
 	return {"steer":Pilot.steer_to(own,goal),"brake":own.position.distance_to(goal)<45,"fire":fire}
+
+func _coordinate_rivals() -> void:
+	if not definition.id in ["tempest_stormbreak","terminus_siege"]: return
+	var flight := living_hostiles().filter(func(a):return a.task!="transport" and a.kind in ["fighter","interceptor"])
+	var coverer: RefCounted = null
+	for actor in flight:
+		if actor.id=="slate" and actor.hp>=25 and actor.task!="withdraw": coverer = actor; break
+	if coverer==null:
+		for actor in flight:
+			if actor.task in ["rival_attack","rival_cover"]:
+				actor.task = "regroup"; actor.target = ""
+				events.append({"type":"rival_order","text":actor.display_name()+" / cover lost, independent approach"})
+		return
+	var attacker: RefCounted = null
+	for id in ["shrike","rook"]:
+		var candidate = actors.get(id)
+		if candidate!=null and candidate!=coverer and candidate in flight and candidate.hp>=25 and candidate.task!="withdraw": attacker = candidate; break
+	if attacker==null:
+		for candidate in flight:
+			if candidate!=coverer and candidate.hp>=25 and candidate.task!="withdraw": attacker = candidate; break
+	var protected_partner = attacker
+	for candidate in flight:
+		if candidate!=coverer and candidate.hp<50 and (protected_partner==null or candidate.hp<protected_partner.hp): protected_partner = candidate
+	for actor in flight:
+		if actor.hp<25 or actor.task=="withdraw": continue
+		var task: String = "rival_cover" if actor==coverer and protected_partner!=null else "rival_attack" if actor==attacker else "regroup"
+		var target: String = protected_partner.id if task=="rival_cover" else "comet" if task=="rival_attack" else ""
+		if actor.task==task and actor.target==target: continue
+		actor.task = task; actor.target = target
+		if task!="regroup": events.append({"type":"rival_order","text":actor.display_name()+" / "+("cover "+protected_partner.display_name() if task=="rival_cover" else "attack setup")})
 
 func _ground_player(dt: float, request: Dictionary) -> void:
 	var actor = player(); var own = actor.vehicle
@@ -458,7 +511,7 @@ func hurt(id: String, amount: float, source: String) -> void:
 	if actor.hp<=0 or actor.grace>0 or actor.vehicle.protected(): return
 	if actor.team==0 and not source.begins_with("Arranged"): amount *= .72 if settings.get("difficulty")=="Cadet" else 1.2 if settings.get("difficulty")=="Ace" else 1.0
 	actor.hp = maxf(0,actor.hp-amount); actor.grace = .8 if "collision" in source.to_lower() or "contact" in source.to_lower() or "storm" in source.to_lower() else .06
-	events.append({"type":"hit","id":id,"text":id+" / "+source})
+	events.append({"type":"hit","id":id,"text":actor.display_name()+" / "+source})
 	if actor.kind=="wingman": facts.companions[id] = {"hp":actor.hp,"withdrawn":actor.hp<=0}
 	if actor.hp>0: return
 	quiet_time = 0
@@ -479,38 +532,103 @@ func damage_actor_part(id: String, part: String, amount: float) -> void:
 		if part=="Drive" and actor.id==required_cargo:
 			actor.phase = "disabled"; actor.critical = false
 
+func resolve_target(id: String) -> RefCounted: return Target.resolve(self,id)
+
+func target_ids() -> Array[String]:
+	var result: Array[String] = []
+	for actor in living_hostiles():
+		result.append(actor.id)
+		for part in actor.parts:
+			if actor.parts[part].hp>0: result.append(actor.id+":"+str(part))
+	for name in components:
+		if components[name].hp>0 and not components[name].disabled: result.append(name)
+	if core_hp>0: result.append("CORE")
+	return result
+
 func assign(task: String, target: String = "") -> bool:
-	if not task in ["attack","protect","cover","regroup"] or (task=="attack" and not actors.has(target) and not components.has(target)):
+	var mark = resolve_target(target) if task=="attack" else null
+	if not task in ["attack","protect","cover","regroup"] or (task=="attack" and mark==null):
 		events.append({"type":"denial","text":"No valid assignment target"}); return false
+	var assigned := 0
 	for actor in allies():
-		if actor.hp<=0: continue
-		actor.task = task; actor.target = target
-		if task=="attack": actor.goal = actors[target].vehicle.position if actors.has(target) else Actor.point(components[target].point)
-	events.append({"type":"assignment","text":task.to_upper()+" acknowledged"})
+		if actor.hp<actor.max_hp*.2 or actor.phase!="active" or actor.task=="withdraw": continue
+		actor.task = task; actor.target = ""; actor.task_until = 0
+		assigned += 1
+		if task=="attack":
+			actor.target = target; actor.goal = mark.point
+			actor.pilot.reset(actor.vehicle.position); actor.pilot.time = elapsed
+		elif task=="protect":
+			var cargo = actors.get(required_cargo)
+			actor.target = cargo.id if cargo!=null and cargo.team==0 and cargo.hp>0 and cargo.phase=="active" else "DRAGONFLY"
+		elif task=="cover": actor.target = "comet"
+	if assigned==0: events.append({"type":"denial","text":"No companion is available for that assignment"}); return false
+	events.append({"type":"assignment","text":task.to_upper()+" / "+(mark.label if mark!=null else "objective" if task=="protect" else "COMET")+" acknowledged"})
 	return true
 
 func missile() -> void:
 	if missiles<=0 or missile_wait>0: return
+	var mark = resolve_target(selected)
 	var own = player().vehicle
-	if selected.contains(":"):
-		var names := selected.split(":")
-		if actors.has(names[0]) and actors[names[0]].phase=="active" and actors[names[0]].parts.has(names[1]) and actors[names[0]].parts[names[1]].hp>0:
-			var actor = actors[names[0]]
-			var point: Vector3 = actor.vehicle.position+actor.vehicle.orientation()*Actor.point(actor.parts[names[1]].offset)
-			if own.position.distance_to(point)<250 and own.forward().dot(own.position.direction_to(point))>.92 and Geometry.first_cover(own.position,point,cover).is_empty():
-				missiles -= 1; missile_wait = 2.5; weapons.launch(player().uid,0,own.muzzle(),own.forward(),55,140,6,2000+actor.uid*8+actor.parts.keys().find(names[1]))
-		return
-	var target = actors.get(selected)
-	if target!=null and target.hp>0 and target.phase=="active" and own.position.distance_to(target.vehicle.position)<250 and own.forward().dot(own.position.direction_to(target.vehicle.position))>.92 and Geometry.first_cover(own.position,target.vehicle.position,cover).is_empty():
-		missiles -= 1; missile_wait = 2.5
-		weapons.launch(player().uid,0,own.muzzle(),own.forward(),55,140,6,target.uid)
-	elif selected in components and components[selected].hp>0:
-		var point: Vector3 = Actor.point(components[selected].point)
-		if own.position.distance_to(point)<250 and own.forward().dot(own.position.direction_to(point))>.92:
-			missiles -= 1; missile_wait = 2.5
-			weapons.launch(player().uid,0,own.muzzle(),own.forward(),55,140,6,1000+components.keys().find(selected))
-	elif selected=="CORE" and core_hp>0 and own.position.distance_to(boss_position)<250 and own.forward().dot(own.position.direction_to(boss_position))>.92:
-		missiles -= 1; missile_wait = 2.5; weapons.launch(player().uid,0,own.muzzle(),own.forward(),55,140,6,1100)
+	if mark==null or not mark.firing_solution(own,cover,250,.92):
+		events.append({"type":"denial","text":"Missile needs a clear forward firing approach"}); return
+	missiles -= 1; missile_wait = 2.5
+	weapons.launch(player().uid,0,own.muzzle(),own.forward(),55,140,6,mark.uid)
+
+func activate_abilities(target: String) -> int:
+	var started := 0
+	for actor in allies():
+		if actor.hp<actor.max_hp*.2 or actor.phase!="active" or actor.task=="withdraw" or actor.cooldown>0: continue
+		var profile: Dictionary = Squadron.profile(actor.id)
+		if profile.ability=="guard":
+			var intercept := _guard_route(actor)
+			if intercept.is_empty(): events.append({"type":"denial","text":actor.display_name()+" cannot reach the guard intercept"}); continue
+			actor.task = "guard"; actor.target = "comet"; actor.goal = intercept.point; actor.task_until = elapsed+float(intercept.time)
+		else:
+			var mark = resolve_target(target)
+			if mark==null or not mark.firing_solution(actor.vehicle,cover,180,.9):
+				events.append({"type":"denial","text":actor.display_name()+" needs a clear forward firing approach"}); continue
+			actor.task = "attack"; actor.target = target; actor.goal = mark.point
+			match str(profile.ability):
+				"burst": actor.burst = 6; actor.burst_wait = 0
+				"missile": weapons.launch(actor.uid,0,actor.vehicle.muzzle(),actor.vehicle.forward(),55,140,6,mark.uid)
+				"nova": weapons.launch(actor.uid,0,actor.vehicle.muzzle(),actor.vehicle.forward(),65,100,4,mark.uid)
+		actor.cooldown = float(profile.cooldown)/(1+.18*(actor.level-1)); started += 1
+		events.append({"type":"assignment","text":actor.display_name()+" / "+str(profile.ability).to_upper()+" started"})
+	return started
+
+func _guard_route(actor: RefCounted) -> Dictionary:
+	var threats: Array[Dictionary] = []
+	var own = actor.vehicle
+	for shot in weapons.shots:
+		if int(shot.team)!=1: continue
+		var relative: Vector3 = shot.position-player().vehicle.position
+		var velocity: Vector3 = shot.velocity-player().vehicle.velocity
+		var time := -relative.dot(velocity)/maxf(velocity.length_squared(),.001)
+		if time>.08 and time<2 and (relative+velocity*time).length()<8: threats.append({"shot":shot,"time":time})
+	threats.sort_custom(func(a,b):return a.time<b.time)
+	if threats.is_empty():
+		var point: Vector3 = player().vehicle.position+player().vehicle.forward()*18
+		var turn: float = own.forward().angle_to(own.position.direction_to(point))/float(own.profile.angular_rate)
+		if turn+own.position.distance_to(point)/float(own.profile.cruise)>2.5 or not Geometry.first_cover(own.position,point,cover,4).is_empty(): return {}
+		return {"point":point,"time":2.5}
+	for threat in threats:
+		for sample in range(1,25):
+			var time: float = (float(threat.time)-.03)*sample/24.0
+			var point: Vector3 = threat.shot.position+threat.shot.velocity*time
+			var turn: float = own.forward().angle_to(own.position.direction_to(point))/float(own.profile.angular_rate)
+			var travel := maxf(0,own.position.distance_to(point)-actor.radius)/float(own.profile.brake)
+			if turn+travel<=time and Geometry.first_cover(own.position,point,cover,actor.radius).is_empty(): return {"point":point,"time":time+.2}
+	return {}
+
+func squadron_report() -> String:
+	var lines: Array[String] = []
+	for actor in allies():
+		var label: String = "WITHDRAWN" if actor.hp<=0 or actor.phase=="withdrawn" else actor.task.to_upper()
+		if not actor.target.is_empty():
+			var mark = resolve_target(actor.target)
+			label += " / "+(mark.label if mark!=null else actors[actor.target].display_name() if actors.has(actor.target) else actor.target)
+		lines.append("%s %.0f / %s / ready in %.1fs"%[actor.display_name(),actor.hp,label,actor.cooldown])
+	return "\n".join(lines)
 
 func damage_component(name: String, amount: float) -> void:
 	if not components.has(name) or components[name].hp<=0: return
@@ -712,7 +830,7 @@ func restore(record: Dictionary) -> bool:
 	for key in ["repair_cargo"]:
 		if not record.get(key) is bool: return false
 	if not record.get("required_cargo") is String: return false
-	if record.next_uid<0 or record.next_uid>1024 or record.next_uid!=int(record.next_uid): return false
+	if record.next_uid<0 or record.next_uid>Target.COMPONENT_BASE or record.next_uid!=int(record.next_uid): return false
 	if not record.get("pending") is Array or record.pending.size()>128 or not record.get("tank") is Dictionary: return false
 	for entry in record.pending:
 		if not entry is Dictionary or not entry.get("id") is String or not entry.get("kind") in ["fighter","bomber","interceptor","tank","walker"] or not _number(entry.get("hp")) or not _vector(entry.get("point")): return false
@@ -760,6 +878,7 @@ func restore(record: Dictionary) -> bool:
 			if not entry.get(key) is String: return false
 		for key in ["uid","team","hp","max_hp","cooldown","waypoint","level","radius","grace","route_side"]:
 			if not _number(entry.get(key)): return false
+		if entry.has("task_until") and not _number(entry.task_until): return false
 		if entry.uid!=int(entry.uid) or seen.has(entry.id) or uids.has(int(entry.uid)) or int(entry.uid)<0 or int(entry.uid)>=record.next_uid: return false
 		seen[entry.id] = true
 		uids[int(entry.uid)] = true
@@ -783,6 +902,7 @@ func restore(record: Dictionary) -> bool:
 			if not _number(entry.profile.get(key)) or entry.profile[key]<0: return false
 		if not entry.profile.get("id") is String or entry.profile.response<=0 or entry.profile.roll_duration<=0 or entry.profile.angular_rate<=0 or entry.profile.extent<=0 or entry.profile.extent>12: return false
 		if not entry.get("parts",{}) is Dictionary: return false
+		if entry.get("parts",{}).size()>Target.PART_STRIDE: return false
 		for name in entry.get("parts",{}):
 			var part: Variant = entry.parts[name]
 			if not part is Dictionary or not _number(part.get("hp")) or not _vector(part.get("offset")): return false

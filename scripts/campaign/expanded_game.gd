@@ -17,6 +17,7 @@ var boss_node: Node3D
 var campaign_ui: PanelContainer
 var ui_stack: VBoxContainer
 var caption: Label
+var squadron_caption: Label
 var command_row: HBoxContainer
 var notice := ""
 var replay := false
@@ -71,6 +72,8 @@ func _ready() -> void:
 	var scroll := ScrollContainer.new(); campaign_ui.add_child(scroll)
 	ui_stack = VBoxContainer.new(); ui_stack.custom_minimum_size.x = 840; ui_stack.size_flags_horizontal = Control.SIZE_EXPAND_FILL; ui_stack.add_theme_constant_override("separation",9); scroll.add_child(ui_stack)
 	caption = Label.new(); caption.position = Vector2(30,25); caption.size = Vector2(1190,100); caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART; canvas.add_child(caption)
+	squadron_caption = Label.new(); squadron_caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	squadron_caption.add_theme_color_override("font_outline_color",Color.BLACK); squadron_caption.add_theme_constant_override("outline_size",3); canvas.add_child(squadron_caption)
 	get_tree().root.size_changed.connect(_resize_ui)
 	Input.joy_connection_changed.connect(func(_id: int, connected: bool):
 		if not connected and mode=="flight": paused = true; input_armed = false; notice = "Controller disconnected. Reconnect or resume with keyboard."; _pause_menu()
@@ -83,11 +86,14 @@ func _hud_panel() -> StyleBoxFlat:
 func _resize_ui() -> void:
 	var scale_ui: float = float(save.data.settings.get("ui_scale",1.0))
 	caption.add_theme_font_size_override("font_size",roundi(18*scale_ui))
+	squadron_caption.add_theme_font_size_override("font_size",roundi(17*scale_ui))
 	campaign_ui.add_theme_font_size_override("font_size",roundi(17*scale_ui))
 	var viewport := get_viewport().get_visible_rect().size
 	campaign_ui.scale = Vector2.ONE*minf(1, minf(viewport.x/960,viewport.y/680))
 	campaign_ui.position = (viewport-campaign_ui.size*campaign_ui.scale)*.5
 	caption.size.x = maxf(100,viewport.x-60)
+	squadron_caption.size = Vector2(maxf(100,viewport.x-60),90*scale_ui)
+	squadron_caption.position = Vector2(30,maxf(150,viewport.y-squadron_caption.size.y-15))
 
 func _clear_menu() -> void:
 	for child in ui_stack.get_children(): ui_stack.remove_child(child); child.queue_free()
@@ -101,7 +107,7 @@ func _button(text: String, action: Callable, disabled: bool = false) -> Button:
 
 func _menu() -> void:
 	mode = "menu"; paused = false; _clear_menu()
-	caption.text = ""; audio.start_music(0)
+	caption.text = ""; squadron_caption.text = ""; audio.start_music(0)
 	_text("FOXLIKE / ASTERION FLIGHT",31)
 	_text("Ten connected operations. One squadron. Keep the carrier and the people you rescue alive.")
 	if not save.error.is_empty(): _text(save.error)
@@ -250,13 +256,10 @@ func _nova() -> void:
 	session.nova(); audio.sfx("explosion")
 
 func _cycle_target() -> void:
-	var ids: Array = session.living_hostiles().filter(func(a):return Geometry.first_cover(session.player().vehicle.position,a.vehicle.position,session.cover).is_empty()).map(func(a):return a.id)
-	for actor in session.living_hostiles():
-		if not Geometry.first_cover(session.player().vehicle.position,actor.vehicle.position,session.cover).is_empty(): continue
-		for part in actor.parts:
-			if actor.parts[part].hp>0: ids.append(actor.id+":"+part)
-	ids.append_array(session.components.keys().filter(func(key):return session.components[key].hp>0))
-	if session.core_hp>0: ids.append("CORE")
+	var ids: Array = session.target_ids().filter(func(id):
+		var mark = session.resolve_target(id)
+		return mark!=null and session.player().vehicle.position.distance_to(mark.point)<=260 and mark.visible_from(session.player().vehicle.position,session.cover)
+	)
 	if not ids.is_empty(): session.selected = ids[(ids.find(session.selected)+1)%ids.size()]
 
 func _request(dt: float) -> Dictionary:
@@ -294,22 +297,7 @@ func _request(dt: float) -> Dictionary:
 	return request
 
 func _ability() -> void:
-	for actor in session.allies():
-		if actor.hp<=0 or actor.cooldown>0: continue
-		var profile: Dictionary = Squadron.profile(actor.id)
-		var target = session.actors.get(session.selected)
-		if profile.ability=="guard":
-			var goal: Vector3 = session.player().vehicle.position+session.player().vehicle.forward()*18
-			if actor.vehicle.position.distance_to(goal)>90 or not Geometry.first_cover(actor.vehicle.position,goal,session.cover,4).is_empty(): notice = actor.id+" cannot reach that guard intercept"; continue
-			actor.task = "cover"; actor.goal = goal; actor.cooldown = profile.cooldown
-		elif target!=null and target.hp>0:
-			if actor.vehicle.position.distance_to(target.vehicle.position)>180 or actor.vehicle.forward().dot(actor.vehicle.position.direction_to(target.vehicle.position))<.9 or not Geometry.first_cover(actor.vehicle.position,target.vehicle.position,session.cover).is_empty(): notice = actor.id+" needs a firing approach"; continue
-			actor.task = "attack"; actor.target = target.id; actor.cooldown = profile.cooldown
-			match str(profile.ability):
-				"burst": actor.burst = 6; actor.burst_wait = 0
-				"missile": session.weapons.launch(actor.uid,0,actor.vehicle.muzzle(),actor.vehicle.forward(),55,140,6,target.uid)
-				"nova":
-					session.weapons.launch(actor.uid,0,actor.vehicle.muzzle(),actor.vehicle.forward(),65,100,4,target.uid)
+	session.activate_abilities(session.selected)
 
 func _process(delta: float) -> void:
 	elapsed_frame += delta
@@ -321,7 +309,7 @@ func _process(delta: float) -> void:
 	if request.get("fire",false) and sound_wait<=0: audio.sfx("laser"); sound_wait = .14
 	session.advance(dt,request)
 	for event in session.events:
-		notice = event.get("text",notice)
+		if event.type!="rival_order" or session.capital_warning<=0: notice = event.get("text",notice)
 		if event.type=="hit":
 			audio.sfx("hit")
 			if event.get("id","")=="comet": _hit_flash = .8
@@ -333,13 +321,12 @@ func _process(delta: float) -> void:
 	_sync_actors(dt); _update_camera(dt)
 	overlay.queue_redraw()
 	caption.text = "%s / %s\n%s\nShield %.0f / Energy %.0f / Missiles %d / Nova %d / %s\n%s" % [session.definition.title,session.state().id,session.state().text,session.player().hp,session.player().vehicle.energy,session.missiles,session.bombs,Squadron.FORMATIONS[session.formation],"HOLD "+_binding("ability")+": 1/↑ attack / 2/→ protect / 3/↓ cover / 4/← regroup" if assignment_hold>=.35 else notice]
-	if session.selected in session.components: caption.text += "\nTARGET / "+session.selected+" / "+str(session.components[session.selected].hp)
-	elif session.actors.has(session.selected): caption.text += "\nTARGET / "+session.selected+" / "+str(session.actors[session.selected].hp)
-	elif session.selected.contains(":"):
-		var parts: PackedStringArray = str(session.selected).split(":")
-		if session.actors.has(parts[0]) and session.actors[parts[0]].parts.has(parts[1]): caption.text += "\nTARGET / "+session.selected+" / "+str(session.actors[parts[0]].parts[parts[1]].hp)
+	var mark = session.resolve_target(session.selected)
+	if mark!=null: caption.text += "\nTARGET / "+mark.label+" / "+str(mark.hp)
+	squadron_caption.text = session.squadron_report()
 	if session.core_hp>0: caption.text += "\nCORE %.0f / %s" % [session.core_hp,"OPEN" if session.core_open() else "ARMORED"]
 	if session.boss_kind==5 and fmod(session.stage_time,28)>=16 and fmod(session.stage_time,28)<20: caption.text += " / OPENING IN %.1fs"%(20-fmod(session.stage_time,28))
+	if session.capital_warning>0: caption.text += "\nBATTERY CHARGE / %.1fs / cross the marked line"%session.capital_warning
 	if session.hazard_warning: caption.text += "\nDANGER FORECAST: leave the marked slab before it flashes; both side exits stay open"
 	if session.forecast_time>0: caption.text += "\nMAJOR SECTION SEPARATION IN %.1fs / follow either marked side corridor"%session.forecast_time
 	if session.definition.id=="anchorage_defense": caption.text += "\nREPAIR / "+session.repair_phase.replace("_"," ")
@@ -458,7 +445,7 @@ func draw_overlay(surface: Control) -> void:
 		var screen: Vector2 = camera.unproject_position(actor.vehicle.position)
 		var color := Color("ff947d") if actor.team==1 else Color("85e4e8")
 		surface.draw_circle(screen,8,color,false,2)
-		surface.draw_string(font,screen+Vector2(12,-8),actor.id+" / "+("ABOVE" if actor.vehicle.position.y>session.player().vehicle.position.y+8 else "BELOW" if actor.vehicle.position.y<session.player().vehicle.position.y-8 else "LEVEL"),HORIZONTAL_ALIGNMENT_LEFT,-1,14,color)
+		surface.draw_string(font,screen+Vector2(12,-8),actor.display_name()+" / "+("ABOVE" if actor.vehicle.position.y>session.player().vehicle.position.y+8 else "BELOW" if actor.vehicle.position.y<session.player().vehicle.position.y-8 else "LEVEL"),HORIZONTAL_ALIGNMENT_LEFT,-1,14,color)
 	var target := Vector3(110,95,80)
 	var target_label := "REGROUP / DRAGONFLY"
 	if session.state().kind in ["combat","rival","ground"]:

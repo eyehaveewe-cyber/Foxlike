@@ -81,6 +81,7 @@ Practice Duel retains the two arena-height and pitch experiments, delayed observ
 <!-- native-suite-commands:start -->
 ```bash
 godot --headless --path . --import
+godot --headless --path . --script res://tests/command_smoke.gd -- --test-save
 godot --headless --path . --script res://tests/operations_smoke.gd -- --test-save
 godot --headless --path . --script res://tests/operation_routes.gd -- --test-save
 godot --headless --path . --script res://tests/operation_journey_smoke.gd -- --test-save

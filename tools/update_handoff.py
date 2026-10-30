@@ -6,12 +6,25 @@ from docx.oxml import OxmlElement
 
 ROOT = Path(__file__).resolve().parents[1]
 TITLE = "Implementation addendum — 30 October 2026"
+COMMAND_TITLE = "Companion targeting and rival coordination"
+COMMAND_TEXT = "Aircraft, courier drives, walker parts, capital components and the core now share one resolved target contract for selection, orders, missiles and specialist abilities. Assignments retain blocked marks while routing around cover and regroup when the target becomes unavailable. Protect follows required friendly cargo; persistent status shows task, named target and cooldown. Guard abilities require a reachable intercept and use real flight and body collision. Healthy Shrike and Slate receive attack/cover roles; damage and withdrawal interrupt the setup without hidden player tracking or extra firing budget. The command suite adds 53 checks, including real subsystem missile hits and physical shot interception. Normal and large-text engine views were inspected."
+
+def add_command_record(doc):
+    if any(p.text == COMMAND_TITLE for p in doc.paragraphs):
+        return False
+    doc.add_heading(COMMAND_TITLE, 2)
+    doc.add_paragraph(COMMAND_TEXT)
+    return True
 
 def main():
     path = ROOT / "docs/Foxlike_Design_and_Handoff.docx"
     doc = Document(path)
     if any(p.text == TITLE for p in doc.paragraphs):
-        print("Implementation addendum already exists; preserving subsequent edits")
+        if add_command_record(doc):
+            doc.save(path)
+            print("Appended command integration record; preserved existing content")
+        else:
+            print("Implementation addendum and command record already exist")
         return
     doc.add_page_break()
     doc.add_heading(TITLE, 1)
@@ -55,6 +68,7 @@ def main():
     doc.add_paragraph("Use Godot 4.7.2 stable and import the root project.godot, then press F5. The normal scene is scenes/main.tscn. Windows and Web exports are separate from editable source; extraction must retain the PCK beside the Windows executable, and Web files must be served over HTTP. No network account or API key is needed during play. No site publication is authorized by this work.")
     doc.add_paragraph("The native operation, physical-route and arranged journey fixtures verify objective boundaries, checkpoint reconstruction and durable/idempotent settlement. Historical compact suites preserve regression coverage. The actual browser fixture uses normal keyboard input for menu fit, music, flight, weapons, spatial maneuver and pause/resume. Dated exact results belong in docs/VERIFICATION.md; a test total is not a human completion claim.")
     doc.add_paragraph("Human feel/balance, critical listening, physical-controller operation and target Windows hardware performance remain unmeasured validation. Layout and warning values remain blockout defaults. These limitations do not reinstate the removed programming gate. Full phase-plan mapping, sources and reproduction commands are in docs/EXPANDED_CAMPAIGN.md, docs/RUNNING.md, docs/ASSET_IMPORTS.md and CREDITS.md. Library guide reads were preserved as extracted text when signed DOCX transfers were blocked by the environment’s network policy.")
+    add_command_record(doc)
     doc.save(path)
     print("Updated", path)
 
