@@ -3,7 +3,7 @@ var game: Node
 func _initialize() -> void:
 	call_deferred("run")
 func run() -> void:
-	game = load("res://scenes/main.tscn").instantiate()
+	game = load("res://tests/compact_campaign.tscn").instantiate()
 	root.add_child(game)
 	await process_frame
 	game.set_process(false)

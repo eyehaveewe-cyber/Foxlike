@@ -1,0 +1,49 @@
+extends SceneTree
+## This fixture runs in an isolated checkout of the actual pinned PBR lab.
+const Pose = preload("res://scripts/foxlike/recovery_pose_probe.gd")
+var checks := 0
+var failures := 0
+func _initialize() -> void: call_deferred("run")
+func check(ok: bool, label: String) -> void:
+	checks += 1
+	if not ok: failures += 1; printerr("PBR_RECOVERY_FAILURE: ",label)
+func run() -> void:
+	var battle = load("res://scenes/foxlike_test.tscn").instantiate()
+	root.add_child(battle); await process_frame
+	battle.set_process(false)
+	for craft in battle.valid_fighters(): craft.set_process(false)
+	var lead = battle.selected
+	lead.take_damage(1) # Confirm damage through PBR's own resolver before posing.
+	var original: String = JSON.stringify(BattleCheckpoint.capture(battle))
+	var root_transform: Transform3D = lead.transform
+	var model = lead.foxlike_visual.model
+	for fps in [20,60,120]:
+		for phase in Pose.CONTRACT.phases:
+			for variant in ["full","reduced","skipped"]:
+				for frame in range(fps):
+					model.animate(frame/float(fps),1.0/fps,0,0,1)
+					if variant!="skipped": Pose.apply(model,phase,frame/float(fps),.6,variant=="reduced")
+				check(lead.transform==root_transform and JSON.stringify(BattleCheckpoint.capture(battle))==original,"%s/%s/%dfps preserves AP, cells, facing, occupancy, HP, orders and RNG"%[phase,variant,fps])
+				model.animate(1,1,0,0,1); Pose.apply(model,"alignment",1,.6,true)
+				check(absf(model.visual.rotation.z+.048)<.0001,"Cancellation returns to the confirmed damaged local pose")
+	var args := OS.get_cmdline_user_args()
+	if "--capture-dir" in args:
+		var folder: String = args[args.find("--capture-dir")+1]
+		DirAccess.make_dir_recursive_absolute(folder)
+		root.size = Vector2i(960,540)
+		var camera := Camera3D.new(); battle.add_child(camera); camera.current = true
+		camera.position = lead.position+Vector3(5,4,7); camera.look_at(lead.position)
+		camera.projection = Camera3D.PROJECTION_ORTHOGONAL; camera.size = 8
+		var canvas := CanvasLayer.new(); battle.add_child(canvas)
+		var label := Label.new(); label.position = Vector2(24,20); label.add_theme_font_size_override("font_size",20); canvas.add_child(label)
+		for frame in range(80):
+			var phase: String = "abort" if frame<40 else "rejoin"
+			model.animate(frame/20.0,.05,0,0,1)
+			Pose.apply(model,phase,(frame%40)/40.0,.6,false)
+			label.text = "PBR / FOXLIKE LOCAL RECOVERY POSE\nConfirmed damage / "+phase+" / tactical root and AP unchanged"
+			await process_frame; await RenderingServer.frame_post_draw
+			if root.get_texture().get_image().save_png(folder.path_join("%03d.png"%frame))!=OK: failures += 1
+			if lead.transform!=root_transform or JSON.stringify(BattleCheckpoint.capture(battle))!=original: failures += 1
+	battle.queue_free(); await process_frame; await process_frame
+	print("PBR_RECOVERY_CONTRACT: %d checks; %d failures"%[checks,failures])
+	quit(0 if failures==0 else 1)

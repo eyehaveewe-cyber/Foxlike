@@ -22,7 +22,7 @@ TARGETS = {"windows": ("Windows", "Foxlike.exe"), "web": ("Web", "index.html")}
 
 def run(command: list[str]) -> str:
     result = subprocess.run(command, cwd=ROOT, text=True, stdout=subprocess.PIPE,
-                            stderr=subprocess.STDOUT)
+                            stderr=subprocess.STDOUT, timeout=180)
     print(result.stdout, end="", flush=True)
     if result.returncode or "SCRIPT ERROR:" in result.stdout or "Parse Error:" in result.stdout:
         raise RuntimeError(f"Command failed ({result.returncode}): {command}")
@@ -50,6 +50,9 @@ def main() -> int:
     output.mkdir(parents=True, exist_ok=True)
     run([godot, "--headless", "--path", str(ROOT), "--import"])
     if not args.skip_tests:
+        run([godot, "--headless", "--path", str(ROOT), "--script", "res://tests/operations_smoke.gd", "--", "--test-save"])
+        run([godot, "--headless", "--path", str(ROOT), "--script", "res://tests/operation_routes.gd", "--", "--test-save"])
+        run([godot, "--headless", "--path", str(ROOT), "--script", "res://tests/operation_journey_smoke.gd", "--", "--test-save"])
         run([godot, "--headless", "--path", str(ROOT), "--script", "res://tests/music_smoke.gd", "--", "--test-save"])
         run([godot, "--headless", "--path", str(ROOT), "--script", "res://tests/game_smoke.gd", "--", "--test-save"])
         run([godot, "--headless", "--path", str(ROOT), "--script", "res://tests/squadron_smoke.gd", "--", "--test-save"])

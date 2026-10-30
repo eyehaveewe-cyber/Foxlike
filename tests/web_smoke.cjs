@@ -86,6 +86,10 @@ function serve(request, response) {
   await page.goto(`http://127.0.0.1:${server.address().port}/?qa=1`, { waitUntil: 'domcontentloaded' });
   const menu = await waitMode('MENU');
   check('WebGL game starts at flight deck', menu.mode === 'MENU', menu);
+  if (menu.menu_bounds) {
+    const [x,y,w,h] = menu.menu_bounds;
+    check('Flight deck fits the actual viewport', x >= 0 && y >= 0 && x+w <= menu.viewport[0]+1 && y+h <= menu.viewport[1]+1, menu);
+  }
   await picture('web-menu');
   await page.keyboard.press('Enter');
   const briefing = await waitMode('BRIEFING');
@@ -102,9 +106,9 @@ function serve(request, response) {
   await waitAction('restore exported music', muted => window.__foxlikeQA?.music_muted === muted, beforeMute);
   await picture('web-briefing');
   await page.keyboard.press('Enter');
-  await waitMode('LAUNCH');
   const flight = await waitMode('FLIGHT');
-  check('Animated launch reaches playable flight', flight.mode === 'FLIGHT', flight);
+  check('Briefing launches the spatial campaign', flight.mode === 'FLIGHT' && flight.mission === 'viridia_blockade', flight);
+  await waitAction('release menu input before flight', () => window.__foxlikeQA?.input_armed === true);
 
   const xBefore = Number(flight.player_x);
   await page.keyboard.down('d');
@@ -121,15 +125,15 @@ function serve(request, response) {
   await page.keyboard.up('Space');
   const fired = await state();
   check('Holding fire creates laser shots', Number(fired.shots_fired) > Number(beforeFire.shots_fired), { before: beforeFire.shots_fired, after: fired.shots_fired });
-  await page.keyboard.down('Shift');
-  await page.keyboard.down('ArrowDown');
-  await waitAction('boost-down long loop', () => window.__foxlikeQA?.maneuver === 'LONG LOOP' && window.__foxlikeQA?.player_z < -12);
-  await page.keyboard.up('ArrowDown');
-  check('Boost plus down performs forward long loop', (await state()).player_z < -12, await state());
+  const beforeLoop = await state();
+  await page.keyboard.press('x');
+  await waitAction('spatial long loop', () => window.__foxlikeQA?.maneuver === 'long_loop');
+  check('Dedicated control starts a powered spatial loop', (await state()).energy <= Number(beforeLoop.energy) - 29, await state());
   await picture('web-long-loop');
-  await waitAction('long loop settles', () => window.__foxlikeQA?.maneuver === '' && Math.abs(window.__foxlikeQA?.player_z) < 0.15);
-  await page.keyboard.up('Shift');
-  check('Long loop returns to flight depth', Math.abs((await state()).player_z) < 0.15, await state());
+  await waitAction('long loop settles', () => window.__foxlikeQA?.maneuver === '');
+  const afterLoop = await state();
+  const distance = Math.hypot(afterLoop.player_x-beforeLoop.player_x, afterLoop.player_z-beforeLoop.player_z);
+  check('Long loop traverses world space', distance > 40, { distance, afterLoop });
   await page.keyboard.press('e');
   await page.waitForTimeout(180);
   await picture('web-flight');

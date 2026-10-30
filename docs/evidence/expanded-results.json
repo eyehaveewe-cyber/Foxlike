@@ -1,0 +1,133 @@
+{
+  "date": "2026-10-30",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "native_suites": {
+    "OPERATIONS_SMOKE": {
+      "checks": 113,
+      "failures": 0
+    },
+    "OPERATION_ROUTES": {
+      "checks": 11,
+      "failures": 0
+    },
+    "OPERATION_JOURNEY_SMOKE": {
+      "checks": 131,
+      "failures": 0
+    },
+    "MUSIC_SMOKE": {
+      "checks": 156,
+      "failures": 0
+    },
+    "GAME_SMOKE": {
+      "checks": 74,
+      "failures": 0
+    },
+    "SQUADRON_SMOKE": {
+      "checks": 35,
+      "failures": 0
+    },
+    "COMBAT_REVISION_SMOKE": {
+      "checks": 38,
+      "failures": 0
+    },
+    "EXPANSION_SMOKE": {
+      "checks": 50,
+      "failures": 0
+    },
+    "DUEL_SMOKE": {
+      "checks": 38,
+      "failures": 0
+    },
+    "ORBIT_SMOKE": {
+      "checks": 40,
+      "failures": 0
+    },
+    "ORBIT_EXPLORATION_SMOKE": {
+      "checks": 70,
+      "failures": 0
+    },
+    "TANK_SUPPORT_SMOKE": {
+      "checks": 8,
+      "failures": 0
+    }
+  },
+  "native_total": 764,
+  "browser": {
+    "version": "154.0.8037.57",
+    "viewport": {
+      "width": 640,
+      "height": 360
+    },
+    "checks": 14,
+    "errors": []
+  },
+  "source_sha256": {
+    "project.godot": "79ba397297dda26cacc8f0d0174bd88c0d446551bc394f5bb0be1e5b58e51a6e",
+    "export_presets.cfg": "639605a787128fd50abcee9d7bbebb5685f24ecc77626fa34786f98803d510b2",
+    "scripts/arena_carrier.gd": "6ba760df58fc048b54d4aff0aadf86dfdd34ddf6900407b277cfa4794887f920",
+    "scripts/campaign/airframe_pose.gd": "55638cec7ea3383ee3462d5aef91fee9f2587da00d79b4f1076dec1745811fe8",
+    "scripts/campaign/campaign_save.gd": "c486fafdfe58e39318d5e8ff75f0507a37bb973c24d972f3453b73f3be280697",
+    "scripts/campaign/expanded_game.gd": "6370c890067b2b41269137fd062d758dd6585caeecedbac576efe1955cadc656",
+    "scripts/campaign/operation_actor.gd": "c4fafba4fb956683c029a65fa6c1f3aab96bd978b9fbea260a86025a05eccb9e",
+    "scripts/campaign/operation_catalog.gd": "65fe8622142979be842904e2a6e97fef1f96c8144ccc03d58adb9c7edeae129f",
+    "scripts/campaign/operation_session.gd": "d62902ba078e56fa1a769f0b016a2b92cb0d03c472e46d159d496e3d000a0281",
+    "scripts/campaign/operation_walker.gd": "a7a05ebeb64d3b2075b41fedc35fd76122ba6b44506fd2af8e2094f9e95dbece",
+    "scripts/campaign/pbr_ground_walker.gd": "fd9dfc2fd4b93c074063d79fb45484646924563c3c08df9ec8dfa10eb5598885",
+    "scripts/campaign/spatial_maneuver.gd": "2407bfe009cf1a1adbad754458cf08453cb0ee05803d3152257fad546b45f4db",
+    "scripts/duel/duel_build.gd": "c3eb6030f38fe02c5b8770f2aeb6bde2af0fbf851e62298b0acf59f15d96721f",
+    "scripts/duel/duel_game.gd": "719422a85894b015f224ad4a792717966cb4c209c3fc09825d450d7eef2aae0b",
+    "scripts/duel/duel_geometry.gd": "c2338a701e223ceba3a987708c802720316b731176ebdaa6174d24c1707f4abd",
+    "scripts/duel/duel_pilot.gd": "b19c0b8d70acec3e087953a13578c721cb36180d4820ff482f12b0eda2ba476c",
+    "scripts/duel/duel_vehicle.gd": "04c73a410cf3abd8b217fc4041fcba50a6524a2a40a69e45ec6b2aa0e0cfb8b7",
+    "scripts/duel/duel_weapons.gd": "e2cc5cfcb7fdc6efdc793c567c5f39a63b13449994a6b158ea393fa8d69e25f1",
+    "scripts/flight_arena.gd": "034368c040bdc03f8928fce8c0b4bd0f346cca05de255d252fba22ec932941b7",
+    "scripts/flight_audio.gd": "8d21bb8bdafe62633a0525867e65440ff217227a28c7d3cb9640ccf553e22d54",
+    "scripts/flight_campaign.gd": "5b84e68c41fee81060d430ae4825a2e1078d7ae2cc7a0f967141fbe7fd1d35a0",
+    "scripts/flight_effects.gd": "ba52717f418be6e01ce25c57b5ac99bf4c2e9b4201333082d2ac4944bbe178d9",
+    "scripts/flight_game.gd": "37d1f5d233cbcca2370dc8a047bda208d3ee428bca4644d6e9969333a1f4cdf0",
+    "scripts/flight_hud.gd": "26ca4cd70c348272afce9e7a4b0d9917446d5c5e337a0c17c8ed7ccc0437bb5f",
+    "scripts/flight_maneuver.gd": "02fe38abad0ceaec86664b2712a84958be57f66e9d8494ef66a1570264f0062e",
+    "scripts/flight_overlay.gd": "b56a4bc0ac53e77ca3539605854c8c0f480eb1b9d60c2cf582e3ef1b1cc8640e",
+    "scripts/flight_squadron.gd": "144e87ef5f4ef567e411f2e482199e15213d449a3b7bb7767e843ef8b92a4ce1",
+    "scripts/flight_tank.gd": "94a0332ec3c886edfca4d3212b1b6caa9aa50f19919318ab171cdf74743b0d4b",
+    "scripts/flight_world.gd": "3d21ed7ba8f40dedf8ba2eb06c776162efca52577590c2b8995a5a010a87835a",
+    "scripts/orbit/orbit_asteroids.gd": "4db348f86ca1a1db4f656b28ba141d573133243fd085ba87d1ee88b27286e3ea",
+    "scripts/orbit/orbit_hub.gd": "4453e3635c3a4b0e2abd460717199bb803ad61a6e29801515edd15621d1bcd79",
+    "scripts/orbit/orbit_lance.gd": "3c6c2927a42a0e78afa4bc243ec679e28ce854022e5374a59a9651b118b01663",
+    "scripts/orbit/orbit_navigation.gd": "a3bf2d836e4d8470aeb5c2ee09dec2e35d5f7b2fa1b38eab0a35ba16216853b1",
+    "scripts/orbit/orbit_sector.gd": "45f910d54208dbde4851e3be9238b11539ec3ac7181ba949276847a90bcd8534",
+    "scripts/orbit/orbit_selector.gd": "eb1c100433cc1b4a0662413d6199dd03739b4ff3ed810da8a9ea7622b32273b8",
+    "scripts/orbit/orbit_station.gd": "1a42997ff318ccc52819336ff1b4ded40aaffdb2d4a2ee585207c4a10315758b",
+    "scripts/orbit/pbr_catalog.gd": "9265ae1735d7c614e22e45454e1c62c05e420fcb161f756e893bb31898d2dcd6",
+    "scripts/orbit/pbr_planet_visual.gd": "76a138e11f8898f686f07e56a10d09b9c5001d03281eccb6322a48eaed8bf8d8",
+    "scripts/orbit/pbr_system_chart.gd": "47af72dab3bdbbdba42a77b9cf6851cc57e9d484ca38207014ab2ec4d13f33ed",
+    "scripts/ship_model.gd": "6828d2d16d6e3a0e05605f81298238c326360c8c3d6299b0874fcb43b446d01f",
+    "scenes/duel.tscn": "4fc16e33b3f345cbd4204f6862d7db1c0de1dd27f900336f803992b16ca97ef0",
+    "scenes/expanded_campaign.tscn": "74f3d276b403d67e2090a1887841316764cf7ce40f64c469cbb0fd21f6056399",
+    "scenes/main.tscn": "59bb368dcc5c9a850b100574781f1f3e07c4231bd6a4b3f40df777a0e21929b9",
+    "scenes/orbit_hub.tscn": "9bb0cc39f306815fa16bc342aac24e8e2b8f5c3986c5e89171f168643ebc8fb0",
+    "shaders/orbit/atmosphere.gdshader": "22642ab5d382487bc038f05f8c1dc54f0a25517fcbd38f8a3713e833f092136a",
+    "shaders/orbit/clouds.gdshader": "8ab23332b8f326bc77e7901ca9de4ce1a60ce1868bc0f735054d3d040953003d",
+    "shaders/orbit/pbr_planet_surface.gdshader": "98a1d23b54206957799e48255212fd3400ee51cbe1305fe19ce081732ad8efde",
+    "shaders/orbit/planet.gdshader": "d371a2d93d9f05c7049ed9f0235dcf7c2a5a2c3353a3616fc676a90dd664b5fc",
+    "shaders/orbit/rings.gdshader": "38cc6aa931e21a37ae71139f8a712042907eaa24925c40a3af35bb4cf0461382",
+    "shaders/orbit/rock.gdshader": "7147c1ac0ee01ea943758acc952217e2a25e9f1db080ea4633a44ef8b8969907",
+    "shaders/orbit/stars.gdshader": "921e2bd0319411295231c9734f1d0eee8b6d8ed5aae837bf10909fdb03d0d1ca"
+  },
+  "exports": [
+    {
+      "platform": "windows",
+      "file": "Foxlike-windows.zip",
+      "bytes": 54987280,
+      "sha256": "a542acb39a807db49d7c35f10daa611ae4e4c3754ccaffdb48c842bb5882d008"
+    },
+    {
+      "platform": "web",
+      "file": "Foxlike-web.zip",
+      "bytes": 27145084,
+      "sha256": "bc3f0d7bf1a193d41d940197ae748d6174780bd1c795343f72404b39d3374bfe"
+    }
+  ],
+  "scope": "Arranged native state/physics tests and actual Chromium keyboard smoke; no human campaign completion, physical controller or Windows hardware result.",
+  "known_cleanup": "Rapid native teardown can retain audio-thread playback references; focused audio teardown waits for release. No script/parse failures passed the gate."
+}

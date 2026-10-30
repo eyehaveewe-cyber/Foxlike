@@ -23,7 +23,7 @@ func run() -> void:
 	DirAccess.make_dir_recursive_absolute(output)
 	had_save = FileAccess.file_exists(TEST_SAVE)
 	if had_save: original_save = FileAccess.get_file_as_string(TEST_SAVE)
-	game = load("res://scenes/main.tscn").instantiate()
+	game = load("res://tests/compact_campaign.tscn").instantiate()
 	root.add_child(game)
 	game.set_process(false)
 	game.audio.set_muted(true)

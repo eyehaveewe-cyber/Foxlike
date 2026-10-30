@@ -11,7 +11,7 @@ func _initialize() -> void:
 func run() -> void:
 	root.size = Vector2i(1280,720)
 	DirAccess.make_dir_recursive_absolute(output)
-	game = load("res://scenes/main.tscn").instantiate()
+	game = load("res://tests/compact_campaign.tscn").instantiate()
 	root.add_child(game)
 	await process_frame
 	game.set_process(false)

@@ -6,23 +6,13 @@ The original version-1.0 design below is preserved. Its three-stage scope and pe
 
 ## Current implementation and plan status
 
-Audit baseline: `39b5aa7202a9216fc2504f983665e535e6afec5f`, October 30, 2026. The current game has six campaign missions, five companions, twelve original MBean1 mission/boss tracks, peaceful exploration of twelve planets and 93 moons, and the separate Phase One practice duel. These are implemented features. The longer eight-phase campaign plan describes additional work; the existing short campaign does not satisfy that expanded plan by sharing mission names.
+October 30, 2026: the normal game now opens ten stable-ID operations using the shared spatial controller, independent companions, versioned checkpoints, carrier repair and rival continuity, spatial maneuvers, ground/walker encounters and a playable finale. Ten original mission cues and six boss cues use the pinned MBean1 engine.
 
-| Documented work | Current implementation | Evidence or remaining dependency |
-| --- | --- | --- |
-| Six-mission campaign, combat, companions and tank support | Implemented | Campaign, squadron, combat, expansion and tank-support suites. |
-| Original music for each level and boss | Implemented | Twelve editable MBean1 projects, decoded OGG reports and 114 native audio checks. |
-| Planet grid, reachable moons and peaceful flight | Implemented | 40 orbit checks and 70 orbit-exploration checks. |
-| Phase One shared flight, cover, opponent and review tools | Technical practice implementation is present | 38 duel regressions, arranged capture and source-stamped trace. Human acceptance is pending. |
-| Phase Two expanded carrier operation and independent companion flight | Proposed expansion, not a completed phase | Requires the selected Phase One flight/camera configuration and its acceptance evidence. The existing Anchorage mission is the earlier compact defense arena. |
-| Phases Three through Seven expanded missions and campaign continuity | Proposed expansion, not completed phases | Consume Phase Two's objective/companion contracts and later mission, checkpoint, rival and recovery contracts. The planning documents do not constitute implementation evidence. |
-| Phase Eight whole-campaign acceptance | Pending | Requires the expanded campaign, human journeys, agreed physical devices and Windows target measurements. Current export and browser checks establish only the compact build's recorded results. |
+Jonathan requested implementation of the documentation and clarified “don't worry about the human check level instructions.” The previous audit’s human-entry gate is superseded for programming. Arena/pitch/camera/tone choices remain adjustable provisional defaults; no human outcome or final feel approval is invented.
 
-The full Phase One guide requires a human Standard win, an explainable human loss, cover-driven sight loss, a high-attack counter and a blocked approach, repeated with reduced camera motion. It also requires choosing between the two arena volumes and pitch behaviors. Those observations and the production choice have not been supplied. The practice foundation remains available for that review; no automatic test can select the preferred feel or stand in for a human encounter.
+[Expanded campaign implementation and plan mapping](EXPANDED_CAMPAIGN.md) identifies the eight guides, responsibility boundaries and verification scope. [RUNNING.md](RUNNING.md) describes the delivered controls and saves. [VERIFICATION.md](VERIFICATION.md) records actual checks. Physical-device testing, human balance/feel, listening and Windows performance remain validation work, not programming prerequisites.
 
-The Phase Two guide's entry requirements consume that selected configuration. Later phase guides also contain unresolved director choices and physical acceptance requirements. Until those inputs exist, the later rollout is pending. This audit does not select a provisional default as an approved production choice, implement the later campaign under an unreviewed profile, or mark any human gate passed.
-
-Current starting instructions are in [RUNNING.md](RUNNING.md). The [Phase One implementation and open gates](PHASE_01_IMPLEMENTATION.md) identify the review setup and trace location. [VERIFICATION.md](VERIFICATION.md) records the October 30 native, audio and browser results. The original Phase One DOCX stays authoritative for its completion criteria.
+The version-1 design below is historical. Its original DOCX is preserved with an implementation addendum, and the compact build remains a regression fixture rather than the normal selectable campaign.
 
 Foxlike is a compact 3D arcade flight campaign built for a complete first playthrough: launch from a carrier, fight across three routes, defeat their bosses, and reach a campaign ending. Responsive movement and visible ship animation are the main priorities. This record preserves the brief, the implementation choices and the next work for the project.
 

@@ -1,0 +1,40 @@
+extends RefCounted
+## Stable campaign identities. Numeric legacy indexes are translated once at save input.
+const LEGACY := ["viridia_blockade","aurora_relay","terminus_siege","cinder_corridor","anchorage_defense","tempest_crown"]
+const IDS := ["viridia_blockade","viridia_last_ferry","aurora_relay","aurora_courier","terminus_siege","cinder_corridor","anchorage_defense","terminus_falling_yard","tempest_stormbreak","tempest_crown"]
+const TITLES := ["Viridia / The coast is burning","Viridia / The last ferry","Aurora / Ghosts in the ice","Aurora / Across the wake","Terminus / The last light","Cinder / Fire beneath the tracks","Anchorage / Hold the circle","Terminus / The falling yard","Tempest / Stormbreak","Tempest / Beyond the storm"]
+const MUSIC := [0,0,1,1,2,3,4,2,5,5]
+const UNLOCKS := {"pike":"viridia_blockade","ember":"aurora_relay","bastion":"terminus_siege"}
+const DEFAULTS := {"arena_height":160.0,"pitch_hold":true,"camera_roll":false,"camera_shake":false,"boost_fov":false,"rival_tone":"restrained","emergency_policy":"assisted","ui_scale":1.0}
+
+static func step(id: String, kind: String, text: String, count: int = 0, extra: Dictionary = {}) -> Dictionary:
+	var result := {"id":id,"kind":kind,"text":text,"hostiles":count,"checkpoint":true}
+	result.merge(extra,true)
+	return result
+
+static func definition(id: String) -> Dictionary:
+	var index := IDS.find(id)
+	if index<0: return {}
+	var states: Array[Dictionary] = []
+	match id:
+		"viridia_blockade":
+			states = [step("crossing","combat","Clear the harbor crossing. Use the warehouses to break sight.",3),step("warden","boss","Disable Warden's crossing cannon to open the evacuation route.",2,{"boss":0,"parts":["Crossing cannon","Upper battery"]}),step("opened_lane","escort","The crossing is open. Cover the transport and finish Warden.",2,{"keep_boss":true}),step("return","return","Regroup at Dragonfly. The evacuation route is open.")]
+		"viridia_last_ferry":
+			states = [step("scout","combat","Scout the next holding sector before the ferry enters.",3),step("first_sector","escort","Protect the REQUIRED lead ferry. The second transport is optional.",4,{"optional":true}),step("holding","combat","Clear the sheltered transfer. Its repair crew can patch the surviving lead ferry to 45% hull.",3),step("last_crossing","escort","Shelter service complete. Cover the damaged lead ferry's final approach.",4,{"damaged":true}),step("return","return","Rejoin the rescued convoy at Dragonfly.")]
+		"aurora_relay":
+			states = [step("relay_search","combat","Find the relay above the ice. Low channels break sight.",4),step("rime","boss","Choose an articulated RIME arm to silence and open a core pass.",2,{"boss":1,"parts":["High tracker","Low sweep","Relay arm","Rear gun","Pulse arm","Core guard"]}),step("relay_data","interact","Hold near the relay to recover Sovereign's fleet location.",0,{"point":[80,65,-130]}),step("return","return","The relay gives the fleet location. Its departure timing is still missing.")]
+		"aurora_courier":
+			states = [step("courier_sight","combat","Clear the ice crossing and locate the courier.",3),step("shrike","rival","Shrike is staging high. Counter the dive or cut across the courier route.",3,{"rivals":["shrike"]}),step("intercept","intercept","Disable the courier DRIVE before it reaches the marked departure corridor.",3),step("codes","interact","Secure the disabled courier's timing and approach codes.",0,{"point":[90,95,-130]}),step("return","return","Return with the approach codes.")]
+		"terminus_siege":
+			states = [step("drydock","combat","Use the space above and beneath the drydock. Defeat the finite defenders.",5,{"rivals":["slate"]}),step("sovereign","boss","Bay, drive, antenna or lance: silence the pressure that blocks your next pass.",2,{"boss":2,"parts":["Launch bay","Drive regulator","Contact antenna","Lance aperture"]}),step("extraction","escort","Cover the convoy extraction. Drive overstrain is separate from hull damage.",3),step("escape","escape","Sovereign is down. Fly the forecast drydock escape without needing boost."),step("return","return","Dragonfly overstrained its drive extracting the convoy. Cinder has replacement parts.")]
+		"cinder_corridor":
+			states = [step("yard_one","ground","Jackal deployed. Clear the first yard; hover across the broken causeway.",3,{"yard":0}),step("walker_crossing","ground","Read the walker's planted stance. Disable its gun or exposed leg.",3,{"yard":1,"walker":true}),step("iron_maw","boss","Ground cover blocks Iron Maw's mortars. Hover to expose the siege core.",2,{"boss":3,"parts":["Left mortar","Right mortar","Siege drive"],"ground":true}),step("parts","escort","Secure the REQUIRED replacement parts convoy.",3,{"ground":true}),step("return","return","Parts secured. Dragonfly needs a protected repair approach.")]
+		"anchorage_defense":
+			states = [step("orientation","combat","Locate Dragonfly and intercept the high bomber. The carrier must survive.",2),step("split_defense","escort","Cover upper bombers and lower fighters while REQUIRED repair cargo approaches.",6,{"repair":true}),step("rook","rival","Rook offers pursuit bait. Keep the lower carrier approach protected.",4,{"rivals":["rook"]}),step("harrow","boss","Disable Harrow's route battery or offensive system to change the next approach.",2,{"boss":4,"parts":["Recovery-route battery","Core shield","Pursuit launcher","High battery"]}),step("damaged_return","recovery","Protect the OPTIONAL damaged support craft. A blocked bay causes an abort.",3),step("departure","departure","Repair complete. Clear Dragonfly's departure corridor and reform.",2)]
+		"terminus_falling_yard":
+			states = [step("assessment","combat","Approach the failing vessel and clear the emergency route.",4),step("spin_control","boss","Silence the damaged drive to stop the dangerous spin; protect the support thruster.",0,{"boss":2,"parts":["Runaway drive","Coupling","Support thruster"]}),step("diversion","interact","Hold at the diversion control to direct the major hull away from the inhabited approach.",0,{"point":[80,65,-100]}),step("wreck_escape","escape","The separated major sections are solid. Follow the forecast safe route."),step("return","return","The inhabited approach is clear. Regroup for the storm crossing.")]
+		"tempest_stormbreak":
+			states = [step("first_control","control","Disable the first interference tower and open a forecast gap.",3,{"storm":true,"parts":["Approach relay"]}),step("rival_flight","rival","Break the rivals' cooperation with cover. Their previous outcomes remain binding.",3,{"rivals":["rook","shrike","slate"],"storm":true}),step("final_control","control","Disable both remaining corridor controls. Crown's own storm vane remains separate.",3,{"storm":true,"parts":["Lower corridor relay","Upper corridor relay"]}),step("recovery","recovery","Recover the disabled rival if the safe corridor is clear. Recovery is optional.",1,{"rival_recovery":true}),step("return","return","The storm corridor is open. Crown is the last threat.")]
+		"tempest_crown":
+			states = [step("storm_approach","combat","Read the forecast. Every required crossing has a zero-boost exit.",5,{"storm":true}),step("crown","boss","Choose a vane or attack the core during its eight-second opening. All four are not required.",2,{"boss":5,"parts":["Upper battery","Core shield","Pursuit launcher","Storm control"],"storm":true}),step("power_loss","escape","Crown is defeated. Reach the marked escape before structural failure."),step("reassembly","return","Regroup in the safe sector. The defeated fortress stays defeated on retry."),step("carrier_return","recovery","Fly the final bay approach. An obstruction causes a readable abort, not a new boss fight.",0,{"player_recovery":true}),step("ending","ending","Crown is gone. Rejoin the ships you saved and return home.")]
+	return {"id":id,"index":index,"title":TITLES[index],"music":MUSIC[index],"radius":550.0 if index==5 else 260.0 if index==0 else 400.0 if index in [4,7,9] else 320.0,"height":120.0 if index==0 else 140.0 if index==1 else 220.0 if index==9 else 200.0 if index in [4,7] else 180.0 if index==8 else 160.0,"states":states}

@@ -1,7 +1,7 @@
 extends SceneTree
 ## Integration coverage through the real scene and flight update loop.
 ## Requires --test-save so production player progress is never touched.
-const MAIN = preload("res://scenes/main.tscn")
+const MAIN = preload("res://tests/compact_campaign.tscn")
 const TEST_SAVE := "user://foxlike_test_save.json"
 var game: Node3D
 var failures: Array[String] = []

@@ -1,7 +1,7 @@
 extends SceneTree
 ## Six-mission progression, jet-tank collision and all-range carrier defense.
 ## Uses actual scene controllers with a separate save; fixtures place actors for deterministic impacts.
-const MAIN = preload("res://scenes/main.tscn")
+const MAIN = preload("res://tests/compact_campaign.tscn")
 const Arena = preload("res://scripts/flight_arena.gd")
 const Tank = preload("res://scripts/flight_tank.gd")
 const TEST_SAVE := "user://foxlike_test_save.json"

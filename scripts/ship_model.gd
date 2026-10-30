@@ -411,6 +411,12 @@ func _build_carrier(hostile: bool) -> void:
 			var tooth := _box(iris,"ReactorTooth",Vector3(0.6,1.4,0.4),Vector3(cos(angle)*2.8,sin(angle)*2.8,0),"gold")
 			tooth.rotation.z=angle-PI*0.5
 
+static func rime_tip(time: float, index: int) -> Vector3:
+	var angle := index*TAU/6.0+PI/6.0
+	var curl := sin(time*1.65+index*.9)
+	var reach := 8.2+sin(time*1.1+index)*1.1
+	return Vector3(cos(angle+curl*.18)*(reach+1.7),sin(angle+curl*.18)*(reach+1.7)*.78,-3.1+cos(time*1.2+index))
+
 func _pose_arms(time: float, delta: float = 0.0) -> void:
 	for arm in _arms:
 		var angle: float = arm.angle
@@ -420,7 +426,7 @@ func _pose_arms(time: float, delta: float = 0.0) -> void:
 		var reach: float = 8.2 + sin(time*1.1+index)*1.1
 		var elbow := Vector3(cos(angle)*5.8,sin(angle)*5.0,1.2+curl*1.0)
 		var wrist := Vector3(cos(angle+curl*0.12)*reach,sin(angle+curl*0.12)*reach*0.78,-0.6+curl)
-		var end := Vector3(cos(angle+curl*0.18)*(reach+1.7),sin(angle+curl*0.18)*(reach+1.7)*0.78,-3.1+cos(time*1.2+index))
+		var end := rime_tip(time,index)
 		var tip: Node3D = arm.tip
 		var collapse: float = lerpf(float(arm.collapse), 0.0 if tip.visible else 1.0, 1.0-exp(-delta*3.4))
 		arm.collapse=collapse

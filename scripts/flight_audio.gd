@@ -11,6 +11,13 @@ const MUSIC_PATHS: Array[String] = [
 	"res://assets/audio/mbean/campaign/tempest-flight.ogg", "res://assets/audio/mbean/campaign/tempest-boss.ogg",
 ]
 const CROSSFADE_SECONDS: float = 0.65
+const OPERATION_PATHS: Array[String] = [
+	"res://assets/audio/mbean/campaign/viridia_last_ferry.ogg",
+	"res://assets/audio/mbean/campaign/aurora_courier.ogg",
+	"res://assets/audio/mbean/campaign/terminus_falling_yard.ogg",
+	"res://assets/audio/mbean/campaign/tempest_stormbreak.ogg",
+]
+const OPERATION_TRACKS := {"viridia_blockade":0,"viridia_last_ferry":12,"aurora_relay":2,"aurora_courier":13,"terminus_siege":4,"cinder_corridor":6,"anchorage_defense":8,"terminus_falling_yard":14,"tempest_stormbreak":15,"tempest_crown":10}
 # Sparse authored cues measure quieter than the dense legacy excerpts.
 const MUSIC_GAIN_DB: float = -4.0
 const EFFECT_NAMES: Array[String] = [
@@ -46,7 +53,7 @@ func _ready() -> void:
 	_fading_music.name = "SoundtrackTail"
 	add_child(_fading_music)
 	set_process(false)
-	for path: String in MUSIC_PATHS:
+	for path: String in MUSIC_PATHS+OPERATION_PATHS:
 		var track := load(path) as AudioStreamOggVorbis
 		if track != null:
 			track.loop = true
@@ -66,6 +73,17 @@ func start_music(stage: int, boss: bool = false) -> void:
 	if not is_node_ready():
 		await ready
 	var track_index: int = clampi(stage, 0, int(MUSIC_PATHS.size() / 2.0) - 1) * 2 + int(boss)
+	_start_track(track_index)
+
+func start_operation_music(id: String, boss: bool = false) -> void:
+	if not is_node_ready(): await ready
+	var index: int = int(OPERATION_TRACKS.get(id,0))
+	if boss:
+		var regions := {"terminus_falling_yard":5,"viridia_last_ferry":1,"aurora_courier":3,"tempest_stormbreak":11}
+		index = int(regions.get(id,index+1))
+	_start_track(index)
+
+func _start_track(track_index: int) -> void:
 	if track_index == _current_track and _music.playing:
 		return
 	# Two fixed voices bound overlap even if a retry/menu interrupts a transition.

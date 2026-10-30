@@ -3,6 +3,8 @@ extends RefCounted
 ## Neutral model forward -Z, up +Y. No pilot identity enters this controller.
 const Geometry = preload("res://scripts/duel/duel_geometry.gd")
 const PROFILE := {"id":"arrow-duel-v1","brake":22.0,"cruise":38.0,"boost":60.0,"angular_rate":1.12,"pitch_limit":1.134464,"response":4.0,"boost_drain":28.0,"recharge":18.0,"extent":4.0,"roll_duration":0.68,"roll_cooldown":1.15}
+var profile: Dictionary = PROFILE.duplicate(true)
+var maneuver = preload("res://scripts/campaign/spatial_maneuver.gd").new()
 var position := Vector3.ZERO
 var previous_position := Vector3.ZERO
 var heading := 0.0
@@ -29,7 +31,7 @@ func reset(point: Vector3, yaw: float, tilt: float = 0.0) -> void:
 	previous_position = point
 	heading = yaw
 	pitch = tilt
-	speed = PROFILE.cruise
+	speed = profile.cruise
 	velocity = forward()*speed
 	energy = 100.0
 	depleted = false
@@ -42,6 +44,7 @@ func reset(point: Vector3, yaw: float, tilt: float = 0.0) -> void:
 	angular_rate = 0.0
 	denied = ""
 	events.clear()
+	maneuver.reset()
 
 func orientation() -> Basis:
 	return Basis(Vector3.UP,heading)*Basis(Vector3.RIGHT,pitch)
@@ -53,24 +56,33 @@ func muzzle(side: float = 0.0) -> Vector3:
 	return position+orientation()*Basis(Vector3.BACK,bank+roll_angle())*Vector3(side*1.2,-0.05,-3.1)
 
 func roll_angle() -> float:
-	return roll_direction*TAU*smoothstep(0.0,1.0,1.0-roll_time/float(PROFILE.roll_duration)) if roll_time>0 else 0.0
+	if maneuver.kind=="corkscrew": return TAU*clampf(maneuver.elapsed/1.8,0,1)
+	return roll_direction*TAU*smoothstep(0.0,1.0,1.0-roll_time/float(profile.roll_duration)) if roll_time>0 else 0.0
 
 func protected() -> bool:
 	return roll_time>0.0
 
 func warning(radius: float, ceiling: float) -> bool:
-	var margin := speed/float(PROFILE.angular_rate)+float(PROFILE.extent)+12.0
+	var margin := speed/float(profile.angular_rate)+float(profile.extent)+12.0
 	return Vector2(position.x,position.z).length()>radius-margin or (pitch>0.2 and position.y>ceiling-margin*.65) or (pitch<-.2 and position.y<margin*.65)
 
 func step(dt: float, request: Dictionary, cover: Array, radius: float, ceiling: float) -> void:
-	# Substep large frames: prediction and sweeps remain valid at 20/60/120 Hz.
-	var remaining := dt
 	events.clear()
 	denied = ""
+	var frame_origin := position
+	maneuver.cooldown = maxf(0,maneuver.cooldown-dt)
+	if request.get("maneuver","")!="" and maneuver.kind.is_empty():
+		if not maneuver.start(request.maneuver,self,cover,radius,ceiling): denied = "MANEUVER UNAVAILABLE / ENERGY, COOLDOWN OR CLEARANCE"
+	if not maneuver.kind.is_empty():
+		maneuver.advance(dt,self,cover)
+		return
+	# Substep large frames: prediction and sweeps remain valid at 20/60/120 Hz.
+	var remaining := dt
 	while remaining>0.000001:
 		var h := minf(remaining,1.0/120.0)
 		_advance(h,request,cover,radius,ceiling)
 		remaining -= h
+	previous_position = frame_origin
 
 func _advance(dt: float, request: Dictionary, cover: Array, radius: float, ceiling: float) -> void:
 	previous_position = position
@@ -86,9 +98,9 @@ func _advance(dt: float, request: Dictionary, cover: Array, radius: float, ceili
 	if energy<=.01: depleted = true
 	var boost_allowed := wants_boost and not depleted and energy>.01
 	if wants_boost and not boost_allowed: denied = "BOOST EMPTY / RELEASE TO REARM"
-	var throttle: float = PROFILE.boost if boost_allowed else (PROFILE.brake if request.get("brake",false) else PROFILE.cruise)
-	var angular: float = PROFILE.angular_rate
-	var extent: float = PROFILE.extent
+	var throttle: float = profile.boost if boost_allowed else (profile.brake if request.get("brake",false) else profile.cruise)
+	var angular: float = profile.angular_rate
+	var extent: float = profile.extent
 	var radial := Vector3(position.x,0,position.z)
 	var outward: float = radial.normalized().dot(forward())
 	# Activate before a full-speed turn's worst outward excursion plus hull margin.
@@ -108,28 +120,27 @@ func _advance(dt: float, request: Dictionary, cover: Array, radius: float, ceili
 		if absf(pitch)>.08 and vertical_distance<vertical_needed+4.0:
 			steering = Vector2(0.0,-signf(pitch))
 		if absf(error)<.28: steering.x = clampf(-error*3.0,-1.0,1.0)
-		throttle = PROFILE.brake
+		throttle = profile.brake
 		boost_allowed = false
 		if radial.length()<radius-clearance*.7 and outward<-.35 and absf(pitch)<.15:
 			boundary = false
 			events.append("boundary_end")
 	if request.get("roll",0.0)!=0.0 and roll_wait<=0.0 and not boundary:
-		roll_time = PROFILE.roll_duration
-		roll_wait = PROFILE.roll_cooldown
+		roll_time = profile.roll_duration
+		roll_wait = profile.roll_cooldown
 		roll_direction = signf(float(request.roll))
 		events.append("roll")
-	if request.get("maneuver","")!="": denied = "ARENA STUNTS DEFERRED"
-	energy = clampf(energy+dt*(-float(PROFILE.boost_drain) if boost_allowed else float(PROFILE.recharge)),0.0,100.0)
+	energy = clampf(energy+dt*(-float(profile.boost_drain) if boost_allowed else float(profile.recharge)),0.0,100.0)
 	var old_forward := forward()
 	heading -= steering.x*angular*dt
-	pitch = clampf(pitch+steering.y*angular*dt,-float(PROFILE.pitch_limit),float(PROFILE.pitch_limit))
+	pitch = clampf(pitch+steering.y*angular*dt,-float(profile.pitch_limit),float(profile.pitch_limit))
 	var new_forward := forward()
 	angular_rate = old_forward.angle_to(new_forward)/dt
 	bank = -steering.x*.7
 	var old_speed := speed
-	speed = lerpf(speed,throttle,1.0-exp(-dt*float(PROFILE.response)))
+	speed = lerpf(speed,throttle,1.0-exp(-dt*float(profile.response)))
 	# Analytic distance under exponential acceleration avoids FPS-dependent travel.
-	var distance: float = throttle*dt+(old_speed-throttle)*(1.0-exp(-dt*float(PROFILE.response)))/float(PROFILE.response)
+	var distance: float = throttle*dt+(old_speed-throttle)*(1.0-exp(-dt*float(profile.response)))/float(profile.response)
 	var desired := position+(old_forward+new_forward).normalized()*distance
 	var hit := Geometry.first_cover(position,desired,cover,extent)
 	if not hit.is_empty():
@@ -169,12 +180,12 @@ func _choose_recovery(cover: Array, radius: float, ceiling: float) -> float:
 		var tilt := pitch
 		var score := INF
 		for i in range(90):
-			yaw += side*float(PROFILE.angular_rate)/30.0*.8
-			tilt = move_toward(tilt,0.0,float(PROFILE.angular_rate)/30.0*.6)
+			yaw += side*float(profile.angular_rate)/30.0*.8
+			tilt = move_toward(tilt,0.0,float(profile.angular_rate)/30.0*.6)
 			var next := at+(Basis(Vector3.UP,yaw)*Basis(Vector3.RIGHT,tilt)*Vector3.FORWARD)*speed/30.0
 			score = minf(score,radius-Vector2(next.x,next.z).length())
 			score = minf(score,minf(next.y,ceiling-next.y))
-			if not Geometry.first_cover(at,next,cover,float(PROFILE.extent)).is_empty(): score -= 500.0
+			if not Geometry.first_cover(at,next,cover,float(profile.extent)).is_empty(): score -= 500.0
 			at = next
 		if score>best_clearance:
 			best_clearance = score

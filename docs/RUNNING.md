@@ -20,14 +20,15 @@ godot --path /path/to/Foxlike
 
 ## Mission controls and progression
 
-The campaign has six missions: Viridia, Aurora, Terminus, Cinder, Anchorage and Tempest. Each has its own boss. Cleared missions remain selectable; old saves that completed Terminus grant access to Cinder. Mission refit restores shields, six missiles, three Nova bombs and companion health.
+The normal flight deck opens the ten-operation campaign. See [operation order and controls](../README.md#operations-and-continuity) and [implementation contracts](EXPANDED_CAMPAIGN.md). Continue restores the current authored objective checkpoint. Replays preserve the canonical ending, frontier and carrier/rival/rescue facts.
 
-- **Rail flight:** WASD/arrows or mouse steer. Hold Shift / RB plus left, down or right for the somersault, long loop or corkscrew.
-- **Cinder tank:** A/D moves sideways, W/S aims vertically, and holding Shift / RB fires the jet packs. Release to land; fuel recharges on the ground. Release after exhaustion before another jump. Flight rolls and stunts are unavailable in the tank.
-- **Anchorage arena:** A/D turns, W/S changes altitude, and the radar tracks the player, carrier and attackers. Flying outward toward the rim triggers a 2.4-second climbing turnaround. Defend Dragonfly's hull while fighting Harrow. Boost-direction stunts are disabled here.
-- **Weapons and squadron:** Space/left click fires lasers; R/right click launches a locked missile; B fires a Nova; F commands ready companion abilities; Tab changes formation. Missiles have a six-round starting load, eight-round cap and 2.5-second firing cooldown. Cyan crates add three rounds and green repair supplies add two.
+WASD/arrows or left stick steer; Space/LMB/RT fires. Shift/RB boosts or hovers Jackal; Ctrl/LB brakes; Q/E or A rolls. T/right-stick press cycles targets, R/X fires a missile, B fires Nova, and I/D-pad down interacts. Tap F/Y for companion abilities; hold it and choose 1–4 or D-pad up/right/down/left for attack/protect/cover/regroup. Tab/left-stick press changes formation. Z/X/V or D-pad up/left/right selects the spatial stunts. Escape/Start pauses; M mutes. Keyboard and controller button bindings can be changed in settings; shown bindings are authoritative.
 
-See the [complete control table](../README.md#controls). Physical controller testing remains outstanding.
+Cinder has finite hover fuel with grounded recharge and a ground alternative to each barrier. Required carrier or cargo loss fails the operation; optional support loss changes the debrief. Retry restores the latest authored boundary, including confirmed systems, companion damage and resources. A crash after Crown’s defeat restarts the escape with Crown still defeated.
+
+Focus loss and controller disconnection pause safely. Release held controls before resuming. Pitch hold, camera roll, shake, boost FOV and 100%/150% interface size are adjustable. Physical controller verification remains validation work. Jonathan’s October 30 instruction removes the human-playtest prerequisites from programming.
+
+The old compact scene is `tests/compact_campaign.tscn`, used by historical regression/render fixtures and excluded from playable exports. It is not a selectable second campaign.
 
 ## Build Windows and Web
 
@@ -42,8 +43,11 @@ python tools/package_release.py --godot /path/to/godot
 The tool imports resources, exports both platforms and writes ZIPs plus a SHA-256 manifest under `build/`. To export one platform, use `--platform windows` or `--platform web`. Use `--skip-tests` only after running the same suites separately.
 
 <!-- native-suite-list:start -->
-The packager runs these 9 native suites before exporting:
+The packager runs these 12 native suites before exporting:
 
+- `tests/operations_smoke.gd`
+- `tests/operation_routes.gd`
+- `tests/operation_journey_smoke.gd`
 - `tests/music_smoke.gd`
 - `tests/game_smoke.gd`
 - `tests/squadron_smoke.gd`
@@ -74,7 +78,7 @@ The build workflow always creates downloadable Windows and Web packages. It depl
 1. **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 2. **Settings → Secrets and variables → Actions → Variables**: set repository variable `ENABLE_PAGES` to `true`.
 
-Then run **Build playable game** from the Actions page or push to `main`. The workflow reports the deployment URL. The expected repository Pages address is `https://eyehaveewe-cyber.github.io/Foxlike/`, but that address is live only after a successful Pages deployment.
+To publish deliberately, run **Build playable game** from the Actions page and enable its **publish_pages** checkbox. Ordinary pushes only test and package. The workflow reports the deployment URL after an explicitly requested successful deployment. No deployment is part of this implementation task.
 
 ## Build sources
 

@@ -1,7 +1,7 @@
 extends SceneTree
 ## Exercise shipped OGG streams, fixed-voice transitions and real mission events.
 const Sound = preload("res://scripts/flight_audio.gd")
-const MAIN = preload("res://scenes/main.tscn")
+const MAIN = preload("res://tests/compact_campaign.tscn")
 const TEST_SAVE := "user://foxlike_test_save.json"
 var assertions := 0
 var failures: Array[String] = []
@@ -23,16 +23,17 @@ func _run() -> void:
 	await process_frame
 	sound.set_process(false)
 	var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/audio/mbean/campaign/manifest.json"))
-	check(sound._tracks.size() == 12, "All twelve campaign streams are loaded")
+	check(sound._tracks.size() == 16, "All sixteen campaign streams are loaded")
 	var paths := {}
 	for cue: Dictionary in manifest.cues:
-		var index: int = int(cue.stage) * 2 + int(cue.boss)
+		var index: int = int(cue.playback_index) if cue.has("playback_index") else int(cue.stage) * 2 + int(cue.boss)
 		var track: AudioStreamOggVorbis = sound._tracks[index]
 		check(track != null and track.loop and is_zero_approx(track.loop_offset), str(cue.id) + " imported and looping from zero")
 		check(absf(track.get_length() - float(cue.seconds)) < 0.01, str(cue.id) + " score and Godot stream durations agree")
 		check(track.resource_path.ends_with(str(cue.id) + ".ogg"), str(cue.id) + " has the correct mission/boss destination")
 		paths[track.resource_path] = true
-		sound.start_music(int(cue.stage), bool(cue.boss))
+		if cue.has("operation_id"): sound.start_operation_music(cue.operation_id)
+		else: sound.start_music(int(cue.stage), bool(cue.boss))
 		sound.set_process(false)
 		if sound._fade_elapsed >= 0.0: sound._process(Sound.CROSSFADE_SECONDS)
 		check(sound._current_track == index and sound._music.playing, str(cue.id) + " starts in the actual AudioStreamPlayer")
@@ -49,7 +50,9 @@ func _run() -> void:
 		while sound._music.playing and sound._music.get_stream_playback().get_loop_count() <= loops_before and Time.get_ticks_msec() < deadline:
 			await create_timer(0.02).timeout
 		check(sound._music.playing and sound._music.get_stream_playback().get_loop_count() > loops_before and sound._music.get_playback_position() < 1.0, str(cue.id) + " native decoder wraps its loop boundary")
-	check(paths.size() == 12, "No missions or bosses share an audio file")
+	check(paths.size() == 16, "Ten operations and six bosses have distinct audio files")
+	sound.start_music(5,true)
+	if sound._fade_elapsed>=0: sound._process(Sound.CROSSFADE_SECONDS)
 	var player: AudioStreamPlayer = sound._music
 	var position: float = player.get_playback_position()
 	sound.start_music(5, true)
@@ -93,6 +96,7 @@ func _run() -> void:
 	sound.queue_free()
 	await process_frame
 	await _mission_events()
+	await _expanded_events()
 	print("MUSIC_SMOKE: %d assertions; %d failures" % [assertions, failures.size()])
 	for failure: String in failures: push_error(failure)
 	quit(0 if failures.is_empty() else 1)
@@ -131,3 +135,22 @@ func _mission_events() -> void:
 		restore.close()
 	else:
 		DirAccess.remove_absolute(ProjectSettings.globalize_path(TEST_SAVE))
+
+func _expanded_events() -> void:
+	var game: Node3D = load("res://scenes/main.tscn").instantiate()
+	root.add_child(game); game.set_process(false); await process_frame
+	game.save.path = "user://foxlike_music_operation_test.json"; game.save.data = game.save.fresh()
+	for id in game.Catalog.IDS:
+		game._launch(id); game.set_process(false)
+		check(game.audio._current_track==Sound.OPERATION_TRACKS[id],id+" normal launch selects its distinct mission cue")
+		for index in range(game.session.definition.states.size()):
+			if game.session.definition.states[index].kind!="boss": continue
+			game.session.stage = index; game.session._enter(); game._process(.001)
+			var expected: int = int(game.session.definition.music)*2+1
+			check(game.audio._current_track==expected,id+" actual capital state changes to the correct boss cue")
+		await process_frame
+	game._menu()
+	check(game.audio._current_track==0,"Expanded deck return restores the opening theme")
+	game.queue_free(); await process_frame; await process_frame
+	for suffix in ["",".backup",".tmp"]: DirAccess.remove_absolute(ProjectSettings.globalize_path("user://foxlike_music_operation_test.json"+suffix))
+	await create_timer(.15).timeout

@@ -144,7 +144,7 @@ func _scene_checks() -> void:
 	main.set_process(false)
 	await process_frame
 	var practice: Button
-	for candidate in main.hud.find_children("*","Button",true,false):
+	for candidate in main.campaign_ui.find_children("*","Button",true,false):
 		if candidate.text=="PRACTICE DUEL": practice = candidate
 	check(practice!=null,"Flight deck exposes a normal practice entry beside Continue")
 	if practice==null: return

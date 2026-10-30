@@ -38,7 +38,7 @@ def native_suites() -> list[str]:
     return [
         node.value.removeprefix("res://") for node in ast.walk(tree)
         if isinstance(node, ast.Constant) and isinstance(node.value, str)
-        and re.fullmatch(r"res://tests/[a-z_]+_smoke\.gd", node.value)
+        and re.fullmatch(r"res://tests/[a-z_]+\.gd", node.value)
     ]
 
 

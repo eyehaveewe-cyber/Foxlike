@@ -1,0 +1,7 @@
+{
+  "pbr_revision": "5e34e1fc7824d3099a50deb208bffc47dc824cb0",
+  "pose_sha256": "55638cec7ea3383ee3462d5aef91fee9f2587da00d79b4f1076dec1745811fe8",
+  "checks": 90,
+  "result": "pass",
+  "scope": "local-only recovery family; no PBR merge or campaign changes"
+}

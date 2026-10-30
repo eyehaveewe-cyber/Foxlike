@@ -1,5 +1,7 @@
 # Phase One flight duel implementation and review
 
+**October 30 direction:** Jonathan said “don't worry about the human check level instructions.” Human observations below remain a validation record, not a prerequisite for later programming. The [expanded campaign](EXPANDED_CAMPAIGN.md) now consumes the shared controller with reversible defaults.
+
 23 October 2026. Implementation starts from Foxlike main `84e9d31428e15d1a5271eddc18dac7d4fe0d5782` and the complete supplied **Foxlike Phase 1 A fair flight duel**, version 1.0. [Full supplied Phase One guide](plans/Foxlike_Phase_01_Fair_Flight_Duel.docx). The director's follow-up keeps the full Phase One document authoritative; the eight-phase outline provides context. The practice implementation is available for human review. **Phase One is not signed off:** human Standard wins/losses, counterplay and the final arena/control choice remain open.
 
 ## Play and compare
@@ -20,7 +22,7 @@ The initial tall volume and pitch hold are reversible provisional defaults. They
 | Cover geometry | `duel_geometry.gd`: one world-space structure definition supplies movement, projectiles, sight and chase-camera sweeps. |
 | Encounter and presentation | `duel_game.gd`: briefing/results, player requests, rig poses, camera, contact-height/rear/stale cues, traces and visual effects. |
 
-The existing six campaign missions retain their prior controllers. This operation is the Phase One consumer of the new shared spatial controller. Phase Two can move Anchorage's mission actors onto it after human review. Jackal and rail stunt paths are not treated as flight physics. New arena stunt variants remain Phase Four work.
+The ten-operation campaign now shares this spatial controller. Jackal retains its separate grounded controller; the campaign’s powered spatial stunt paths check clearance before charging energy. The compact campaign controller remains only as a historical regression fixture.
 
 ## P1.1 shared spatial flight and projectiles
 
@@ -77,7 +79,7 @@ The engine regression checks compare 20/60/120 FPS movement, total speed, combin
 
 During implementation, arranged brake-circle scenarios exposed a ceiling-recovery loop and a poor firing solution. Those faults were corrected rather than increasing enemy health or damage. Subsequent arranged runs produced real opponent hits and losses in both volumes, with transitions through commitment and extension. They show that the opponent can damage and defeat a predictable flying target under shared limits. They are not human difficulty or enjoyment evidence.
 
-## Human completion gates still open
+## Human validation record
 
 1. Human Standard win by baiting and countering a committed pass.
 2. Human loss that can be explained from the normal camera and confirmed hit source.
@@ -86,4 +88,4 @@ During implementation, arranged brake-circle scenarios exposed a ceiling-recover
 5. Poor pursuit visibly opens distance instead of becoming an endless circle.
 6. Repeat with reduced camera motion, compare both volumes and both pitch behaviors, then choose the production configuration.
 
-Until those observations exist, status is **implemented practice foundation, awaiting human acceptance**, not “Phase One complete.” Later campaign phases, companions, rivals, damaged support craft, new arena stunts and PBR paired animation proof remain later work.
+Those observations have not been supplied and are not claimed. Per Jonathan’s October 30 instruction, they do not block programming. Companions, rivals, recovery, spatial stunts, later operations and paired PBR pose checks are implemented in the expanded campaign; see its implementation and dated verification records.

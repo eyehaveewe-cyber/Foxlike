@@ -15,7 +15,7 @@ func run() -> void:
 	main.set_process(false)
 	await process_frame
 	var button: Button
-	for node in main.hud.find_children("*","Button",true,false):
+	for node in main.campaign_ui.find_children("*","Button",true,false):
 		if node.text=="PLANET ORBITS / PEACEFUL HUB": button = node
 	check(button!=null,"Latest flight deck exposes the peaceful orbit destination")
 	if button==null: quit(1); return
@@ -174,7 +174,7 @@ func run() -> void:
 	await process_frame
 	await process_frame
 	var restored: Node3D = current_scene
-	check(restored.mode==restored.Mode.MENU,"Orbit returns cleanly to the current campaign flight deck")
+	check(restored.mode=="menu","Orbit returns cleanly to the current campaign flight deck")
 	restored.queue_free()
 	await process_frame
 	await process_frame

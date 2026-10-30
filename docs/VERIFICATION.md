@@ -1,12 +1,31 @@
 # Verification
 
+## Expanded campaign programming — 30 October 2026
+
+The normal entry now uses the ten-operation campaign. Jonathan’s instruction removes human-check prerequisites from programming; no human results are invented. The [implementation and plan mapping](EXPANDED_CAMPAIGN.md) records the actual contracts and blockout scope.
+
+Official Godot **4.7.2.stable.official.ed1daf0bf** passed **764 checks across 12 native suites**: operations 113, physical delivery routes 11, arranged sequential journey 131, music 156, compact campaign 74, compact squadron 35, combat revision 38, compact expansion 50, shared duel 38, orbit 40, orbit exploration 70 and compact tank support 8. The compact suites retain preserved-content regressions; they do not certify new flight-controller gameplay. The journey fixture arranges combat/arrival events and verifies every operation boundary, cold checkpoint/result reconstruction and idempotent settlement. The route fixture flies the actual controller through authored collision geometry. Walker checks measure planted feet during translation/turning at 20/60/120 FPS; pickups cover swept crossing, one award and a near miss.
+
+The **16 distinct scores and 16 decoded OGG loops** pass score, duration, finite-sample, peak, silence, seam and hash checks. The original twelve score/audio hashes are unchanged. Native audio includes every stream’s real decoder wrap plus ten normal operation launches and their actual boss-state transitions. These results do not claim critical listening.
+
+The final exported Web build passed **14 Chromium checks** at 640 × 360: viewport-fitting menu, normal briefing/launch, soundtrack/advancing decoder/mute, steering, shots, spatial loop with real displacement/energy, pause/resume and no JavaScript or engine-console errors. [Browser evidence](evidence/expanded-web-results.json) and [source/exports/check totals](evidence/expanded-results.json) retain exact versions, hashes and scope.
+
+Windows and Web ZIP exports succeeded. Editable source packaging includes all guides’ extracted-text snapshots, the updated DOCX, evidence, linked media, editable scores and reproduction tools. A fresh extracted source copy passed documentation checks, Godot import and main-scene launch in isolated user storage. The six-page DOCX was rendered and every page inspected; its original design remains intact before the implementation addendum.
+
+Actual Mesa/llvmpipe engine captures cover all ten operation blockouts and 150% menu/settings. [Normal flight](previews/expanded-flight.png), [large UI](previews/expanded-large-ui.png), [large settings](previews/expanded-large-settings.png) and [arranged Cinder inspection](previews/expanded-operation-06.png) are rendered views, not concept art or human playthroughs.
+
+The actual pinned PBR flight lab passed its existing **366 assertions**. The new recovery-pose adapter passed **90 paired checks**, plus an 80-frame actual-engine capture with unchanged tactical state on every frame. [Contract](evidence/pbr-recovery-contract.json) and [four-second pose clip](previews/pbr-recovery-pose.gif) identify its scope. No PBR merge or campaign/tactical change was made.
+
+Rapid native shutdown can report queued audio playback resources; focused final audio/operation tests allow the audio thread to release and complete cleanly. Existing rapid-teardown warnings in preserved suites remain recorded. No script or parse failure is accepted by packaging. Physical controllers, human feel/balance, listening, and the user’s Windows hardware remain unmeasured validation. No site publication was performed; Pages now requires an explicit manual workflow option.
+
+
 ## Documentation and portable source audit, October 30, 2026
 
 `python tools/check_documentation.py` checks all repository Markdown links, local heading targets and the native-suite lists in README and RUNNING. Suite names come from the actual release packager's Python syntax tree. `--write` refreshes only the two marked lists. Negative cases confirm that a missing target and an outdated suite list both fail the check.
 
 The source packager now collects the documentation handoffs, evidence and every locally linked document or preview. ZIP CRC and explicit inclusion checks pass, including the original design DOCX, full Phase One guide, paired duel trace and native recording. A fresh extraction passes its own documentation check, imports with Godot `4.7.2.stable.official.ed1daf0bf`, and launches the main scene. There are no script or parse errors. Existing immediate-exit ObjectDB/resource warnings remain.
 
-This audit changes documentation and packaging, not gameplay. The current compact campaign's earlier test results below do not establish completion of the later expanded phase plans. The [Phase One human completion gates](PHASE_01_IMPLEMENTATION.md#human-completion-gates-still-open) and arena/pitch selection are still pending. Phase Two's guide requires that accepted configuration before the expanded carrier operation.
+This audit changes documentation and packaging, not gameplay. The current compact campaign's earlier test results below do not establish completion of the later expanded phase plans. The [Phase One human completion gates](PHASE_01_IMPLEMENTATION.md#human-validation-record) and arena/pitch selection are still pending. Phase Two's guide requires that accepted configuration before the expanded carrier operation.
 
 ## Per-level MBean1 soundtrack, October 30, 2026
 

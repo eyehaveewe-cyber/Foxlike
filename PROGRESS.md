@@ -1,5 +1,14 @@
 # Foxlike progress
 
+## 2026-10-30 — Expanded campaign programming and completion checks
+
+Implemented the ten-operation plan under Jonathan’s instruction to disregard human-check prerequisites for programming. The normal flight deck uses shared spatial flight, independent companions, stable mission IDs and checkpoint/save settlement. Added ferry continuity, courier drive interception, functional capital targets, finite encounters, Cinder walker/hover routes, carrier repair, emergency vessel boundaries, Stormbreak controls, Crown escape/recovery and outcome text. Keyboard/controller button rebinding, safe pause/rearm and independent camera/UI options are exposed.
+
+Four new original MBean1 mission cues extend the unchanged original twelve to sixteen tracks. The supplied phase guides are preserved as extracted text with original Library links. A bounded recovery-pose adapter passes 90 checks in the pinned actual PBR lab; its existing 366-check suite also passes. No PBR merge or site publication.
+
+[Implementation and source-plan mapping](docs/EXPANDED_CAMPAIGN.md), [controls](docs/RUNNING.md), and [dated verification](docs/VERIFICATION.md) supersede the earlier audit’s programming gate. Human feel, listening, physical controller and target-PC measurements remain unclaimed validation.
+
+
 ## 2026-10-30 — Documentation implementation audit
 
 Compared the current build with the preserved handoff, full Phase One guide and later phase plans. The six-mission game, peaceful exploration, soundtrack and technical practice foundation are implemented. The expanded campaign remains proposed work. Phase One still needs the human Standard win, explainable loss, counterplay observations and arena/pitch choice that Phase Two consumes. The [current design status](docs/DESIGN.md#current-implementation-and-plan-status) keeps that dependency visible.

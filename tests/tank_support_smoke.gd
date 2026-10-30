@@ -7,7 +7,7 @@ func check(condition: bool, label: String) -> void:
 	print(("PASS " if condition else "FAIL ")+label)
 	if not condition: failures += 1
 func run() -> void:
-	var game = load("res://scenes/main.tscn").instantiate()
+	var game = load("res://tests/compact_campaign.tscn").instantiate()
 	root.add_child(game)
 	game.set_process(false)
 	await process_frame

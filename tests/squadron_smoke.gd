@@ -1,6 +1,6 @@
 extends SceneTree
 ## Real roster/menu, save migration, formation motion, interception and weapon impacts.
-const MAIN = preload("res://scenes/main.tscn")
+const MAIN = preload("res://tests/compact_campaign.tscn")
 const Squad = preload("res://scripts/flight_squadron.gd")
 const TEST_SAVE := "user://foxlike_test_save.json"
 var game: Node3D
